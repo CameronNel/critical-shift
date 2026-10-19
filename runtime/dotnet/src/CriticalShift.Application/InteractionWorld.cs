@@ -23,6 +23,7 @@ namespace CriticalShift.Application
         private ReactorOperations? _reactor;
         private DoorOperations? _doorOperations;
         private MedicalOperations? _medical;
+        private SuitFittingOperations? _suitFitting;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -88,6 +89,8 @@ namespace CriticalShift.Application
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
         internal void BindDoors(DoorOperations doors) { RequireSetup(); _doorOperations = doors; }
         internal void BindMedical(MedicalOperations medical) { RequireSetup(); _medical = medical; }
+        internal void BindSuitFitting(SuitFittingOperations fitting) { RequireSetup(); _suitFitting = fitting; }
+        internal bool ActorHasClaim(Guid actorId) => _claims.ActorHasClaim(actorId);
         internal void RegisterProductionSlot(Guid slot)
         {
             RequireSetup();
@@ -220,7 +223,8 @@ namespace CriticalShift.Application
         private InteractionReply Apply(Guid actorId, InteractionCommand command)
         {
             // Releasing must remain possible when an object moves out of reach.
-            if (command.Kind != InteractionKind.Release)
+            if (command.Kind != InteractionKind.Release &&
+                !(command.Kind == InteractionKind.SuitFitting && command.SuitFitting!.Action == SuitFittingAction.Cancel))
             {
                 var access = _access.Evaluate(actorId, command.EntityId, command.Kind);
                 switch (access)
@@ -234,6 +238,7 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.SuitFitting: return _suitFitting?.Apply(actorId, command.EntityId, command.SuitFitting!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Medical:
                 case InteractionKind.MedicalEgress: return _medical?.Apply(actorId, command.EntityId, command.Medical!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Door: return _doorOperations?.Apply(command.EntityId, command.Door!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);

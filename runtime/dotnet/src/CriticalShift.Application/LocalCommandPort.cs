@@ -105,6 +105,15 @@ namespace CriticalShift.Application
                 action == MedicalAction.EmergencyEject ? InteractionKind.MedicalEgress : InteractionKind.Medical, stationId, medical: request));
         }
 
+        public SuitFittingSummary SuitFittingSummary => _world.SuitFitting.Summary;
+        public InteractionReply OperateSuitFitting(Guid station, SuitFittingAction action)
+        {
+            var worker = _world.GetWorker(ActorId);
+            return Send(new InteractionCommand(_world.Epoch, NextSequence(), InteractionKind.SuitFitting, station,
+                suitFitting: new SuitFittingRequest(action, action == SuitFittingAction.Start ? worker?.Revision ?? 0 : 0,
+                    action == SuitFittingAction.Cancel ? worker?.SuitFitting?.Id ?? Guid.Empty : Guid.Empty)));
+        }
+
         /// <summary>Resends the identical retained intent; its receipt never authorizes another physical effect.</summary>
         public InteractionReply ReplayLast()
         {

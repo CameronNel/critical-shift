@@ -112,7 +112,7 @@ namespace CriticalShift.Application
             IReadOnlyList<ObjectClaimView> releasedClaims, bool endedThisAdvance,
             IReadOnlyList<WorkerReply>? workerChanges = null, IReadOnlyList<ProductionChange>? productionChanges = null,
             IReadOnlyList<ReactorChange>? reactorChanges = null, IReadOnlyList<GridDemandChange>? demandChanges = null,
-            IReadOnlyList<MedicalChange>? medicalChanges = null)
+            IReadOnlyList<MedicalChange>? medicalChanges = null, IReadOnlyList<SuitFittingChange>? fittingChanges = null)
         {
             World = world; Signals = signals; ReleasedClaims = releasedClaims;
             EndedThisAdvance = endedThisAdvance; WorkerChanges = workerChanges ?? Array.Empty<WorkerReply>();
@@ -120,6 +120,7 @@ namespace CriticalShift.Application
             ReactorChanges = reactorChanges ?? Array.Empty<ReactorChange>();
             DemandChanges = demandChanges ?? Array.Empty<GridDemandChange>();
             MedicalChanges = medicalChanges ?? Array.Empty<MedicalChange>();
+            SuitFittingChanges = fittingChanges ?? Array.Empty<SuitFittingChange>();
         }
         public WorldSessionView World { get; }
         public IReadOnlyList<WorldTimerSignal> Signals { get; }
@@ -130,5 +131,6 @@ namespace CriticalShift.Application
         public IReadOnlyList<ReactorChange> ReactorChanges { get; }
         public IReadOnlyList<GridDemandChange> DemandChanges { get; }
         public IReadOnlyList<MedicalChange> MedicalChanges { get; }
+        public IReadOnlyList<SuitFittingChange> SuitFittingChanges { get; }
     }
 }

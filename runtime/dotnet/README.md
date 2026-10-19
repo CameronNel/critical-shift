@@ -39,6 +39,10 @@ Runtime libraries target .NET Standard 2.1 / C# 8.0, with no third-party runtime
 
 [WORLD_AND_TIME.md](WORLD_AND_TIME.md) covers clocks, pause, timers, teardown and restart. [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) covers worker condition/recovery, possession cleanup and synthetic clearance. [PRODUCTION.md](PRODUCTION.md) retains production custody, accounting, cancellation and its prior review repairs. [REACTOR_AND_POWER.md](REACTOR_AND_POWER.md) extends the existing production chain through one finite fuel cycle and reserve account, including its explicit fixture limits.
 
+[TIMED_SUIT_FITTING.md](TIMED_SUIT_FITTING.md) covers authenticated preparation,
+busy availability, original protection until exact completion, interruption and
+terminal evidence. Native fitting behavior remains NotRun.
+
 Use fresh report names for manual scenarios:
 
 ```sh

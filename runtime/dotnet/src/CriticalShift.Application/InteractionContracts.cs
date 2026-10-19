@@ -3,14 +3,14 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Door, Medical, MedicalEgress }
+    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Door, Medical, MedicalEgress, SuitFitting }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
         Applied, NoChange, NotReady, WorldStopped, WorldFaulted, WrongEpoch,
         UnknownConnection, InvalidPayload, SequenceGap, TooOld, PayloadMismatch,
         OutOfReach, ActorUnavailable, TargetUnavailable, UnknownEntity, EntityRetired,
-        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, DoorRejected, MedicalRejected
+        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, DoorRejected, MedicalRejected, SuitFittingRejected
     }
 
     /// <summary>
@@ -26,14 +26,14 @@ namespace CriticalShift.Application
     public sealed class InteractionCommand
     {
         public InteractionCommand(Guid epoch, long sequence, InteractionKind kind, Guid entityId,
-            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null, DoorRequest? door = null, MedicalRequest? medical = null)
+            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null, DoorRequest? door = null, MedicalRequest? medical = null, SuitFittingRequest? suitFitting = null)
         {
             Epoch = epoch;
             Sequence = sequence;
             Kind = kind;
             EntityId = entityId;
             ExpectedRevision = expectedRevision;
-            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor; Door = door; Medical = medical;
+            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor; Door = door; Medical = medical; SuitFitting = suitFitting;
         }
 
         public Guid Epoch { get; }
@@ -46,15 +46,17 @@ namespace CriticalShift.Application
         public ReactorRequest? Reactor { get; }
         public DoorRequest? Door { get; }
         public MedicalRequest? Medical { get; }
+        public SuitFittingRequest? SuitFitting { get; }
 
         internal bool IsWellFormed
         {
             get
             {
-                if (Sequence <= 0 || EntityId == Guid.Empty) return false;
+                if (Sequence <= 0 || EntityId == Guid.Empty || Kind != InteractionKind.SuitFitting && SuitFitting != null) return false;
                 bool headerEmpty = ExpectedRevision == 0 && LeaseGeneration == 0;
                 switch (Kind)
                 {
+                    case InteractionKind.SuitFitting: return headerEmpty && SuitFitting?.IsWellFormed == true && Medical == null && Door == null && Reactor == null && Production == null;
                     case InteractionKind.Medical: return headerEmpty && Medical != null && Medical.IsWellFormed && Medical.Action != MedicalAction.EmergencyEject && Door == null && Reactor == null && Production == null;
                     case InteractionKind.MedicalEgress: return headerEmpty && Medical != null && Medical.IsWellFormed && Medical.Action == MedicalAction.EmergencyEject && Door == null && Reactor == null && Production == null;
                     case InteractionKind.Door: return headerEmpty && Door?.IsWellFormed == true && Medical == null && Reactor == null && Production == null;
@@ -74,7 +76,8 @@ namespace CriticalShift.Application
             (Production == null ? other.Production == null : other.Production != null && Production.Same(other.Production)) &&
             (Reactor == null ? other.Reactor == null : other.Reactor != null && Reactor.Same(other.Reactor)) &&
             (Door == null ? other.Door == null : other.Door != null && Door.Same(other.Door)) &&
-            (Medical == null ? other.Medical == null : other.Medical != null && Medical.Same(other.Medical));
+            (Medical == null ? other.Medical == null : other.Medical != null && Medical.Same(other.Medical)) &&
+            (SuitFitting == null ? other.SuitFitting == null : other.SuitFitting != null && SuitFitting.Same(other.SuitFitting));
     }
 
     /// <summary>Detached application projection; never exposes the live domain owner.</summary>
@@ -104,12 +107,12 @@ namespace CriticalShift.Application
 
     public sealed class InteractionReply
     {
-        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, DoorReply? door = null, MedicalReply? medical = null)
+        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, DoorReply? door = null, MedicalReply? medical = null, SuitFittingReply? suitFitting = null)
         {
             Status = status;
             IsTerminal = terminal;
             State = state;
-            IsReplay = replay; Production = production; Reactor = reactor; Door = door; Medical = medical;
+            IsReplay = replay; Production = production; Reactor = reactor; Door = door; Medical = medical; SuitFitting = suitFitting;
         }
 
         public InteractionStatus Status { get; }
@@ -120,9 +123,10 @@ namespace CriticalShift.Application
         public ReactorReply? Reactor { get; }
         public DoorReply? Door { get; }
         public MedicalReply? Medical { get; }
+        public SuitFittingReply? SuitFitting { get; }
         public bool Accepted => Status == InteractionStatus.Applied || Status == InteractionStatus.NoChange;
         // Only this flag may trigger a new binding side effect. Replayed acceptance is historical.
         public bool HasNewCommit => Status == InteractionStatus.Applied && !IsReplay;
-        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Door, Medical);
+        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Door, Medical, SuitFitting);
     }
 }

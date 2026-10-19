@@ -32,11 +32,11 @@ namespace CriticalShift.Application
     {
         internal ShiftDebriefView(WorldSessionView world, ShiftContractView? contract, ProductionSummary production,
             PowerView? power, IReadOnlyList<WorkerView> workers, ShiftIncidentTotals incidents,
-            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents, MedicalSummary medical, EmergencyPowerView? emergencyPower)
+            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents, MedicalSummary medical, EmergencyPowerView? emergencyPower, SuitFittingSummary suitFitting)
         {
             World = world; Contract = contract; Production = production; Power = power;
             WorkersAtEnd = workers; Incidents = incidents; Timeline = timeline; DroppedIncidents = droppedIncidents;
-            Medical = medical; EmergencyPower = emergencyPower;
+            Medical = medical; EmergencyPower = emergencyPower; SuitFitting = suitFitting;
         }
         public WorldSessionView World { get; }
         public ShiftContractView? Contract { get; }
@@ -44,6 +44,7 @@ namespace CriticalShift.Application
         public PowerView? Power { get; }
         public MedicalSummary Medical { get; }
         public EmergencyPowerView? EmergencyPower { get; }
+        public SuitFittingSummary SuitFitting { get; }
         public IReadOnlyList<WorkerView> WorkersAtEnd { get; }
         public ShiftIncidentTotals Incidents { get; }
         /// <summary>Retained incidents sorted by occurrence time, then recording sequence. Bounded and explicitly incomplete when dropped.</summary>
@@ -84,7 +85,7 @@ namespace CriticalShift.Application
             if (record.ReactorEvent == ReactorEvent.Tripped) Increment(ref trips);
             if (record.ReactorEvent == ReactorEvent.EmergencyCooling) Increment(ref emergency);
             if (record.ReactorEvent.HasValue && record.ReactorEvent != ReactorEvent.Generated) retain = true;
-            if (record.ContaminationContact != null || record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
+            if (record.SuitFittingChange != null || record.ContaminationContact != null || record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
                 record.Kind == SessionTraceKind.Evacuation || record.Kind == SessionTraceKind.Started ||
                 record.Kind == SessionTraceKind.Ended || record.Kind == SessionTraceKind.Stopped ||
                 record.Kind == SessionTraceKind.Faulted) retain = true;

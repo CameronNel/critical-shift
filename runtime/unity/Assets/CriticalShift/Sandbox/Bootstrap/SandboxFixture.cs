@@ -62,7 +62,7 @@ namespace CriticalShift.Sandbox
                     maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
-                BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
+                BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildSuitStation(); BuildCart(); BuildConveyor();
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
@@ -72,9 +72,10 @@ namespace CriticalShift.Sandbox
                         "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
                         (safety.FaultLatched ? "\nPHYSICS STOP: " + safety.Fault : "") +
                         "\n" + workerState.LastAction + (workerState.CrawlDriveActive ? " · crawling" : "") + "\nPatient: " + patientState.LastAction,
-                    access.DisplayName);
+                    access.DisplayName, SandboxGameplaySetup.SuitStationId);
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
+                hud.SuitFittingRequested += host.OperateSuitFitting;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
@@ -324,6 +325,15 @@ namespace CriticalShift.Sandbox
                     new Vector3(0.025f, 0.17f, 0.018f), color, false);
                 return pivot.transform;
             }
+        }
+
+        private void BuildSuitStation()
+        {
+            var station = SandboxPrimitives.Empty("Protective suit fitting station", root.transform, new Vector3(-9, 0, -5));
+            SandboxPrimitives.Box("Suit station case", station.transform, new Vector3(0, 1, 0), new Vector3(1.2f, 2, 0.6f), shapes.Steel);
+            var face = SandboxPrimitives.Box("Suit fitting interaction panel", station.transform, new Vector3(0, 1.4f, 0.33f),
+                new Vector3(0.8f, 0.35f, 0.05f), shapes.Yellow, false);
+            access.BindTarget(SandboxGameplaySetup.SuitStationId, station.transform, face.transform);
         }
 
         private void BuildCart()

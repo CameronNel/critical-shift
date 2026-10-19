@@ -63,7 +63,7 @@ namespace CriticalShift.Features.Workers.Unity
             if (!active) return;
             try
             {
-                if (!running() || readWorker()?.CanInteract != true || !controller.enabled)
+                if (!running() || readWorker()?.PhysicallyUpright != true || !controller.enabled)
                 {
                     // Excluded-time motion cannot become a fresh impact when gameplay resumes.
                     foreach (var source in sources) source.PreviousVelocity = Vector3.zero;

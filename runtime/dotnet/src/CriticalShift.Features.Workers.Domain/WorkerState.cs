@@ -41,7 +41,7 @@ namespace CriticalShift.Features.Workers.Domain
         }
 
         public WorkerSnapshot Snapshot => new WorkerSnapshot(_id, _revision, _consciousness, _posture,
-            _suit, _contamination, _impact, _episode, _attempt, _readyAt, _attemptExpiresAt, _lastHazard, _lastCause);
+            _suit, _contamination, _impact, _episode, _attempt, _readyAt, _attemptExpiresAt, _lastHazard, _lastCause, _fitting);
 
         public WorkerResult Impact(long sequence, ImpactSeverity severity, long recoveryDelay, long shiftTime, Guid hazardId, Guid causeId)
         {
@@ -64,7 +64,7 @@ namespace CriticalShift.Features.Workers.Domain
             // A mild impact cannot cure an unconscious worker.
             _posture = Posture.Down; _attemptExpiresAt = 0; _episode = episode; _revision = revision; _lastTime = shiftTime;
             _sources[hazardId] = new ImpactReceipt(sequence, causeId, severity, recoveryDelay);
-            _impact = sequence; _lastHazard = hazardId; _lastCause = causeId;
+            _impact = sequence; _lastHazard = hazardId; _lastCause = causeId; _fitting = null;
             return WorkerResult.Applied;
         }
 
@@ -88,6 +88,7 @@ namespace CriticalShift.Features.Workers.Domain
                 contamination < 0 || contamination > 100) return WorkerResult.InvalidInput;
             if (_suit == suit && _contamination == contamination) return WorkerResult.Duplicate;
             long revision = checked(_revision + 1);
+            if (_suit != suit) _fitting = null;
             _suit = suit; _contamination = contamination; _revision = revision;
             return WorkerResult.Applied;
         }
