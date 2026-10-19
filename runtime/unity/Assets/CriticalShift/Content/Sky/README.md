@@ -10,6 +10,7 @@
 - `Content/Editor/NightSkySetup.cs`:
   - the texture import settings;
   - the menu `Critical Shift > Environment > Set Up Night Sky`, which creates `NightSky.mat`, a "Night Sky" object holding the moonlight and the component, and sets the scene's skybox.
+  - the batch entry `-executeMethod CriticalShift.Content.Editor.NightSkySetup.SetUpBatch [-scene <path>]`, which does the same with Unity closed, defaulting to the imported map scene. The steps for an agent asked to "add the sky" are in the root `AGENTS.md`.
 - `Textures/`: four PNGs built by `runtime/tools/build_sky_textures.py` from NASA sources (below). They are Git LFS files: run `git lfs pull --include "runtime/unity/Assets/CriticalShift/Content/Sky/Textures/*"`.
 
 **Owner and lifetime:** while enabled, `NightSky` is the scene's only writer of:

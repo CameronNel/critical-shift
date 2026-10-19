@@ -49,12 +49,33 @@ namespace CriticalShift.Content.Editor
         [MenuItem("Critical Shift/Environment/Set Up Night Sky")]
         public static void SetUp()
         {
+            if (!Apply(out string message)) EditorUtility.DisplayDialog("Night sky", message, "OK");
+            else Debug.Log(message);
+        }
+
+        /// <summary>Batch: -executeMethod CriticalShift.Content.Editor.NightSkySetup.SetUpBatch [-scene &lt;path&gt;] (default: the imported map scene).
+        /// Opens the scene, sets up the sky and saves it. Exit code 0 done, 1 set-up failed, 3 scene not found.</summary>
+        public static void SetUpBatch()
+        {
+            string[] args = Environment.GetCommandLineArgs();
+            int k = Array.IndexOf(args, "-scene");
+            string path = k >= 0 && k + 1 < args.Length ? args[k + 1] : BakedRoomImporter.MapFolder + "/CriticalShift_Map.unity";
+            if (!System.IO.File.Exists(path)) { Debug.LogError("Night sky: scene not found: " + path + " (import the baked map first)."); EditorApplication.Exit(3); return; }
+            var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
+            bool ok = Apply(out string message);
+            if (ok) EditorSceneManager.SaveScene(scene);
+            if (ok) Debug.Log(message); else Debug.LogError(message);
+            EditorApplication.Exit(ok ? 0 : 1);
+        }
+
+        static bool Apply(out string message)
+        {
             var shader = Shader.Find("CriticalShift/NightSky");
             var component = Type.GetType(ComponentType);
             if (shader == null || component == null)
             {
-                EditorUtility.DisplayDialog("Night sky", "The CriticalShift/NightSky shader or the NightSky component is missing or failed to compile. Check the Console.", "OK");
-                return;
+                message = "The CriticalShift/NightSky shader or the NightSky component is missing or failed to compile. Check the Console.";
+                return false;
             }
 
             var material = AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
@@ -64,12 +85,18 @@ namespace CriticalShift.Content.Editor
                 AssetDatabase.CreateAsset(material, MaterialPath);
             }
             material.shader = shader;
-            Assign(material, "_StarCube", AssetDatabase.LoadAssetAtPath<Cubemap>(NightSkyTexturePostprocessor.Folder + "NightSky_Stars.png"));
-            Assign(material, "_MilkyWayCube", AssetDatabase.LoadAssetAtPath<Cubemap>(NightSkyTexturePostprocessor.Folder + "NightSky_MilkyWay.png"));
-            Assign(material, "_MoonColor", AssetDatabase.LoadAssetAtPath<Texture2D>(NightSkyTexturePostprocessor.Folder + "NightSky_MoonColor.png"));
-            Assign(material, "_MoonNormal", AssetDatabase.LoadAssetAtPath<Texture2D>(NightSkyTexturePostprocessor.Folder + "NightSky_MoonNormal.png"));
+            bool textures = Assign(material, "_StarCube", AssetDatabase.LoadAssetAtPath<Cubemap>(NightSkyTexturePostprocessor.Folder + "NightSky_Stars.png"))
+                          & Assign(material, "_MilkyWayCube", AssetDatabase.LoadAssetAtPath<Cubemap>(NightSkyTexturePostprocessor.Folder + "NightSky_MilkyWay.png"))
+                          & Assign(material, "_MoonColor", AssetDatabase.LoadAssetAtPath<Texture2D>(NightSkyTexturePostprocessor.Folder + "NightSky_MoonColor.png"))
+                          & Assign(material, "_MoonNormal", AssetDatabase.LoadAssetAtPath<Texture2D>(NightSkyTexturePostprocessor.Folder + "NightSky_MoonNormal.png"));
             EditorUtility.SetDirty(material);
             AssetDatabase.SaveAssets();
+            if (!textures)
+            {
+                message = "Night sky textures missing or not imported under " + NightSkyTexturePostprocessor.Folder +
+                          ". Run: git lfs pull --include \"runtime/unity/Assets/CriticalShift/Content/Sky/Textures/*\", then reimport that folder.";
+                return false;
+            }
 
             var existing = UnityEngine.Object.FindObjectsByType(component, FindObjectsInactive.Include);
             var sky = existing.Length > 0 ? (Component)existing[0] : null;
@@ -92,13 +119,15 @@ namespace CriticalShift.Content.Editor
             RenderSettings.skybox = material;
             EditorSceneManager.MarkSceneDirty(sky.gameObject.scene);
             Selection.activeGameObject = sky.gameObject;
-            Debug.Log("Night sky set up in " + sky.gameObject.scene.name + ": " + MaterialPath + " and the Night Sky object (moonlight). Save the scene to keep it.");
+            message = "Night sky set up in " + sky.gameObject.scene.name + ": " + MaterialPath + " and the Night Sky object (moonlight). Save the scene to keep it.";
+            return true;
         }
 
-        static void Assign(Material material, string property, Texture texture)
+        static bool Assign(Material material, string property, Texture texture)
         {
-            if (texture == null) Debug.LogError("Night sky: " + property + " texture not found under " + NightSkyTexturePostprocessor.Folder + " (git lfs pull?).");
-            else material.SetTexture(property, texture);
+            if (texture == null) { Debug.LogError("Night sky: " + property + " texture not found under " + NightSkyTexturePostprocessor.Folder); return false; }
+            material.SetTexture(property, texture);
+            return true;
         }
     }
 }
