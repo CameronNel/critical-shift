@@ -375,7 +375,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 machine.Mode == ProductionMode.Jammed ? "F isolate power · R repair jam" :
                 machine.Mode == ProductionMode.PowerPaused ? "F restore power · R resume cycle" :
                 machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :
-                machine.Mode == ProductionMode.Processing ? "F isolate power" : "E transfer · F power · R start · B bypass inspection";
+                machine.Mode == ProductionMode.Processing ? "F isolate power" :
+                machine.IsDrying ? "E transfer · F power · R start safe drying" : "E transfer · F power · R start · B bypass inspection";
             FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls +
                 (held != Guid.Empty && bindings.IsPortable(held) ? " · middle-drag turn · wheel reach · T throw" : "");
         }

@@ -12,14 +12,24 @@ namespace CriticalShift.Scenarios
         {
             if (!spec.TryGetProperty("production", out var setup)) return;
             foreach (var m in setup.GetProperty("machines").EnumerateArray())
-                world.Production.RegisterMachine(Id(checked((int)Number(m, "id"))), new MachineRecipe(
-                    Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"), Choice<MaterialKind>(m, "output"),
-                    Number(m, "duration"), Number(m, "bypassDuration"), Number(m, "jamAfter"), checked((int)Number(m, "capacity")),
-                    checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0))));
+                world.Production.RegisterMachine(Id(checked((int)Number(m, "id"))), Recipe(m));
             foreach (var b in setup.GetProperty("batches").EnumerateArray())
                 world.Production.RegisterBatch(Id(checked((int)Number(b, "container"))), Id(checked((int)Number(b, "id"))),
                     Id(checked((int)Number(b, "origin"))), Id(checked((int)Number(b, "cause"))), Choice<MaterialKind>(b, "kind"),
                     checked((int)Number(b, "units")), checked((int)Number(b, "moisture", 0)), checked((int)Number(b, "contamination", 0)));
+        }
+        private static MachineRecipe Recipe(JsonElement m)
+        {
+            if (Flag(m, "drying", false))
+            {
+                foreach (string field in new[] { "output", "bypassDuration", "jamAfter", "yield", "tolerance" })
+                    if (m.TryGetProperty(field, out _)) throw new ArgumentException("Drying definitions use fixed same-kind/quantity/safe rules; omit " + field + ".");
+                return MachineRecipe.Drying(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"),
+                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "outputMoisture", 100)));
+            }
+            return new MachineRecipe(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"), Choice<MaterialKind>(m, "output"),
+                Number(m, "duration"), Number(m, "bypassDuration"), Number(m, "jamAfter"), checked((int)Number(m, "capacity")),
+                checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0)));
         }
         internal static string Execute(JsonElement step, WorldSession world, Guid epoch, Guid connection)
         {
@@ -57,6 +67,8 @@ namespace CriticalShift.Scenarios
                 case "batchUnits": actual = batch?.Units; expected = assertion.Value.GetInt32(); return true;
                 case "batchFlags": actual = batch?.Flags.ToString(); expected = assertion.Value.GetString(); return true;
                 case "batchMoisture": actual = batch?.Moisture; expected = assertion.Value.GetInt32(); return true;
+                case "batchContamination": actual = batch?.Contamination; expected = assertion.Value.GetInt32(); return true;
+                case "batchCause": actual = batch?.CauseId; expected = Id(assertion.Value.GetInt32()); return true;
                 case "slottedIn": actual = batch == null ? Guid.Empty : world.GetObject(batch.ContainerId)?.SlotId ?? Guid.Empty;
                     expected = assertion.Value.GetInt32() == 0 ? Guid.Empty : Id(assertion.Value.GetInt32()); return true;
                 case "issuedUnits": actual = summary.IssuedUnits; expected = assertion.Value.GetInt64(); return true;

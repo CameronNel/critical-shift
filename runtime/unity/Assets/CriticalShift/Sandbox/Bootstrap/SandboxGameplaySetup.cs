@@ -11,6 +11,7 @@ namespace CriticalShift.Sandbox
         internal const long ShiftDurationMilliseconds = 12 * 60 * 1000;
         internal static Guid CrusherId => Id(400);
         internal static Guid ProcessorId => Id(401);
+        internal static Guid DryerId => Id(402);
         internal static Guid ReactorId => Id(500);
         internal static Guid ContainerId(int index)
         {
@@ -34,6 +35,7 @@ namespace CriticalShift.Sandbox
                 6000, 3000, 1500, 128, yieldPermille: 950));
             world.Production.RegisterMachine(ProcessorId, new MachineRecipe(Id(451), MaterialKind.CrushedOre, MaterialKind.Fuel,
                 9000, 4500, 1500, 128));
+            world.Production.RegisterMachine(DryerId, MachineRecipe.Drying(Id(452), MaterialKind.Ore, 8000, 128, 100));
             world.Reactor.Register(ReactorId, new ReactorDefinition(Id(501), millisecondsPerFuelUnit: 5000,
                 powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,
                 resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));

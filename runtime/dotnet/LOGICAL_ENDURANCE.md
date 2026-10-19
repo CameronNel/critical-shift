@@ -27,11 +27,15 @@ coordinates, including same-time ordering, storage/spill attribution, spending,
 cancellation, pause and terminal stock. Every lifetime forces a real backup
 completion and uses it to start the fueled core.
 It then runs three randomized epochs with fresh bindings. Each epoch starts
-actual reactor, machine and paid medical work together, then mixes custody
+actual reactor, machine, safe drying, backup and paid medical work together, then mixes custody
 contention, production, power controls, replay, impacts, aid/environment, medical
 commands, finite backup supply, authored exposure/wash contacts, standing clearance, pause, doors,
 evacuation, disconnect and timers.
-Checks run after randomized steps and at teardown.
+Checks run after randomized steps and at teardown. Mixed drying completions must
+retain quantity, contamination, origin/cause and inherited flags, with only the
+authored moisture reduction and normal child-batch lineage. These relational
+checks complement focused public-port drying tests; they are not a separate
+independent drying simulator.
 
 The mixed medical ledger uses new commits and explicit owner-change results;
 it never reconstructs required state from the bounded diagnostic trace. It

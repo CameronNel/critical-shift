@@ -395,5 +395,16 @@
   "BackupMedicalAndCoreUseOneReserveRegardlessOfConsumerOrder": 2,
   "BackupCommandsCannotCarryClientEnergyOrUnrelatedCoolingPayload": 2,
   "OptionalBackupAndSetupRulesRejectBeforeCreatingUsableStock": 1,
-  "InvalidBackupDefinitionsCannotCreateACharge": 6
+  "InvalidBackupDefinitionsCannotCreateACharge": 6,
+  "SafeDryingConservesQuantityAndPreservesContaminationCauseAndParentLineage": 1,
+  "AlreadyDryInputRejectsBeforeAnExhaustedConversionBudget": 2,
+  "DryingCannotBypassInspectionAndRejectedRetryCannotStartWorkLater": 1,
+  "HistoricalDryingStartCannotCompleteOrRewriteTheResultAgain": 1,
+  "DryingPreservesWorkAcrossWorldOrMachinePowerPause": 2,
+  "CancellingDryingKeepsTheExactWetInputAndCannotProduceOutputLater": 1,
+  "DryingDeadlineCountsOnlyCompletionAtOrBeforeTheCutoff": 3,
+  "DryingCannotLaunderInheritedInspectionBypassBeforeTheReactor": 1,
+  "CanonicalWetSandboxCrateCanSafelyReachFuelAndGridDelivery": 2,
+  "OrdinaryConversionStillRequiresDifferentKindsAndDryingIsExplicit": 1,
+  "InvalidDryingRulesCannotCreateAnUnboundedOrMeaninglessCycle": 4
 }

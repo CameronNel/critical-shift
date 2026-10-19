@@ -1,0 +1,36 @@
+{
+ "name":"safe-wet-ore-route","seed":42,"duration":15000,"traceCapacity":128,"pause":true,
+ "reactor":{"id":900,"millisecondsPerFuelUnit":1000},
+ "production":{
+  "machines":[
+   {"id":700,"recipe":800,"drying":true,"input":"Ore","duration":1000,"capacity":100,"outputMoisture":100},
+   {"id":701,"recipe":801,"input":"Ore","output":"CrushedOre","duration":1000,"bypassDuration":500,"jamAfter":200,"capacity":100,"yield":950},
+   {"id":702,"recipe":802,"input":"CrushedOre","output":"Fuel","duration":1000,"bypassDuration":500,"jamAfter":200,"capacity":100}
+  ],
+  "batches":[{"container":600,"id":610,"origin":620,"cause":630,"kind":"Ore","units":12,"moisture":850,"contamination":35}]
+ },
+ "steps":[
+  {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"production","machine":700,"seq":2,"action":"Insert","machineRevision":0,"container":600,"objectRevision":1,"batchRevision":0,"lease":1,"expect":"Applied"},
+  {"op":"production","machine":700,"seq":3,"action":"Start","machineRevision":1,"batchRevision":0,"bypass":true,"expect":"BypassUnavailable","assert":{"batchMoisture":850,"batchUnits":12,"pendingCycles":0}},
+  {"op":"production","machine":700,"seq":4,"action":"Start","machineRevision":1,"batchRevision":0,"expect":"Applied"},
+  {"op":"advance","time":1000,"expect":"Running","assert":{"machine":700,"machineMode":"OutputReady","batchKind":"Ore","batchUnits":12,"batchMoisture":100,"batchContamination":35,"batchCause":630,"batchFlags":"None","wasteUnits":0,"completedCycles":1}},
+  {"op":"production","machine":700,"seq":5,"action":"Eject","machineRevision":3,"objectRevision":2,"expect":"Applied"},
+  {"op":"grab","entity":600,"seq":6,"revision":3,"expect":"Applied"},
+  {"op":"production","machine":701,"seq":7,"action":"Insert","machineRevision":0,"container":600,"objectRevision":4,"batchRevision":1,"lease":2,"expect":"Applied"},
+  {"op":"production","machine":701,"seq":8,"action":"Start","machineRevision":1,"batchRevision":1,"expect":"Applied"},
+  {"op":"advance","time":2000,"expect":"Running","assert":{"machine":701,"machineMode":"OutputReady","batchKind":"CrushedOre","batchUnits":11,"batchMoisture":0,"batchContamination":35,"batchCause":630,"batchFlags":"None","wasteUnits":1,"completedCycles":2}},
+  {"op":"production","machine":701,"seq":9,"action":"Eject","machineRevision":3,"objectRevision":5,"expect":"Applied"},
+  {"op":"grab","entity":600,"seq":10,"revision":6,"expect":"Applied"},
+  {"op":"production","machine":702,"seq":11,"action":"Insert","machineRevision":0,"container":600,"objectRevision":7,"batchRevision":2,"lease":3,"expect":"Applied"},
+  {"op":"production","machine":702,"seq":12,"action":"Start","machineRevision":1,"batchRevision":2,"expect":"Applied"},
+  {"op":"advance","time":3000,"expect":"Running","assert":{"machine":702,"machineMode":"OutputReady","batchKind":"Fuel","batchUnits":11,"batchContamination":35,"batchCause":630,"batchFlags":"None","wasteUnits":1,"completedCycles":3}},
+  {"op":"production","machine":702,"seq":13,"action":"Eject","machineRevision":3,"objectRevision":8,"expect":"Applied"},
+  {"op":"grab","entity":600,"seq":14,"revision":9,"expect":"Applied"},
+  {"op":"reactor","seq":15,"action":"Insert","reactorRevision":0,"container":600,"objectRevision":10,"batchRevision":3,"lease":4,"expect":"Applied"},
+  {"op":"reactor","seq":16,"action":"SetCooling","reactorRevision":1,"cooling":true,"expect":"Applied"},
+  {"op":"reactor","seq":17,"action":"Start","reactorRevision":2,"expect":"Applied","assert":{"reactorSuspect":false,"reserve":7}},
+  {"op":"advance","time":14000,"expect":"Running","assert":{"reactorMode":"Exhausted","batchKind":"SpentFuel","batchUnits":11,"batchContamination":35,"batchCause":630,"batchFlags":"None","issuedUnits":12,"activeUnits":11,"wasteUnits":1,"completedCycles":4,"pendingCycles":0,"generatedPower":550,"deliveredPower":440,"spentPower":3,"reserve":100,"spilledPower":17}},
+  {"op":"advance","time":15000,"expect":"Ended","assert":{"reactorPresent":false,"completedCycles":4,"pendingCycles":0,"issuedUnits":12,"activeUnits":11,"wasteUnits":1,"deliveredPower":440,"reserve":100}}
+ ]
+}
