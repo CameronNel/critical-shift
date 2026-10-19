@@ -139,6 +139,7 @@ namespace CriticalShift.Scenarios
                 case "aid": return _world.StabilizeWorker(epoch, who, Number(s, "revision"), Number(s, "delay")).Status.ToString();
                 case "environment": return _world.SetWorkerEnvironment(epoch, who, Number(s, "revision"),
                     Choice<WorkerSuit>(s, "suit"), checked((int)Number(s, "contamination"))).Status.ToString();
+                case "contamination": return ContaminationScenarioSteps.Execute(s, _world, epoch, who);
                 case "beginRecovery": return _world.BeginWorkerRecovery(epoch, who, Number(s, "episode"),
                     Number(s, "revision")).Status.ToString();
                 case "completeRecovery":
@@ -225,6 +226,7 @@ namespace CriticalShift.Scenarios
         {
             for (int i = 1; i <= 4; i++) world.RegisterConnection(Id(100 + i), Id(i));
             world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); ReactorScenarioSteps.Bind(_spec, world);
+            ContaminationScenarioSteps.Bind(_spec, world);
             ContractScenarioSteps.Bind(_spec, world); MedicalScenarioSteps.Bind(_spec, world); world.Start();
         }
         // Synthetic observations live only in this tool, never in runtime/Application/Domain.

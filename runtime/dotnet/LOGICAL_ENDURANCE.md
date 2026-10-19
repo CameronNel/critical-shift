@@ -10,18 +10,23 @@ dotnet run --project tools/CriticalShift.Scenarios -c Release -- --soak --case-s
 
 Choose exactly one stopping mode. Reports use create-new JSON Lines; an existing
 path is refused. A Running line or interrupted process is not success. Require
-process exit0 and a final Passed record. Each failed record includes a case seed
+process exit 0 and a final Passed record. Each failed record includes a case seed
 that recreates the case independently of all prior seeds. Reports identify the
 complete CriticalShift DLL closure by SHA256, including every Domain DLL.
 The initial snapshot must be preserved when testing while development continues.
 
 Each case includes two finite-fuel supply worlds (one large clock jump, one
 random partition) compared against independent integer quantum/window arithmetic,
-plus a clinical model with independently predicted admission, costs and outcomes.
+plus a clinical model with independently predicted admission, costs and outcomes,
+and two contamination lifetimes with independent raw-load, PPE, sequence and
+fixed-cooldown accounting. Each contact lifetime forces exposure and a successful
+wash, then mixes clock/suit/pause changes and historical/stale contact samples.
+It checks both workers, teardown/restart and old-epoch rejection.
 It then runs three randomized epochs with fresh bindings. Each epoch starts
 actual reactor, machine and paid medical work together, then mixes custody
 contention, production, power controls, replay, impacts, aid/environment, medical
-commands, standing clearance, pause, doors, evacuation, disconnect and timers.
+commands, authored exposure/wash contacts, standing clearance, pause, doors,
+evacuation, disconnect and timers.
 Checks run after randomized steps and at teardown.
 
 The mixed medical ledger uses new commits and explicit owner-change results;
@@ -33,7 +38,9 @@ pre-poll patient's suit/contamination. A due/invalid cycle cannot silently omit
 its required completion/interruption. Disconnected fixture bodies must be
 retired with their workers. Independent spending sums the authored reactor
 action costs and medical starts; stock use and terminal cancellation must agree.
-These checks complement the separate clinical admission model.
+Unsafe accepted contamination changes must immediately interrupt treatment once;
+a later wash cannot conceal the excursion. These checks complement the separate
+clinical admission and contact models.
 
 Invariants cover material/power conservation, reserve bounds, current/future and
 settled demand windows, replay without new commits/spend, old-epoch rejection,
@@ -45,9 +52,9 @@ cutoff; overdue recoveries cannot survive in the final roster. `CheckedSteps` in
 steps (some selected operations are inapplicable) and independent-model clock
 samples; it is not a count of committed actions.
 
-The regular verifier runs12 cases, a single-seed reproduction, an intentionally
-failed invariant, a deliberately omitted paid-medical-start ledger control and
-an existing-report refusal. Seed reproduction checks that the case executes
+The regular verifier runs 12 cases, a single-seed reproduction, an intentionally
+failed invariant, deliberately omitted paid-medical-start and exposure ledger
+controls, and an existing-report refusal. Seed reproduction checks that the case executes
 successfully again; it does not compare a normalized full trace/state digest.
 A long run is useful
 logical compositional evidence, not Unity/physics, multiplayer, performance,

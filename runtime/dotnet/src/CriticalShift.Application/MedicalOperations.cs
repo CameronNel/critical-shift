@@ -111,6 +111,13 @@ namespace CriticalShift.Application
             state = proposed; completed++;
             return Change(MedicalEvent.Completed, due, worker: stabilized.Worker);
         }
+        internal MedicalChange? ObservePatientContamination(Guid patient, int contamination, long elapsed)
+        {
+            if (state == null || state.Mode != MedicalMode.Treating || state.PatientId != patient ||
+                contamination <= state.Rules.MaximumContamination) return null;
+            state = state.Interrupt(); interrupted++;
+            return Change(MedicalEvent.Interrupted, elapsed);
+        }
         internal MedicalChange? DetachDisconnectedPatient(Guid patient, Guid body)
         {
             if (state == null || state.PatientId != patient) return null;

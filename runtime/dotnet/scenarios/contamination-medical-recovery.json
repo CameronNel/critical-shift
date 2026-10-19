@@ -1,0 +1,31 @@
+{
+  "name": "contamination-medical-recovery", "seed": 42, "duration": 6000, "pause": true, "traceCapacity": 128,
+  "reactor": {"id": 900, "reserve": 20}, "medical": {"id": 950},
+  "contaminationSources": [
+    {"id": 9001, "kind": "Exposure", "units": 100, "cooldown": 500},
+    {"id": 9002, "kind": "Decontamination", "units": 60, "cooldown": 500}
+  ],
+  "steps": [
+    {"op":"impact","actor":1,"seq":1,"severity":"Incapacitating","delay":0,"hazard":700,"cause":800,"expect":"Applied"},
+    {"op":"contamination","actor":1,"source":9001,"seq":1,"cause":810,"expect":"Applied","assert":{"contamination":100,"revision":2,"awareness":"Unconscious"}},
+    {"op":"grab","actor":2,"entity":650,"seq":1,"revision":0,"expect":"Applied"},
+    {"op":"medical","actor":2,"seq":2,"action":"Insert","stationRevision":0,"body":650,"objectRevision":1,"lease":1,"expect":"Applied"},
+    {"op":"medical","actor":2,"seq":3,"action":"Start","stationRevision":1,"patientRevision":2,"expect":"Contaminated","assert":{"medicalUsed":0,"spentPower":0,"reserve":20}},
+    {"op":"contamination","actor":1,"source":9002,"seq":1,"cause":811,"expect":"Applied","assert":{"contamination":40,"revision":3,"awareness":"Unconscious","pose":"Down"}},
+    {"op":"medical","actor":2,"seq":4,"action":"Start","stationRevision":1,"patientRevision":3,"expect":"Applied","assert":{"medicalPhase":"Treating","spentPower":6,"reserve":14}},
+    {"op":"contamination","actor":1,"source":9001,"seq":1,"cause":810,"sample":0,"expect":"Duplicate","assert":{"contamination":40,"medicalPhase":"Treating","spentPower":6}},
+    {"op":"advance","time":999,"expect":"Running","assert":{"medicalCompleted":0}},
+    {"op":"contamination","actor":1,"source":9001,"seq":2,"cause":812,"expect":"Applied","assert":{"contamination":100,"revision":4,"medicalPhase":"Interrupted","medicalInterrupted":1,"lastMedicalCause":800,"lastMedicalAt":999}},
+    {"op":"contamination","actor":1,"source":9002,"seq":2,"cause":813,"expect":"Applied","assert":{"contamination":40,"revision":5,"medicalPhase":"Interrupted","medicalUsed":1,"spentPower":6}},
+    {"op":"medical","actor":2,"seq":5,"action":"Start","stationRevision":3,"patientRevision":5,"expect":"Applied","assert":{"medicalUsed":2,"spentPower":12,"reserve":8}},
+    {"op":"advance","time":1999,"expect":"Running","assert":{"contamination":40,"awareness":"Alert","pose":"Down","revision":6,"medicalPhase":"Ready","medicalCompleted":1}},
+    {"op":"medical","actor":2,"seq":6,"action":"Eject","stationRevision":5,"objectRevision":2,"expect":"Applied"},
+    {"op":"beginRecovery","actor":1,"episode":2,"revision":6,"expect":"TooEarly"},
+    {"op":"advance","time":2099,"expect":"Running"},
+    {"op":"beginRecovery","actor":1,"episode":2,"revision":6,"expect":"Applied"},
+    {"op":"completeRecovery","actor":1,"attempt":1,"clearance":"Safe","expect":"Applied","assert":{"awareness":"Alert","pose":"Upright","contamination":40}},
+    {"op":"finish","reason":"Aborted","expect":"Applied","assert":{"medicalUsed":2,"medicalInterrupted":1,"medicalCompleted":1,"spentPower":12,"recordedRecoveries":1}},
+    {"op":"restart","expect":"Running","assert":{"contamination":0,"medicalUsed":0,"reserve":20}},
+    {"op":"contamination","actor":1,"source":9001,"seq":1,"cause":810,"expect":"Applied","assert":{"contamination":100,"revision":1}}
+  ]
+}

@@ -29,6 +29,22 @@ records independent source review, executed logical checks and blocked native
 acceptance. POWER-01, WORKER-01, TX-01/02, CAUSE-01 and SHIFT-01 are partially
 covered offline, without advancing their native/multiplayer gate scopes.
 
+### Authorized discrete contamination prototype, 19 October 2026
+
+The continuing owner request permits a bounded Workers-owned contact system over
+the existing0–100 contamination fact. Authored source kind/load/cooldown and
+per-worker/source receipts prevent unqualified collision callbacks from repeating
+loads. New exposure retains100%/50%/25% for None/Compromised/Intact suits, rounded
+upward; these are D-09 fixture values, not accepted balance or radiation dose.
+Washing neither repairs suits nor heals. Unsafe accepted contamination changes
+now immediately interrupt active treatment, preserving its costs, custody, cycle
+and original injury cause; a later wash cannot hide an unsafe excursion. Trusted
+absolute environment control uses that same immediate medical invalidation.
+No package, assembly edge, persistence or physical-volume authority is selected.
+[Calling contract](../../runtime/dotnet/WORKER_CONTAMINATION.md) and
+[task evidence](../../runtime/validation/WORKER_CONTAMINATION.md) distinguish
+executed offline WORKER-02/CAUSE/POWER checks from native acceptance.
+
 ## 1. Established constraints from the inspected repository
 
 Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.

@@ -83,7 +83,7 @@ namespace CriticalShift.Application
             if (record.ReactorEvent == ReactorEvent.Tripped) Increment(ref trips);
             if (record.ReactorEvent == ReactorEvent.EmergencyCooling) Increment(ref emergency);
             if (record.ReactorEvent.HasValue && record.ReactorEvent != ReactorEvent.Generated) retain = true;
-            if (record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
+            if (record.ContaminationContact != null || record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
                 record.Kind == SessionTraceKind.Evacuation || record.Kind == SessionTraceKind.Started ||
                 record.Kind == SessionTraceKind.Ended || record.Kind == SessionTraceKind.Stopped ||
                 record.Kind == SessionTraceKind.Faulted) retain = true;

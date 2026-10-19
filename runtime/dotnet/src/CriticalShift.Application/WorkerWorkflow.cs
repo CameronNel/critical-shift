@@ -13,6 +13,7 @@ namespace CriticalShift.Application
         private readonly long _completionWindow;
         private readonly Dictionary<Guid, WorkerState> _workers = new Dictionary<Guid, WorkerState>();
         private readonly Dictionary<Guid, Guid> _bodyEntities = new Dictionary<Guid, Guid>();
+        private readonly Dictionary<Guid, ContaminationRules> _contaminationSources = new Dictionary<Guid, ContaminationRules>();
         private readonly IWorkerRecoveryPolicy? _recovery;
 
         internal WorkerWorkflow(Guid epoch, int capacity, IWorkerRecoveryPolicy? recovery, long completionWindow)
@@ -54,7 +55,24 @@ namespace CriticalShift.Application
         }
         internal void Register(Guid actor) { ValidateRegistration(actor); _workers.Add(actor, new WorkerState(actor, _completionWindow)); }
         internal void Remove(Guid actor) { _bodyEntities.Remove(actor); _workers.Remove(actor); }
-        internal void Clear() { _bodyEntities.Clear(); _workers.Clear(); }
+        internal void Clear() { _bodyEntities.Clear(); _workers.Clear(); _contaminationSources.Clear(); }
+
+        internal void RegisterContaminationSource(Guid source, WorkerContaminationDefinition definition)
+        {
+            if (source == Guid.Empty || definition == null) throw new ArgumentException("An authored contamination source is required.");
+            if (_contaminationSources.ContainsKey(source) || _contaminationSources.Count >= WorkerState.ContaminationSourceCapacity)
+                throw new InvalidOperationException("Contamination sources must be unique and bounded.");
+            _contaminationSources.Add(source, definition.Rules);
+        }
+        internal WorkerReply Contamination(Guid actor, Guid source, long sequence, Guid cause, long sample, long now)
+        {
+            if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);
+            if (!_contaminationSources.TryGetValue(source, out var rules)) return new WorkerReply(WorkerStatus.UnknownSource, worker: Get(actor));
+            var result = worker.ObserveContamination(source, sequence, cause, rules, sample, now);
+            return new WorkerReply(Map(result.Status), result.Status == WorkerResult.Applied, Project(worker.Snapshot),
+                occurredAtMilliseconds: result.Contact?.SampleShiftMilliseconds,
+                contaminationContact: result.Contact == null ? null : new WorkerContaminationContact(result.Contact));
+        }
 
         internal IReadOnlyList<WorkerReply> ExpireRecovery(long now)
         {
@@ -125,7 +143,10 @@ namespace CriticalShift.Application
 
         private WorkerReply Reply(WorkerResult result, WorkerState worker, ObjectClaimView? released = null, long? occurredAt = null)
         {
-            WorkerStatus status = result switch
+            return new WorkerReply(Map(result), result == WorkerResult.Applied || result == WorkerResult.ClearanceBlocked || result == WorkerResult.RecoveryExpired,
+                Project(worker.Snapshot), released, occurredAt);
+        }
+        internal static WorkerStatus Map(WorkerResult result) => result switch
             {
                 WorkerResult.Applied => WorkerStatus.Applied, WorkerResult.Duplicate => WorkerStatus.Duplicate,
                 WorkerResult.InvalidInput => WorkerStatus.InvalidInput, WorkerResult.SequenceGap => WorkerStatus.SequenceGap,
@@ -135,11 +156,10 @@ namespace CriticalShift.Application
                 WorkerResult.InvalidState => WorkerStatus.InvalidState, WorkerResult.ClearanceBlocked => WorkerStatus.ClearanceBlocked,
                 WorkerResult.RecoveryExpired => WorkerStatus.RecoveryExpired,
                 WorkerResult.SourceCapacityReached => WorkerStatus.SourceCapacityReached,
+                WorkerResult.NoChange => WorkerStatus.NoChange, WorkerResult.CoolingDown => WorkerStatus.CoolingDown,
+                WorkerResult.StaleObservation => WorkerStatus.StaleObservation,
                 _ => throw new InvalidOperationException("Unmapped worker outcome.")
             };
-            return new WorkerReply(status, result == WorkerResult.Applied || result == WorkerResult.ClearanceBlocked || result == WorkerResult.RecoveryExpired,
-                Project(worker.Snapshot), released, occurredAt);
-        }
 
         private WorkerView Project(WorkerSnapshot s) => new WorkerView(_epoch, s.Id, s.Revision,
             (WorkerAwareness)(int)s.Consciousness, (WorkerPose)(int)s.Posture, (WorkerSuit)(int)s.Suit,
