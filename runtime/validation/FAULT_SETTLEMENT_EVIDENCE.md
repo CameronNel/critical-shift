@@ -37,7 +37,7 @@ Full exact-candidate verification and the isolated pre-fix regression result
 are appended after execution. Draft awaits independent maintainer review/merge;
 no native, performance, multiplayer or acceptance gate is advanced.
 
-Final candidate `ca9b59d955958d8027582d1c83ce9995ba832cb6` passed the full
+Earlier candidate `ca9b59d955958d8027582d1c83ce9995ba832cb6` passed the full
 verifier13:50:07–13:50:47UTC: **1216 executed/passed, zero failed/skipped;
 28 scenarios each twice**. All285 recorded source inputs match that git tree
 and nine DLL hashes match ignored `out/fault-settlement-verification-20261019`.
@@ -52,3 +52,12 @@ property assertion was omitted because that property did not exist before the
 fix; all behavioral expectations remained. The corrected source passes all8.
 Independent ultra transaction and retention reviews found no remaining concrete
 blocker. Current native execution remains NotRun; draft review/merge pending.
+
+Final review also identified a related expiry batch: a later claim revision
+could overflow after releasing an earlier holder and moving the clock. The
+claim owner now constructs every checked release snapshot before clock/index
+installation. Rejection preserves both holders and time, with sorted once-only
+releases on a fresh retry. Two new atomicity cases cover first/second overflow;
+a third injects a post-journal lease fault to prove that already published
+production facts are not flushed again. All11 focused cases pass. Final full
+verification of this additional fix follows below.
