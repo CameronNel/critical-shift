@@ -64,15 +64,10 @@ class _Rooms:
     def show(self, objs):
         """Make the collections holding `objs` visible in the view layer: edit mode, convert and join skip what the viewport hides.
         Looked up fresh for each change (see _layer)."""
-        want = set()
-        for o in objs: want.update(c.name for c in o.users_collection)
-        def paths(lc, trail, out):
-            here = trail + [lc.collection.name]
-            if lc.collection.name in want: out.update(here[1:])
-            for ch in lc.children: paths(ch, here, out)
-        hit = set(); paths(vl.layer_collection, [], hit)
-        for n in hit:
-            lc = _layer(n)
+        want = {c for o in objs for c in o.users_collection}
+        hit = {p[:k] for p in _lc_paths(lambda c: c in want) for k in range(1, len(p) + 1)}   # every collection on every path to them
+        for path in sorted(hit, key=len):
+            lc = _lc_at(path)
             if lc is not None: lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
 coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
@@ -353,37 +348,44 @@ def restore_prepared_geometry():
 PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
 ISOLATE = '--isolate' in a
 EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
-def _layer(name):
-    """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
-    def walk(lc):
-        if lc.collection.name == name: return lc
+# LayerCollections are addressed by their path of collections from the scene root, compared as IDs, never by name, and looked up fresh for each
+# change: changing exclude rebuilds the tree and leaves older references stale (2026-10-18: the whole map stayed in every map bake), and names are
+# not unique (a room library's own "DOORS" collection made show() switch the map's DOORS collection back on, 2026-10-19)
+def _lc_at(path):
+    lc = vl.layer_collection
+    for c in path:
+        lc = next((ch for ch in lc.children if ch.collection == c), None)
+        if lc is None: return None
+    return lc
+def _lc_paths(pred):
+    out = []
+    def walk(lc, trail):
         for ch in lc.children:
-            f = walk(ch)
-            if f is not None: return f
-    return walk(vl.layer_collection)
+            p = trail + (ch.collection,)
+            if pred(ch.collection): out.append(p)
+            walk(ch, p)
+    walk(vl.layer_collection, ()); return out
 
 def isolate():
     """Link the room collections to the scene if they are not in it (the map instances ROOM_<room>_members rather than linking it) and exclude every
     other collection, so the map's other rooms and instancers neither bake nor shade this one. Members sit in their room's own frame.
     Each exclude is applied through a fresh lookup (2026-10-18: holding LayerCollection references across excludes silently kept the whole map,
     7.9 M triangles of other rooms, in every map bake), then checked."""
-    def names(lc):
-        yield lc.collection.name
-        for ch in lc.children: yield from names(ch)
-    present = set(names(vl.layer_collection))
-    for n in coll.names:
-        if n not in present: sc.collection.children.link(bpy.data.collections[n])
-    def plan(lc, out):                                           # collections off every path to a room collection, outermost only
-        if lc.collection.name in coll.names: return True         # a room collection keeps all its children (lights-only ones too)
+    room = [bpy.data.collections[n] for n in coll.names]
+    present = {p[-1] for p in _lc_paths(lambda c: True)}
+    for c in room:
+        if c not in present: sc.collection.children.link(c)
+    def plan(lc, trail, out):                                    # collections off every path to a room collection, outermost only
+        if lc.collection in room: return True                    # a room collection keeps all its children (lights-only ones too)
         keep = False
         sub = []
-        for ch in lc.children: keep = plan(ch, sub) or keep
+        for ch in lc.children: keep = plan(ch, trail + (ch.collection,), sub) or keep
         if keep: out.extend(sub)
-        else: out.append(lc.collection.name)
+        else: out.append(trail)
         return keep
     drop = []
-    for ch in vl.layer_collection.children: plan(ch, drop)
-    for n in drop: _layer(n).exclude = True
+    for ch in vl.layer_collection.children: plan(ch, (ch.collection,), drop)
+    for path in drop: _lc_at(path).exclude = True
     keep = set(coll.all_objects)
     for o in list(sc.collection.objects):                        # loose objects at the scene root leave the bake
         if o not in keep: sc.collection.objects.unlink(o)
@@ -391,7 +393,7 @@ def isolate():
         if o not in keep and o.type != 'CAMERA':                 # connector collections) is hidden from the bake
             try: o.hide_render = True; o.hide_viewport = True
             except Exception: pass
-    left = [n for n in drop if not _layer(n).exclude]
+    left = ['/'.join(c.name for c in path) for path in drop if not _lc_at(path).exclude]
     if left: raise SystemExit('isolate: collections still in the view layer: %s' % left)
 
 def assert_isolated(where):
