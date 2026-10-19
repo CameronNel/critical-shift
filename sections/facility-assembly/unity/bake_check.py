@@ -90,7 +90,8 @@ for name, e in mats_json.items():
             if see > 0 and e.get('_Surface') != 'Transparent': fail('%s: base map alpha below 1 on an opaque material' % name)
             if e.get('_Surface') == 'Transparent' and see == 0: fail('%s: marked Transparent but its base map alpha is 1 throughout' % name)
             if float(arr[..., :3].max()) < 0.002 and not e.get('_PreserveSpecular') and any(c not in ('EMISSION', 'BSDF_TRANSPARENT', 'HOLDOUT') for c in p['closures']):   # clear glass is black by design
-                fail('%s: base colour is black throughout' % name)
+                if p.get('missing_attributes'): print('CHECK note %s: black throughout; it reads %s, which none of its meshes carry, so the source renders it black too' % (name, p['missing_attributes']))
+                else: fail('%s: base colour is black throughout' % name)
         if k == '_BumpMap' and abs(float(arr[..., 2].mean()) - 1.0) > 0.5: fail('%s: normal map blue channel averages %.2f (not a tangent-space normal map?)' % (name, float(arr[..., 2].mean())))
     if e.get('_Surface') == 'Transparent': transparent += 1
     for k in ('_EmissionColor_intensity',):

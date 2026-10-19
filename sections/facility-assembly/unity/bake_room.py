@@ -537,8 +537,22 @@ if STAGE in ('prep', 'all'):
         seen.add(nt.as_pointer())
         return any(n.type in ('LAYER_WEIGHT', 'FRESNEL', 'LIGHT_PATH', 'CAMERA') or (n.type == 'GROUP' and view_dep(n.node_tree, seen)) for n in nt.nodes)
     for m in mats: plan[m.name]['view_dependent'] = bool(plan[m.name]['bake'] and view_dep(m.node_tree, set()))
+    # attributes a shader reads that none of its meshes carry read as zero in Cycles too, so the source itself renders black there (the map's
+    # evacuation bulkhead lenses reuse the front end's 'emissive', which reads the colour attribute 'Col' the lenses lack). Listed, not fixed.
+    def attr_names(nt, seen):
+        if nt is None or nt.as_pointer() in seen: return set()
+        seen.add(nt.as_pointer()); out = set()
+        for n_ in nt.nodes:
+            if n_.type == 'ATTRIBUTE' and n_.attribute_type == 'GEOMETRY' and n_.attribute_name: out.add(n_.attribute_name)
+            elif n_.type == 'GROUP': out |= attr_names(n_.node_tree, seen)
+        return out
+    for m in mats:
+        users = [o for o in objs if any(s_.material is m for s_ in o.material_slots)]
+        have = {a.name for o in users for a in o.data.attributes} | {u.name for o in users for u in o.data.uv_layers}
+        plan[m.name]['missing_attributes'] = sorted(attr_names(m.node_tree, set()) - have)
     step('materials planned', baked=sum(p['bake'] for p in plan.values()), masked=sorted(n for n, p in plan.items() if p['mask']),
          view_dependent_baked_head_on=sorted(n for n, p in plan.items() if p['view_dependent']),
+         reads_missing_attributes={n: p['missing_attributes'] for n, p in plan.items() if p['missing_attributes']},
          constant_multi_closure=sorted(n for n, p in plan.items() if not p['bake'] and len(p['closures']) > 1))
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
