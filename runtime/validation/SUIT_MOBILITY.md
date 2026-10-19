@@ -33,3 +33,20 @@ simultaneous real motors/controllers: worn versus unworn travel with equal load,
 hop/look/idle falling, midair retained momentum, and cart-stance correction.
 They remain NotRun; catalogue170 total. Static checks passed202 metadata GUIDs,
 21 asmdefs/131 C# files. Final full verification and review follow below.
+
+Full logical verifier `b7e7563cd20a08d8c2c9955200c706c862dbaa39` ran
+11:48:44–11:49:20 UTC with SDK8.0.423: **1068 executed/passed, zero failed/skipped;
+24 scenarios twice**, including real failing controls, seed replay and report
+safety. All267 recorded source inputs match that git tree; nine DLL hashes and
+results are frozen at ignored `out/suit-mobility-verification-20261019`.
+The6 new cases are included in1068. Two independent ultra source reviewers found
+no production blocker. A missing native-test namespace import was corrected.
+Follow-up native coverage also starts forward input only while unsupported and
+exercises the68kg carry clamp; those source additions remain NotRun.
+
+Native import/compiler/physics/GUI/Player and multiplayer remain NotRun. The
+remote device was still Offline at11:44 UTC; no matching editor/reference DLLs
+are installed here. Published Unity6000.4.3f1 C# reference source confirms the
+medical adapter's collider/body masks and articulation API names, which does not
+establish a native compilation. No balance, movement feel or roadmap acceptance
+is claimed. Draft source requires independent maintainer review/merge.

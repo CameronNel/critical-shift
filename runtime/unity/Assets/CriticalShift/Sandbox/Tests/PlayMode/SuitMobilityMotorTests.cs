@@ -61,17 +61,32 @@ namespace CriticalShift.Sandbox.Tests
         }
         [UnityTest] public IEnumerator WornSuitWalkingComposesWithTheSameCarriedMass()
         {
+            foreach (float payload in new[] { 20f, 68f })
             foreach (var suit in new[] { WorkerSuit.Intact, WorkerSuit.Compromised })
             {
+                load = payload;
                 Suit(1, suit); Vector3 a = motors[0].transform.position, b = motors[1].transform.position;
                 motors[0].SetMovement(Vector2.up); motors[1].SetMovement(Vector2.up);
                 for (int i = 0; i < 30; i++) yield return new WaitForFixedUpdate();
                 motors[0].SetMovement(Vector2.zero); motors[1].SetMovement(Vector2.zero);
                 float plain = motors[0].transform.position.z - a.z, worn = motors[1].transform.position.z - b.z;
                 Assert.That(plain, Is.GreaterThan(0.1f)); Assert.That(worn / plain, Is.EqualTo(0.8f).Within(0.04f));
-                Assert.That(motors[0].CarrySpeedScale, Is.EqualTo(0.5f)); Assert.That(motors[1].CarrySpeedScale, Is.EqualTo(0.5f));
+                float expectedCarry = payload == 20 ? 0.5f : 0.35f;
+                Assert.That(motors[0].CarrySpeedScale, Is.EqualTo(expectedCarry)); Assert.That(motors[1].CarrySpeedScale, Is.EqualTo(expectedCarry));
                 Assert.That(motors[1].SuitWalkSpeedScale, Is.EqualTo(0.8f)); yield return null;
             }
+            // Start steering only after support is gone, so a grounded-only multiplier cannot pass.
+            yield return new WaitForFixedUpdate(); yield return null;
+            floor.enabled = false; Physics.SyncTransforms();
+            for (int i = 0; i < 2; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motors[0].Grounded || motors[1].Grounded, Is.False);
+            motors[0].SetMovement(Vector2.up); motors[1].SetMovement(Vector2.up);
+            for (int i = 0; i < 40; i++) yield return new WaitForFixedUpdate();
+            Vector3 airborne0 = motors[0].transform.position, airborne1 = motors[1].transform.position;
+            for (int i = 0; i < 20; i++) yield return new WaitForFixedUpdate();
+            float air0 = motors[0].transform.position.z - airborne0.z, air1 = motors[1].transform.position.z - airborne1.z;
+            Assert.That(air0, Is.GreaterThan(0.1f)); Assert.That(air1 / air0, Is.EqualTo(0.8f).Within(0.04f));
+            Assert.That(motors[0].transform.position.y - airborne0.y, Is.EqualTo(motors[1].transform.position.y - airborne1.y).Within(0.02f));
         }
         [UnityTest] public IEnumerator WornSuitKeepsTheSameHopLookAndIdleFalling()
         {
