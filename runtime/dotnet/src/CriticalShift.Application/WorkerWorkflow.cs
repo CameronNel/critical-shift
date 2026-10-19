@@ -76,9 +76,8 @@ namespace CriticalShift.Application
                 contaminationContact: result.Contact == null ? null : new WorkerContaminationContact(result.Contact));
         }
 
-        internal IReadOnlyList<WorkerReply> ExpireRecovery(long now)
+        internal void ExpireRecovery(long now, List<WorkerReply> changed)
         {
-            var changed = new List<WorkerReply>();
             var actors = new List<Guid>(_workers.Keys); actors.Sort();
             foreach (var actor in actors)
             {
@@ -87,7 +86,6 @@ namespace CriticalShift.Application
                 var result = worker.ExpireRecovery(now);
                 if (result == WorkerResult.RecoveryExpired) changed.Add(Reply(result, worker, occurredAt: deadline));
             }
-            return changed.AsReadOnly();
         }
 
         internal WorkerReply Impact(InteractionWorld interaction, Guid actor, long sequence,

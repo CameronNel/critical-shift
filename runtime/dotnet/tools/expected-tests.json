@@ -577,5 +577,8 @@
   "FuelCompletionHelperCannotCountItsRetainedReceiptTwice": 1,
   "DiscardSnapshotsSurviveRawTraceEvictionAndMaterialOwnerTeardown": 1,
   "DiscardRejectsUnrelatedPayloadWithoutConsumingTheConnectionSequence": 5,
-  "DiscardGuidanceExplainsCoolingWaitAndIrreversibleLostTime": 1
+  "DiscardGuidanceExplainsCoolingWaitAndIrreversibleLostTime": 1,
+  "EarlierCommittedConversionSurvivesALaterMachineOrReactorSettlementFailure": 4,
+  "EarlierSuitCompletionOrInterruptionSurvivesTheNextWorkersFailure": 2,
+  "EarlierRecoveryExpirySurvivesTheNextWorkersFailure": 2
 }

@@ -8,9 +8,8 @@ namespace CriticalShift.Application
 {
     public sealed partial class ProductionOperations
     {
-        internal IReadOnlyList<ProductionChange> AdvanceTo(long shiftMilliseconds)
+        internal void AdvanceTo(long shiftMilliseconds, List<ProductionChange> changes)
         {
-            var changes = new List<ProductionChange>();
             var ids = new List<Guid>(_machines.Keys); ids.Sort();
             foreach (var id in ids)
             {
@@ -34,7 +33,6 @@ namespace CriticalShift.Application
                     _machines[id] = next; if (change != null) changes.Add(change);
                 }
             }
-            return changes.AsReadOnly();
         }
         private ProductionChange ActiveCycleEvent(ProductionEvent kind, MachineState state, long at, long reserveSpent = 0)
         {
