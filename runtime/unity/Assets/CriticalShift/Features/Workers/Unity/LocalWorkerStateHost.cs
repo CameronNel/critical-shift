@@ -62,7 +62,9 @@ namespace CriticalShift.Features.Workers.Unity
             downMovement = Vector2.ClampMagnitude(movement, 1);
         }
 
-        public WorkerStatus ObserveKnockdown(Guid hazard, Vector3 impulse, Vector3 contact)
+        public WorkerStatus ObserveKnockdown(Guid hazard, Vector3 impulse, Vector3 contact) => ObserveImpact(hazard, WorkerImpact.Knockdown, impulse, contact);
+
+        private WorkerStatus ObserveImpact(Guid hazard, WorkerImpact severity, Vector3 impulse, Vector3 contact)
         {
             if (!active) return WorkerStatus.NotReady;
             try
@@ -72,14 +74,15 @@ namespace CriticalShift.Features.Workers.Unity
                     throw new InvalidOperationException("Unregistered physical hazard source.");
                 if (!Finite(impulse) || !Finite(contact)) throw new ArgumentException("Physical impact samples must be finite.");
                 long sequence = checked(previous + 1);
-                var reply = world.ApplyWorkerImpact(world.Epoch, actor, sequence, WorkerImpact.Knockdown,
+                var reply = world.ApplyWorkerImpact(world.Epoch, actor, sequence, severity,
                     1500, hazard, Guid.NewGuid());
                 LastAction = "Impact: " + reply.Status;
                 if (reply.Status == WorkerStatus.Applied)
                 {
                     hazardSequences[hazard] = sequence; pendingAttempt = 0; placement.CancelStage();
                     downMovement = Vector2.zero;
-                    rig.Reconcile(reply.Worker, world.View.Phase); rig.ApplyImpactImpulse(impulse, contact);
+                    rig.Reconcile(reply.Worker, world.View.Phase);
+                    if (rig.IsFreeRagdoll) rig.ApplyImpactImpulse(impulse, contact);
                 }
                 else if (reply.Status != WorkerStatus.Paused && reply.Status != WorkerStatus.WorldEnded &&
                     reply.Status != WorkerStatus.WorldStopped && reply.Status != WorkerStatus.WorldFaulted)
@@ -93,6 +96,12 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (diagnosticHazard == Guid.Empty || rig == null) return;
             ObserveKnockdown(diagnosticHazard, rig.Controller.transform.right * 22 + Vector3.up * 8, rig.Pelvis.position);
+        }
+
+        public void DiagnosticIncapacitate()
+        {
+            if (diagnosticHazard == Guid.Empty || rig == null) return;
+            ObserveImpact(diagnosticHazard, WorkerImpact.Incapacitating, Vector3.zero, rig.Pelvis.position);
         }
 
         public void RequestRecovery()

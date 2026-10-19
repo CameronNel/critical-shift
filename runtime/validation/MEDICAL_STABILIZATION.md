@@ -45,7 +45,7 @@ No new package, transport, persistence or generic transaction framework is chose
 - Detached medical receipts, typed timeline events and canonical summary survive
   terminal debrief; restart gets fresh stock/state and rejects the old epoch.
 
-## Explicit physical limitation
+## Original physical boundary
 
 This is powered stabilization, not full biological shutdown/reanimation, physical
 cartridge inventory, all ten OCRU procedure steps or post-reanimation debuffs.
@@ -54,6 +54,11 @@ No medical insertion button or physical success is exposed through those adapter
 A dedicated worker-chamber placement/reconciliation adapter and native tests are
 required before playable physical integration. Unity remains unavailable here;
 changed native recovery preflight is source-only and NotRun.
+
+The later [physical rescue adapter](PHYSICAL_MEDICAL_RESCUE.md) adds explicit
+chamber/discharge placement and controls on a separate draft branch. That source
+supersedes the missing-adapter boundary above; its native execution remains
+NotRun. The historical logical evidence below belongs to its recorded revision.
 
 ## Evidence
 

@@ -482,5 +482,16 @@
   "ArithmeticFailureBeforePaidStartFaultsWithoutReservingOrSpending": 2,
   "AuthoredProductionReserveCostRejectsOutOfBounds": 2,
   "HistoricalInsufficientReserveCannotBecomeAPaidStartAfterBackupCompletes": 1,
-  "DeniedAccessAndStaleCompetingMachineStartCannotDrainReserve": 1
+  "DeniedAccessAndStaleCompetingMachineStartCannotDrainReserve": 1,
+  "MedicalViewAndReadoutExposeAuthoredInterlocksWithoutHardCodedDefaults": 1,
+  "MedicalControlsDescribeTheCurrentCanonicalProcedure": 5,
+  "MedicalCountdownUsesShiftTimeAndCannotCatchUpDuringPause": 1,
+  "ReadyPatientReadoutKeepsEjectionSeparateFromCurrentRecoveryWait": 1,
+  "MedicalReadoutWarnsBeforeAndDuringTreatmentThatCannotFinishThisShift": 1,
+  "MedicalReadoutCannotDescribeAForeignOrMissingPatientAsTheCurrentOne": 1,
+  "HistoricalMedicalReadoutRetainsItsOwnPaidStartWithoutChangingLiveResources": 1,
+  "MedicalRejectionsExplainActualContaminationReserveAndStockRequirements": 1,
+  "MedicalCancellationAndDischargeNeverPromiseAutomaticHealingOrStanding": 1,
+  "MedicalReadoutKeepsFractionalTimesInvariantAcrossLocales": 2,
+  "ExternalAidKeepsInterruptedGuidanceConditionalAndPermitsSeparateEjection": 1
 }

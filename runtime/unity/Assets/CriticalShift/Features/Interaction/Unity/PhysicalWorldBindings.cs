@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CriticalShift.Features.Interaction.Unity
 {
     /// <summary>World-scoped physical references and reconciliation. Logical custody always comes from WorldSession.</summary>
-    internal sealed class PhysicalWorldBindings
+    internal sealed partial class PhysicalWorldBindings
     {
         private sealed class CarryTarget
         {
@@ -276,7 +276,11 @@ namespace CriticalShift.Features.Interaction.Unity
                 return state != null && (state.HolderId == actor || state.SlotId == target);
             }
             foreach (var worker in workers.Values)
-                if (worker.Owns(body)) return world.GetObject(worker.Id)?.HolderId == actor;
+                if (worker.Owns(body))
+                {
+                    var state = world.GetObject(worker.Id); var medical = world.Medical.View;
+                    return state?.HolderId == actor || (target != Guid.Empty && medical?.Id == target && medical.BodyId == worker.Id && state?.SlotId == target);
+                }
             return false;
         }
 
@@ -367,8 +371,17 @@ namespace CriticalShift.Features.Interaction.Unity
             foreach (var worker in workers.Values)
             {
                 var state = running ? world.GetObject(worker.Id) : null;
-                if (state == null || state.IsRetired) { worker.Release(); continue; }
+                if (state == null || state.IsRetired) { worker.Release(); ClearMedicalWorker(worker.Id); continue; }
                 if (!worker.Active) throw new InvalidOperationException("A registered worker body lost a physical segment.");
+                if (state.SlotId.HasValue)
+                {
+                    var medical = world.Medical.View;
+                    if (medical == null || medical.Id != state.SlotId || medical.BodyId != worker.Id ||
+                        medical.PatientId != world.GetWorkerForBody(worker.Id)?.Id)
+                        throw new InvalidOperationException("A slotted worker lost its current medical station or patient identity.");
+                    worker.Release(); ReconcileMedicalWorker(worker.Id, state, medical.Id); continue;
+                }
+                ReconcileMedicalWorker(worker.Id, state, world.Medical.View?.Id ?? Guid.Empty);
                 if (!state.HolderId.HasValue) { worker.Release(); continue; }
                 if (world.View.Phase != WorldPhase.Running) worker.Hoist(state, false);
                 if (world.GetWorkerForBody(worker.Id)?.Pose != WorkerPose.Down ||
@@ -385,6 +398,7 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             foreach (var binding in bodies.Values) binding.Release();
             foreach (var worker in workers.Values) worker.Release();
+            ClearMedicalBindings();
             foreach (var target in dragTargets.Values) target.Reset();
             foreach (var target in carryTargets.Values) target.Reset();
             bodies.Clear(); slots.Clear(); carryTargets.Clear(); handles.Clear(); actorRoots.Clear(); workers.Clear(); dragTargets.Clear();

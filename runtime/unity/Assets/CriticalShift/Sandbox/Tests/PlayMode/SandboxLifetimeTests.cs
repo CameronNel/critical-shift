@@ -40,7 +40,7 @@ namespace CriticalShift.Sandbox.Tests
             {
                 Assert.That(bootstrap.World, Is.Not.Null); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
                 Assert.That(epochs.Add(bootstrap.World.Epoch), Is.True);
-                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(10));
+                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(11));
                 var workerRigs = root.GetComponentsInChildren<WorkerBodyRig>();
                 Assert.That(workerRigs.Length, Is.EqualTo(2));
                 foreach (var workerRig in workerRigs) Assert.That(workerRig.BodyCount, Is.EqualTo(11));
@@ -102,7 +102,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(bootstrap.LastStoppedPhysicalBindings, Is.Zero); Assert.That(bootstrap.LastStoppedPhysicsObservations, Is.Zero);
             yield return null; bootstrap.enabled = true; yield return null; yield return null;
             Assert.That(bootstrap.World.Epoch, Is.Not.EqualTo(epoch)); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
-            Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(10));
+            Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(11));
             Assert.That(root.GetComponentInChildren<PhysicsSafetyMonitor>().BoundBodyCount, Is.EqualTo(31));
             Assert.That(bootstrap.World.RemainingMilliseconds, Is.EqualTo(720000));
             var freshContract = root.GetComponentInChildren<LocalWorldHost>().Commands.Contract;

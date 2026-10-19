@@ -6,7 +6,7 @@ namespace CriticalShift.Features.Interaction.Unity
 {
     /// <summary>Local fixture host: unscaled clock sampling, command admission and current-state body reconciliation.</summary>
     [DisallowMultipleComponent]
-    public sealed class LocalWorldHost : MonoBehaviour
+    public sealed partial class LocalWorldHost : MonoBehaviour
     {
         private PhysicalWorldBindings bindings;
         private WorldSession world;
@@ -186,7 +186,9 @@ namespace CriticalShift.Features.Interaction.Unity
             catch (Exception exception) { StopAfterFailure(exception); }
         }
 
-        public void Pump()
+        public void Pump() => Pump(false);
+
+        private void Pump(bool settleCurrentSample)
         {
             if (!active || stopped) return;
             if (ReconcileTerminalWorld()) return;
@@ -196,9 +198,9 @@ namespace CriticalShift.Features.Interaction.Unity
             lastClock = now;
             double elapsed = now - realOrigin;
             long sample = checked(hostOrigin + (long)Math.Floor(elapsed * 1000));
-            if (sample > world.View.HostMilliseconds)
+            if (sample > world.View.HostMilliseconds || settleCurrentSample)
             {
-                var result = world.AdvanceTo(sample);
+                var result = world.AdvanceTo(Math.Max(sample, world.View.HostMilliseconds));
                 foreach (var change in result.ProductionChanges)
                     bindings.ApplyMaterialMass(change.Output);
                 ReconcileTerminalWorld();
@@ -246,8 +248,18 @@ namespace CriticalShift.Features.Interaction.Unity
 
         public void TransferFocused()
         {
-            if (!PrepareFocused()) return;
+            var ownChamber = OwnMedicalStation();
+            if (ownChamber != null) { OperateMedical(ownChamber.Id, MedicalAction.EmergencyEject, Guid.Empty); return; }
+            if (!PrepareFocused())
+            {
+                // The focus pump may have completed treatment on this same E press.
+                ownChamber = OwnMedicalStation();
+                if (ownChamber != null) OperateMedical(ownChamber.Id, MedicalAction.EmergencyEject, Guid.Empty);
+                return;
+            }
             Guid held = HeldObject();
+            if (world.Medical.View?.Id == focused)
+            { OperateMedical(focused, held == Guid.Empty ? MedicalAction.Eject : MedicalAction.Insert, held); return; }
             if (bindings.IsHandle(focused))
             {
                 if (held != Guid.Empty) Release(held); else Grab(focused);
@@ -295,6 +307,12 @@ namespace CriticalShift.Features.Interaction.Unity
         private void StartFocused(bool bypass)
         {
             if (!PrepareFocused()) return;
+            if (world.Medical.View?.Id == focused)
+            {
+                if (bypass) LastAction = "Medical stabilization requires its complete powered cycle";
+                else OperateMedical(focused, MedicalAction.Start, Guid.Empty);
+                return;
+            }
             if (world.SuitFitting.GetDefinition(focused) != null)
             {
                 if (bypass) LastAction = "Protective suit fitting requires its full preparation time";
@@ -357,6 +375,9 @@ namespace CriticalShift.Features.Interaction.Unity
             if (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)
             { focused = Guid.Empty; FocusHint = "Shift ended · restart the fixture"; return; }
             var worker = world.GetWorker(localActor);
+            var ownChamber = OwnMedicalStation();
+            if (ownChamber != null)
+            { focused = Guid.Empty; FocusHint = "Medical chamber | E request safe discharge · eject before standing recovery"; return; }
             if (worker?.CanInteract != true)
             {
                 focused = Guid.Empty;
@@ -368,6 +389,13 @@ namespace CriticalShift.Features.Interaction.Unity
             var custody = world.GetObject(focused);
             if (custody?.SlotId != null) focused = custody.SlotId.Value;
             Guid held = HeldObject();
+            if (world.Medical.View?.Id == focused)
+            {
+                var medical = world.Medical.View;
+                FocusHint = (targetName == null ? "Medical chamber" : targetName(focused)) + " | " +
+                    (medicalControls == null ? medical.Phase.ToString() : medicalControls(medical));
+                return;
+            }
             if (held != Guid.Empty && bindings.IsWorker(held))
             { FocusHint = "Worker suit grip | WASD move · hold Shift to hoist · G release"; return; }
             if (held != Guid.Empty && bindings.IsHandle(held))
@@ -491,6 +519,7 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             bindings?.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
             machineControls = null; productionResult = null;
+            medicalControls = null; medicalResult = null;
         }
 
         private void OnDisable() => Shutdown();

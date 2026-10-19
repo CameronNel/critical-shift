@@ -143,7 +143,7 @@ def validate_sandbox_player(text: str, exit_code: int, editor: str, build_guid: 
         raise EvidenceError("Sandbox Player version or build identity differs from this build.")
     if epoch == "0" * 32 or stopped[0][0] != epoch or text.index("CS_SANDBOX_PLAYER_READY") > text.index("CS_SANDBOX_PLAYER_STOPPED"):
         raise EvidenceError("Sandbox Player world identity or lifecycle ordering is invalid.")
-    if (int(bindings), int(bodies)) != (10, 31) or int(meshes) < 1:
+    if (int(bindings), int(bodies)) != (11, 31) or int(meshes) < 1:
         raise EvidenceError("Sandbox Player has an incomplete physical or generated-mesh inventory.")
     frames, milliseconds, errors, *remaining = map(int, stopped[0][1:])
     if frames < 120 or milliseconds < 2000 or errors != 0 or any(remaining):

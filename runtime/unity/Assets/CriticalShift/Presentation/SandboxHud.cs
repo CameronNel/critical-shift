@@ -12,13 +12,14 @@ namespace CriticalShift.Presentation
         public event Action<Guid, ProductionAction, Guid, bool, bool> MachineRequested;
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
         public event Action<Guid, SuitFittingAction> SuitFittingRequested;
+        public event Action<Guid, MedicalAction, Guid> MedicalRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
         public event Action BypassFocusedRequested;
         public event Action ShutdownFocusedRequested, EmergencyCoolingFocusedRequested;
         public event Action<bool> WorkerHoistRequested;
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
-        public event Action PatientRecoveryRequested, PatientKnockdownRequested;
+        public event Action PatientRecoveryRequested, PatientKnockdownRequested, PatientIncapacitateRequested;
         public event Action<Vector2> MovementRequested, LookRequested, CarryRotationRequested;
         public event Action JumpRequested;
         public event Action ThrowRequested;
@@ -27,7 +28,7 @@ namespace CriticalShift.Presentation
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
         private LocalCommandPort commands;
         private Guid[] containers, machines;
-        private Guid actor, reactor, patient, suitStation;
+        private Guid actor, reactor, patient, suitStation, medicalStation;
         private Func<string> actionStatus, physicsStatus, exposureCue;
         private Func<Guid, string> traceName;
         private int selectedContainer, selectedMachine;
@@ -40,13 +41,14 @@ namespace CriticalShift.Presentation
         private double nextTraceRefresh;
 
         public void Initialize(LocalCommandPort port, Guid localActor, Guid[] containerIds, Guid[] machineIds,
-            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics, Func<Guid, string> readTraceName, Guid suitStationId = default)
+            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics, Func<Guid, string> readTraceName, Guid suitStationId = default, Guid medicalStationId = default)
         {
             if (commands != null || port == null || containerIds == null || containerIds.Length == 0 ||
                 machineIds == null || machineIds.Length == 0 || localActor == Guid.Empty || reactorId == Guid.Empty ||
                 patientActorId == Guid.Empty || patientActorId == localActor)
                 throw new ArgumentException("Provide one local command port and explicit fixture selections.");
             commands = port; actor = localActor; reactor = reactorId; patient = patientActorId; suitStation = suitStationId;
+            medicalStation = medicalStationId;
             containers = (Guid[])containerIds.Clone(); machines = (Guid[])machineIds.Clone();
             actionStatus = readAction ?? throw new ArgumentNullException(nameof(readAction));
             physicsStatus = readPhysics ?? throw new ArgumentNullException(nameof(readPhysics));
@@ -64,6 +66,7 @@ namespace CriticalShift.Presentation
         public void Activate()
         {
             if (commands == null || suitStation != Guid.Empty && SuitFittingRequested == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
+                medicalStation != Guid.Empty && (MedicalRequested == null || PatientIncapacitateRequested == null) ||
                 ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
@@ -202,6 +205,7 @@ namespace CriticalShift.Presentation
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker?.CanInteract == true;
                 DrawMachine();
                 DrawReactor();
+                DrawMedical(previousEnabled);
                 GUI.enabled = previousEnabled;
                 GUILayout.Space(8);
                 GUILayout.Label(physicsStatus(), wrapped);
@@ -213,6 +217,7 @@ namespace CriticalShift.Presentation
                 var patientView = commands.GetWorker(patient);
                 if (patientView != null) GUILayout.Label("Fixture patient: " + patientView.Awareness + " / " + patientView.Pose);
                 if (GUILayout.Button("Fixture patient: knock down")) PatientKnockdownRequested?.Invoke();
+                if (medicalStation != Guid.Empty && GUILayout.Button("Fixture patient: simulate incapacitation for rescue")) PatientIncapacitateRequested?.Invoke();
                 if (GUILayout.Button("Fixture patient: attempt recovery")) PatientRecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
                 if (GUILayout.Button("Fixture only: clear conveyor blockage latch")) BeltResetRequested?.Invoke();
@@ -411,6 +416,35 @@ namespace CriticalShift.Presentation
             }
         }
 
+        private void DrawMedical(bool enabled)
+        {
+            var station = commands.Medical;
+            if (medicalStation == Guid.Empty || station == null || station.Id != medicalStation) return;
+            var world = commands.World; var local = commands.GetWorker(actor); var currentPatient = commands.GetWorker(station.PatientId);
+            GUI.enabled = enabled;
+            GUILayout.Space(8); GUILayout.Label("POWERED MEDICAL STABILIZATION");
+            GUILayout.Label(SandboxMedicalReadout.Summary(station, currentPatient, world.ElapsedMilliseconds, world.RemainingMilliseconds, commands.Power?.Available ?? 0), wrapped);
+            GUILayout.Label(SandboxMedicalReadout.Controls(station), wrapped);
+            bool operating = enabled && world.Phase == WorldPhase.Running && local?.CanInteract == true;
+            var heldPatient = commands.GetWorkerBodyClaim(patient); var selectedPatient = commands.GetWorker(patient);
+            GUI.enabled = operating && station.Phase == MedicalPhase.Empty && heldPatient?.HolderId == actor &&
+                selectedPatient?.Awareness == WorkerAwareness.Unconscious && selectedPatient.Pose == WorkerPose.Down;
+            if (GUILayout.Button("Load held fixture patient")) MedicalRequested?.Invoke(station.Id, MedicalAction.Insert, heldPatient?.EntityId ?? Guid.Empty);
+            GUI.enabled = operating && (station.Phase == MedicalPhase.Loaded || station.Phase == MedicalPhase.Interrupted) &&
+                currentPatient?.Awareness == WorkerAwareness.Unconscious && currentPatient.Pose == WorkerPose.Down &&
+                currentPatient.Contamination <= station.MaximumContamination && station.Cartridges > 0 && (commands.Power?.Available ?? 0) >= station.ReserveCost;
+            if (GUILayout.Button("Start stabilization")) MedicalRequested?.Invoke(station.Id, MedicalAction.Start, Guid.Empty);
+            GUI.enabled = operating && station.Phase == MedicalPhase.Treating;
+            if (GUILayout.Button("Cancel treatment (cost stays spent)")) MedicalRequested?.Invoke(station.Id, MedicalAction.Cancel, Guid.Empty);
+            GUI.enabled = operating && station.Phase != MedicalPhase.Empty && station.Phase != MedicalPhase.Treating;
+            if (GUILayout.Button("Eject patient safely")) MedicalRequested?.Invoke(station.Id, MedicalAction.Eject, Guid.Empty);
+            var own = commands.GetWorkerBodyClaim(actor);
+            GUI.enabled = enabled && world.Phase == WorldPhase.Running && local?.Awareness == WorkerAwareness.Alert &&
+                local.Pose == WorkerPose.Down && station.PatientId == actor && own?.SlotId == station.Id;
+            if (GUILayout.Button("Leave my chamber safely (E)")) MedicalRequested?.Invoke(station.Id, MedicalAction.EmergencyEject, Guid.Empty);
+            GUI.enabled = enabled;
+        }
+
         private void DrawTrace()
         {
             GUILayout.Space(8); GUILayout.Label("RECENT FIXTURE EVENTS");
@@ -437,12 +471,14 @@ namespace CriticalShift.Presentation
         private void OnDestroy()
         {
             ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null; SuitFittingRequested = null;
+            MedicalRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
             BypassFocusedRequested = null; ShutdownFocusedRequested = null; EmergencyCoolingFocusedRequested = null;
             WorkerHoistRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
+            PatientIncapacitateRequested = null;
             MovementRequested = null; LookRequested = null; CarryRotationRequested = null; CartDriveRequested = null; JumpRequested = null; ThrowRequested = null;
             CarryDistanceRequested = null;
             traceName = null;

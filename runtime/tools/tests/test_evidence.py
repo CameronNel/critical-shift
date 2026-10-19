@@ -315,7 +315,7 @@ class SandboxPlayerEvidenceTests(unittest.TestCase):
     version = "6000.4.3f1"
 
     def valid(self):
-        return (f"CS_SANDBOX_PLAYER_READY unity={self.version} build={self.guid} epoch={self.epoch} bindings=10 bodies=31 meshes=256\n"
+        return (f"CS_SANDBOX_PLAYER_READY unity={self.version} build={self.guid} epoch={self.epoch} bindings=11 bodies=31 meshes=256\n"
                 f"CS_SANDBOX_PLAYER_STOPPED epoch={self.epoch} frames=120 milliseconds=2400 errors=0 bindings=0 bodies=0 objects=0 claims=0 timers=0 connections=0\n")
 
     def check(self, text, code=0):
@@ -345,7 +345,7 @@ class SandboxPlayerEvidenceTests(unittest.TestCase):
 
     def test_incomplete_lifetime_or_runtime_inventory_is_rejected(self):
         for old, new in (("frames=120", "frames=119"), ("milliseconds=2400", "milliseconds=1999"),
-                         ("bindings=10", "bindings=9"), ("bodies=31", "bodies=30"), ("meshes=256", "meshes=0")):
+                         ("bindings=11", "bindings=10"), ("bodies=31", "bodies=30"), ("meshes=256", "meshes=0")):
             with self.subTest(value=old), self.assertRaises(EvidenceError):
                 self.check(self.valid().replace(old, new))
 
