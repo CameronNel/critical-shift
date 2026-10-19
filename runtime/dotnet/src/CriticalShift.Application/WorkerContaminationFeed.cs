@@ -26,7 +26,8 @@ namespace CriticalShift.Application
         public long NextEligibleAtMilliseconds => nextEligibleAt;
 
         /// <summary>Called only after trusted current presence was observed. No historical catch-up.</summary>
-        public WorkerReply? ObserveIfDue()
+        public WorkerReply? ObserveIfDue() => ObserveIfDue(null);
+        internal WorkerReply? ObserveIfDue(MaterialView? material)
         {
             if (failed) throw new InvalidOperationException("A failed contamination feed cannot manufacture a retry.");
             if (world.View.Phase != WorldPhase.Running || world.GetWorker(WorkerId) == null || world.View.ElapsedMilliseconds < nextEligibleAt)
@@ -35,7 +36,8 @@ namespace CriticalShift.Application
             {
                 long next = checked(sequence + 1), at = world.View.ElapsedMilliseconds;
                 Guid cause = Guid.NewGuid();
-                var reply = world.ObserveWorkerContamination(Epoch, WorkerId, SourceId, next, cause, at);
+                var reply = material == null ? world.ObserveWorkerContamination(Epoch, WorkerId, SourceId, next, cause, at) :
+                    world.ObserveCarriedMaterialContamination(Epoch, WorkerId, SourceId, next, cause, at, material);
                 var contact = reply.ContaminationContact;
                 if ((reply.Status != WorkerStatus.Applied && reply.Status != WorkerStatus.NoChange && reply.Status != WorkerStatus.CoolingDown) ||
                     contact == null || contact.Sequence != next || contact.SourceId != SourceId || contact.CauseId != cause ||

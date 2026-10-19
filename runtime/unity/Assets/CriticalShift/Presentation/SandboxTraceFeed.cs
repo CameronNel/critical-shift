@@ -96,6 +96,9 @@ namespace CriticalShift.Presentation
             if (record.ContaminationContact != null && record.Changed)
             {
                 var contact = record.ContaminationContact;
+                if (record.CarriedMaterial != null)
+                    return "Dirty cargo exposure · " + contact.Before + " -> " + contact.After + " · " +
+                        record.CarriedMaterial.Kind + " contamination " + record.CarriedMaterial.Contamination + "/1000";
                 return (contact.Kind == WorkerContaminationKind.Exposure ? "Contamination exposure" : "Decontamination") +
                     " · " + contact.Before + " -> " + contact.After;
             }

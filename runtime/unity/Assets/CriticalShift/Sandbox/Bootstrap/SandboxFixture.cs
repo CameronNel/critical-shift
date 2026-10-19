@@ -384,6 +384,10 @@ namespace CriticalShift.Sandbox
             contaminationZones = root.AddComponent<WorkerContaminationZones>();
             contaminationZones.Initialize(world, host.Pump, host.ReportExternalFailure);
             contaminationZones.BindWorker(actor, localRig); contaminationZones.BindWorker(patient, patientRig);
+            var materialSources = new CarriedMaterialExposureSource[containers.Length];
+            for (int i = 0; i < materialSources.Length; i++)
+                materialSources[i] = new CarriedMaterialExposureSource(containers[i], SandboxGameplaySetup.CarriedExposureSourceId(i), 500, "Crate " + (i + 1));
+            contaminationZones.BindOwnedCarriedExposure(new CarriedMaterialExposureFeed(world, new[] { actor, patient }, materialSources));
             BindArea(SandboxGameplaySetup.ExposureSourceId, new Vector3(0, 1.5f, -4.5f), "Exposure area", shapes.Yellow);
             BindArea(SandboxGameplaySetup.WashSourceId, new Vector3(5, 1.5f, -4.5f), "Wash area", shapes.Fuel);
             contaminationZones.Seal();

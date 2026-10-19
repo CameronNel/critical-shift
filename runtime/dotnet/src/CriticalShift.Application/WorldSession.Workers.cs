@@ -51,6 +51,19 @@ namespace CriticalShift.Application
             long next = NextRevision(); _workers.RegisterContaminationSource(sourceId, definition); _revision = next;
         }
         internal bool HasWorkerContaminationSource(Guid sourceId) => _workers.HasContaminationSource(sourceId);
+        internal bool IsWorkerExposureSource(Guid sourceId) => _workers.IsExposureSource(sourceId);
+
+        internal WorkerReply ObserveCarriedMaterialContamination(Guid epoch, Guid actorId, Guid sourceId, long sequence,
+            Guid cause, long sample, MaterialView material)
+        {
+            var current = Production.GetBatch(material.ContainerId); var claim = GetObject(material.ContainerId);
+            if (material.Epoch != Epoch || current == null || current.BatchId != material.BatchId || current.Revision != material.Revision ||
+                claim == null || claim.IsRetired || claim.HolderId != actorId || claim.SlotId.HasValue || !IsWorkerExposureSource(sourceId))
+                throw new InvalidOperationException("Carried exposure lost its exact current material and worker custody.");
+            return ExecuteWorker(epoch, actorId, SessionTraceKind.Contamination, sequence, false,
+                () => _workers.Contamination(actorId, sourceId, sequence, cause, sample, _timeline.ElapsedMilliseconds),
+                sourceId, cause, carriedMaterial: material);
+        }
 
         /// <summary>Trusted host contact observation, not an authenticated player's self-reported exposure or washing API.</summary>
         public WorkerReply ObserveWorkerContamination(Guid epoch, Guid actorId, Guid sourceId, long observationSequence,
@@ -72,7 +85,8 @@ namespace CriticalShift.Application
                 () => _workers.Resolve(actorId, attempt, true));
 
         private WorkerReply ExecuteWorker(Guid epoch, Guid actor, SessionTraceKind kind, long input,
-            bool allowPaused, Func<WorkerReply> operation, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null)
+            bool allowPaused, Func<WorkerReply> operation, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null,
+            MaterialView? carriedMaterial = null)
         {
             RequireIdle();
             var beforeFitting = _workers.Get(actor)?.SuitFitting;
@@ -115,8 +129,9 @@ namespace CriticalShift.Application
                 catch { FailClosed(); throw; }
                 finally { _executing = false; }
             }
-            _diagnostics.Append(View, epoch, kind, actor, reply.ReleasedClaim?.EntityId ?? Guid.Empty,
-                input, reply.Changed, worker: reply, previousWorkerRevision: before, hazardId: hazardId, causeId: causeId, severity: severity);
+            _diagnostics.Append(View, epoch, kind, actor, carriedMaterial?.ContainerId ?? reply.ReleasedClaim?.EntityId ?? Guid.Empty,
+                input, reply.Changed, worker: reply, previousWorkerRevision: before, hazardId: hazardId, causeId: causeId, severity: severity,
+                carriedMaterial: carriedMaterial);
             if (fitting != null)
                 _diagnostics.Append(View, epoch, SessionTraceKind.SuitFitting, actor, fitting.Attempt.StationId,
                     changed: true, hazardId: hazardId, causeId: causeId, fitting: fitting);

@@ -17,6 +17,8 @@ namespace CriticalShift.Sandbox
         internal static Guid ExposureSourceId => Id(720);
         internal static Guid WashSourceId => Id(721);
         internal static Guid MedicalStationId => Id(730);
+        internal static Guid CarriedExposureSourceId(int index)
+        { if (index < 0 || index >= ContainerCount) throw new ArgumentOutOfRangeException(nameof(index)); return Id(740 + index); }
         internal static Guid ReactorId => Id(500);
         internal static Guid ContainerId(int index)
         {
@@ -50,6 +52,8 @@ namespace CriticalShift.Sandbox
             world.Medical.Register(MedicalStationId, new MedicalDefinition());
             world.RegisterWorkerContaminationSource(ExposureSourceId, new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 12, 1000));
             world.RegisterWorkerContaminationSource(WashSourceId, new WorkerContaminationDefinition(WorkerContaminationKind.Decontamination, 25, 1000));
+            for (int i = 0; i < ContainerCount; i++)
+                world.RegisterWorkerContaminationSource(CarriedExposureSourceId(i), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 12, 1000));
             world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",
                 new GridDemandWave(Id(801), "Prepare fuel and cooling", 2 * 60 * 1000, 0),
                 new GridDemandWave(Id(802), "Morning supply", 6 * 60 * 1000, 800, 30 * 1000),
