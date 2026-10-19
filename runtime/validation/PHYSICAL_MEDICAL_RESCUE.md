@@ -75,3 +75,23 @@ cost snapshots, actual resource/interlock rejection, cancellation/discharge,
 external aid and locale-independent fractional time. Initial15 cases plus six
 canonical quota routes passed; a later aid regression is included in the final
 inventory. Full-suite and final review evidence will be recorded below.
+
+Final source candidate `6a6ac6cdfbd12c4df6aa309f0a59c509180c79b6`:
+19 October11:39:32–11:40:07 UTC, SDK8.0.423 Release/C#8/netstandard2.1:
+**1062 executed/passed, zero failed/skipped;24 scenarios, each twice**. Real
+failing NUnit/scenario and all eight independent-ledger/control paths were
+rejected; seed reproduction and create-new report checks passed. All266 recorded
+source inputs match that exact git tree; nine executable assembly hashes were
+validated and frozen under ignored `out/physical-medical-verification-20261019`.
+Static checks:201 unique metadata GUIDs,21 asmdefs,130 C# files. Python tooling:
+182 passed. The16 medical-readout cases are included in1062, not an additional
+total. Independent ultra source reviewers rechecked host/custody/clock, rig
+geometry, setup/teardown, readout and controls after root-authored repairs; no
+remaining concrete blocker was reported. Review is not native acceptance.
+
+Pinned Unity6000.4.3f1 remains unavailable locally (download denied403), and the
+last remote workstation check at10:45 UTC was Offline. New/current native166
+catalogue, GUI controls, actual clearance/settling/recovery, Player/build and
+multiplayer remain **NotRun**. The earlier132-case Unity record belongs to its
+earlier source. This feature remains a draft for independent maintainer review;
+it does not establish full OCRU reanimation, cartridge item inventory or balance.
