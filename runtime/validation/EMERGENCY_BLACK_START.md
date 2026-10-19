@@ -69,3 +69,21 @@ probe passed 11,287,984 CheckedSteps in 26.10 s. The oracle was then strengthene
 to check returned BackupCompleted occurrence time and committed cycle identity
 against its independent schedule, plus fresh start/cancel attribution. The final
 verifier and later candidate probe will cover that additional check.
+
+## Final full verification and review
+
+Source commit `acd63c72fea362f04584674776cb5a46c992b066` passed the complete verifier from
+2026-10-19T09:08:57.105778+00:00 to 2026-10-19T09:09:31.388809+00:00 UTC: **906 executed/passed, zero
+failed/skipped, 20 scenarios each twice**. This includes the strengthened backup
+identity/time oracle. Intentional NUnit/scenario/invariant failures, missing
+medical-start/exposure/backup-credit controls and report overwrite attempts were
+rejected; seed reproduction passed. Source inputs (238) match the recorded
+commit, and all nine frozen gameplay DLLs match the verifier's closure hashes.
+The independent freeze is ignored `runtime/out/emergency-power-verification-20261019`;
+it has no long-duration endurance attribution.
+
+Static source checks passed 188 metadata GUIDs, 21 asmdefs and 117 production C#
+files. Final independent ultra boundary and model reviews found no blocking
+findings after root's fixes. Reviewers did not edit or run builds/native checks.
+Unity import, temporary GUI controls, Player, physical feel and multiplayer are
+NotRun. Source review and offline results do not advance native/roadmap acceptance.
