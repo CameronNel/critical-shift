@@ -157,6 +157,14 @@ intention; standing still requires normal recovery clearance. This is source
 scope, not full reanimation or physical acceptance. Calling contract and remaining
 adapter boundary: [powered stabilization](../../runtime/dotnet/MEDICAL_STABILIZATION.md).
 
+The subsequent isolated native adapter stages every bound worker capsule over
+explicit static bed/discharge support before consuming a command. Only the exact
+current custody revision/lease accepts that pose. Workers.Unity retains sole
+motion ownership through reversible chamber mode and separate standing recovery;
+Bootstrap connects it to Interaction.Unity via callbacks. Own-patient egress
+retains current range/LOS, including after operator loss. This source integration
+has native acceptance pending: [physical rescue](../../runtime/validation/PHYSICAL_MEDICAL_RESCUE.md).
+
 The October2026 discrete contamination slice uses the same Workers-owned0–100
 meter. Immutable authored source loads/cooldowns and bounded per-(worker,source)
 receipts admit trusted current-shift-time observations. PPE reduces new exposure;

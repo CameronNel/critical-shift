@@ -25,7 +25,7 @@ namespace CriticalShift.Features.Workers.Unity
         internal RecoveryClearance Prepare()
         {
             prepared = false;
-            if (rig == null || !rig.Available || !rig.IsRagdoll) return RecoveryClearance.Unavailable;
+            if (rig == null || !rig.Available || !rig.IsFreeRagdoll) return RecoveryClearance.Unavailable;
             Physics.SyncTransforms();
             // Search immediately below the body; an overhead shelf or ceiling is not a recovery floor.
             Vector3 origin = rig.Pelvis.position + Vector3.up * 0.15f;
@@ -48,7 +48,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         public RecoveryClearance Evaluate(Guid epoch, Guid workerId, long recoveryAttempt)
         {
-            if (rig == null || !rig.Available || !rig.IsRagdoll || epoch != rig.Epoch || workerId != rig.Actor ||
+            if (rig == null || !rig.Available || !rig.IsFreeRagdoll || epoch != rig.Epoch || workerId != rig.Actor ||
                 recoveryAttempt < 1 || recoveryAttempt != stagedAttempt) return RecoveryClearance.Unavailable;
             return Check(stagedPosition, stagedRotation, stagedGround);
         }

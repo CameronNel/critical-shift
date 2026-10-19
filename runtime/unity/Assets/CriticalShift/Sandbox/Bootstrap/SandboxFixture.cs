@@ -23,6 +23,7 @@ namespace CriticalShift.Sandbox
         private LocalWorkerStateHost patientState;
         private WorkerImpactContacts patientContacts;
         private WorkerBodyRig localRig, patientRig;
+        private Collider floorSupport;
         private WorkerContaminationZones contaminationZones;
         private WorkerRecoveryRegistry recovery;
         private CartMotor cart;
@@ -35,7 +36,7 @@ namespace CriticalShift.Sandbox
         private SandboxPlayerExercise playerExercise;
         private bool disposed;
         private readonly Guid actor = Id(1), connection = Id(2), reactor = SandboxGameplaySetup.ReactorId, cartId = Id(600);
-        private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
+        private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650), localBody = Id(651);
         private readonly Guid[] containers = new Guid[SandboxGameplaySetup.ContainerCount],
             machines = { SandboxGameplaySetup.CrusherId, SandboxGameplaySetup.ProcessorId, SandboxGameplaySetup.DryerId };
         internal Guid Epoch => world.Epoch;
@@ -55,17 +56,19 @@ namespace CriticalShift.Sandbox
                 recovery = new WorkerRecoveryRegistry();
                 world = new WorldSession(SandboxGameplaySetup.Configuration(), access, recovery);
                 world.RegisterConnection(connection, actor);
+                world.RegisterWorkerBody(actor, localBody);
                 world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
                 SandboxGameplaySetup.Register(world);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
                 host.BindMachineReadout(SandboxMachineReadout.Controls, SandboxMachineReadout.Result);
+                host.BindMedicalReadout(SandboxMedicalReadout.Controls, SandboxMedicalReadout.Result);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
                 safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)),
                     maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
-                BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildSuitStation(); BuildCart(); BuildConveyor();
+                BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildSuitStation(); BuildMedical(); BuildCart(); BuildConveyor();
                 BuildContaminationZones();
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
@@ -76,11 +79,12 @@ namespace CriticalShift.Sandbox
                         "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
                         (safety.FaultLatched ? "\nPHYSICS STOP: " + safety.Fault : "") +
                         "\n" + workerState.LastAction + (workerState.CrawlDriveActive ? " · crawling" : "") + "\nPatient: " + patientState.LastAction,
-                    access.DisplayName, SandboxGameplaySetup.SuitStationId);
+                    access.DisplayName, SandboxGameplaySetup.SuitStationId, SandboxGameplaySetup.MedicalStationId);
                 hud.BindExposureCue(() => contaminationZones.Describe(actor));
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.SuitFittingRequested += host.OperateSuitFitting;
+                hud.MedicalRequested += host.OperateMedical;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
@@ -97,6 +101,7 @@ namespace CriticalShift.Sandbox
                 hud.WorkerHoistRequested += host.SetWorkerHoist;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
+                hud.PatientIncapacitateRequested += patientState.DiagnosticIncapacitate;
                 recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();
                 workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); contaminationZones.Activate(); safety.Activate(); hud.Activate();
             }
@@ -105,7 +110,7 @@ namespace CriticalShift.Sandbox
 
         private void BuildRoom()
         {
-            SandboxPrimitives.Box("Fixture floor", root.transform, new Vector3(0, -0.15f, 3), new Vector3(24, 0.3f, 22), shapes.Floor);
+            floorSupport = SandboxPrimitives.Box("Fixture floor", root.transform, new Vector3(0, -0.15f, 3), new Vector3(24, 0.3f, 22), shapes.Floor).GetComponent<Collider>();
             SandboxPrimitives.Box("West boundary", root.transform, new Vector3(-12, 1.5f, 3), new Vector3(0.3f, 3, 22), shapes.Steel);
             SandboxPrimitives.Box("East boundary", root.transform, new Vector3(12, 1.5f, 3), new Vector3(0.3f, 3, 22), shapes.Steel);
             SandboxPrimitives.Box("North boundary", root.transform, new Vector3(0, 1.5f, 14), new Vector3(24, 3, 0.3f), shapes.Steel);
@@ -138,6 +143,10 @@ namespace CriticalShift.Sandbox
             host.BindActorRoot(actor, player.transform);
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
             localRig = rig;
+            rig.BindDragEntity(localBody);
+            host.BindWorkerBody(localBody, actor, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass, rig.SetBodyHoist);
+            BindMedicalPatient(localBody, rig);
+            access.BindTarget(localBody, player.transform, rig.SuitGrip);
             foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Local worker / " + segment.name);
             rig.BindNormalHands(() => host.CarriedPhysicalMass() > 0 || host.CurrentGripStand().HasValue);
             BuildWorkerSignal(actor, rig, "Local worker status marker");
@@ -161,6 +170,8 @@ namespace CriticalShift.Sandbox
             rig.BindDragEntity(patientBody);
             BuildWorkerSignal(patient, rig, "Patient worker status marker");
             host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass, rig.SetBodyHoist);
+            BindMedicalPatient(patientBody, rig);
+            access.BindActor(patient, eyes.transform);
             access.BindTarget(patientBody, worker.transform, rig.SuitGrip);
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, patient, placement);
             patientState = worker.AddComponent<LocalWorkerStateHost>();
@@ -179,6 +190,30 @@ namespace CriticalShift.Sandbox
             light.shadows = LightShadows.None; light.intensity = 0;
             marker.AddComponent<WorkerStatusFeedback>().Initialize(commands, worker, marker.GetComponent<Renderer>(), light,
                 () => rig == null || rig.SuitGrip == null ? (Vector3?)null : rig.SuitGrip.position);
+        }
+
+        private void BindMedicalPatient(Guid body, WorkerBodyRig rig)
+        {
+            var placement = new WorkerMedicalPlacement(); placement.Bind(rig);
+            host.BindMedicalWorker(body, placement.Prepare, placement.Reconcile, placement.CancelStage, placement.Clear);
+        }
+
+        private void BuildMedical()
+        {
+            var station = SandboxPrimitives.Empty("Powered medical stabilization", root.transform, new Vector3(9, 0, 10));
+            var bed = SandboxPrimitives.Box("Medical bed support", station.transform, new Vector3(0, 0.55f, 0),
+                new Vector3(1.5f, 0.3f, 2.5f), shapes.Steel);
+            var pose = SandboxPrimitives.Empty("Explicit supine patient pose", station.transform, new Vector3(0, 0.7f, 0));
+            var discharge = SandboxPrimitives.Empty("Explicit floor discharge pose", station.transform, new Vector3(0, 0, -3));
+            SandboxPrimitives.Box("Medical discharge clearance marker", discharge.transform, new Vector3(0, 0.008f, 0),
+                new Vector3(1.5f, 0.012f, 2.5f), shapes.Yellow, false);
+            var console = SandboxPrimitives.Box("Medical console", station.transform, new Vector3(-1.6f, 0.7f, 0),
+                new Vector3(0.35f, 1.4f, 0.35f), shapes.Dark);
+            // Keep bound anchors unit-scale: the console primitive itself is deliberately scaled geometry.
+            var consolePoint = SandboxPrimitives.Empty("Explicit medical control anchor", station.transform, new Vector3(-1.6f, 1.1f, 0));
+            host.BindMedicalSlot(SandboxGameplaySetup.MedicalStationId, pose.transform, bed.GetComponent<Collider>(),
+                discharge.transform, floorSupport, consolePoint.transform);
+            access.BindTarget(SandboxGameplaySetup.MedicalStationId, station.transform, consolePoint.transform);
         }
 
         private void BuildContainers()
@@ -486,7 +521,7 @@ namespace CriticalShift.Sandbox
                 exercisedClaim.IsRetired || exercisedClaim.SlotId.HasValue))
                 throw new InvalidOperationException("The opt-in exercise lost its sole expected current-world portable claim.");
             if (disposed || view.Phase != WorldPhase.Running || view.ActiveClaimCount != (exerciseHolding ? 1 : 0) || view.ConnectedPlayerCount != 2 ||
-                view.RegisteredObjectCount != 10 || PhysicalBindingCount != 10 || PhysicsObservationCount != 31 || safety.FaultLatched ||
+                view.RegisteredObjectCount != 11 || PhysicalBindingCount != 11 || PhysicsObservationCount != 31 || safety.FaultLatched ||
                 safety.DynamicBodyCount != 20 || world.GetWorker(actor)?.Pose != WorkerPose.Upright ||
                 world.GetWorker(patient)?.Pose != WorkerPose.Down || world.Reactor.View?.Mode != ReactorMode.Empty)
                 throw new InvalidOperationException("The sandbox Player lost its declared running-world or physical fixture invariants.");
@@ -515,6 +550,7 @@ namespace CriticalShift.Sandbox
             access?.Clear(); recovery?.Clear(); shapes?.Dispose();
             playerExercise = null; playerExerciseBody = null; playerExerciseTarget = null;
             localRig = null; patientRig = null;
+            floorSupport = null;
         }
     }
 }

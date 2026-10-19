@@ -1,5 +1,12 @@
 # Critical Shift runtime
 
+**19 October continuation:** source now includes a physical medical rescue
+adapter and controls, following the logical shift, power, production and worker
+systems in the draft stack. See [medical rescue](validation/PHYSICAL_MEDICAL_RESCUE.md)
+for current checks and native limitations. Current native catalogue:166 source
+cases; this continuation has no new Unity/Player result. The earlier results
+below retain their original revision and scope.
+
 **PR #111 review repairs, 18 October 2026:** six independent ultra review tracks
 identified and rechecked fixes for loading rotated crates, worker-body cleanup,
 lease-scoped hoisting, recovery clearance, native-runner provenance and inherited

@@ -51,7 +51,8 @@ namespace CriticalShift.Application
           BodyId = state.BodyId; PatientId = state.PatientId; CycleId = state.CycleId; PatientEpisodeAtStart = state.PatientEpisode;
           PatientRevisionAtStart = state.PatientRevision;
           StartedAtMilliseconds = state.StartedAtMilliseconds; DueAtMilliseconds = state.DueAtMilliseconds;
-          Cartridges = state.Cartridges; DurationMilliseconds = state.Rules.DurationMilliseconds; ReserveCost = state.Rules.ReserveCost; }
+          Cartridges = state.Cartridges; DurationMilliseconds = state.Rules.DurationMilliseconds; ReserveCost = state.Rules.ReserveCost;
+          MaximumContamination = state.Rules.MaximumContamination; RecoveryDelayMilliseconds = state.Rules.RecoveryDelayMilliseconds; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public long Revision { get; }
@@ -66,6 +67,8 @@ namespace CriticalShift.Application
         public int Cartridges { get; }
         public long DurationMilliseconds { get; }
         public long ReserveCost { get; }
+        public int MaximumContamination { get; }
+        public long RecoveryDelayMilliseconds { get; }
     }
     public sealed class MedicalChange
     {

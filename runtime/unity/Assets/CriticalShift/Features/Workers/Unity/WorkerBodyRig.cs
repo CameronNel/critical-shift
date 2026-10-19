@@ -7,7 +7,7 @@ namespace CriticalShift.Features.Workers.Unity
 {
     /// <summary>One physical handoff between a walking capsule and an explicitly bound fixture ragdoll.</summary>
     [DisallowMultipleComponent]
-    public sealed class WorkerBodyRig : MonoBehaviour
+    public sealed partial class WorkerBodyRig : MonoBehaviour
     {
         private CharacterController controller;
         private Transform eyes, head;
@@ -29,9 +29,12 @@ namespace CriticalShift.Features.Workers.Unity
         private Vector3 eyePosition;
         private Quaternion recoveryRotation;
         private Guid epoch, actor;
-        private bool ragdoll, frozen;
+        private bool ragdoll, frozen, chambered;
         private readonly RaycastHit[] crawlSupport = new RaycastHit[32];
         public bool IsRagdoll => ragdoll;
+        public bool IsChambered => chambered;
+        internal bool IsFreeRagdoll => ragdoll && !chambered;
+        internal Guid BodyEntity => bodyEntity;
         public int BodyCount => bodies == null ? 0 : bodies.Length;
         public float TotalPhysicalMass { get; private set; }
         public Transform SuitGrip => dragPoint;
@@ -45,6 +48,7 @@ namespace CriticalShift.Features.Workers.Unity
         {
             get
             {
+                bool dynamic = IsFreeRagdoll;
                 if (frozen || !isActiveAndEnabled || controller == null || controller.enabled == ragdoll || !controller.detectCollisions ||
                     !UnitScale(controller.transform) || eyes == null || !eyes.gameObject.activeInHierarchy ||
                     !eyes.IsChildOf(controller.transform) || eyes.GetComponentInParent<Rigidbody>() != null ||
@@ -55,7 +59,8 @@ namespace CriticalShift.Features.Workers.Unity
                 for (int i = 0; i < bodies.Length; i++)
                     if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy ||
                         !bodies[i].transform.IsChildOf(controller.transform) || !UnitScale(bodies[i].transform) ||
-                        !bodies[i].detectCollisions || bodies[i].isKinematic == ragdoll || colliders[i].enabled != ragdoll ||
+                        !bodies[i].detectCollisions || bodies[i].isKinematic == dynamic || colliders[i].enabled != dynamic ||
+                        (chambered && bodies[i].useGravity) ||
                         colliders[i].isTrigger || !colliders[i].gameObject.activeInHierarchy ||
                         !ContactBelongsTo(colliders[i], bodies[i])) return false;
                 return true;
@@ -136,6 +141,8 @@ namespace CriticalShift.Features.Workers.Unity
                 throw new InvalidOperationException("A body rig cannot reconcile another worker or epoch.");
             if (phase != WorldPhase.Running && phase != WorldPhase.Paused) { Freeze(); return; }
             if (!Available) throw new InvalidOperationException("An active worker lost its physical rig binding, contact geometry or anchors.");
+            if (chambered && worker.Pose != WorkerPose.Down)
+                throw new InvalidOperationException("A chambered worker cannot stand or recover before physical ejection.");
             if (worker.Pose != WorkerPose.Upright)
             {
                 if (!ragdoll) EnterRagdoll();
@@ -182,14 +189,14 @@ namespace CriticalShift.Features.Workers.Unity
 
         public void ApplyImpactImpulse(Vector3 impulse, Vector3 point)
         {
-            if (!ragdoll || !Available || !Finite(impulse) || !Finite(point))
+            if (!IsFreeRagdoll || !Available || !Finite(impulse) || !Finite(point))
                 throw new InvalidOperationException("Impact forces require the current active ragdoll and finite observations.");
             pelvis.AddForceAtPosition(Vector3.ClampMagnitude(impulse, 80), point, ForceMode.Impulse);
         }
 
         public bool PullBodyClaim(ObjectClaimView claim, Vector3 target, float seconds)
         {
-            if (!ragdoll || !Available || dragPoint == null || dragBody == null || claim == null || claim.Epoch != epoch ||
+            if (!IsFreeRagdoll || !Available || dragPoint == null || dragBody == null || claim == null || claim.Epoch != epoch ||
                 claim.EntityId != bodyEntity || !claim.HolderId.HasValue || claim.LeaseGeneration < 1 ||
                 claim.LeaseGeneration < lastPhysicalLease ||
                 !Finite(target) || seconds <= 0 || float.IsNaN(seconds) || float.IsInfinity(seconds)) return false;
@@ -213,7 +220,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         public void SetBodyHoist(ObjectClaimView claim, bool raised)
         {
-            if (!ragdoll || !Available || claim == null || claim.Epoch != epoch || claim.EntityId != bodyEntity ||
+            if (!IsFreeRagdoll || !Available || claim == null || claim.Epoch != epoch || claim.EntityId != bodyEntity ||
                 !claim.HolderId.HasValue || claim.LeaseGeneration < 1 || claim.LeaseGeneration < lastPhysicalLease) return;
             lastPhysicalLease = claim.LeaseGeneration;
             hoist = raised; hoistGeneration = raised ? claim.LeaseGeneration : 0;
@@ -223,7 +230,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         internal bool Crawl(Vector2 movement)
         {
-            if (!ragdoll || !Available || movement.sqrMagnitude < 0.0001f) return false;
+            if (!IsFreeRagdoll || !Available || movement.sqrMagnitude < 0.0001f) return false;
             int count = Physics.RaycastNonAlloc(pelvis.position + Vector3.up * 0.05f, Vector3.down, crawlSupport,
                 0.8f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
             if (count == crawlSupport.Length) throw new InvalidOperationException("Crawl support observation bounds were saturated.");
@@ -253,6 +260,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         internal bool HasSettledRecoveryMotion()
         {
+            if (!IsFreeRagdoll) return false;
             foreach (var body in bodies)
             {
                 Vector3 linear = body.linearVelocity, angular = body.angularVelocity;
@@ -265,7 +273,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         internal void StandAt(Vector3 position, Quaternion rotation)
         {
-            if (!ragdoll || !Available || !Finite(position)) throw new InvalidOperationException("No active ragdoll can accept this recovery pose.");
+            if (!IsFreeRagdoll || !Available || !Finite(position)) throw new InvalidOperationException("No active ragdoll can accept this recovery pose.");
             Quaternion look = eyes.rotation;
             SetSimulation(false);
             ReleaseBodyClaim();
@@ -291,7 +299,7 @@ namespace CriticalShift.Features.Workers.Unity
         public void Freeze()
         {
             if (frozen) return;
-            frozen = true; SetSimulation(false); ReleaseBodyClaim(); ragdoll = false;
+            frozen = true; SetSimulation(false); ReleaseBodyClaim(); ragdoll = false; chambered = false;
             Array.Clear(crawlSupport, 0, crawlSupport.Length);
             if (controller != null) controller.enabled = false;
         }

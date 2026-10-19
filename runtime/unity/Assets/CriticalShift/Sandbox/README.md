@@ -1,5 +1,11 @@
 # Isolated local-host gameplay fixture
 
+**Physical medical rescue continuation, 19 October 2026:** the current source
+adds a chamber and explicit discharge area, paid timed stabilization controls
+and own-patient emergency egress. The native catalogue contains **166 cases**,
+including27 new medical cases, all new behavior **NotRun** without the pinned
+editor. [Scope and current evidence](../../../../validation/PHYSICAL_MEDICAL_RESCUE.md).
+
 **PR #111 review repairs:** rotated loading bounds, exact-lease hoist reset,
 setup-disconnect body cleanup and recovery clearance have been repaired after
 independent source review. The native catalogue now has **136 implemented cases**;
@@ -45,7 +51,7 @@ required player solution or a physical playtest. See
 Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
 Create isolated gameplay scene** generates a new scratch scene containing only a
 composition root. On play it builds debug geometry: eight crates, three production
-machines (crusher, processor and safe ore dryer), a reactor, a cart, a conveyor, a local collision controller and a downed
+machines (crusher, processor and safe ore dryer), a reactor, a medical chamber, a cart, a conveyor, a local collision controller and a downed
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
@@ -120,6 +126,18 @@ test worker. The second worker is controlled locally for this fixture.
   carrying and accepted loading/transport behavior remain separate work.
   A process pause stops active hoisting and lowers its target while the current
   claim remains held; ordinary passive Unity physics continues.
+- The test worker begins alert/down for drag and recovery checks. Use the explicit
+  patient incapacitation button to create an unconscious rescue patient. Drag
+  that body to the chamber at(9,0,10); E while looking at its console loads the
+  held patient, and R requests stabilization. The panel shows actual reserve,
+  cartridges, contamination limit and shift-clock time. Default treatment spends
+  6reserve and1cartridge for3s; cancel/interruption retains those costs. Completing
+  treatment leaves the worker alert/down inside the chamber. E ejects onto its
+  separate clear pad, then ordinary settling, delay and standing clearance apply.
+  Both bed and discharge need full-body clearance. An awake local patient can E
+  out of their own ejectable chamber without camera focus, including after the
+  operator disconnects; range and line of sight to the console still apply.
+  These source controls and all chamber physics remain native NotRun.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.
@@ -199,7 +217,9 @@ generator does not install packages or alter authored map art.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 132 implemented cases. The
+is `runtime/validation/sandbox-expected-tests.json`: currently166 source cases.
+New and changed cases remain NotRun. The historical132-case suite below belongs
+to its earlier source. The
 earlier 124-case checkpoint passed. The final URP candidate passed all 132 cases
 with zero skips. The earlier 127/129 result and controlled solver/origin failures
 remain historical failures; those comparisons established no physical motion fix.

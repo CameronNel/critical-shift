@@ -170,7 +170,7 @@ namespace CriticalShift.Sandbox.Tests
             foreach (var body in oldRig.CopyBodySegments()) Assert.That(body.isKinematic, Is.True);
             yield return null; bootstrap.enabled = true; yield return null; yield return null;
             BindFixture(); Assert.That(host.World.Epoch, Is.Not.EqualTo(oldEpoch)); Assert.That(Claim.HolderId, Is.Null);
-            Assert.That(host.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.EqualTo(10));
+            Assert.That(host.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.EqualTo(11));
         }
 
         [UnityTest] public IEnumerator FreeWorkerSegmentsShareOneCargoGroupAndHeldSegmentsHaveNone()

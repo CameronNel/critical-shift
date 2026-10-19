@@ -15,6 +15,7 @@ namespace CriticalShift.Sandbox
         internal static Guid SuitStationId => Id(710);
         internal static Guid ExposureSourceId => Id(720);
         internal static Guid WashSourceId => Id(721);
+        internal static Guid MedicalStationId => Id(730);
         internal static Guid ReactorId => Id(500);
         internal static Guid ContainerId(int index)
         {
@@ -44,6 +45,7 @@ namespace CriticalShift.Sandbox
                 resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));
             world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition());
             world.SuitFitting.Register(SuitStationId, new SuitFittingDefinition());
+            world.Medical.Register(MedicalStationId, new MedicalDefinition());
             world.RegisterWorkerContaminationSource(ExposureSourceId, new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 12, 1000));
             world.RegisterWorkerContaminationSource(WashSourceId, new WorkerContaminationDefinition(WorkerContaminationKind.Decontamination, 25, 1000));
             world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",

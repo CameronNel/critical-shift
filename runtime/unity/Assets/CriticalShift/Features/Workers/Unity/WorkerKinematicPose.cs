@@ -122,6 +122,22 @@ namespace CriticalShift.Features.Workers.Unity
             PrepareRestPose(); PublishPose();
         }
 
+        internal void PublishPreparedPose(Vector3[] preparedPositions, Quaternion[] preparedRotations)
+        {
+            if (!HasBoundHierarchy() || preparedPositions == null || preparedRotations == null ||
+                preparedPositions.Length != bodies.Length || preparedRotations.Length != bodies.Length)
+                throw new InvalidOperationException("A prepared worker pose lost its explicit segment hierarchy.");
+            for (int i = 0; i < bodies.Length; i++)
+            {
+                if (bodies[i] == null || !bodies[i].isKinematic)
+                    throw new InvalidOperationException("Prepared placement cannot write a dynamic or missing worker segment.");
+                if (!WorkerBodyRig.ValidMedicalVector(preparedPositions[i]) || !WorkerBodyRig.ValidMedicalRotation(preparedRotations[i]))
+                    throw new InvalidOperationException("Prepared placement requires finite positions and unit rotations for every segment.");
+                worldPositions[i] = preparedPositions[i]; worldRotations[i] = preparedRotations[i];
+            }
+            PublishPose(); Physics.SyncTransforms();
+        }
+
         private void PrepareRestPose()
         {
             if (!HasBoundHierarchy()) throw new InvalidOperationException("A worker's bound presentation hierarchy changed.");

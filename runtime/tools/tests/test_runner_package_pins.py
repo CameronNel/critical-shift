@@ -72,7 +72,7 @@ class NativeRunnerPackagePinTests(unittest.TestCase):
                     project = project_seen[0]
                     phase = "player"
                     if name == "run_sandbox":
-                        text = (f"CS_SANDBOX_PLAYER_READY unity=6000.4.3f1 build={self.build_guid} epoch={self.epoch} bindings=10 bodies=31 meshes=1\n"
+                        text = (f"CS_SANDBOX_PLAYER_READY unity=6000.4.3f1 build={self.build_guid} epoch={self.epoch} bindings=11 bodies=31 meshes=1\n"
                                 f"CS_SANDBOX_PLAYER_STOPPED epoch={self.epoch} frames=120 milliseconds=2400 errors=0 bindings=0 bodies=0 objects=0 claims=0 timers=0 connections=0\n")
                     else:
                         text = (f"CS_FOUNDATION_READY unity=6000.4.3f1 build={self.build_guid}\n"
