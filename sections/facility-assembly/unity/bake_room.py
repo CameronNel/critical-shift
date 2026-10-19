@@ -68,7 +68,11 @@ class _Rooms:
         hit = {p[:k] for p in _lc_paths(lambda c: c in want) for k in range(1, len(p) + 1)}   # every collection on every path to them
         for path in sorted(hit, key=len):
             lc = _lc_at(path)
-            if lc is not None: lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
+            if lc is None: continue
+            # only where it is set: setting exclude = False on an included collection still restores its children's earlier state, which brought
+            # the map's DOORS collection back under COMBINED_MAP after isolate() had excluded it (2026-10-19)
+            if lc.exclude: lc.exclude = False
+            lc.hide_viewport = False; lc.collection.hide_viewport = False
 coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
 def bsdf(m): return next((n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None) if m and m.node_tree else None
@@ -350,7 +354,7 @@ ISOLATE = '--isolate' in a
 EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
 # LayerCollections are addressed by their path of collections from the scene root, compared as IDs, never by name, and looked up fresh for each
 # change: changing exclude rebuilds the tree and leaves older references stale (2026-10-18: the whole map stayed in every map bake), and names are
-# not unique (a room library's own "DOORS" collection made show() switch the map's DOORS collection back on, 2026-10-19)
+# not unique across libraries, and a collection can sit at several places in the tree
 def _lc_at(path):
     lc = vl.layer_collection
     for c in path:
