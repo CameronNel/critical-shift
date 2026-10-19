@@ -1,4 +1,9 @@
 {
+  "CompactContractShowsCurrentCountdownAndNoPrematureWarning": 1,
+  "CompactContractShowsAuthoredNextWarningAcrossWindowBoundary": 1,
+  "CompactContractReportsOnlySettledMissesAndLatestShortfall": 1,
+  "TerminalCompactContractHidesFutureCountdowns": 3,
+  "ContractReadoutReadsFrozenSnapshotsAndPauseWithoutMutation": 1,
   "DeadlineSettlesStoredWorkerExpiryIndependentlyOfHostSampling": 4,
   "OverdueWorkerExpiryKeepsItsDeadlineSeparateFromObservationTime": 1,
   "WorkerExpiryFailureFaultsBeforePublishingTheDeadlineResult": 1,
