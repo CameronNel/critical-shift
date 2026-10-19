@@ -226,9 +226,11 @@ def build(mat, name, positional):
             if name == 'A2 machine blue enamel':
                 tu = w.boxes(TOUCH_UPS, 1.0); base = w.mix(base, tu, (1.10, 1.08, 1.12)); rough = w.math('SUBTRACT', rough, w.math('MULTIPLY', tu, 0.08))
             if name in ('Charcoal impact dado', 'Structural painted steel'):
-                zone = w.boxes(DADO_SCUFFS, 1.0) if name == 'Charcoal impact dado' else w.ramp(w.pos()[1].outputs['Z'], 0.35, 0.08)
-                chip = w.math('MULTIPLY', zone, w.ramp(w.noise(7.0, 2.0, rough=0.4), 0.70, 0.74), True)            # few, larger chips
-                base = w.mix(base, chip, (0.27, 0.28, 0.29), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', chip, 0.15))   # grey primer showing
+                dado = name == 'Charcoal impact dado'
+                zone = w.boxes(DADO_SCUFFS, 1.0) if dado else w.ramp(w.pos()[1].outputs['Z'], 0.35, 0.08)
+                chip = w.math('MULTIPLY', zone, w.ramp(w.noise(7.0, 2.0, rough=0.4), 0.70 if dado else 0.76, 0.74 if dado else 0.78), True)   # few, larger chips
+                base = w.mix(base, chip, (0.27, 0.28, 0.29) if dado else (0.12, 0.125, 0.13), 'MIX')   # grey primer on the dado; on near-black steel, only a dull scuff
+                rough = w.math('ADD', rough, w.math('MULTIPLY', chip, 0.15))
         rough = w.math('ADD', rough, w.math('MULTIPLY', cav, 0.10))
     else:
         if name in ('Warm mineral plaster', 'Dense cast concrete'):
@@ -293,7 +295,7 @@ def chain(name, top, bottom_z, mat, pitch=0.045):
     bm = bmesh.new(); top = Vector(top); n = int((top.z - bottom_z) / pitch)
     for i in range(n):
         z = top.z - (i + 0.5) * pitch; t = bmesh.ops.create_cube(bm, size=1.0)['verts']
-        bmesh.ops.scale(bm, vec=(0.012, 0.004, pitch * 0.6) if i % 2 else (0.004, 0.012, pitch * 0.6), verts=t)
+        bmesh.ops.scale(bm, vec=(0.012, 0.004, pitch * 1.15) if i % 2 else (0.004, 0.012, pitch * 1.15), verts=t)     # links overlap: an interlocked chain, not a dashed line
         bmesh.ops.translate(bm, vec=(top.x, top.y, z), verts=t)
     return mesh_obj(name, bm, mat)
 def clear_down(x, y, z_top, z_bottom, ignore=()):
@@ -402,7 +404,6 @@ def vent_extensions():
         T = Matrix.Translation((dx, 0, dz))
         for o in parts: o.matrix_world = T @ o.matrix_world
         cylinder('A3 WB %s vent extension spindle' % side, c0, c0 + Vector((dx, 0, dz)), 0.012, steel, 10)
-        cylinder('A3 WB %s vent spindle guide' % side, c0 + Vector((dx * 0.4, 0, dz * 0.4)), c0 + Vector((dx * 0.55, 0, dz * 0.55)), 0.022, M('Structural painted steel'), 12)
         note('vent_extension', side=side, from_=[round(v, 3) for v in c0], raise_m=dz, step_x=dx)
 
 def ejector_chain():
