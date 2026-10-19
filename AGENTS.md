@@ -70,6 +70,21 @@ The canonical planning section is `design/code-architecture/`:
 
 Also read [ENGINE_DECISION](design/ENGINE_DECISION.md), the relevant gameplay specification and current repository state. Historical prototype evidence is not proof of a currently runnable Unity project. Do not silently select networking, Steam, voice, input/UI or persistence infrastructure. A package trial needs an explicit bounded decision before installation.
 
+## Owner shortcut: "add the sky"
+
+When the owner says "add the sky" (or "put the night sky in"), they mean the night sky from PR #129 (stars, Milky Way and a moving Moon, `runtime/unity/Assets/CriticalShift/Content/Sky/`, design and defaults in its `README.md`), added to the Unity map scene. Do this:
+1. Make sure the checkout has PR #129. If it is not merged, use its branch and say so.
+2. Pull only the sky textures: `git lfs pull --include "runtime/unity/Assets/CriticalShift/Content/Sky/Textures/*"`.
+3. Add the sky to the scene. Unity runs one editor per project, so pick by whether it is open:
+   - **Unity is open** with the map scene, `Content/Rooms/map/CriticalShift_Map.unity` (built by *Critical Shift > Rooms > Import Baked Map*): the owner, or an agent with control of the screen, clicks **Critical Shift > Environment > Set Up Night Sky**, then saves the scene.
+   - **Unity is closed:** run `Unity -batchmode -projectPath runtime/unity -executeMethod CriticalShift.Content.Editor.NightSkySetup.SetUpBatch [-scene <path>]` (no `-quit`; it exits itself). The scene defaults to the map scene; a `-scene` path is relative to the Unity project (`Assets/...`) or absolute. Exit codes: 0 done, 1 set-up failed (textures or shader), 3 scene not found.
+4. Either way the set-up creates `Content/Sky/NightSky.mat` and a "Night Sky" object with the moonlight, and sets the skybox. Re-importing the map keeps it.
+5. Report the first-run checks:
+   - Does the shader compile in the Console? It had never been compiled in Unity before this run.
+   - Is the sky mirrored? Not verified.
+   - The brightness settings assume no tonemapping; retune them once exposure is chosen.
+   - Tuning lives on the Night Sky object (clock, Moon) and on the material (brightness).
+
 ## Environment and Blender section work
 
 Read the global art/build authority under `design/` and the relevant section-local `AGENT_READ_FIRST.md`, scenery specification and production state. For runtime exports, also read the architecture plan's authoring-to-runtime boundary. Original visual source, licensed materials and art-review evidence are not dead runtime assets to be removed by an unused-code sweep.
