@@ -546,10 +546,25 @@ if STAGE in ('prep', 'all'):
             if n_.type == 'ATTRIBUTE' and n_.attribute_type == 'GEOMETRY' and n_.attribute_name: out.add(n_.attribute_name)
             elif n_.type == 'GROUP': out |= attr_names(n_.node_tree, seen)
         return out
+    def base_attr_names(m):
+        """Attributes feeding the base colour: upstream of each surface closure's Base Color / Color input (into node groups whole)."""
+        tree = closures(m); leaves = tree[0] if tree else ([bsdf(m)] if bsdf(m) else [])
+        stack = [i.links[0].from_node for n_ in leaves if n_ is not None for i in n_.inputs if i.name in ('Base Color', 'Color') and i.is_linked]
+        seen, out = set(), set()
+        while stack:
+            n_ = stack.pop()
+            if n_.as_pointer() in seen: continue
+            seen.add(n_.as_pointer())
+            if n_.type == 'ATTRIBUTE' and n_.attribute_type == 'GEOMETRY' and n_.attribute_name: out.add(n_.attribute_name)
+            elif n_.type == 'GROUP': out |= attr_names(n_.node_tree, set())
+            stack.extend(l.from_node for i in n_.inputs for l in i.links)
+        return out
     for m in mats:
         users = [o for o in objs if any(s_.material is m for s_ in o.material_slots)]
         have = {a.name for o in users for a in o.data.attributes} | {u.name for o in users for u in o.data.uv_layers}
         plan[m.name]['missing_attributes'] = sorted(attr_names(m.node_tree, set()) - have)
+        # only these excuse a black base colour in bake_check (review: an attribute missing elsewhere in the tree does not make the base black)
+        plan[m.name]['missing_base_attributes'] = sorted(base_attr_names(m) - have) if m.node_tree else []
     step('materials planned', baked=sum(p['bake'] for p in plan.values()), masked=sorted(n for n, p in plan.items() if p['mask']),
          view_dependent_baked_head_on=sorted(n for n, p in plan.items() if p['view_dependent']),
          reads_missing_attributes={n: p['missing_attributes'] for n, p in plan.items() if p['missing_attributes']},
