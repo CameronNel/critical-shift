@@ -1,0 +1,282 @@
+{
+ "source": "module_aaa_A2.blend",
+ "source_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+ "changes": [
+  {
+   "kind": "module_positions",
+   "meshes": 372,
+   "shared_meshes_skipped": 0,
+   "attribute": "A3_pos"
+  },
+  {
+   "kind": "wear",
+   "material": "A2 machine blue enamel",
+   "positional_users": 16
+  },
+  {
+   "kind": "wear",
+   "material": "A2 waterbox oxide enamel",
+   "positional_users": 2
+  },
+  {
+   "kind": "wear",
+   "material": "A2 hotwell graphite blue",
+   "positional_users": 1
+  },
+  {
+   "kind": "wear",
+   "material": "Astra ivory painted steel",
+   "positional_users": 36
+  },
+  {
+   "kind": "wear",
+   "material": "Structural painted steel",
+   "positional_users": 267
+  },
+  {
+   "kind": "wear",
+   "material": "Charcoal impact dado",
+   "positional_users": 6
+  },
+  {
+   "kind": "wear",
+   "material": "Oxide orange enamel",
+   "positional_users": 17
+  },
+  {
+   "kind": "wear",
+   "material": "Light oxide enamel",
+   "positional_users": 6
+  },
+  {
+   "kind": "wear",
+   "material": "Warm mineral plaster",
+   "positional_users": 9
+  },
+  {
+   "kind": "wear",
+   "material": "Dense cast concrete",
+   "positional_users": 15
+  },
+  {
+   "kind": "wear",
+   "material": "Basement coated concrete",
+   "positional_users": 3
+  },
+  {
+   "kind": "wear",
+   "material": "Replacement floor patch",
+   "positional_users": 2
+  },
+  {
+   "kind": "anchor_moved",
+   "anchor": "INTERACT_CW_ISOL_S",
+   "old": [
+    8.55,
+    3.2,
+    3.55
+   ],
+   "new": [
+    8.55,
+    2.98,
+    1.17
+   ]
+  },
+  {
+   "kind": "chain_operator",
+   "valve": "SUPPLY",
+   "wheel_centre": [
+    8.55,
+    2.98,
+    3.5
+   ],
+   "side": [
+    0,
+    -1
+   ],
+   "grip_z": 1.11
+  },
+  {
+   "kind": "anchor_moved",
+   "anchor": "INTERACT_CW_ISOL_R",
+   "old": [
+    8.55,
+    4.9,
+    3.55
+   ],
+   "new": [
+    8.55,
+    4.68,
+    1.17
+   ]
+  },
+  {
+   "kind": "chain_operator",
+   "valve": "RETURN",
+   "wheel_centre": [
+    8.55,
+    4.68,
+    3.5
+   ],
+   "side": [
+    0,
+    -1
+   ],
+   "grip_z": 1.11
+  },
+  {
+   "kind": "anchor_moved",
+   "anchor": "INTERACT_CSB_TRIP",
+   "old": [
+    -1.28,
+    4.05,
+    1.12
+   ],
+   "new": [
+    -0.8,
+    4.05,
+    1.12
+   ]
+  },
+  {
+   "kind": "anchor_moved",
+   "anchor": "INTERACT_CD_ISOLATE",
+   "old": [
+    0.8,
+    4.05,
+    3.17
+   ],
+   "new": [
+    -0.8,
+    4.19,
+    1.12
+   ]
+  },
+  {
+   "kind": "desk_station",
+   "trip_parts": [
+    "OP trip stem",
+    "OP trip mushroom",
+    "OP trip bezel"
+   ],
+   "housing": {
+    "x": -0.8,
+    "y": [
+     3.98,
+     4.26
+    ],
+    "top": 1.07
+   }
+  },
+  {
+   "kind": "desk_lamp",
+   "moved_y": 0.16,
+   "lowered": 0.1
+  },
+  {
+   "kind": "vent_extension",
+   "side": "west",
+   "from_": [
+    0.875,
+    3.45,
+    4.64
+   ],
+   "raise_m": 0.45,
+   "step_x": -0.155
+  },
+  {
+   "kind": "vent_extension",
+   "side": "east",
+   "from_": [
+    5.125,
+    3.45,
+    4.64
+   ],
+   "raise_m": 0.3,
+   "step_x": 0.1
+  },
+  {
+   "kind": "anchor_moved",
+   "anchor": "INTERACT_EJ",
+   "old": [
+    -1.1,
+    7.55,
+    2.15
+   ],
+   "new": [
+    -1.2,
+    7.55,
+    1.23
+   ]
+  },
+  {
+   "kind": "ej_chain",
+   "wheel_centre": [
+    -1.2,
+    7.55,
+    2.15
+   ],
+   "grip_z": 1.17
+  },
+  {
+   "kind": "light_balance",
+   "lights": {
+    "batten0": [
+     96.2,
+     62.6
+    ],
+    "batten1": [
+     96.2,
+     62.6
+    ],
+    "batten2": [
+     126.0,
+     81.9
+    ],
+    "batten3": [
+     96.2,
+     62.6
+    ],
+    "batten4": [
+     126.0,
+     81.9
+    ],
+    "batten5": [
+     126.0,
+     81.9
+    ],
+    "batten6": [
+     96.2,
+     62.6
+    ],
+    "batten7": [
+     96.2,
+     62.6
+    ],
+    "batten8": [
+     126.0,
+     81.9
+    ],
+    "task CD south": [
+     17.5,
+     19.3
+    ],
+    "task CD east": [
+     72.6,
+     79.9
+    ],
+    "task pumps": [
+     94.5,
+     104.0
+    ],
+    "task operator": [
+     77.6,
+     85.4
+    ]
+   }
+  }
+ ],
+ "evaluated_triangles": 354840,
+ "output": "module_aaa_A3.blend",
+ "output_sha256": "432c65bca9becf36d34ad719b032570c9f545ddfed53320b81346073db0c56dc"
+}

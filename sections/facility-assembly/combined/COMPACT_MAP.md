@@ -54,7 +54,7 @@ After the grey-box test (`GREYBOX_FUEL_TEST.md`) the owner said "yes do the rebu
 |---|---|---|---|
 | Fuel corridor | F23ci at (-22.2, -43.6), rot 0; 38.2 m freight path, F02 north | **S1** at (-22.2, -43.6), rot 0; F01 to F02E about 26 m | refinery fuel door (unchanged) |
 | Reactor | (0, 0) | **(0, -18.7)** | concourse depth and F02E (above) |
-| Turbine / electrical / condenser / cooling | (0, 14.5) / (10.5, 33.0) / (1.6, 21.9, -6) / (-14.5, 0) | **+RY**: (0, -4.2) / (10.5, 14.3) / (1.6, 3.2, -6) / (-14.5, -18.7); electrical (10.5, 8.3) since the turbine rebuild swap | unchanged relative to the reactor |
+| Turbine / electrical / condenser / cooling | (0, 14.5) / (10.5, 33.0) / (1.6, 21.9, -6.3) / (-14.5, 0) | **+RY**: (0, -4.2) / (10.5, 14.3) / (1.6, 3.2, -6.3) / (-14.5, -18.7); electrical (10.5, 8.3) since the turbine rebuild swap | unchanged relative to the reactor |
 | Waste (AAA) | (10.47, -25.48), rot -90, spine east wall | **(11.94, -14.84), rot -90**, reactor east wall opening | reactor east outer face x 11.6; opening centre reactor-local y 3.86 between the lockers (to y 2.42) and the column plinth (from 5.29) |
 | Compliance dock | (12.15, -40.39), rot -90 | unchanged | spine east face |
 | Concourse | x -10.8..6.15, y -19.6..-14.8 | **x -5.46..6.15, y -38.3..-33.5** | F02E, spine west face, reactor south door |
@@ -90,7 +90,7 @@ Defects found by the walk test and fixed in the same pass (all local copies): th
 | Reactor, front end, spawn, mine, refinery, medical, fuel corridor | as built | **unchanged** | their own rails, the 34 m spine, the corridor and the yard portal; moving any of them breaks those interfaces |
 | Turbine (AAA finish) | origin (0, 17) | origin **(0, 14.5)**: end wall on the reactor N stub outer end, no hall | reactor stub measured y 10.8 to 14.5; turbine end wall module y 0.0 |
 | Electrical (R11) | (19.75, 26.25) NE, 2 halls away | origin **(0, 39.95)**, touching the turbine's far door | turbine and electrical CONNECTIONS.md: origin (0, 25.45) in turbine coordinates, collinear 2.4 m openings |
-| Condenser bay (AAA finish) | not placed | origin **(1.6, 21.9, -6.0)**, under the turbine | its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0); U04 receive lands on turbine U04 (4.6, 11.45, 0) |
+| Condenser bay (AAA finish) | not placed | origin **(1.6, 21.9, -6.3)** since 2026-10-19 (was -6.0; AGENT_READ_FIRST.md), under the turbine | its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0); U04 receive lands on turbine U04 (4.6, 11.45, 0) |
 | Waste (AAA finish `module_aaa_A1.blend`) | (28.32, -24), 23 m hall | origin **(16.2, -16.2)**, rotation -135, 7 m hall from the SE stub seam | WS_RECEIVING threshold on the stub axis (11.0163, -11.0163 seam, cooling CONNECTIONS.md) |
 | Cooling (AAA finish `module_aaa_A1.blend`) | (-44.1, -19), 40 m hall | origin **(-14.5, 0)**, rotation +90, on the W stub end | CP-P01 on the stub end; cooling owns y >= 0, reactor owns the stub |
 | Compliance dock | (60, -79), 129 m trunk | origin **(38, -54)**, rotation -90, 2 m past the front-end hall east stub | P1 threshold; hall east door stub ends at x 36 |
