@@ -304,7 +304,7 @@ namespace CriticalShift.Features.Interaction.Unity
             var machine = world.Production.GetMachine(focused);
             if (machine != null)
             {
-                var action = bypass ? ProductionAction.Start : machine.Mode == ProductionMode.Jammed ? ProductionAction.Repair :
+                var action = bypass ? ProductionAction.Start : machine.Mode == ProductionMode.Jammed || machine.Mode == ProductionMode.Repairing ? ProductionAction.Repair :
                     machine.Mode == ProductionMode.PowerPaused ? ProductionAction.Resume : ProductionAction.Start;
                 OperateMachine(focused, action, Guid.Empty, bypass, false);
             }

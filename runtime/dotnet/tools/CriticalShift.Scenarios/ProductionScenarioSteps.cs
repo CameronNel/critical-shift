@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Text.Json;
 using CriticalShift.Application;
 using static CriticalShift.Scenarios.ScenarioInput;
@@ -25,11 +26,11 @@ namespace CriticalShift.Scenarios
                 foreach (string field in new[] { "output", "bypassDuration", "jamAfter", "yield", "tolerance" })
                     if (m.TryGetProperty(field, out _)) throw new ArgumentException("Drying definitions use fixed same-kind/quantity/safe rules; omit " + field + ".");
                 return MachineRecipe.Drying(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"),
-                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "outputMoisture", 100)));
+                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "outputMoisture", 100)), Number(m, "repairDuration", 0));
             }
             return new MachineRecipe(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"), Choice<MaterialKind>(m, "output"),
                 Number(m, "duration"), Number(m, "bypassDuration"), Number(m, "jamAfter"), checked((int)Number(m, "capacity")),
-                checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0)));
+                checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0)), Number(m, "repairDuration", 0));
         }
         internal static string Execute(JsonElement step, WorldSession world, Guid epoch, Guid connection)
         {
@@ -48,11 +49,14 @@ namespace CriticalShift.Scenarios
             var batch = world.Production.GetBatch(Id(checked((int)Number(selectors, "batch", 600))));
             var records = world.Trace.Records;
             var last = records.Count == 0 ? null : records[records.Count - 1];
+            var repair = records.LastOrDefault(r => r.Changed && (r.ProductionEvent == ProductionEvent.RepairStarted || r.ProductionEvent == ProductionEvent.RepairCompleted));
             var summary = world.Production.Summary; actual = null; expected = null;
             switch (assertion.Name)
             {
                 case "machine": case "batch": return true;
                 case "lastProductionEvent": actual = last?.ProductionEvent?.ToString(); expected = assertion.Value.GetString(); return true;
+                case "lastRepairEvent": actual = repair?.ProductionEvent?.ToString(); expected = assertion.Value.GetString(); return true;
+                case "lastRepairAt": actual = repair?.OccurredAtMilliseconds; expected = assertion.Value.GetInt64(); return true;
                 case "lastCyclePresent": actual = last != null && last.CycleId != Guid.Empty; expected = assertion.Value.GetBoolean(); return true;
                 case "lastCycleBypassed": actual = last?.BypassedInspection; expected = assertion.Value.GetBoolean(); return true;
                 case "lastOutputPresent": actual = last != null && last.OutputBatchId != Guid.Empty; expected = assertion.Value.GetBoolean(); return true;
@@ -62,6 +66,8 @@ namespace CriticalShift.Scenarios
                 case "machineMode": actual = machine?.Mode.ToString(); expected = assertion.Value.GetString(); return true;
                 case "machinePower": actual = machine?.Powered; expected = assertion.Value.GetBoolean(); return true;
                 case "machineWork": actual = machine?.WorkMilliseconds; expected = assertion.Value.GetInt64(); return true;
+                case "repairWork": actual = machine?.RepairWorkMilliseconds; expected = assertion.Value.GetInt64(); return true;
+                case "repairRemaining": actual = machine?.RepairRemainingMilliseconds; expected = assertion.Value.GetInt64(); return true;
                 case "machineRevision": actual = machine?.Revision; expected = assertion.Value.GetInt64(); return true;
                 case "batchKind": actual = batch?.Kind.ToString(); expected = assertion.Value.GetString(); return true;
                 case "batchUnits": actual = batch?.Units; expected = assertion.Value.GetInt32(); return true;
