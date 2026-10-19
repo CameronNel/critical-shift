@@ -93,8 +93,20 @@ namespace CriticalShift.Features.Interaction.Domain
                     expired.Add(state);
             // Stable ordering makes diagnostics and future binding cleanup reproducible.
             expired.Sort((a, b) => a.EntityId.CompareTo(b.EntityId));
+            // Prepare the whole release batch before advancing time or changing either
+            // index. A later unrepresentable revision cannot silently release a prefix.
+            for (int i = 0; i < expired.Count; i++)
+            {
+                var previous = expired[i];
+                expired[i] = new ClaimSnapshot(previous.EntityId, null, checked(previous.Revision + 1),
+                    previous.LeaseGeneration, 0, false);
+            }
             NowMilliseconds = nowMilliseconds;
-            for (int i = 0; i < expired.Count; i++) expired[i] = Free(expired[i], false);
+            foreach (var released in expired)
+            {
+                _heldByActor.Remove(_objects[released.EntityId].HolderId!.Value);
+                _objects[released.EntityId] = released;
+            }
             return expired.AsReadOnly();
         }
 

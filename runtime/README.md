@@ -13,6 +13,10 @@ for current checks and native limitations. The draft continuation also includes
 cases; this continuation has no new Unity/Player result. The earlier results
 below retain their original revision and scope.
 
+The latest review also fixes [fault settlement evidence](validation/FAULT_SETTLEMENT_EVIDENCE.md):
+an earlier machine/worker completion now remains in the debrief if a later owner
+fails during the same poll. This adds retained facts without changing game clocks.
+
 **PR #111 review repairs, 18 October 2026:** six independent ultra review tracks
 identified and rechecked fixes for loading rotated crates, worker-body cleanup,
 lease-scoped hoisting, recovery clearance, native-runner provenance and inherited

@@ -15,7 +15,7 @@ namespace CriticalShift.Application
     public sealed class SessionTraceRecord
     {
         internal SessionTraceRecord(long sequence, WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
-            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand, MedicalChange? medical, SuitFittingChange? fitting, MaterialView? carriedMaterial)
+            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand, MedicalChange? medical, SuitFittingChange? fitting, MaterialView? carriedMaterial, long? occurredAt)
         {
             DemandChange = demand; SuitFittingChange = fitting ?? interaction?.SuitFitting?.Change;
             ContaminationContact = worker?.ContaminationContact;
@@ -32,7 +32,8 @@ namespace CriticalShift.Application
             ReactorEvent = changed ? ReactorChange?.Kind : null;
             ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
-            OccurredAtMilliseconds = SuitFittingChange?.ShiftMilliseconds ?? MedicalChange?.ShiftMilliseconds ?? demand?.ShiftMilliseconds ?? ReactorChange?.ShiftMilliseconds ??
+            ProductionChange = change;
+            OccurredAtMilliseconds = occurredAt ?? SuitFittingChange?.ShiftMilliseconds ?? MedicalChange?.ShiftMilliseconds ?? demand?.ShiftMilliseconds ?? ReactorChange?.ShiftMilliseconds ??
                 change?.ShiftMilliseconds ?? worker?.OccurredAtMilliseconds ?? world.ElapsedMilliseconds;
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
@@ -69,6 +70,7 @@ namespace CriticalShift.Application
         public WorkerContaminationContact? ContaminationContact { get; }
         public MaterialView? CarriedMaterial { get; }
         public SuitFittingChange? SuitFittingChange { get; }
+        public ProductionChange? ProductionChange { get; }
         public DoorStatus? DoorResult { get; }
         public DoorAction? DoorAction { get; }
         public DoorState? DoorState { get; }
@@ -147,12 +149,12 @@ namespace CriticalShift.Application
         }
         internal void Append(WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
             Guid actor = default, Guid entity = default, long input = 0, bool changed = false,
-            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null, MedicalChange? medical = null, SuitFittingChange? fitting = null, MaterialView? carriedMaterial = null)
+            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null, MedicalChange? medical = null, SuitFittingChange? fitting = null, MaterialView? carriedMaterial = null, long? occurredAt = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
             bool exhausted = _sequence == long.MaxValue;
             var record = new SessionTraceRecord(exhausted ? _sequence : ++_sequence, world, requestEpoch, kind,
-                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand, medical, fitting, carriedMaterial);
+                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand, medical, fitting, carriedMaterial, occurredAt);
             _incidents.Observe(record, !exhausted);
             if (exhausted) { if (_dropped < long.MaxValue) _dropped++; return; }
             if (_count == Capacity)

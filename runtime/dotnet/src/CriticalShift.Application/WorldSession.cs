@@ -122,6 +122,10 @@ namespace CriticalShift.Application
             if (!_timeline.IsActive) return EmptyAdvance(false);
             long next = NextRevision();
             bool timeChanged = hostMilliseconds != _timeline.HostMilliseconds;
+            var productionChanges = new List<ProductionChange>(); var reactorChanges = new List<ReactorChange>();
+            var demandChanges = new List<GridDemandChange>(); var medicalChanges = new List<MedicalChange>();
+            var fittingChanges = new List<SuitFittingChange>(); var workerChanges = new List<WorkerReply>();
+            bool settlementJournaled = false; long? attemptedShift = null;
             _executing = true;
             try
             {
@@ -129,51 +133,14 @@ namespace CriticalShift.Application
                 // Do not publish a terminal outcome before settlement: a failed owner
                 // must fault the world rather than leave a previously published timeout.
                 long elapsed = _timeline.PreviewElapsedAt(hostMilliseconds);
-                AdvanceProductionTo(elapsed, out var productionChanges, out var reactorChanges, out var demandChanges, out var medicalChanges, out var fittingChanges);
+                attemptedShift = elapsed;
+                AdvanceProductionTo(elapsed, productionChanges, reactorChanges, demandChanges, medicalChanges, fittingChanges);
                 // Stored worker deadlines are required owner work, including the terminal cutoff.
-                var workerChanges = _workers.ExpireRecovery(elapsed);
+                _workers.ExpireRecovery(elapsed, workerChanges);
                 bool ended = _timeline.AdvanceTo(hostMilliseconds, elapsed == Configuration.ShiftDurationMilliseconds ?
                     Contracts.DeadlineOutcome : TimelineOutcome.TimedOut);
-                if (reactorChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in reactorChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.Reactor, entity: change.State.Id, changed: true, reactor: change);
-                }
-                if (productionChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in productionChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.Production, entity: change.Machine.Id, changed: true, production: change);
-                }
-                if (demandChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in demandChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.Contract, entity: change.Wave.Id, changed: true, demand: change);
-                }
-                if (medicalChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in medicalChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.Medical, actor: change.PatientId,
-                            entity: change.Station.Id, changed: true, medical: change);
-                }
-                if (fittingChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in fittingChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.SuitFitting, actor: change.Worker.Id,
-                            entity: change.Attempt.StationId, changed: true, fitting: change);
-                }
-                if (workerChanges.Count != 0)
-                {
-                    _revision = next;
-                    foreach (var change in workerChanges)
-                        _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
-                            input: change.Worker.RecoveryAttempt, changed: true, worker: change,
-                            previousWorkerRevision: change.Worker.Revision - 1);
-                }
+                settlementJournaled = true;
+                JournalSettlement(next, productionChanges, reactorChanges, demandChanges, medicalChanges, fittingChanges, workerChanges);
                 if (ended)
                 {
                     // End wins over advisory notifications in this batch, including overdue signals.
@@ -182,7 +149,7 @@ namespace CriticalShift.Application
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
                     CaptureDebrief();
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
-                        workerChanges: workerChanges, productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges, medicalChanges: medicalChanges, fittingChanges: fittingChanges);
+                        workerChanges: workerChanges.AsReadOnly(), productionChanges: productionChanges.AsReadOnly(), reactorChanges: reactorChanges.AsReadOnly(), demandChanges: demandChanges.AsReadOnly(), medicalChanges: medicalChanges.AsReadOnly(), fittingChanges: fittingChanges.AsReadOnly());
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
                 var due = _timers.AdvanceTo(hostMilliseconds, _timeline.ElapsedMilliseconds);
@@ -199,10 +166,66 @@ namespace CriticalShift.Application
                         previousClaimRevision: claim.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
-                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges, demandChanges, medicalChanges, fittingChanges);
+                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges.AsReadOnly(), productionChanges.AsReadOnly(), reactorChanges.AsReadOnly(), demandChanges.AsReadOnly(), medicalChanges.AsReadOnly(), fittingChanges.AsReadOnly());
             }
-            catch { FailClosed(); throw; }
+            catch
+            {
+                try
+                {
+                    if (!settlementJournaled)
+                        JournalSettlement(next, productionChanges, reactorChanges, demandChanges, medicalChanges, fittingChanges, workerChanges);
+                }
+                finally { FailClosed(attemptedShift); }
+                throw;
+            }
             finally { _executing = false; }
+        }
+
+        private void JournalSettlement(long next, IReadOnlyList<ProductionChange> productionChanges,
+            IReadOnlyList<ReactorChange> reactorChanges, IReadOnlyList<GridDemandChange> demandChanges,
+            IReadOnlyList<MedicalChange> medicalChanges, IReadOnlyList<SuitFittingChange> fittingChanges,
+            IReadOnlyList<WorkerReply> workerChanges)
+        {
+            if (reactorChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in reactorChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.Reactor, entity: change.State.Id, changed: true, reactor: change);
+            }
+            if (productionChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in productionChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.Production, entity: change.Machine.Id, changed: true, production: change);
+            }
+            if (demandChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in demandChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.Contract, entity: change.Wave.Id, changed: true, demand: change);
+            }
+            if (medicalChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in medicalChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.Medical, actor: change.PatientId,
+                        entity: change.Station.Id, changed: true, medical: change);
+            }
+            if (fittingChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in fittingChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.SuitFitting, actor: change.Worker.Id,
+                        entity: change.Attempt.StationId, changed: true, fitting: change);
+            }
+            if (workerChanges.Count != 0)
+            {
+                _revision = next;
+                foreach (var change in workerChanges)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
+                        input: change.Worker.RecoveryAttempt, changed: true, worker: change,
+                        previousWorkerRevision: change.Worker.Revision - 1);
+            }
         }
 
         // Controls operate at the last processed host sample. The host must keep pumping real time
@@ -419,11 +442,11 @@ namespace CriticalShift.Application
             if (closingRoster == null) closingRoster = _workers.Snapshot();
             Contracts.Close(); SuitFitting.Close(); Medical.Clear(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear();
         }
-        private void FailClosed()
+        private void FailClosed(long? attemptedShift = null)
         {
             _timeline.Fault(); StopOwnedResources();
             if (_revision < long.MaxValue) _revision++;
-            _diagnostics.Append(View, Epoch, SessionTraceKind.Faulted, changed: true);
+            _diagnostics.Append(View, Epoch, SessionTraceKind.Faulted, changed: true, occurredAt: attemptedShift);
             CaptureDebrief();
         }
         private void RequireIdle()

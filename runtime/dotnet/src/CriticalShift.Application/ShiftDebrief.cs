@@ -88,7 +88,7 @@ namespace CriticalShift.Application
             if (record.SuitFittingChange != null || record.ContaminationContact != null || record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
                 record.Kind == SessionTraceKind.Evacuation || record.Kind == SessionTraceKind.Started ||
                 record.Kind == SessionTraceKind.Ended || record.Kind == SessionTraceKind.Stopped ||
-                record.Kind == SessionTraceKind.Faulted) retain = true;
+                record.Kind == SessionTraceKind.Faulted || record.Kind == SessionTraceKind.RecoveryExpired) retain = true;
             if (!retain) return;
             if (!retainDetail) { Increment(ref dropped); return; }
             int index = records.BinarySearch(record, IncidentOrder.Instance);

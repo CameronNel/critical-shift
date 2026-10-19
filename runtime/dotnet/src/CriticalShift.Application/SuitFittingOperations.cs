@@ -68,9 +68,8 @@ namespace CriticalShift.Application
             started = starts;
             return Reply(SuitFittingStatus.Applied, begin.Worker, new SuitFittingChange(SuitFittingEvent.Started, begin.Worker!, begin.Worker!.SuitFitting!, now));
         }
-        internal IReadOnlyList<SuitFittingChange> SampleAccessAt(long at)
+        internal void SampleAccessAt(long at, List<SuitFittingChange> changes)
         {
-            var changes = new List<SuitFittingChange>();
             foreach (var worker in workers.Snapshot())
             {
                 var attempt = worker.SuitFitting; if (attempt == null) continue;
@@ -82,14 +81,12 @@ namespace CriticalShift.Application
                 if (!Eligible(worker, attempt) || observation != AccessDecision.Allowed)
                     changes.Add(Interrupt(worker, attempt, at));
             }
-            return changes.AsReadOnly();
         }
         private bool Eligible(WorkerView worker, SuitFittingAttemptView attempt) =>
             stations.ContainsKey(attempt.StationId) && worker.PhysicallyUpright && worker.Suit == attempt.OriginalSuit &&
             !interaction.ActorHasClaim(worker.Id);
-        internal IReadOnlyList<SuitFittingChange> AdvanceTo(long at)
+        internal void AdvanceTo(long at, List<SuitFittingChange> changes)
         {
-            var changes = new List<SuitFittingChange>();
             foreach (var worker in workers.Snapshot())
             {
                 var attempt = worker.SuitFitting; if (attempt == null) continue;
@@ -101,7 +98,6 @@ namespace CriticalShift.Application
                 if (done.Status != WorkerStatus.Applied) throw new InvalidOperationException("Prepared suit fitting completion failed.");
                 completed = count; changes.Add(new SuitFittingChange(SuitFittingEvent.Completed, done.Worker!, attempt, at));
             }
-            return changes.AsReadOnly();
         }
         private SuitFittingChange Interrupt(WorkerView worker, SuitFittingAttemptView attempt, long at)
         {
