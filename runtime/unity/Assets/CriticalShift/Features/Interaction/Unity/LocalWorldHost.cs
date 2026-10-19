@@ -307,6 +307,13 @@ namespace CriticalShift.Features.Interaction.Unity
         public void ShutdownFocused() => OperateFocusedReactor(ReactorAction.Shutdown);
         public void EmergencyCoolingFocused() => OperateFocusedReactor(ReactorAction.EmergencyCooling);
 
+        public void RemoveFocusedSuit()
+        {
+            if (!PrepareFocused()) return;
+            if (world.SuitFitting.GetDefinition(focused) == null) { LastAction = "Look at the suit station before removing protective gear"; return; }
+            OperateSuitFitting(focused, SuitFittingAction.Remove);
+        }
+
         public void CycleFocusedOutputRouting()
         {
             if (!PrepareFocused()) return;
@@ -432,8 +439,8 @@ namespace CriticalShift.Features.Interaction.Unity
             if (suitStation != null)
             {
                 FocusHint = (targetName == null ? "Suit station" : targetName(focused)) +
-                    (worker.Suit == WorkerSuit.Intact ? " | Suit already intact" :
-                    " | E or R fit protective suit (" + (suitStation.DurationMilliseconds / 1000) + "s) · requires free hands");
+                    (worker.Suit == WorkerSuit.Intact ? " | Suit already intact · O remove protective suit (" + (suitStation.RemovalDurationMilliseconds / 1000m).ToString("0.###") + "s)" :
+                    " | E or R fit protective suit (" + (suitStation.DurationMilliseconds / 1000) + "s) · O remove gear (" + (suitStation.RemovalDurationMilliseconds / 1000m).ToString("0.###") + "s) · requires free hands");
                 return;
             }
             var machine = world.Production.GetMachine(focused);

@@ -1,5 +1,14 @@
 # Isolated local-host gameplay fixture
 
+**Timed suit removal continuation:** look at the existing suit locker and press
+O, or choose its remove button. Authored removal takes5 shift-seconds; current
+protection and80% walking remain until exact completion, then gear becomes None
+and walking returns to100%. Current contamination stays; removing gear does not
+wash the worker. Free hands, station access, busy work, interruption and own
+cancellation use the existing fitting workflow. E/R still fits an intact suit
+over20s. Native catalogue178; removal, O/V dispatch and locker tests remain NotRun.
+[Scope and evidence](../../../../validation/TIMED_SUIT_REMOVAL.md).
+
 **Core output routing continuation:** look at the reactor and press V to cycle
 balanced, grid priority and reserve priority, or use its panel buttons. Canonical
 new output is5 units per0.5s of running work: balanced sends4grid/1reserve; grid

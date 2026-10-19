@@ -1,0 +1,236 @@
+{
+  "name": "timed-suit-removal",
+  "seed": 42,
+  "duration": 40000,
+  "pause": true,
+  "traceCapacity": 128,
+  "suitStation": {
+    "id": 970,
+    "duration": 15000,
+    "removalDuration": 5000
+  },
+  "contaminationSources": [
+    {
+      "id": 9001,
+      "kind": "Exposure",
+      "units": 20,
+      "cooldown": 500
+    }
+  ],
+  "steps": [
+    {
+      "op": "environment",
+      "revision": 0,
+      "suit": "Compromised",
+      "contamination": 19,
+      "expect": "Applied",
+      "assert": {
+        "revision": 1
+      }
+    },
+    {
+      "op": "suitFitting",
+      "seq": 1,
+      "action": "Remove",
+      "revision": 1,
+      "expect": "Applied",
+      "assert": {
+        "fittingPending": true,
+        "fittingTarget": "None",
+        "fittingDue": 5000,
+        "walkSpeedPermille": 800,
+        "suit": "Compromised",
+        "revision": 2
+      }
+    },
+    {
+      "op": "advance",
+      "time": 4999,
+      "expect": "Running",
+      "assert": {
+        "suit": "Compromised",
+        "fittingPending": true,
+        "walkSpeedPermille": 800
+      }
+    },
+    {
+      "op": "contamination",
+      "source": 9001,
+      "seq": 1,
+      "cause": 800,
+      "expect": "Applied",
+      "assert": {
+        "contamination": 29,
+        "revision": 3
+      }
+    },
+    {
+      "op": "advance",
+      "time": 5000,
+      "expect": "Running",
+      "assert": {
+        "suit": "None",
+        "walkSpeedPermille": 1000,
+        "contamination": 29,
+        "revision": 4,
+        "fittingCompleted": 1,
+        "fittingPending": false
+      }
+    },
+    {
+      "op": "contamination",
+      "source": 9001,
+      "seq": 2,
+      "cause": 801,
+      "expect": "CoolingDown",
+      "assert": {
+        "contamination": 29,
+        "revision": 4
+      }
+    },
+    {
+      "op": "advance",
+      "time": 5499,
+      "expect": "Running"
+    },
+    {
+      "op": "contamination",
+      "source": 9001,
+      "seq": 3,
+      "cause": 802,
+      "expect": "Applied",
+      "assert": {
+        "contamination": 49,
+        "revision": 5
+      }
+    },
+    {
+      "op": "suitFitting",
+      "seq": 2,
+      "action": "Start",
+      "revision": 5,
+      "expect": "Applied",
+      "assert": {
+        "fittingTarget": "Intact",
+        "fittingDue": 20499,
+        "revision": 6
+      }
+    },
+    {
+      "op": "pause",
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 15499,
+      "expect": "Paused",
+      "assert": {
+        "elapsed": 5499,
+        "suit": "None",
+        "walkSpeedPermille": 1000
+      }
+    },
+    {
+      "op": "suitFitting",
+      "seq": 3,
+      "action": "Cancel",
+      "expect": "Applied",
+      "assert": {
+        "revision": 7,
+        "fittingCancelled": 1,
+        "suit": "None"
+      }
+    },
+    {
+      "op": "resume",
+      "expect": "Applied"
+    },
+    {
+      "op": "suitFitting",
+      "seq": 4,
+      "action": "Remove",
+      "revision": 7,
+      "expect": "NoChange",
+      "assert": {
+        "fittingStarted": 2,
+        "revision": 7
+      }
+    },
+    {
+      "op": "suitFitting",
+      "seq": 5,
+      "action": "Start",
+      "revision": 7,
+      "expect": "Applied",
+      "assert": {
+        "fittingDue": 20499,
+        "fittingTarget": "Intact",
+        "revision": 8
+      }
+    },
+    {
+      "op": "advance",
+      "time": 30499,
+      "expect": "Running",
+      "assert": {
+        "suit": "Intact",
+        "walkSpeedPermille": 800,
+        "contamination": 49,
+        "revision": 9,
+        "fittingCompleted": 2
+      }
+    },
+    {
+      "op": "suitFitting",
+      "seq": 6,
+      "action": "Remove",
+      "revision": 9,
+      "expect": "Applied",
+      "assert": {
+        "fittingDue": 25499,
+        "fittingTarget": "None",
+        "revision": 10
+      }
+    },
+    {
+      "op": "advance",
+      "time": 35499,
+      "expect": "Running",
+      "assert": {
+        "suit": "None",
+        "walkSpeedPermille": 1000,
+        "contamination": 49,
+        "revision": 11,
+        "fittingCompleted": 3
+      }
+    },
+    {
+      "op": "finish",
+      "reason": "Aborted",
+      "expect": "Applied",
+      "assert": {
+        "workers": 0,
+        "claims": 0,
+        "fittingCompleted": 3,
+        "fittingCancelled": 1
+      }
+    },
+    {
+      "op": "restart",
+      "expect": "Running",
+      "assert": {
+        "suit": "None",
+        "fittingPending": false,
+        "fittingStarted": 0
+      }
+    },
+    {
+      "op": "suitFitting",
+      "epoch": "previous",
+      "seq": 7,
+      "action": "Remove",
+      "revision": 11,
+      "expect": "WrongEpoch"
+    }
+  ]
+}

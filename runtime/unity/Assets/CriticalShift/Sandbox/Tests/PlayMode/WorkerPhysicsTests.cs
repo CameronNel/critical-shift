@@ -435,6 +435,53 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return Step();
         }
 
+        [UnityTest] public IEnumerator SuitRemovalAndReactorRoutingKeysDispatchSeparateDebouncedIntentions()
+        {
+            var hud = root.GetComponentInChildren<SandboxHud>(); hud.Activate(); int removal = 0, routing = 0;
+            hud.RemoveFocusedSuitRequested += () => removal++; hud.CycleFocusedOutputRoutingRequested += () => routing++;
+            var input = typeof(SandboxHud).GetMethod("HandleInput", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            Assert.That(input, Is.Not.Null);
+            void Key(KeyCode key, EventType type) => input.Invoke(hud, new object[] { new Event { keyCode = key, type = type } });
+            Key(KeyCode.O, EventType.KeyDown); Key(KeyCode.O, EventType.KeyDown);
+            Assert.That(removal, Is.EqualTo(1)); Assert.That(routing, Is.Zero);
+            Key(KeyCode.O, EventType.KeyUp); Key(KeyCode.O, EventType.KeyDown);
+            Key(KeyCode.V, EventType.KeyDown); Key(KeyCode.V, EventType.KeyDown);
+            Assert.That(removal, Is.EqualTo(2)); Assert.That(routing, Is.EqualTo(1));
+            Key(KeyCode.O, EventType.KeyUp); Key(KeyCode.V, EventType.KeyUp); yield return null;
+        }
+
+        private void StandAtSuitLocker()
+        {
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(-9, 0.1f, -3);
+            controller.enabled = true; walker.ResetAfterRecovery(); rig.UpdatePresentation(); Physics.SyncTransforms();
+        }
+
+        [UnityTest] public IEnumerator SuitLockerRemovalKeepsOriginalPpeAndMobilityUntilTheExactCompletion()
+        {
+            StandAtSuitLocker();
+            foreach (var suit in new[] { WorkerSuit.Intact, WorkerSuit.Compromised })
+            {
+                host.World.SetWorkerEnvironment(host.World.Epoch, Id(1), Worker.Revision, suit, 23); double start = clock;
+                host.OperateSuitFitting(Id(710), SuitFittingAction.Remove); Assert.That(Worker.SuitFitting, Is.Not.Null, host.LastAction);
+                Assert.That(Worker.SuitFitting.TargetSuit, Is.EqualTo(WorkerSuit.None)); clock = start + 4.999; host.Pump();
+                Assert.That(Worker.Suit, Is.EqualTo(suit)); Assert.That(Worker.SuitWalkSpeedPermille, Is.EqualTo(800)); Assert.That(Worker.CanInteract, Is.False);
+                clock = start + 5; host.Pump();
+                Assert.That(Worker.Suit, Is.EqualTo(WorkerSuit.None)); Assert.That(Worker.SuitWalkSpeedPermille, Is.EqualTo(1000)); Assert.That(Worker.CanInteract, Is.True);
+                Assert.That(Worker.Contamination, Is.EqualTo(23)); Assert.That(Worker.SuitFitting, Is.Null);
+            }
+            Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return null;
+        }
+
+        [UnityTest] public IEnumerator WalkingAwayFromTheLockerCannotCompleteAnUnobservedRemoval()
+        {
+            StandAtSuitLocker(); host.World.SetWorkerEnvironment(host.World.Epoch, Id(1), Worker.Revision, WorkerSuit.Intact, 23);
+            host.OperateSuitFitting(Id(710), SuitFittingAction.Remove); Assert.That(Worker.SuitFitting, Is.Not.Null, host.LastAction);
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(0, 0.1f, 1);
+            controller.enabled = true; rig.UpdatePresentation(); Physics.SyncTransforms(); clock += 6; host.Pump();
+            Assert.That(Worker.SuitFitting, Is.Null); Assert.That(Worker.Suit, Is.EqualTo(WorkerSuit.Intact)); Assert.That(Worker.Contamination, Is.EqualTo(23));
+            Assert.That(host.World.SuitFitting.Summary.Interrupted, Is.EqualTo(1)); Assert.That(host.World.SuitFitting.Summary.Completed, Is.Zero); yield return null;
+        }
+
         [UnityTest] public IEnumerator ReactorRoutingConsoleSettlesPriorOutputBeforeChangingTheValve()
         {
             host.SetReactorOutputRouting(Id(500), ReactorOutputRouting.GridPriority);

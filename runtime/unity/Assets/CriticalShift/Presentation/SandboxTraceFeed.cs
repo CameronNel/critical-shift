@@ -85,12 +85,14 @@ namespace CriticalShift.Presentation
         {
             if (record.SuitFittingChange != null)
             {
+                bool removing = record.SuitFittingChange.Attempt.TargetSuit == WorkerSuit.None;
+                string operation = removing ? "Suit removal" : "Suit fitting";
                 switch (record.SuitFittingChange.Kind)
                 {
-                    case SuitFittingEvent.Started: return "Suit fitting started · current protection retained";
-                    case SuitFittingEvent.Completed: return "Protective suit fitted · contamination unchanged";
-                    case SuitFittingEvent.Cancelled: return "Suit fitting cancelled · progress discarded";
-                    case SuitFittingEvent.Interrupted: return "Suit fitting interrupted · condition or station access changed";
+                    case SuitFittingEvent.Started: return operation + " started · current protection retained";
+                    case SuitFittingEvent.Completed: return removing ? "Protective suit removed · contamination unchanged" : "Protective suit fitted · contamination unchanged";
+                    case SuitFittingEvent.Cancelled: return operation + " cancelled · progress discarded";
+                    case SuitFittingEvent.Interrupted: return operation + " interrupted · condition or station access changed";
                 }
             }
             if (record.ContaminationContact != null && record.Changed)

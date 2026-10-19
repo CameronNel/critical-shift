@@ -13,6 +13,7 @@ namespace CriticalShift.Presentation
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
         public event Action<Guid, ReactorOutputRouting> OutputRoutingRequested;
         public event Action CycleFocusedOutputRoutingRequested;
+        public event Action RemoveFocusedSuitRequested;
         public event Action<Guid, SuitFittingAction> SuitFittingRequested;
         public event Action<Guid, MedicalAction, Guid> MedicalRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
@@ -67,7 +68,7 @@ namespace CriticalShift.Presentation
 
         public void Activate()
         {
-            if (commands == null || suitStation != Guid.Empty && SuitFittingRequested == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
+            if (commands == null || suitStation != Guid.Empty && (SuitFittingRequested == null || RemoveFocusedSuitRequested == null) || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
                 medicalStation != Guid.Empty && (MedicalRequested == null || PatientIncapacitateRequested == null) ||
                 ReactorRequested == null || OutputRoutingRequested == null || CycleFocusedOutputRoutingRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
@@ -110,7 +111,7 @@ namespace CriticalShift.Presentation
                 input.Use(); return;
             }
             if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F ||
-                input.keyCode == KeyCode.H || input.keyCode == KeyCode.B || input.keyCode == KeyCode.X || input.keyCode == KeyCode.C || input.keyCode == KeyCode.T || input.keyCode == KeyCode.V)
+                input.keyCode == KeyCode.H || input.keyCode == KeyCode.B || input.keyCode == KeyCode.X || input.keyCode == KeyCode.C || input.keyCode == KeyCode.T || input.keyCode == KeyCode.V || input.keyCode == KeyCode.O)
             {
                 if (input.type == EventType.KeyUp) held.Remove(input.keyCode);
                 else if (held.Add(input.keyCode))
@@ -124,6 +125,7 @@ namespace CriticalShift.Presentation
                     else if (input.keyCode == KeyCode.C) EmergencyCoolingFocusedRequested?.Invoke();
                     else if (input.keyCode == KeyCode.T) ThrowRequested?.Invoke();
                     else if (input.keyCode == KeyCode.V) CycleFocusedOutputRoutingRequested?.Invoke();
+                    else if (input.keyCode == KeyCode.O) RemoveFocusedSuitRequested?.Invoke();
                     else RecoveryRequested?.Invoke();
                 }
                 input.Use(); return;
@@ -149,7 +151,7 @@ namespace CriticalShift.Presentation
             if (!visible)
             {
                 GUI.Label(new Rect(12, 12, Screen.width - 24, 40), "WASD move | Space hop/brake | right-drag look | middle-drag turn | wheel reach | T throw | Tab panel", wrapped);
-                GUI.Label(new Rect(12, 56, Screen.width - 24, 40), "E transfer | G drop | F power/cooling | R start/repair/resume/reset | B bypass | X shutdown | C emergency cooling | V output routing | H recover", wrapped);
+                GUI.Label(new Rect(12, 56, Screen.width - 24, 40), "E transfer | G drop | F power/cooling | R start/repair/resume/reset | B bypass | X shutdown | C emergency cooling | V output routing | O remove suit | H recover", wrapped);
                 GUI.Label(new Rect(12, 100, Screen.width - 24, 70), actionStatus(), wrapped);
                 var contract = commands.Contract;
                 if (contract != null)
@@ -192,15 +194,17 @@ namespace CriticalShift.Presentation
                     GUILayout.Label("Protective gear gives more protection and slows walking; compromised gear keeps its bulk. Carried loads slow walking further.", wrapped);
                     if (worker.SuitFitting != null)
                     {
-                        GUILayout.Label("Suit fitting · " + SandboxContractReadout.Clock(Math.Max(0, worker.SuitFitting.DueAtMilliseconds - world.ElapsedMilliseconds)) +
+                        GUILayout.Label((worker.SuitFitting.TargetSuit == WorkerSuit.None ? "Suit removal · " : "Suit fitting · ") + SandboxContractReadout.Clock(Math.Max(0, worker.SuitFitting.DueAtMilliseconds - world.ElapsedMilliseconds)) +
                             " remaining · current protection stays until complete", wrapped);
                         GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
-                        if (GUILayout.Button("Cancel my suit fitting")) SuitFittingRequested?.Invoke(worker.SuitFitting.StationId, SuitFittingAction.Cancel);
+                        if (GUILayout.Button("Cancel my suit station work")) SuitFittingRequested?.Invoke(worker.SuitFitting.StationId, SuitFittingAction.Cancel);
                     }
                     else
                     {
                         GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker.CanInteract && worker.Suit != WorkerSuit.Intact;
                         if (GUILayout.Button("Fit protective suit at station")) SuitFittingRequested?.Invoke(suitStation, SuitFittingAction.Start);
+                        GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker.CanInteract && worker.Suit != WorkerSuit.None;
+                        if (GUILayout.Button("Remove protective suit at station")) SuitFittingRequested?.Invoke(suitStation, SuitFittingAction.Remove);
                     }
                 }
                 GUILayout.Space(8);
@@ -304,7 +308,7 @@ namespace CriticalShift.Presentation
                     " · completed " + debrief.EmergencyPower.CompletedCycles + " · cancelled " + debrief.EmergencyPower.CancelledCycles +
                     " · reserve generated " + debrief.EmergencyPower.ProducedUnits, wrapped);
             if (debrief.SuitFitting.Started > 0)
-                GUILayout.Label("Suit fittings · completed " + debrief.SuitFitting.Completed + " · cancelled " + debrief.SuitFitting.Cancelled +
+                GUILayout.Label("Suit station work · completed " + debrief.SuitFitting.Completed + " · cancelled " + debrief.SuitFitting.Cancelled +
                     " · interrupted " + debrief.SuitFitting.Interrupted, wrapped);
             GUILayout.Label("Worker impacts " + incidents.WorkerImpacts + " · incapacitating impacts " + incidents.Incapacitations +
                 " · successful standing recoveries " + incidents.StandingRecoveries, wrapped);
@@ -483,7 +487,7 @@ namespace CriticalShift.Presentation
         private void OnDestroy()
         {
             ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null; SuitFittingRequested = null;
-            OutputRoutingRequested = null; CycleFocusedOutputRoutingRequested = null;
+            OutputRoutingRequested = null; CycleFocusedOutputRoutingRequested = null; RemoveFocusedSuitRequested = null;
             MedicalRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;

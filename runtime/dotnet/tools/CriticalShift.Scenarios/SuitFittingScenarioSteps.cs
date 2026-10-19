@@ -12,13 +12,13 @@ namespace CriticalShift.Scenarios
         {
             if (!spec.TryGetProperty("suitStation", out var station)) return;
             world.SuitFitting.Register(Id(checked((int)Number(station, "id", 970))),
-                new SuitFittingDefinition(Number(station, "duration", 20000)));
+                new SuitFittingDefinition(Number(station, "duration", 20000), Number(station, "removalDuration", 5000)));
         }
         internal static string Execute(JsonElement step, WorldSession world, Guid epoch, Guid actor, Guid connection)
         {
             var action = Choice<SuitFittingAction>(step, "action");
             var worker = world.GetWorker(actor);
-            var request = action == SuitFittingAction.Start ? new SuitFittingRequest(action, Number(step, "revision")) :
+            var request = action == SuitFittingAction.Start || action == SuitFittingAction.Remove ? new SuitFittingRequest(action, Number(step, "revision")) :
                 new SuitFittingRequest(action, attempt: worker?.SuitFitting?.Id ?? Guid.Empty);
             var reply = world.ExecuteInteraction(connection, new InteractionCommand(epoch, Number(step, "seq"),
                 InteractionKind.SuitFitting, Id(checked((int)Number(step, "station", 970))), suitFitting: request));
@@ -33,6 +33,8 @@ namespace CriticalShift.Scenarios
             {
                 case "canInteract": actual = worker?.CanInteract; expected = a.Value.GetBoolean(); return true;
                 case "fittingPending": actual = worker?.SuitFitting != null; expected = a.Value.GetBoolean(); return true;
+                case "walkSpeedPermille": actual = worker?.SuitWalkSpeedPermille; expected = a.Value.GetInt32(); return true;
+                case "fittingTarget": actual = worker?.SuitFitting?.TargetSuit.ToString(); expected = a.Value.GetString(); return true;
                 case "fittingDue": actual = worker?.SuitFitting?.DueAtMilliseconds; expected = a.Value.GetInt64(); return true;
                 case "fittingStarted": actual = summary.Started; expected = a.Value.GetInt64(); return true;
                 case "fittingCompleted": actual = summary.Completed; expected = a.Value.GetInt64(); return true;
