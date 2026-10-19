@@ -11,62 +11,74 @@
   {
    "kind": "wear",
    "material": "A2 machine blue enamel",
-   "positional_users": 16
+   "positional_users": 16,
+   "sheet_users": 8
   },
   {
    "kind": "wear",
    "material": "A2 waterbox oxide enamel",
-   "positional_users": 2
+   "positional_users": 2,
+   "sheet_users": 0
   },
   {
    "kind": "wear",
    "material": "A2 hotwell graphite blue",
-   "positional_users": 1
+   "positional_users": 1,
+   "sheet_users": 0
   },
   {
    "kind": "wear",
    "material": "Astra ivory painted steel",
-   "positional_users": 36
+   "positional_users": 36,
+   "sheet_users": 26
   },
   {
    "kind": "wear",
    "material": "Structural painted steel",
-   "positional_users": 267
+   "positional_users": 267,
+   "sheet_users": 196
   },
   {
    "kind": "wear",
    "material": "Charcoal impact dado",
-   "positional_users": 6
+   "positional_users": 6,
+   "sheet_users": 6
   },
   {
    "kind": "wear",
    "material": "Oxide orange enamel",
-   "positional_users": 17
+   "positional_users": 17,
+   "sheet_users": 2
   },
   {
    "kind": "wear",
    "material": "Light oxide enamel",
-   "positional_users": 6
+   "positional_users": 6,
+   "sheet_users": 2
   },
   {
    "kind": "wear",
    "material": "Warm mineral plaster",
-   "positional_users": 9
+   "positional_users": 9,
+   "sheet_users": 0
   },
   {
    "kind": "wear",
    "material": "Dense cast concrete",
-   "positional_users": 15
+   "positional_users": 15,
+   "sheet_users": 0
   },
   {
    "kind": "wear",
    "material": "Basement coated concrete",
-   "positional_users": 3
+   "positional_users": 3,
+   "sheet_users": 0
   },
   {
    "kind": "wear",
    "material": "Replacement floor patch",
-   "positional_users": 2
+   "positional_users": 2,
+   "sheet_users": 0
   },
   {
    "kind": "anchor_moved",
@@ -79,22 +91,32 @@
    "new": [
     8.55,
     2.98,
-    1.17
+    1.09
    ]
   },
   {
    "kind": "chain_operator",
    "valve": "SUPPLY",
+   "removed": [
+    "handwheel rim",
+    "handwheel spoke0",
+    "handwheel spoke1",
+    "handwheel spoke2",
+    "handwheel hub",
+    "impulse connection",
+    "impulse connection start cap",
+    "impulse connection end cap"
+   ],
    "wheel_centre": [
     8.55,
     2.98,
-    3.5
+    3.46
    ],
    "side": [
-    0,
-    -1
+    0.0,
+    -1.0
    ],
-   "grip_z": 1.11
+   "grip_z": 1.05
   },
   {
    "kind": "anchor_moved",
@@ -105,24 +127,34 @@
     3.55
    ],
    "new": [
-    8.55,
-    4.68,
-    1.17
+    8.33,
+    4.9,
+    1.09
    ]
   },
   {
    "kind": "chain_operator",
    "valve": "RETURN",
+   "removed": [
+    "handwheel rim",
+    "handwheel spoke0",
+    "handwheel spoke1",
+    "handwheel spoke2",
+    "handwheel hub",
+    "impulse connection",
+    "impulse connection start cap",
+    "impulse connection end cap"
+   ],
    "wheel_centre": [
-    8.55,
-    4.68,
-    3.5
+    8.33,
+    4.9,
+    3.46
    ],
    "side": [
-    0,
-    -1
+    -1.0,
+    0.0
    ],
-   "grip_z": 1.11
+   "grip_z": 1.05
   },
   {
    "kind": "anchor_moved",
@@ -171,7 +203,8 @@
   {
    "kind": "desk_lamp",
    "moved_y": 0.16,
-   "lowered": 0.1
+   "lowered": 0.1,
+   "shade": "Charcoal impact dado"
   },
   {
    "kind": "vent_extension",
@@ -181,19 +214,8 @@
     3.45,
     4.64
    ],
-   "raise_m": 0.45,
-   "step_x": -0.155
-  },
-  {
-   "kind": "vent_extension",
-   "side": "east",
-   "from_": [
-    5.125,
-    3.45,
-    4.64
-   ],
-   "raise_m": 0.3,
-   "step_x": 0.1
+   "gearbox_z": 5.05,
+   "wheel_plane_x": 0.725
   },
   {
    "kind": "anchor_moved",
@@ -206,7 +228,7 @@
    "new": [
     -1.2,
     7.55,
-    1.23
+    1.21
    ]
   },
   {
@@ -219,64 +241,126 @@
    "grip_z": 1.17
   },
   {
+   "kind": "cw_tags_raised",
+   "objects": [
+    "CW tag SUPPLY",
+    "CW tag t SUPPLY",
+    "CW tag RETURN",
+    "CW tag t RETURN"
+   ],
+   "dz": 0.25
+  },
+  {
    "kind": "light_balance",
    "lights": {
     "batten0": [
      96.2,
-     62.6
+     43.3
     ],
     "batten1": [
      96.2,
-     62.6
+     43.3
     ],
     "batten2": [
      126.0,
-     81.9
+     56.7
     ],
     "batten3": [
      96.2,
-     62.6
+     43.3
     ],
     "batten4": [
      126.0,
-     81.9
+     56.7
     ],
     "batten5": [
      126.0,
-     81.9
+     56.7
     ],
     "batten6": [
      96.2,
-     62.6
+     43.3
     ],
     "batten7": [
      96.2,
-     62.6
+     43.3
     ],
     "batten8": [
      126.0,
-     81.9
+     56.7
     ],
     "task CD south": [
      17.5,
-     19.3
+     22.8
     ],
     "task CD east": [
      72.6,
-     79.9
+     94.4
     ],
     "task pumps": [
      94.5,
-     104.0
+     122.9
     ],
     "task operator": [
      77.6,
-     85.4
+     100.9
+    ],
+    "gallery task": [
+     43.1,
+     25.9
+    ],
+    "neck wash": [
+     29.6,
+     17.8
+    ],
+    "chest well": [
+     15.4,
+     9.2
+    ],
+    "cw wall wash": [
+     66.0,
+     39.6
+    ],
+    "Astra practical task": [
+     24.2,
+     31.5
+    ],
+    "Astra practical task.001": [
+     24.2,
+     31.5
+    ],
+    "Astra practical task.002": [
+     24.2,
+     31.5
+    ],
+    "CW support inspection uplight": [
+     65.0,
+     39.0
+    ],
+    "gallery inspection light": [
+     60.5,
+     36.3
+    ],
+    "gallery inspection light.001": [
+     60.5,
+     36.3
     ]
-   }
+   },
+   "hidden_from_glossy": [
+    "neck wash",
+    "chest well",
+    "cw wall wash",
+    "gallery inspection light",
+    "gallery inspection light.001",
+    "CW support inspection uplight",
+    "gallery task",
+    "entry wash",
+    "handoff wash"
+   ]
   }
  ],
- "evaluated_triangles": 354752,
+ "intersections": [],
+ "evaluated_triangles": 379700,
  "output": "module_aaa_A3.blend",
- "output_sha256": "3a603ff1e9f4064b41ea7879ece4dbdcf0982b0d25fcf99f424a1a2a4e1b88b3"
+ "output_sha256": "06f923774c5b018b1b2436e98683f7ad1f37d31c1533d0d617ab86be2ab81f16"
 }

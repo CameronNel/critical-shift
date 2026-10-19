@@ -1,16 +1,17 @@
-# Condenser A3: A2 plus authored wear, reachable controls and a full-height bay
+# Condenser A3: A2 plus legible wear, reachable controls, a warmer key-lit room and a full-height bay
 
 Owner, 2026-10-19, after seeing A2 (Codex, PR #107) next to the A1 the map used: *"Rework the room to your liking, build into the main map
 and then ensure the baking process will work"*, and on the layout *"Fix everything needed to make this scene perfect."*
 
 A3 is `module_aaa_A3.blend`, built by [condenser_finish_A3.py](condenser_finish_A3.py) from A2's output
 [module_aaa_A2.blend](module_aaa_A2.blend) (A2: [FINISH_A2.md](FINISH_A2.md), [condenser_finish_A2.py](condenser_finish_A2.py), from the
-reviewed R34 `module.blend`). Every A2 object, name and material stays; A3 only adds. The build receipt, with every change and the source and
-output hashes, is [finish-A3-build.json](finish-A3-build.json).
+reviewed R34 `module.blend`). A3 adds to A2 and changes it only where listed below (the two CW isolation handwheels and the gauge impulse
+lines they enclosed are replaced; the trip parts, desk lamp, west vent wheel and CW wall tags move). The build receipt, with every change, the
+source and output hashes and an intersection check of the new parts, is [finish-A3-build.json](finish-A3-build.json).
 
 ```
 blender -b --factory-startup module_aaa_A2.blend --python condenser_finish_A3.py            # writes module_aaa_A3.blend + finish-A3-build.json
-blender -b --factory-startup module_aaa_A3.blend --python audit_A3_reach.py -- --ceiling 5.995 --out reach-A3.json
+blender -b --factory-startup module_aaa_A3.blend --python-exit-code 1 --python audit_A3_reach.py -- --ceiling 5.995 --out reach-A3.json
 ```
 
 ## Why
@@ -27,50 +28,69 @@ lighting, construction and machinery logic. It was still **rejected**, on things
 And, on the pixels, it reads factory-new: flat paint, near-white walls, even light everywhere. `design/ART_DIRECTION.md` asks for an
 "active and maintained" facility with "restrained evidence of use" (section 9), key light zones and darker secondary spaces (section 8).
 
+The first A3 pass (same day) fixed 1 and 2 but its own independent review rejected it on the pixels: the wear did not render (its edge mask
+compared the bevel normal with the shading normal, which is zero on these smooth-shaded meshes), the box-link chains read as dashed lines,
+the chain wheels as three-spoke handwheels, the west vent spindle leaned out of a floating guide, and the desk housing read as a toy. This
+file describes the second pass, which answers that review.
+
 ## What A3 changes
 
-**Headroom: the map, not the room.** `combined/build_compact_map.py` now places the bay at map z **-6.3** (`COND`), so its roof sits exactly
+**Headroom: the map, not the room.** `combined/build_compact_map.py` places the bay at map z **-6.3** (`COND`), so its roof sits exactly
 under the turbine floor; the roof patch keeps it 5 mm clear of the turbine floor's faces (no z-fighting). The stair takes the extra 0.3 m in
-the same 34 risers (185 mm), the escape ladder follows `COND`, and `walk_test.py`, `measure_lighting.py` and `floor_audit.py` read the level
-from the scene (`condenser_z`). Gallery headroom in the map: **2.068 m** (was 1.768 m by the same audit).
+the same 34 risers (185 mm), the escape ladder follows `COND`, the U04 pit walls are stretched locally to meet the turbine machinery's
+underside again (they stopped 6 cm short of it at -6.3), and `walk_test.py`, `measure_lighting.py` and `floor_audit.py` read the level from
+the scene (`condenser_z`). Gallery headroom in the map: **2.068 m** at the standing spots, roof clearance over the deck 2.095 m (was 1.768 m).
 
 **Reach** (measured by [audit_A3_reach.py](audit_A3_reach.py): 1.75 m worker, shoulder 1.45 m, arm 0.70 m, body radius 0.22 m, standing on
-the floor, stairs and gallery, line of sight to the control):
+the floor, stairs and gallery, line of sight to the control; [reach-A3.json](reach-A3.json)):
 
 | Control | A2 | A3 | Fix |
 |---|---|---|---|
-| `INTERACT_CW_ISOL_S`, `_R` (overhead globes, handwheels at 3.4 m) | no spot | 0.29 m | bevel-gear chain-wheel operator on each stem; chain loop dropped on the side clear to the floor (ray test) to a grip at 1.11 m |
-| `INTERACT_EJ` (ejector steam isolation handwheel, 2.15 m) | 0.72 m | 0.25 m | chain wheel bolted in front of the vertical handwheel, chain at the aisle edge (the skid and aisle leave no floor for a step) |
+| `INTERACT_CW_ISOL_S`, `_R` (overhead globes, handwheels at 3.4 m) | no spot | 0.37 m | the handwheel gives way to a blue bevel-gear operator on the yoke; its shaft carries a pocketed chain wheel 0.22 m out, on whichever side the chain drops clear to the floor (ray test: south for SUPPLY, west for RETURN); a closed loop of oval links runs over the wheel to a U at 1.05 m |
+| `INTERACT_EJ` (ejector steam isolation handwheel, 2.15 m) | 0.72 m | 0.31 m | the same chain wheel bolted in front of the vertical handwheel, its loop at the aisle edge (the skid and aisle leave no floor for a step) |
 | `INTERACT_CD_ISOLATE` (floating inside the west waterbox) | no control | 0.45 m | the isolation is motor-operated: a CD ISOL selector on a desk-front control housing (the panel's selector row is full) |
-| `INTERACT_CSB_TRIP` (panel face above the desk's back edge) | 0.75 m | 0.45 m | the original trip parts moved, facing up, onto the same housing; a blanking plate covers the old hole |
-| West waterbox vent wheel (4.64 m) | 0.97 m | 0.64 m | extension spindle: 0.155 m towards the west gallery run and 0.45 m up, clear above its rail |
-| East waterbox vent wheel | 0.54 m | 0.38 m | extension spindle, 0.10 m east and 0.30 m up |
+| `INTERACT_CSB_TRIP` (panel face above the desk's back edge) | 0.75 m | 0.45 m | the original trip parts, turned to face up, on the same housing, on a yellow emergency-stop ground with a guard collar; a blanking plate on the panel face covers the old hole |
+| West waterbox vent wheel (4.64 m) | 0.97 m | 0.66 m | a vertical extension spindle in a guide bracket bolted to the waterbox top, a right-angle gearbox at 5.05 m and the same wheel stood on edge facing the gallery |
+| East waterbox vent wheel | 0.54 m | 0.54 m | unchanged: already within reach |
 
-The other hooks are unchanged (D01 0.41, CEP-A 0.32, CEP-B 0.31, CSB CEP 0.58, CSB VACUUM 0.44, HOIST 0.26 m). The waterbox manways (3.27 m)
+The other hooks are unchanged (D01 0.41, CEP-A 0.32, CEP-B 0.31, CSB CEP 0.52, CSB VACUUM 0.44, HOIST 0.26 m). The waterbox manways (3.27 m)
 remain outage work from a temporary platform, as in R34; they are not contract hooks.
 
-**Wear** (positions from the mesh attribute `A3_pos`, module-space vertex positions, so localized wear stays put in the module, in the map and
-in the bake; only single-user meshes get it, shared fastener meshes and curves keep the attribute-free layers):
-- painted machinery: cavity grime (AO), chipped paint on hard edges in broken lengths (bevel-normal mask), grime at the bases up to 0.6 m,
-  settled dust on upward faces, low-frequency tone (blue and red enamel, +-6 %), two fresher touch-up patches on the shell's south flank,
-  weep streaks under the waterbox covers' lower bolts;
-- the impact dado and column feet: a few larger chips showing grey primer, only where trolleys and boots hit;
-- walls: about 22 % darker and warmer than A2's near-white, +-7 % per 1.5 x 3 m formwork panel, a floor-line grime band, faint water marks
-  from above and streaks under wall-hung services;
-- floor: oil at the two pump bases and under the hotwell drain, damp patches under the CW valves and at the trench drain.
+The CW gauges' impulse lines rose through the old handwheel hubs; they now leave the instrument root sideways at 3.30 m and enter each gauge
+from below. The CW SUPPLY and RETURN wall tags are raised 0.25 m, clear of the chain wheels in the views along the east wall.
 
-**Light:** A2's nine ceiling battens (about 1 kW of 1.8 kW) -35 %, the equipment task lights +10 %, for key zones and falloff.
+**Wear**, sized to read at 3 to 5 m. Positions come from the mesh attribute `A3_pos` (module-space vertex positions), so localized wear stays
+put in the module, in the map and in the bake; shared meshes and curves keep the attribute-free layers.
+- painted machinery: cavity and contact grime (AO), worn paint on convex edges in broken lengths (inside-AO edge mask; sheet parts under
+  5 cm thick get a variant without it, since inside AO marks a thin plate's whole face), a broken film of handling grime, run-off streaks
+  on vertical faces, dust on tops, grime at the bases up to 1 m, quieter large fields on the condenser and waterboxes (16 % towards grey,
+  +-10 % tone), two fresher touch-up patches on the shell's south flank, weep streaks under the waterbox covers' lower bolts;
+- the impact dado and column feet: scuffed bands of dark primer where trolleys and boots hit;
+- walls: about 40 % of A2's fine grain and a third of its bump (it read as mottle), darker and warmer, +-9 % per 1.5 x 3 m formwork panel,
+  water marks from above, a floor-line grime band and streaks under wall-hung services;
+- floor: +-12 % large-scale dirt, grime against walls and plinths, glossy oil at the two pump bases, their seals, the hotwell and ejector
+  drains, damp patches under the CW valves and at the trench drain.
 
-**Small defects from A2's review:** the desk lamp no longer covers the LOCAL caption (moved between LOCAL and CW ISOLATE, head 0.10 m lower).
+**Light** (`design/ART_DIRECTION.md` section 8; the neighbours are warm and dark): A2's nine ceiling battens to 45 % and warmer (about
+3,800 K), the fill washes to 60 %, the task lights over the condenser, the pumps and the desk and the three wall practicals +30 %. The fill
+washes, which have no fixture, are hidden from glossy rays: their rectangles showed as a pale panel on the east waterbox (A2 review, W05).
 
-Triangles: **354,840** evaluated, text included (A2 349,678; budget 400,000).
+**Desk:** the control housing is charcoal, its legends light and 26 mm high; the lamp head is a dark shade with the warm diffuser under it
+(it was a glowing white puck), and stands between LOCAL and CW ISOLATE, 0.10 m lower, clear of the captions.
+
+Triangles: **379,700** evaluated, text included (A2 349,678; budget 400,000). The chains are 64 triangles a link.
 
 ## Checks
 
-See the PR and `combined/ASSEMBLY_REPORT.md` for the map chain on the rebuilt map; the reach audit is above.
+The map chain on the rebuilt map, the CPU bake rehearsal and the review renders are in `combined/ASSEMBLY_REPORT.md` (section "Condenser A3")
+and the PR. The reach audit is above; with the roof at 5.5 it fails, as it should (no standing room on the deck).
 
 ## Limits
 
-- Cycles renders on the cloud CPU (owner's choice for review renders), 640 to 960 px; the GPU bake is the owner's, later.
+- Cycles renders on the cloud CPU (owner's choice for review renders); the GPU bake is the owner's, later.
 - No Unity run; the interaction anchors are geometry, not engine interactions.
-- The chain loops are rigid meshes (no swing).
+- The chain loops are rigid meshes (no swing). The inside-AO edge wear makes the bake slower than plain textures would (it is a ray-traced
+  node); it bakes like the AO grime A1 and A2 already used.
+- Palette: the machine blue and oxide red are A2's (its answer to the "more machine colour" brief), quieted but not changed in hue. The
+  first A3 review asked for warmer, darker continuity with the turbine and cooling plant or an owner decision on this palette; the walls
+  and light are warmer now, the machine colours are the owner's call.

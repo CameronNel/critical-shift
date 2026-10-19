@@ -78,7 +78,7 @@ $files = @(
   "sections/facility-assembly/sources/spawn-room/hero_suit.blend",
   "sections/reactor-room/blender/reactorroom.blend",
   "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
-  "sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend",
+  "sections/facility-assembly/sources/condenser-bay/module_aaa_A3.blend",
   "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
   "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
   "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend"
@@ -120,7 +120,7 @@ Start it in its own window, so it is not tied to your command timeout:
 Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU','-Map','-Blender','C:\Blender\blender-5.2.2-windows-x64\blender.exe'
 ```
 
-**What it does:** 13 pieces, one after another, smallest first: cooling-plant, waste-storage, turbine-room, fuel-corridor, electrical-room, compliance-dock, medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine, then map-connections. The condenser bay is left out on purpose (its finish is being reworked), and so is the mountain over the mine (every object named `R40 | ...`: the cliff, its ledge debris and talus, the cliff crystals and their 14 lights; the owner is reworking it). Nothing else of the mine is left out.
+**What it does:** 14 pieces, one after another, smallest first: cooling-plant, waste-storage, condenser-bay, turbine-room, fuel-corridor, electrical-room, compliance-dock, medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine, then map-connections. The condenser bay bakes its A3 finish (`sources/condenser-bay/FINISH_A3.md`, 2026-10-19), placed 0.3 m lower than before (map z -6.3). The mountain over the mine (every object named `R40 | ...`: the cliff, its ledge debris and talus, the cliff crystals and their 14 lights; the owner is reworking it) is left out. Nothing else of the mine is left out.
 
 **Each piece runs these stages:** prep, base, rough, normal, metal, emit, mask, finish, check, compare.
 - **prep** (unwrap, CPU-bound) is the longest stage. In the cloud rehearsal (4 CPU cores) it took 7 to 50 minutes per piece, 5.1 hours for all 13; the reactor (50), front end (47) and refinery (41) are the longest. It runs on the CPU here too, so expect similar times, somewhat less on the 5800X.

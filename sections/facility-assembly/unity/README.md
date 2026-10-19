@@ -129,9 +129,9 @@ powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_r
 powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_all.ps1 -Device GPU
 ```
 
-**What it bakes:** the twelve rooms the compact map uses, smallest first, from the same sources and collections as `build_compact_map.py`. Each room gets three comparison cameras.
+**What it bakes:** the thirteen rooms the compact map uses, smallest first, from the same sources and collections as `build_compact_map.py`. Each room gets three comparison cameras.
 
-**Left out:** the condenser bay, whose finish is being reworked.
+**Condenser bay:** included since 2026-10-19, with its A3 finish (`sources/condenser-bay/FINISH_A3.md`); its CPU rehearsal is under "Condenser bay A3 rehearsal" below.
 
 **Before the first bake** it checks:
 - Blender is found;
@@ -208,7 +208,7 @@ Every merge kept every triangle. The reactor comes from `sections/reactor-room/b
 
 **Unity:** *Critical Shift > Rooms > Import Baked Map (all rooms in place)* imports `unity/map/*` into `Content/Rooms/map/` and saves the scene `Content/Rooms/map/CriticalShift_Map.unity`, with every piece placed.
 
-**Left out:** the condenser bay, which is being reworked, so the space under the turbine is empty.
+**Left out (that run):** the condenser bay, then being reworked, so the space under the turbine was empty. Since 2026-10-19 `bake_all.ps1` includes it.
 
 ## Whole-map bake on the owner's PC, from the room files (2026-10-17)
 

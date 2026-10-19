@@ -84,7 +84,7 @@ NEW += [
      'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine shell outer face (module x 10.25) at turbine-local y %.1f; rotation -90 turns D01 to face west. '
      'D02 closed (emergency exit to the east road).' % ELEC_DOOR_Y),
     ('condenser-bay', 'condenser-bay/module_aaa_A3.blend', 'MODULE_condenser-bay', COND, 0.0,
-     'Under the turbine, origin at turbine (1.6, 7.4, -6.0) (its CONNECTIONS.md). D01 stub blanking removed locally; reached by the new condenser stair.'),
+     'Under the turbine, origin at turbine (1.6, 7.4, %.1f): 0.3 m below its CONNECTIONS.md level (-6.0), so its own roof fits under the turbine floor (2026-10-19). D01 stub blanking removed locally; reached by the new condenser stair.' % COND[2]),
     ('waste-storage', 'waste-storage/module_aaa_A1.blend', 'MODULE_waste-storage', WASTE, -90.0,
      'ASSEMBLY: on the reactor east wall. WS_RECEIVING exterior face (module y -0.32) on the reactor east outer face (reactor-local x 11.6) at reactor-local y %.2f; rotation -90 turns receiving west. '
      'Personnel and dispatch doors closed.' % (WASTE[1] - RY)),
@@ -466,6 +466,12 @@ def patch_condenser(wrap, lib_coll, omit):
         zt = -0.305 - COND[2]                                    # local_copy works in the module's frame (slab bottom z0 = 6.0): map -0.305 is module 5.995
         M = Matrix.Translation((0, 0, zt)) @ Matrix.Diagonal((1.0, 1.0, 0.29 / 0.30, 1.0)) @ Matrix.Translation((0, 0, -z0))
         local_copy(wrap, omit, o, M, ' under turbine floor'); print('CONDENSER ceiling slab fitted under the turbine floor: module bottom %.3f -> %.3f (map %.3f)' % (z0, zt, zt + COND[2]))
+    # the U04 pit walls (module z 6.3..7.2) line the opening up into the turbine's machine floor. At -6.0 they reached map 1.2, 0.24 m into the
+    # turbine machinery's underside (0.96); at -6.3 they stopped 6 cm short of it, an open slit. Stretched from their foot to map 1.2 again.
+    for o in [o for o in lib_coll.all_objects if o.name.startswith('U04 pit ') and o.type == 'MESH' and o.name not in omit]:
+        z0, z1 = bbox(o)[0].z, bbox(o)[1].z; zt = 1.2 - COND[2]
+        local_copy(wrap, omit, o, Matrix.Translation((0, 0, z0)) @ Matrix.Diagonal((1.0, 1.0, (zt - z0) / (z1 - z0), 1.0)) @ Matrix.Translation((0, 0, -z0)), ' to turbine')
+        print('CONDENSER %s stretched: module top %.3f -> %.3f (map %.2f)' % (o.name, z1, zt, zt + COND[2]))
     # the two gallery inspection lights: dropped 0.12 m, which centres each source in its A2/A3 lens (A2's gallery_luminaires() is built around this patch)
     for o in [o for o in lib_coll.all_objects if o.type == 'LIGHT' and o.name.startswith('gallery inspection light') and o.name not in omit]:
         local_copy(wrap, omit, o, Matrix.Translation((0, 0, -0.12)), ' lowered')

@@ -7,6 +7,8 @@ arm reach 0.70 m, body radius 0.22 m, 1.75 m headroom. Standing spots are up-fac
 gallery (objects in '01 Architecture', '02 Access D01' and '03 Stairs and gallery'), sampled every 0.10 m. A control is reachable when
 some spot's shoulder lies within 0.70 m of it with a clear line of sight (the first thing the sight line meets is the control itself or lies
 within 12 cm of the target: a hand on the control's housing). `--ceiling` lowers the roof for the headroom test (the map's roof underside, in module coordinates).
+The gallery deck is the commonest floor level between z 3.5 and 5.5; a deck with no standing spot fails, and with --ceiling the roof's
+clearance over the deck level must be 2.0 m or more.
 Exit code 1 when any contract hook is out of reach or the gallery headroom is under 2.0 m.
 """
 import bpy, sys, json, math
@@ -38,7 +40,8 @@ def cast(o, d, dist):
 
 # standing spots
 xs = [x * 0.10 for x in range(-22, 100)]; ys = [y * 0.10 for y in range(-27, 97)]
-spots = []
+spots, deck = [], []
+GALLERY_Z = (3.5, 5.5)          # the gallery deck band (the roof slab top at 6.0 is architecture, not floor)
 for x in xs:
     for y in ys:
         z = 6.2
@@ -48,12 +51,11 @@ for x in xs:
             loc, nrm, name, _ = h; z = loc.z - 0.005
             if nrm.z < 0.7 or name not in walk_objs: continue
             f = loc.z
-            up = cast((x, y, f + 0.03), (0, 0, 1), HEAD)
-            if up is not None: continue
-            if CEIL is not None and CEIL - f < HEAD: continue
-            if any(cast((x, y, f + hz), (math.cos(t), math.sin(t), 0), BODY) for hz in (0.35, 1.0, 1.6) for t in [k * math.pi / 4 for k in range(8)]): continue
             ceil = cast((x, y, f + 0.03), (0, 0, 1), 10.0); room = (ceil[0].z if ceil else 99.0)
             if CEIL is not None: room = min(room, CEIL)
+            if GALLERY_Z[0] < f < GALLERY_Z[1]: deck.append((x, y, f, room - f, name))     # every gallery deck spot, before the headroom filter
+            if room - f < HEAD: continue
+            if any(cast((x, y, f + hz), (math.cos(t), math.sin(t), 0), BODY) for hz in (0.35, 1.0, 1.6) for t in [k * math.pi / 4 for k in range(8)]): continue
             spots.append((x, y, f, room - f, name))
 print('REACH standing spots', len(spots))
 
@@ -80,12 +82,23 @@ for n in ('WB west vent wheel rim', 'WB east vent wheel rim', 'A3 CW isol SUPPLY
     pts = [o.matrix_world @ Vector(c) for c in o.bound_box]; c = sum(pts, Vector()) / 8
     d, at = min((reach(p, n) for p in pts + [c]), key=lambda r: r[0])
     report['parts'][n] = dict(reach_m=round(d, 3), from_spot=at, reachable=d <= ARM); print('REACH part %-34s %.2f m' % (n, d))
-gal = [r for r in spots if r[2] > 3.5]
-if gal:
+# gallery: the deck is the commonest floor level between z 3.5 and 5.5. Headroom is measured at the deck's standing spots; a deck with no
+# standing spot at all (everything under 1.75 m) fails instead of passing silently, and with --ceiling the roof's clearance over the deck
+# level is checked directly
+from collections import Counter
+level = Counter(round(r[2], 1) for r in deck).most_common(1)[0][0] if deck else None
+gal = [r for r in spots if level is not None and abs(r[2] - level) <= 0.1]
+if level is None: bad.append('no gallery deck found')
+elif not gal: bad.append('no standing room on the gallery deck')
+else:
     lo = min(gal, key=lambda r: r[3])
-    report['gallery'] = dict(spots=len(gal), deck_z=round(sum(r[2] for r in gal) / len(gal), 3), min_headroom_m=round(lo[3], 3), at=[round(v, 2) for v in lo[:3]])
-    print('REACH gallery spots %d, min headroom %.3f m at %s' % (len(gal), lo[3], [round(v, 2) for v in lo[:3]]))
+    report['gallery'] = dict(deck_z=level, deck_points=len([r for r in deck if abs(r[2] - level) <= 0.1]), standing_spots=len(gal),
+                             min_headroom_m=round(lo[3], 3), at=[round(v, 2) for v in lo[:3]])
+    print('REACH gallery deck z %.1f, %d standing spots, min headroom %.3f m at %s' % (level, len(gal), lo[3], [round(v, 2) for v in lo[:3]]))
     if lo[3] < 2.0: bad.append('gallery headroom')
+if level is not None and CEIL is not None:
+    report.setdefault('gallery', {})['roof_clearance_m'] = round(CEIL - level, 3); print('REACH roof clearance over the deck %.3f m' % (CEIL - level))
+    if CEIL - level < 2.0: bad.append('roof clearance over the gallery deck')
 report['ok'] = not bad; report['problems'] = bad
 if OUT: open(OUT, 'w').write(json.dumps(report, indent=1) + '\n')
 print('REACH', 'OK' if not bad else 'FAILED: %s' % bad)
