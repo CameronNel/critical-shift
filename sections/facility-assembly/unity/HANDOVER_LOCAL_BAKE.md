@@ -1,6 +1,6 @@
 # Handover: the final map bake for Unity URP on the owner's PC
 
-**What this is:** the prompt for the agent on the owner's Windows PC (Gemini). Written 2026-10-18 after an independent review of every bake script, the fixes, and a full rehearsal of all 13 map pieces in the cloud (CPU, 256 px; results in `README.md`, *Review and fixes, 2026-10-18*). Paste everything below the line.
+**What this is:** the prompt for the agent on the owner's Windows PC (Gemini). Written 2026-10-18 after an independent review of every bake script and its fixes; updated 2026-10-19 when a full rehearsal of all 13 map pieces in the cloud (CPU, 256 px) passed every stage and check on the final code (results in `README.md`, *Final rehearsal, 2026-10-19*). Paste everything below the line.
 
 **Why a new run:** every bake made before 2026-10-18 is wrong in ways the review found (lost emission strips and screens, opaque decals and frosted glass, clipped lamps, failures that looked like passes) and the first 8 map rooms also held the whole map. None of those outputs are kept; the pipeline that bakes now stops by itself on any of those faults.
 
@@ -37,11 +37,11 @@ If one is listed, stop and ask the owner before closing it (an earlier bake may 
 $env:GIT_LFS_SKIP_SMUDGE = "1"           # keep this set in this shell for every git command below
 git fetch origin ccr-b12a99c0-hbdwp2
 git switch --detach origin/ccr-b12a99c0-hbdwp2
-git log -1 --oneline                      # must be COMMIT_PLACEHOLDER or newer
+git log -1 --oneline                      # must be 73e30f7 or newer (the commit the rehearsal was proven on, or a later one)
 git status --porcelain                    # must print nothing
 ```
 
-- If the owner says PR #110 has been merged, use `main` instead: `git fetch origin main` and `git switch --detach origin/main`.
+- If the owner says PR #112 has been merged, use `main` instead (PR #110 already is; #112 holds the last rehearsal fixes): `git fetch origin main` and `git switch --detach origin/main`.
 - If the switch fails, or `git status --porcelain` prints anything, stop and show it. Do not stash, reset or clean.
 
 Check these files exist: `sections/facility-assembly/unity/bake_all.ps1`, `bake_room.ps1`, `bake_room.py`, `bake_check.py`, `check_device.py`, and `sections/facility-assembly/blender_device.py`.
@@ -120,10 +120,12 @@ Start it in its own window, so it is not tied to your command timeout:
 Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU','-Map','-Blender','C:\Blender\blender-5.2.2-windows-x64\blender.exe'
 ```
 
-**What it does:** 13 pieces, one after another, smallest first: cooling-plant, waste-storage, turbine-room, fuel-corridor, electrical-room, compliance-dock, medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine, then map-connections. The condenser bay is left out on purpose (its finish is being reworked).
+**What it does:** 13 pieces, one after another, smallest first: cooling-plant, waste-storage, turbine-room, fuel-corridor, electrical-room, compliance-dock, medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine, then map-connections. The condenser bay is left out on purpose (its finish is being reworked), and so is the mountain over the mine (every object named `R40 | ...`: the cliff, its ledge debris and talus, the cliff crystals and their 14 lights; the owner is reworking it). Nothing else of the mine is left out.
 
 **Each piece runs these stages:** prep, base, rough, normal, metal, emit, mask, finish, check, compare.
-- **prep** (unwrap, CPU-bound) is the longest stage; in the cloud rehearsal it took TIMING_PLACEHOLDER.
+- **prep** (unwrap, CPU-bound) is the longest stage. In the cloud rehearsal (4 CPU cores) it took 7 to 50 minutes per piece, 5.1 hours for all 13; the reactor (50), front end (47) and refinery (41) are the longest. It runs on the CPU here too, so expect similar times, somewhat less on the 5800X.
+- **The six bake passes** run on the GPU at 4K atlases and 8 samples. Their time is not measured on this PC yet: the smoke test in step 5 gives the first number (the cloud ran them at 256 px on the CPU, which says nothing about the GPU).
+- **The whole run** is therefore roughly 5 to 8 hours of prep plus the GPU passes. Do not stop it because it seems slow; only a non-zero exit or a `CHECK FAIL` is a failure.
 - **check** stops the run if the piece's output is wrong (anything outside the room in the bake, missing or invalid maps, lights, or an FBX that does not re-import with the same meshes and triangles).
 - Logs: `sections/facility-assembly/unity/_logs/map-<piece>.log`. Outputs: `sections/facility-assembly/unity/map/<piece>/`.
 
@@ -142,7 +144,13 @@ Watch the first piece until its `base` stage has started and confirm the log sho
 4. The comparison images: `map/<piece>/compare/source/*.png` and `compare/baked/*.png`. Name any pair that looks clearly different (black, pink, missing parts).
 5. `git status --porcelain` must print nothing (the outputs are git-ignored). **Do not commit them.**
 
+**Expected notes, not failures** (the log prints them; mention them in the report):
+- `CHECK note emissive: black throughout; it reads ['Col'] ...` in map-connections: the evacuation bulkhead lenses read a colour attribute their meshes lack, so they are black in the map itself. A map fix, the owner's decision.
+- `CHECK note M_ARCH ... planned emission baked to black` (and M_MACH, M_PROPS, M_SHAFT) in turbine-room: the view-dependent rim glow below.
+- `unwrap with scaled margins` lines in prep: materials that broke into very many small UV islands were unwrapped again; that is the intended fallback.
+
 **Known limits** (not for you to fix; tell the owner if asked):
 - The turbine's blue rim glow (view-dependent shading) cannot be baked; it needs a small custom Unity shader later.
 - Glass in the source renders casts dark shadows (Cycles does not trace light through glass by default); the baked side and Unity do not.
+- The evacuation bulkhead lenses are black (see the notes above), and the mountain over the mine is not in this bake.
 - Nothing has been imported into Unity yet: that is *Critical Shift > Rooms > Import Baked Map* in the Unity project, after this run.

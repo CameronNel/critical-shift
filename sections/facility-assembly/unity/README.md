@@ -80,6 +80,40 @@ Importer: transparency for baked materials (base map alpha kept on import), the 
 - An EEVEE real-time preview: there is no GPU or EGL in the container, so it could not start.
 - A Unity import.
 
+## Final rehearsal, 2026-10-19
+
+All 13 map pieces through every stage (prep, six bake passes, finish, check, compare) with the real runner (`bake_all.ps1 -Map -Quality rehearsal`), on the cloud CPU (owner's OK; 256 px atlases, 1 sample), on `main` (#110, #111) and this branch's last fixes. Every piece passes `bake_check.py` on the final code:
+
+| Piece | Meshes | Triangles | Lights | Transparent materials | Prep (min) | Total (min) |
+|---|---|---|---|---|---|---|
+| cooling-plant | 1,572 | 314,699 | 15 | 1 | 7.3 | 19.5 |
+| waste-storage | 2,111 | 352,300 | 19 | 1 | 11.3 | 26.0 |
+| turbine-room | 60 | 416,510 | 59 | 3 | 6.9 | 12.5 |
+| fuel-corridor | 255 | 1,120,559 | 22 | 1 | 30.7 | 37.4 |
+| electrical-room | 3,037 | 579,699 | 18 | 1 | 22.4 | 41.3 |
+| compliance-dock | 1,143 | 397,976 | 26 | 1 | 23.5 | 34.3 |
+| medical-reanimation | 1,379 | 507,648 | 21 | 2 | 19.1 | 30.5 |
+| refinery | 2,815 | 390,384 | 21 | 6 | 41.0 | 55.1 |
+| front-end-area | 2,161 | 743,496 | 72 | 36 | 46.9 | 60.6 |
+| spawn-room | 1,669 | 312,534 | 8 | 1 | 29.3 | 39.8 |
+| reactor-room | 1,644 | 1,115,902 | 117 | 17 | 49.7 | 66.0 |
+| mine (without the mountain, R40) | 163 | 716,509 | 50 | 0 | 9.8 | 15.1 |
+| map-connections | 446 | 30,490 | 36 | 0 | 7.3 | 14.8 |
+
+Total 7.5 h, of which prep 5.1 h (CPU-bound; it will be similar on the owner's PC). The bake passes' time at 4K on the GPU is not measured yet.
+
+**Found and fixed during the rehearsal** (each one stopped a piece; none reached the owner's PC):
+- **UV unwrap.** Three faults, each baking whole materials as one colour or a smear in every earlier bake:
+  - the unwrap took the material's image aspect (`correct_aspect`), so the front end's signs collapsed;
+  - the island packer stretches islands to the material's active image whatever the setting: the 11:1 menu board packed 1:11. Images are now detached while unwrapping;
+  - selecting one material's faces in a single pass deselected shared vertices of faces already selected: on a two-material grid, 440 of 441 faces were left without UVs.
+  - A fixed packing margin cannot fit ~100,000 one-face islands (the mine's decimated boulders, all collapsed); such materials are now unwrapped again with scaled margins.
+  - Prep now measures each face's stretch and stops if more than 10 % of a material is squashed past 20:1.
+- **Glass:** transmission glass was a 25 % white overlay (frosted, milky); now no diffuse, 10 % alpha, URP Preserve Specular.
+- **Isolation:** setting `exclude = False` on an already-included collection restores its children's earlier state, which brought the map's DOORS collection back; only excluded collections are switched now, and collections are addressed by path and identity, never by name.
+- **The check's own precision:** zero-area faces and back faces (a reversed second face on the same vertices: the mine's double-sided gravel, 19,190 faces) merge in Blender's FBX re-import; text objects list their own geometry as an instance; Blender's FBX importer drops a trailing `.5` from a material name. All counted or matched exactly now.
+- **Source issues reported, not bake faults:** view-dependent shading bakes as seen head-on (the turbine's rim glow, the reactor's water); the evacuation bulkhead lenses read a colour attribute (`Col`) their meshes lack, so they are black in the map itself (a map fix, the owner's decision).
+
 ## Running it on the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT)
 
 ```powershell
