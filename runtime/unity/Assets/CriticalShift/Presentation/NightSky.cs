@@ -64,10 +64,9 @@ namespace CriticalShift.Presentation
             Shader.SetGlobalMatrix(SkyFromWorld, Matrix4x4.zero);
         }
 
-        void OnValidate()
-        {
-            if (isActiveAndEnabled) { nextLightUpdate = 0.0; Apply(); }
-        }
+        // Inspector edits: only ask for a fresh moonlight update. Update (which [ExecuteAlways] also runs after an edit) applies it; moving
+        // lights and transforms inside OnValidate itself is what Unity warns about.
+        void OnValidate() => nextLightUpdate = 0.0;
 
         void Update() => Apply();
 
