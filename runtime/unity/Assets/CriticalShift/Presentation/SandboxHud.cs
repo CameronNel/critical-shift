@@ -139,12 +139,7 @@ namespace CriticalShift.Presentation
                 GUI.Label(new Rect(12, 100, Screen.width - 24, 70), actionStatus(), wrapped);
                 var contract = commands.Contract;
                 if (contract != null)
-                {
-                    var wave = contract.Current;
-                    string objective = wave == null || commands.Debrief != null ? contract.Title + " · " + contract.Outcome :
-                        wave.Label + " · " + wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy this window";
-                    GUI.Label(new Rect(12, 174, Screen.width - 24, 70), objective, wrapped);
-                }
+                    GUI.Label(new Rect(12, 174, Screen.width - 24, 150), SandboxContractReadout.Compact(contract), wrapped);
                 return;
             }
             bool previousEnabled = GUI.enabled;
@@ -230,29 +225,18 @@ namespace CriticalShift.Presentation
             var contract = commands.Contract;
             if (contract == null) return;
             GUILayout.Label(contract.Title, wrapped);
+            GUILayout.Label(SandboxContractReadout.Progress(contract), wrapped);
             var current = contract.Current;
             if (current != null && (contract.Phase == WorldPhase.Running || contract.Phase == WorldPhase.Paused || contract.Phase == WorldPhase.Setup))
             {
-                long remaining = Math.Max(0, current.EndMilliseconds - contract.ElapsedMilliseconds);
-                GUILayout.Label(current.Label + " · " + current.DeliveredEnergyUnits + "/" + current.RequiredEnergyUnits +
-                    " energy · " + Clock(remaining) + " left", wrapped);
                 if (current.RequiredEnergyUnits == 0) GUILayout.Label("Prepare ore, fuel and cooling before the grid request begins.", wrapped);
                 GUILayout.Label("Each window counts its own energy. Surplus cannot pay a later request.", wrapped);
-                var upcoming = contract.Upcoming;
-                if (upcoming != null) GUILayout.Label("Next: " + upcoming.Label + " in " +
-                    Clock(Math.Max(0, upcoming.StartMilliseconds - contract.ElapsedMilliseconds)) + " · " +
-                    upcoming.RequiredEnergyUnits + " energy in that window", wrapped);
+                string upcoming = SandboxContractReadout.Upcoming(contract);
+                if (upcoming.Length != 0) GUILayout.Label(upcoming, wrapped);
             }
-            else GUILayout.Label("Contract " + contract.Outcome + " · delivered " + contract.DeliveredEnergyUnits + " energy", wrapped);
             foreach (var wave in contract.Waves)
                 if (wave.Settled) GUILayout.Label((wave.Met ? "Met: " : "Missed: ") + wave.Label + " · " +
                     wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy", wrapped);
-        }
-
-        private static string Clock(long milliseconds)
-        {
-            long seconds = milliseconds / 1000;
-            return (seconds / 60).ToString("D2") + ":" + (seconds % 60).ToString("D2");
         }
 
         private void DrawDebrief(ShiftDebriefView debrief)
@@ -387,7 +371,7 @@ namespace CriticalShift.Presentation
             string subject = traceName(row.EntityId);
             if (string.IsNullOrEmpty(subject) && row.ActorId != Guid.Empty) subject = WorkerName(row.ActorId);
             string hazard = row.HazardId == Guid.Empty ? "" : traceName(row.HazardId);
-            GUILayout.Label(Clock(row.ShiftMilliseconds) + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +
+            GUILayout.Label(SandboxContractReadout.Clock(row.ShiftMilliseconds) + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +
                 (string.IsNullOrEmpty(hazard) ? "" : " · source " + hazard) + cause, wrapped);
         }
         private void OnApplicationFocus(bool focused) { if (!focused) ClearInput(); }

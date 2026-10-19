@@ -30,7 +30,10 @@ NotRun; this does not establish physical carrying/loading time or accepted balan
 
 The grid counts energy separately in each window. Surplus in preparation or an
 earlier window cannot pay a later request. Stage fuel, maintain cooling, and leave
-time for reloads. The logical reference route processes the heavy dry crate and
+time for reloads. Hiding the control panel retains the current window countdown,
+authored upcoming warning, and the latest settled missed-window shortfall/count.
+This read-only formatter is tested offline; native wrapping/readability remains
+NotRun. The logical reference route processes the heavy dry crate and
 three ordinary dry crates through crusher and processor without bypass. It starts
 the heavy fuel at04:20, follows with the original ready fuel, then uses the three
 ordinary fuel batches from09:00. This is a reproducible fixture route, not a
