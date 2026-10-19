@@ -60,3 +60,13 @@ Native import/PlayMode/physics/rendered controls/Player/performance/multiplayer
 remain NotRun because pinned Unity is unavailable and the remote is Offline.
 Draft pending independent maintainer review and merge; no acceptance gate or
 fictional balance acceptance is advanced.
+
+Final candidate `0d8274635421d9f320c0eb15eb632f5ac24a54ab` passed the full
+verifier12:59:09–12:59:48UTC: **1154 executed/passed, zero failed/skipped;26
+scenarios each twice**. Existing controls and the named ignored-routing control
+were rejected. All279 recorded inputs match that git tree; all nine DLL hashes
+match the frozen closure in ignored `out/reactor-routing-verification-20261019`.
+Final frozen seed20261058 passed10,000 mixed cases/15,429,160 selected
+operations and model checks in38.3388238s. Ultra source reviews
+found no remaining concrete core or native-composition blocker. All current
+native behavior remains NotRun; draft awaits independent maintainer review.
