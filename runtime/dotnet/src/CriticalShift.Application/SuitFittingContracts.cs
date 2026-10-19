@@ -4,14 +4,15 @@ using CriticalShift.Features.Workers.Domain;
 
 namespace CriticalShift.Application
 {
-    public enum SuitFittingAction { Start, Cancel }
+    public enum SuitFittingAction { Start, Cancel, Remove }
     public enum SuitFittingStatus { Applied, NoChange, UnknownStation, RevisionConflict, InvalidWorker, HandsOccupied, StationOccupied, StaleAttempt, InvalidTime }
     public enum SuitFittingEvent { Started, Completed, Cancelled, Interrupted }
     public sealed class SuitFittingDefinition
     {
-        public SuitFittingDefinition(long durationMilliseconds = 20000) { Rules = new SuitFittingRules(durationMilliseconds); }
+        public SuitFittingDefinition(long durationMilliseconds = 20000, long removalDurationMilliseconds = 5000) { Rules = new SuitFittingRules(durationMilliseconds, removalDurationMilliseconds); }
         internal SuitFittingRules Rules { get; }
         public long DurationMilliseconds => Rules.DurationMilliseconds;
+        public long RemovalDurationMilliseconds => Rules.RemovalDurationMilliseconds;
     }
     public sealed class SuitFittingRequest
     {
@@ -23,7 +24,7 @@ namespace CriticalShift.Application
         public Guid AttemptId { get; }
         public int Version { get; }
         internal bool IsWellFormed => Version == CurrentVersion &&
-            (Action == SuitFittingAction.Start ? WorkerRevision >= 0 && AttemptId == Guid.Empty :
+            (Action == SuitFittingAction.Start || Action == SuitFittingAction.Remove ? WorkerRevision >= 0 && AttemptId == Guid.Empty :
              Action == SuitFittingAction.Cancel && WorkerRevision == 0 && AttemptId != Guid.Empty);
         internal bool Same(SuitFittingRequest other) => Action == other.Action && WorkerRevision == other.WorkerRevision &&
             AttemptId == other.AttemptId && Version == other.Version;
@@ -32,12 +33,13 @@ namespace CriticalShift.Application
     {
         internal SuitFittingAttemptView(SuitFittingAttempt attempt)
         { Id = attempt.Id; StationId = attempt.StationId; StartedAtMilliseconds = attempt.StartedAtMilliseconds;
-          DueAtMilliseconds = attempt.DueAtMilliseconds; OriginalSuit = (WorkerSuit)(int)attempt.OriginalSuit; }
+          DueAtMilliseconds = attempt.DueAtMilliseconds; OriginalSuit = (WorkerSuit)(int)attempt.OriginalSuit; TargetSuit = (WorkerSuit)(int)attempt.TargetSuit; }
         public Guid Id { get; }
         public Guid StationId { get; }
         public long StartedAtMilliseconds { get; }
         public long DueAtMilliseconds { get; }
         public WorkerSuit OriginalSuit { get; }
+        public WorkerSuit TargetSuit { get; }
     }
     public sealed class SuitFittingChange
     {

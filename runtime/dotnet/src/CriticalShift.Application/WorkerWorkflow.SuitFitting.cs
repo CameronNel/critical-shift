@@ -6,8 +6,8 @@ namespace CriticalShift.Application
 {
     internal sealed partial class WorkerWorkflow
     {
-        internal WorkerReply BeginSuitFitting(Guid actor, long revision, Guid station, Guid attempt, SuitFittingRules rules, long now) =>
-            _workers.TryGetValue(actor, out var worker) ? Reply(worker.BeginSuitFitting(revision, station, attempt, rules, now), worker) :
+        internal WorkerReply BeginSuitFitting(Guid actor, long revision, Guid station, Guid attempt, SuitFittingRules rules, long now, WorkerSuit target = WorkerSuit.Intact) =>
+            _workers.TryGetValue(actor, out var worker) ? Reply(worker.BeginSuitFitting(revision, station, attempt, rules, now, (SuitCondition)(int)target), worker) :
             new WorkerReply(WorkerStatus.UnknownWorker);
         internal WorkerReply CancelSuitFitting(Guid actor, Guid attempt) =>
             _workers.TryGetValue(actor, out var worker) ? Reply(worker.CancelSuitFitting(attempt), worker) : new WorkerReply(WorkerStatus.UnknownWorker);

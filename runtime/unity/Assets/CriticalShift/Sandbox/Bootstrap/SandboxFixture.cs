@@ -85,7 +85,7 @@ namespace CriticalShift.Sandbox
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.OutputRoutingRequested += host.SetReactorOutputRouting; hud.CycleFocusedOutputRoutingRequested += host.CycleFocusedOutputRouting;
-                hud.SuitFittingRequested += host.OperateSuitFitting;
+                hud.SuitFittingRequested += host.OperateSuitFitting; hud.RemoveFocusedSuitRequested += host.RemoveFocusedSuit;
                 hud.MedicalRequested += host.OperateMedical;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;

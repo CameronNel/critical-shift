@@ -17,15 +17,15 @@ namespace CriticalShift.Scenarios
         }
         private sealed class Worker
         {
-            internal WorkerSuit Suit, Original;
+            internal WorkerSuit Suit, Original, Target;
             internal int Load, Station;
             internal long Revision, Start, Due, ContactSequence, NextContact;
             internal bool Pending;
             internal Guid Attempt;
         }
-        internal static int Exercise(Random random, bool omitFirstProtection)
+        internal static int Exercise(Random random, bool omitFirstProtection, bool omitFirstRemoval = false)
         {
-            long duration = random.Next(15000, 30001), deadline = duration * 3 + random.Next(1, 5001);
+            long duration = random.Next(15000, 30001), removalDuration = random.Next(1000, 15001), deadline = duration * 3 + random.Next(1, 5001);
             var access = new Access(); WorldSession? world = null; int steps = 0;
             for (int lifetime = 0; lifetime < 2; lifetime++)
             {
@@ -36,12 +36,12 @@ namespace CriticalShift.Scenarios
                 for (int i = 0; i < 2; i++)
                 {
                     world.RegisterConnection(Id(800 + i), Id(810 + i)); ports[i] = new LocalCommandPort(world, Id(800 + i));
-                    world.SuitFitting.Register(Id(820 + i), new SuitFittingDefinition(duration));
+                    world.SuitFitting.Register(Id(820 + i), new SuitFittingDefinition(duration, removalDuration));
                 }
                 world.RegisterWorkerContaminationSource(Id(830), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 20, 1));
                 world.RegisterObject(Id(840));
                 access.Allowed = true; world.Start(); long host = 0, shift = 0;
-                long starts = 0, completed = 0, cancelled = 0, interrupted = 0; bool paused = false, terminal = false, omitted = false;
+                long starts = 0, completed = 0, cancelled = 0, interrupted = 0; bool paused = false, terminal = false, omitted = false, omittedRemoval = false;
                 if (previous != Guid.Empty)
                 {
                     var stale = new InteractionCommand(previous, 1, InteractionKind.SuitFitting, Id(820),
@@ -68,25 +68,27 @@ namespace CriticalShift.Scenarios
                         if (expected.Pending)
                             Require(actual.SuitFitting!.Id == expected.Attempt && actual.SuitFitting.StationId == Id(820 + expected.Station) &&
                                 actual.SuitFitting.StartedAtMilliseconds == expected.Start && actual.SuitFitting.DueAtMilliseconds == expected.Due &&
-                                actual.SuitFitting.OriginalSuit == expected.Original, "Fitting identity, full duration or original protection drifted.");
+                                actual.SuitFitting.OriginalSuit == expected.Original && actual.SuitFitting.TargetSuit == expected.Target, "Fitting identity, full duration or original protection drifted.");
                     }
                     Require(world.View.ActiveClaimCount == 0, "Suit fitting invented object custody.");
                     if (terminal) Require(world.WorkerCount == 0 && world.SuitFitting.StationCount == 0, "Suit fitting leaked terminal resources.");
                     steps++;
                 }
-                void Start(int who, int station)
+                void Start(int who, int station, bool removing = false)
                 {
+                    var targetSuit = removing ? WorkerSuit.None : WorkerSuit.Intact;
+                    long selectedDuration = removing ? removalDuration : duration;
                     var worker = workers[who]; SuitFittingStatus? typed = null; InteractionStatus expected;
                     if (paused || worker.Pending) expected = InteractionStatus.ActorUnavailable;
                     else if (!access.Allowed) expected = InteractionStatus.OutOfReach;
                     else
                     {
-                        typed = worker.Suit == WorkerSuit.Intact ? SuitFittingStatus.NoChange :
+                        typed = worker.Suit == targetSuit ? SuitFittingStatus.NoChange :
                             workers.Any(w => w.Pending && w.Station == station) ? SuitFittingStatus.StationOccupied : SuitFittingStatus.Applied;
                         expected = typed == SuitFittingStatus.Applied ? InteractionStatus.Applied :
                             typed == SuitFittingStatus.NoChange ? InteractionStatus.NoChange : InteractionStatus.SuitFittingRejected;
                     }
-                    var reply = ports[who].OperateSuitFitting(Id(820 + station), SuitFittingAction.Start);
+                    var reply = ports[who].OperateSuitFitting(Id(820 + station), removing ? SuitFittingAction.Remove : SuitFittingAction.Start);
                     Require(reply.Status == expected && reply.SuitFitting?.Status == typed, "Fitting start admission differs from independent busy/access/occupancy model.");
                     Require(reply.HasNewCommit == (typed == SuitFittingStatus.Applied), "Fitting start committed despite denial or omitted an accepted mutation.");
                     if (typed == SuitFittingStatus.Applied)
@@ -96,11 +98,11 @@ namespace CriticalShift.Scenarios
                             change.PreviousWorkerRevision == worker.Revision && change.Worker.Id == Id(810 + who) &&
                             change.Worker.Revision == worker.Revision + 1 && change.Worker.Suit == worker.Suit && change.Worker.Contamination == worker.Load &&
                             !change.Worker.CanInteract && attempt?.StationId == Id(820 + station) && attempt.StartedAtMilliseconds == shift &&
-                            attempt.DueAtMilliseconds == shift + duration && attempt.OriginalSuit == worker.Suit &&
+                            attempt.DueAtMilliseconds == shift + selectedDuration && attempt.OriginalSuit == worker.Suit && attempt.TargetSuit == targetSuit &&
                             change.Worker.SuitFitting?.Id == attempt.Id, "Fitting Started event differs from independently predicted inputs.");
                         Require(attempt!.Id != Guid.Empty && attemptIds.Add(attempt.Id), "A new fitting reused an old attempt identity.");
-                        worker.Pending = true; worker.Attempt = attempt.Id; worker.Start = shift; worker.Due = shift + duration;
-                        worker.Station = station; worker.Original = worker.Suit; worker.Revision++; starts++;
+                        worker.Pending = true; worker.Attempt = attempt.Id; worker.Start = shift; worker.Due = shift + selectedDuration;
+                        worker.Station = station; worker.Original = worker.Suit; worker.Target = targetSuit; worker.Revision++; starts++;
                     }
                     Check();
                 }
@@ -110,7 +112,9 @@ namespace CriticalShift.Scenarios
                     var attempt = worker.Attempt; long revision = worker.Revision;
                     var reply = ports[who].OperateSuitFitting(Id(820 + worker.Station), SuitFittingAction.Cancel);
                     Require(reply.HasNewCommit && reply.SuitFitting?.Change?.Kind == SuitFittingEvent.Cancelled &&
-                        reply.SuitFitting.Change.Attempt.Id == attempt && reply.SuitFitting.Change.PreviousWorkerRevision == revision,
+                        reply.SuitFitting.Change.Attempt.Id == attempt && reply.SuitFitting.Change.PreviousWorkerRevision == revision &&
+                        reply.SuitFitting.Change.Attempt.TargetSuit == worker.Target && reply.SuitFitting.Change.Attempt.OriginalSuit == worker.Original &&
+                        reply.SuitFitting.Change.Attempt.StartedAtMilliseconds == worker.Start && reply.SuitFitting.Change.Attempt.DueAtMilliseconds == worker.Due,
                         "Own fitting cancellation lost exact identity, revision or busy/paused escape path.");
                     worker.Pending = false; worker.Revision++; cancelled++; Check();
                 }
@@ -130,8 +134,9 @@ namespace CriticalShift.Scenarios
                             if (finish)
                             {
                                 completed++;
-                                if (omitFirstProtection && lifetime == 0 && !omitted) omitted = true;
-                                else worker.Suit = WorkerSuit.Intact;
+                                if (omitFirstProtection && lifetime == 0 && !omitted && worker.Target == WorkerSuit.Intact) omitted = true;
+                                else if (omitFirstRemoval && lifetime == 0 && !omittedRemoval && worker.Target == WorkerSuit.None) omittedRemoval = true;
+                                else worker.Suit = worker.Target;
                             }
                             else interrupted++;
                         }
@@ -144,7 +149,9 @@ namespace CriticalShift.Scenarios
                     {
                         var actual = result.SuitFittingChanges.Single(c => c.Worker.Id == Id(810 + row.Who));
                         Require(actual.Kind == row.Kind && actual.ShiftMilliseconds == row.At && actual.Attempt.Id == row.Attempt &&
-                            actual.PreviousWorkerRevision == row.Previous && actual.Worker.Revision == row.Previous + 1,
+                            actual.PreviousWorkerRevision == row.Previous && actual.Worker.Revision == row.Previous + 1 &&
+                            actual.Attempt.TargetSuit == workers[row.Who].Target && actual.Attempt.OriginalSuit == workers[row.Who].Original &&
+                            actual.Attempt.StartedAtMilliseconds == workers[row.Who].Start && actual.Attempt.DueAtMilliseconds == workers[row.Who].Due,
                             "Fitting settlement lost exact completion/current observation time, attempt or revisions.");
                     }
                     Check();
@@ -182,6 +189,7 @@ namespace CriticalShift.Scenarios
                 Require(ports[0].Grab(Id(840)).Status == InteractionStatus.ActorUnavailable && world.GetObject(Id(840))!.Revision == 0,
                     "Busy fitting accepted a grab or changed target custody."); Check();
                 Advance(duration - 1); Contact(0); Advance(1); Advance(1); Contact(0); Start(0, 0);
+                Start(0, 0, true); Advance(removalDuration - 1); Contact(0); Advance(1); Advance(1); Contact(0);
                 Require(ports[0].Grab(Id(840)).HasNewCommit && ports[0].Release(Id(840)).HasNewCommit,
                     "Completed fitting did not restore ordinary work admission."); Check();
                 Environment(0, WorkerSuit.None, workers[0].Load); Start(0, 0); Start(1, 1);
@@ -193,7 +201,7 @@ namespace CriticalShift.Scenarios
                     int who = random.Next(2);
                     switch (random.Next(8))
                     {
-                        case 0: Start(who, random.Next(2)); break;
+                        case 0: Start(who, random.Next(2), random.Next(2) == 0); break;
                         case 1: Cancel(who); break;
                         case 2: Advance(random.Next(1, 10001)); break;
                         case 3: access.Allowed = random.Next(3) != 0; Check(); break;

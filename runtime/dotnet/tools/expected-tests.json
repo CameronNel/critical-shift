@@ -546,5 +546,22 @@
   "LowReserveGuidanceDistinguishesAbsentAndAvailableBackup": 2,
   "BackupAdviceDetectsInsufficientHeadroomInsteadOfOfferingAnotherBlockedStart": 1,
   "RunningSuspectFuelExplainsThatCoolingDoesNotRemoveItsRisk": 1,
-  "FrozenReactorReadoutCannotAdvanceWorkChangeRoutingOrSubmitACommand": 1
+  "FrozenReactorReadoutCannotAdvanceWorkChangeRoutingOrSubmitACommand": 1,
+  "RemovalRetainsOriginalProtectionAndMobilityUntilExactCompletion": 2,
+  "RemovalCompletionChangesOnlyFuturePpeAndDoesNotResetExposureCooldown": 2,
+  "AlreadyUnsuitedRemovalIsNoChangeWithoutClockOrCounterMutation": 1,
+  "RemovalRetainsTheExistingFreeHandsOccupancyAndSpatialAdmission": 3,
+  "RemovalCannotBypassBusyWorkEvenWhenItsTargetWouldAlreadyMatch": 1,
+  "PausedRemovalFreezesItsDeadlineAndOwnCancellationKeepsTheOriginalSuit": 1,
+  "SampledAccessLossAfterTheDueTimeInterruptsAtCurrentObservationWithoutBackdating": 1,
+  "ImpactInterruptsRemovalOnceAndRetainsOriginalGearAndInjuryCause": 2,
+  "TrustedSuitReplacementInterruptsRemovalEvenIfTheOriginalGearIsRestoredBeforePolling": 1,
+  "OldRemovalReplayAndCancellationCannotRemoveOrCancelANewFitting": 1,
+  "SameSequenceCannotChangeRemovalIntoAFitting": 1,
+  "RemovalDeadlineSettlesOnlyExactCompletedWorkBeforeCutoff": 3,
+  "RemovalUsesItsOwnShorterDurationAtTheMaximumShiftClock": 1,
+  "MalformedRemovalCannotConsumeTheNextSequence": 3,
+  "RemovalDurationBoundsDoNotRelaxTheExistingFittingBounds": 3,
+  "DomainCannotUseRemovalToCreateAClientChosenDamagedOrUnknownSuit": 2,
+  "RemovalTraceAndDebriefDistinguishTheOperationAndPreservePriorInjury": 1
 }

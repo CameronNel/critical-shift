@@ -111,7 +111,7 @@ namespace CriticalShift.Application
         {
             var worker = _world.GetWorker(ActorId);
             return Send(new InteractionCommand(_world.Epoch, NextSequence(), InteractionKind.SuitFitting, station,
-                suitFitting: new SuitFittingRequest(action, action == SuitFittingAction.Start ? worker?.Revision ?? 0 : 0,
+                suitFitting: new SuitFittingRequest(action, action == SuitFittingAction.Start || action == SuitFittingAction.Remove ? worker?.Revision ?? 0 : 0,
                     action == SuitFittingAction.Cancel ? worker?.SuitFitting?.Id ?? Guid.Empty : Guid.Empty)));
         }
 

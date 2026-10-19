@@ -54,14 +54,16 @@ namespace CriticalShift.Application
             }
             if (worker.Revision != request.WorkerRevision) return Reply(SuitFittingStatus.RevisionConflict, worker);
             if (!worker.CanInteract) return Reply(SuitFittingStatus.InvalidWorker, worker);
-            if (worker.Suit == WorkerSuit.Intact) return Reply(SuitFittingStatus.NoChange, worker);
+            var target = request.Action == SuitFittingAction.Remove ? WorkerSuit.None : WorkerSuit.Intact;
+            if (worker.Suit == target) return Reply(SuitFittingStatus.NoChange, worker);
             if (interaction.ActorHasClaim(actor)) return Reply(SuitFittingStatus.HandsOccupied, worker);
             foreach (var other in workers.Snapshot())
                 if (other.SuitFitting?.StationId == station) return Reply(SuitFittingStatus.StationOccupied, worker);
             long now = world.View.ElapsedMilliseconds;
-            if (now > long.MaxValue - definition.DurationMilliseconds) return Reply(SuitFittingStatus.InvalidTime, worker);
+            long duration = target == WorkerSuit.None ? definition.RemovalDurationMilliseconds : definition.DurationMilliseconds;
+            if (now > long.MaxValue - duration) return Reply(SuitFittingStatus.InvalidTime, worker);
             long starts = checked(started + 1);
-            var begin = workers.BeginSuitFitting(actor, request.WorkerRevision, station, Guid.NewGuid(), definition.Rules, now);
+            var begin = workers.BeginSuitFitting(actor, request.WorkerRevision, station, Guid.NewGuid(), definition.Rules, now, target);
             if (begin.Status != WorkerStatus.Applied) throw new InvalidOperationException("Prepared fitting start failed.");
             started = starts;
             return Reply(SuitFittingStatus.Applied, begin.Worker, new SuitFittingChange(SuitFittingEvent.Started, begin.Worker!, begin.Worker!.SuitFitting!, now));
