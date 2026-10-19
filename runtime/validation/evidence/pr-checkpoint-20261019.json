@@ -1,0 +1,889 @@
+{
+  "checked_utc": "2026-10-19T14:21:59.436285+00:00",
+  "prs": [
+    {
+      "baseRefName": "codex/safe-fuel-discard-20261019",
+      "headRefName": "codex/fault-settlement-evidence-20261019",
+      "headRefOid": "a26b976b01fec95f8775d5bdf37f595a1d23fd6b",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 137,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T14:00:43Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39264729595/job/118101229939",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T13:58:15Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:59:43Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39264729595/job/118101229809",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T13:58:15Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Retain committed gameplay facts when later settlement faults",
+      "url": "https://github.com/CameronNel/critical-shift/pull/137"
+    },
+    {
+      "baseRefName": "codex/timed-suit-removal-20261019",
+      "headRefName": "codex/safe-fuel-discard-20261019",
+      "headRefOid": "7fa3ad90bcce0934ed674adfe97c31759f192665",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 136,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:44:54Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39262442429/job/118093327272",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T13:42:34Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:44:48Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39262442429/job/118093326919",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T13:42:37Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Allow safe discard of cooled partial reactor fuel",
+      "url": "https://github.com/CameronNel/critical-shift/pull/136"
+    },
+    {
+      "baseRefName": "codex/reactor-output-routing-20261019",
+      "headRefName": "codex/timed-suit-removal-20261019",
+      "headRefOid": "25ed108c7daad5a8d1bfc49229407dd0e8891f72",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 135,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:22:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39259213744/job/118082189911",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T13:19:50Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:22:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39259213744/job/118082190310",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T13:19:51Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Allow timed suit removal at the existing locker",
+      "url": "https://github.com/CameronNel/critical-shift/pull/135"
+    },
+    {
+      "baseRefName": "codex/dirty-cargo-exposure-20261019",
+      "headRefName": "codex/reactor-output-routing-20261019",
+      "headRefOid": "d6584d016c8a2434e03a57914438a59e9506366f",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 134,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:04:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39256702372/job/118073680880",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T13:01:48Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T13:04:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39256702372/job/118073681016",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T13:01:48Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Route new reactor output between grid supply and emergency reserve",
+      "url": "https://github.com/CameronNel/critical-shift/pull/134"
+    },
+    {
+      "baseRefName": "codex/ore-washing-20261019",
+      "headRefName": "codex/dirty-cargo-exposure-20261019",
+      "headRefOid": "6b343cce3b5bef9eb0a774901a2d2b9b0ef4d774",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 133,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T12:45:15Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39254150846/job/118065102572",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T12:42:31Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T12:44:33Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39254150846/job/118065102188",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T12:42:31Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Sample dirty cargo exposure from current custody and PPE",
+      "url": "https://github.com/CameronNel/critical-shift/pull/133"
+    },
+    {
+      "baseRefName": "codex/suit-mobility-tradeoff-20261019",
+      "headRefName": "codex/ore-washing-20261019",
+      "headRefOid": "7fe6af1d65701b92b5376e1416cdf9eb92924081",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 132,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T12:18:22Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39250753011/job/118053666451",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T12:16:22Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T12:18:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39250753011/job/118053666000",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T12:16:22Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Wash contaminated ore through the existing paid production cycle",
+      "url": "https://github.com/CameronNel/critical-shift/pull/132"
+    },
+    {
+      "baseRefName": "codex/physical-medical-rescue-20261019",
+      "headRefName": "codex/suit-mobility-tradeoff-20261019",
+      "headRefOid": "2f7f7933d211419a07e0a31002c53f1f000d1016",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 131,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:53:08Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39247609940/job/118043270164",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T11:51:01Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:52:59Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39247609940/job/118043269963",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T11:51:02Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Make protective suits safer but slower during walking",
+      "url": "https://github.com/CameronNel/critical-shift/pull/131"
+    },
+    {
+      "baseRefName": "codex/production-reserve-costs-20261019",
+      "headRefName": "codex/physical-medical-rescue-20261019",
+      "headRefOid": "3f0be906f76a90d5599e519b03b56ce789e8c41d",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 130,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:44:23Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39246485364/job/118039551651",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T11:41:46Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:43:06Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39246485364/job/118039551896",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T11:41:46Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Make powered worker rescue physically usable in the local fixture",
+      "url": "https://github.com/CameronNel/critical-shift/pull/130"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "ccr-b12a99c0-hbdwp2",
+      "headRefOid": "233585836f3c1ea0aafaceccd30dd4eee27f8448",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "c7e69f0a199f94a8f4b5fda80b84cb221c378079"
+      },
+      "mergedAt": "2026-10-19T11:37:49Z",
+      "number": 129,
+      "state": "MERGED",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:37:30Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39245735086/job/118037057261",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T11:35:31Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:37:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39245735086/job/118037057682",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T11:35:31Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Night sky: real stars, Milky Way and Moon as one URP skybox pass",
+      "url": "https://github.com/CameronNel/critical-shift/pull/129"
+    },
+    {
+      "baseRefName": "codex/timed-jam-clearing-20261019",
+      "headRefName": "codex/production-reserve-costs-20261019",
+      "headRefOid": "b819189d964744b63e09a4cc29ba6ccdbb7183b9",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 128,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T11:01:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39241166414/job/118022047140",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T10:57:38Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:59:52Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39241166414/job/118022047471",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T10:57:38Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Make production startup compete for shared reserve power",
+      "url": "https://github.com/CameronNel/critical-shift/pull/128"
+    },
+    {
+      "baseRefName": "codex/operational-machine-hints-20261019",
+      "headRefName": "codex/timed-jam-clearing-20261019",
+      "headRefOid": "d8e59d7984350f3f7eef659da1fc942084a0a1fd",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 127,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:48:18Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39239820387/job/118017631820",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T10:46:16Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:48:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39239820387/job/118017632082",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T10:46:16Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add timed isolated jam clearing with preserved production work",
+      "url": "https://github.com/CameronNel/critical-shift/pull/127"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "ccr-b12a99c0-hbdwp2",
+      "headRefOid": "a577c6dacc4c4534488770167cc220cc448a99f3",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "697f11694a78f99ad91f5e13cfbd36de0dd57ab0"
+      },
+      "mergedAt": "2026-10-19T10:44:08Z",
+      "number": 126,
+      "state": "MERGED",
+      "statusCheckRollup": [],
+      "title": "Combined map: evacuation lenses and lane lines get their colour attribute",
+      "url": "https://github.com/CameronNel/critical-shift/pull/126"
+    },
+    {
+      "baseRefName": "codex/fixture-contamination-zones-20261019",
+      "headRefName": "codex/operational-machine-hints-20261019",
+      "headRefOid": "6b4587ba1138d8f165398053d7731ff795987f6d",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 125,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:27:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39237298955/job/118009363330",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T10:25:02Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:27:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39237298955/job/118009362780",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T10:25:03Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Show machine tradeoffs and state-aware repair and resume hints",
+      "url": "https://github.com/CameronNel/critical-shift/pull/125"
+    },
+    {
+      "baseRefName": "codex/timed-suit-fitting-20261019",
+      "headRefName": "codex/fixture-contamination-zones-20261019",
+      "headRefOid": "cf2508bff26692e9f2c80d49481062d3cc8d8040",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 124,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:14:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39235736110/job/118004224256",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T10:12:10Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T10:14:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39235736110/job/118004224529",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T10:12:10Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add sampled exposure and wash areas to the local sandbox",
+      "url": "https://github.com/CameronNel/critical-shift/pull/124"
+    },
+    {
+      "baseRefName": "codex/safe-ore-conditioning-20261019",
+      "headRefName": "codex/timed-suit-fitting-20261019",
+      "headRefOid": "6a43dfdf51d0feab2f08a1385dd9eade737b8872",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 123,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:55:03Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39233324115/job/117996318082",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T09:52:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:54:13Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39233324115/job/117996318516",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T09:52:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add timed protective suit fitting and busy worker availability",
+      "url": "https://github.com/CameronNel/critical-shift/pull/123"
+    },
+    {
+      "baseRefName": "codex/emergency-black-start-20261019",
+      "headRefName": "codex/safe-ore-conditioning-20261019",
+      "headRefOid": "5814b7e32d8b28a766746ab6e8e27f1093bb5ac8",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 122,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:22:52Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39229348399/job/117983254195",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T09:20:42Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:22:50Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39229348399/job/117983254497",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T09:20:43Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add a safe drying route for wet ore without laundering its history",
+      "url": "https://github.com/CameronNel/critical-shift/pull/122"
+    },
+    {
+      "baseRefName": "codex/worker-contamination-20261019",
+      "headRefName": "codex/emergency-black-start-20261019",
+      "headRefOid": "94f991dd1b63453cf2ec6105da7009a174861d7f",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 121,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:13:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39228079148/job/117979173353",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T09:10:41Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T09:13:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39228079148/job/117979173658",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T09:11:15Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add finite backup power and a zero-reserve reactor recovery route",
+      "url": "https://github.com/CameronNel/critical-shift/pull/121"
+    },
+    {
+      "baseRefName": "codex/medical-egress-admission-20261019",
+      "headRefName": "codex/worker-contamination-20261019",
+      "headRefOid": "50df95cf4f9c5e3bb068a67226f7b0e7ff067e90",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 120,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T08:54:19Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39225881701/job/117971928067",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T08:52:32Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T08:54:32Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39225881701/job/117971928655",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T08:52:32Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add discrete worker exposure, washing and immediate clinical interruption",
+      "url": "https://github.com/CameronNel/critical-shift/pull/120"
+    },
+    {
+      "baseRefName": "codex/compact-shift-objectives-20261019",
+      "headRefName": "codex/medical-egress-admission-20261019",
+      "headRefOid": "483b577a313a5b55b3889540c865a5e99d1b7581",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 119,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T07:21:57Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39215117973/job/117937047964",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T07:18:17Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T07:19:45Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39215117973/job/117937048316",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T07:18:17Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Test host admission for patient emergency egress",
+      "url": "https://github.com/CameronNel/critical-shift/pull/119"
+    },
+    {
+      "baseRefName": "codex/mixed-medical-endurance-20261019",
+      "headRefName": "codex/compact-shift-objectives-20261019",
+      "headRefOid": "aa1bffa5a657ae9d4b7f3f4b33823637820257e0",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 118,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:57:00Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39212656045/job/117929304912",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T06:54:40Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:56:36Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39212656045/job/117929305285",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T06:54:40Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Keep shift deadlines visible while controls are hidden",
+      "url": "https://github.com/CameronNel/critical-shift/pull/118"
+    },
+    {
+      "baseRefName": "codex/worker-deadline-settlement-20261019",
+      "headRefName": "codex/mixed-medical-endurance-20261019",
+      "headRefOid": "4848041af72ef6c4f1910df03d49c0eb64b0fb1c",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 117,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:48:48Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39211902518/job/117926943606",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T06:46:56Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:48:50Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39211902518/job/117926943301",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T06:46:56Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Probe medical custody and reserve under production load",
+      "url": "https://github.com/CameronNel/critical-shift/pull/117"
+    },
+    {
+      "baseRefName": "codex/sandbox-contract-route-20261019",
+      "headRefName": "codex/worker-deadline-settlement-20261019",
+      "headRefOid": "c79ce7a8d813648307725acc054fcc05f5568800",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 116,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:37:56Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39210593419/job/117922859285",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T06:33:25Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:35:20Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39210593419/job/117922859139",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T06:33:25Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Settle worker recovery expiry before terminal debrief",
+      "url": "https://github.com/CameronNel/critical-shift/pull/116"
+    },
+    {
+      "baseRefName": "codex/powered-stabilization-20261019",
+      "headRefName": "codex/sandbox-contract-route-20261019",
+      "headRefOid": "523f427435f6d8e906b8fc8ccd0df0cd8fce65c9",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 115,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:25:21Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39209624733/job/117919894424",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T06:23:27Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:25:14Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39209624733/job/117919894771",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T06:23:27Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Prove sandbox supply route from canonical gameplay setup",
+      "url": "https://github.com/CameronNel/critical-shift/pull/115"
+    },
+    {
+      "baseRefName": "codex/shift-gameplay-20261018",
+      "headRefName": "codex/powered-stabilization-20261019",
+      "headRefOid": "2f24702085821c149ed3b1cd85de2df087023d40",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 114,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:14:58Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39208615217/job/117916804314",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T06:12:53Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T06:14:26Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39208615217/job/117916804480",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T06:12:53Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add powered worker stabilization and safe patient egress",
+      "url": "https://github.com/CameronNel/critical-shift/pull/114"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "codex/shift-gameplay-20261018",
+      "headRefOid": "567a8fc61bd5ff272d2161fac81336d1e40137bf",
+      "isDraft": true,
+      "mergeCommit": null,
+      "mergedAt": null,
+      "number": 113,
+      "state": "OPEN",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T05:42:16Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39205732008/job/117908039687",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-19T05:40:06Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-19T05:41:44Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39205732008/job/117908040099",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-19T05:40:06Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add grid-demand shift contracts and a retained causal debrief",
+      "url": "https://github.com/CameronNel/critical-shift/pull/113"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "ccr-b12a99c0-hbdwp2",
+      "headRefOid": "913bd32abb05455fecd854472a46c56cd901043f",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "ec5ff93c6526e195e4b18f3588643fd362def3e3"
+      },
+      "mergedAt": "2026-10-19T09:53:53Z",
+      "number": 112,
+      "state": "MERGED",
+      "statusCheckRollup": [],
+      "title": "Bake pipeline: final rehearsal fixes (isolation, checks, source notes) and the GPU handover",
+      "url": "https://github.com/CameronNel/critical-shift/pull/112"
+    },
+    {
+      "baseRefName": "main",
+      "headRefName": "codex/unity-gameplay-sandbox",
+      "headRefOid": "cced7f390d6e7045d61a14df150dc4af8757e27c",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "98ef79d4cb1e0acaa6d5131245f9b5ed1fbe7509"
+      },
+      "mergedAt": "2026-10-18T21:19:20Z",
+      "number": 111,
+      "state": "MERGED",
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-18T21:18:49Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39167121701/job/117792278427",
+          "name": "verify (ubuntu-latest)",
+          "startedAt": "2026-10-18T21:16:50Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-10-18T21:18:55Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/CameronNel/critical-shift/actions/runs/39167121701/job/117792278584",
+          "name": "verify (windows-latest)",
+          "startedAt": "2026-10-18T21:16:50Z",
+          "status": "COMPLETED",
+          "workflowName": "Editor-free runtime verification"
+        }
+      ],
+      "title": "Add local-host Unity gameplay and combined-map collision traversal",
+      "url": "https://github.com/CameronNel/critical-shift/pull/111"
+    }
+  ]
+}

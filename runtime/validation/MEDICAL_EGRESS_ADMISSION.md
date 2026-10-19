@@ -42,5 +42,7 @@ not advance a roadmap gate or establish playable physical chamber integration.
   `/tmp/medical-egress-verification-final.log`. The verifier ran before the test
   commit; its recorded source hashes identify exactly the reviewed test inputs.
   Native Unity, Player, physical chamber and multiplayer checks remain NotRun.
-- Review status: bounded source review complete; draft stacked PR pending.
+- Review status: bounded source review complete; draft PR119 at `483b577a`
+  passed its Ubuntu and Windows head checks. Later implementation and current
+  native limitations are in the [overnight handoff](OVERNIGHT_RUNTIME_20261019.md).
   No runtime behavior change or roadmap acceptance is claimed.

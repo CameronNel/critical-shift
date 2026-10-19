@@ -1,0 +1,20 @@
+{
+  "status": "Passed",
+  "check": "virtual-merge-source-only",
+  "main_commit": "c7e69f0a199f94a8f4b5fda80b84cb221c378079",
+  "runtime_tip": "a26b976b01fec95f8775d5bdf37f595a1d23fd6b",
+  "common_base": "98ef79d4cb1e0acaa6d5131245f9b5ed1fbe7509",
+  "merged_tree": "d9a4c9f6651cfcf626fb101c93ac7d6d1dd48fc8",
+  "overlapping_changed_paths": [],
+  "merge_tree_exit_code": 0,
+  "exported_runtime_source_check": {
+    "status": "Passed",
+    "check": "static-source-only",
+    "metadata_guids": 214,
+    "asmdefs": 21,
+    "production_asmdefs": 18,
+    "csharp_files": 135,
+    "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+  },
+  "limits": "Virtual merge and static declarations only. No merged Unity import, physics, native Player or gameplay acceptance."
+}
