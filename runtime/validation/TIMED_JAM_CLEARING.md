@@ -63,3 +63,13 @@ failure. A 10,000-case randomized run with seed20261038 passed 13,847,608
 checked steps in 32.028 seconds. Checked steps count modeled observations and
 selected operations, not distinct assertions. Full verifier/final source evidence
 remains pending; older preserved long probes do not cover this revision.
+
+The first full verifier at source968648ca passed 1,022 tests and 23 scenarios
+each twice. A third ultra model review identified two bounded coverage gaps,
+then root strengthened the checks before final verification: event payloads now
+validate machine and material projections, and each mixed lifetime forces an
+isolated jam clearing to start while medical treatment, reactor generation and
+backup work are active. Returned typed changes, not the bounded trace, prove
+repair completion at its due coordinate. This avoids depending on retained
+diagnostic history when trace capacity is deliberately one record. The deliberate
+mode-transition omission still fails its named invariant after strengthening.

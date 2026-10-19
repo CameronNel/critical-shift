@@ -111,6 +111,7 @@ namespace CriticalShift.Scenarios
                 var medicalLedger = new MedicalSoakLedger(world, medicalDefinition);
                 world.Start(); long host = 0;
                 var observations = new long[4];
+                ProductionChange? lastMixedRepair = null;
                 var contactSequences = new long[4, 2]; var contactEligibleAt = new long[4, 2];
                 bool omitNextFeed = dropFeed && lifetime == 0;
                 InteractionReply Reactor(int who, ReactorAction action, Guid container = default, bool cooling = false)
@@ -166,6 +167,8 @@ namespace CriticalShift.Scenarios
                     medicalLedger.BeforeAdvance();
                     var result = world.AdvanceTo(target);
                     foreach (var change in result.ProductionChanges)
+                        if (change.Machine.Id == Id(20) && change.Kind == ProductionEvent.RepairCompleted) lastMixedRepair = change;
+                    foreach (var change in result.ProductionChanges)
                         if (change.Machine.Id == Id(22) && change.Kind == ProductionEvent.Completed)
                         {
                             var output = change.Output!; var input = change.Input;
@@ -207,6 +210,23 @@ namespace CriticalShift.Scenarios
                 Require(Reactor(0, ReactorAction.StartBackup).HasNewCommit, "Initial backup supply could not join mixed owner work.");
                 Require(ports[0].OperateSuitFitting(Id(65), SuitFittingAction.Start).HasNewCommit, "Initial fitting could not join autonomous production/reactor/medical work.");
                 Contact(0, 0);
+                medicalLedger.Check();
+                // Force an isolated clearing while the other autonomous owners are still active.
+                host = 100; Advance(host);
+                Require(world.Production.GetMachine(Id(20))!.Mode == ProductionMode.Jammed && world.Medical.View!.Phase == MedicalPhase.Treating &&
+                    world.Reactor.EmergencyPowerSummary!.Running, "Mixed jam did not overlap active treatment and backup work.");
+                Require(ports[1].OperateMachine(Id(20), ProductionAction.SetPower, powered: false).HasNewCommit,
+                    "Mixed jam isolation failed.");
+                var clearing = ports[1].OperateMachine(Id(20), ProductionAction.Repair);
+                Require(clearing.HasNewCommit && clearing.Production!.Change?.Kind == ProductionEvent.RepairStarted,
+                    "Mixed isolated clearing could not join the other owners.");
+                long repairDue = host + clearing.Production!.Machine!.Recipe.RepairDurationMilliseconds;
+                host = repairDue; Advance(host);
+                var repaired = world.Production.GetMachine(Id(20))!;
+                Require(repaired.Mode == ProductionMode.PowerPaused && !repaired.Powered && repaired.WorkMilliseconds == 100 &&
+                    repaired.RepairRemainingMilliseconds == 0 && lastMixedRepair?.ShiftMilliseconds == repairDue &&
+                    lastMixedRepair.CycleId == clearing.Production.Change!.CycleId,
+                    "Mixed owner settlement lost exact isolated clearing or advanced frozen production.");
                 medicalLedger.Check();
                 var previousDelivery = new long[3]; var previousSettled = new bool[3];
                 for (int step = 0; step < 240 && world.View.Phase != WorldPhase.Ended; step++)
@@ -351,13 +371,13 @@ namespace CriticalShift.Scenarios
             for (int i = 0; i < ports.Length; i++)
             { world.RegisterConnection(Id(100 + i), Id(200 + i)); world.RegisterWorkerBody(Id(200 + i), Id(40 + i)); ports[i] = new LocalCommandPort(world, Id(100 + i)); }
             for (int i = 0; i < 8; i++) world.Production.RegisterBatch(Id(10 + i), Id(110 + i), Id(120 + i), Id(130 + i),
-                i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: i == 4 ? 900 : random.Next(2) == 0 ? 0 : 900);
+                i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: i == 3 || i == 4 ? 900 : random.Next(2) == 0 ? 0 : 900);
             world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100, repairDurationMilliseconds: random.Next(100, 1001)));
             world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100, repairDurationMilliseconds: random.Next(100, 1001)));
             world.Production.RegisterMachine(Id(22), MachineRecipe.Drying(Id(403), MaterialKind.Ore, 450, 100, 100));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
-            world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(random.Next(100, 1001), random.Next(4, 16), 4));
-            medical = new MedicalDefinition(random.Next(100, 1001), random.Next(1, 8), random.Next(2, 6));
+            world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(random.Next(250, 1001), random.Next(4, 16), 4));
+            medical = new MedicalDefinition(random.Next(250, 1001), random.Next(1, 8), random.Next(2, 6));
             world.Medical.Register(Id(60), medical);
             world.SuitFitting.Register(Id(65), new SuitFittingDefinition());
             world.RegisterWorkerContaminationSource(Id(62), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 20, 150));

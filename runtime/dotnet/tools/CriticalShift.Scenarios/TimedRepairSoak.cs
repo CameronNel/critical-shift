@@ -61,8 +61,16 @@ namespace CriticalShift.Scenarios
             void Fact(ProductionChange fact, ProductionEvent kind, long at)
             {
                 Require(fact.Kind == kind && fact.ShiftMilliseconds == at && fact.CycleId == cycle && fact.RecipeId == Id(967) &&
-                    fact.Input.BatchId == Id(963) && fact.Input.CauseId == Id(965) && fact.BypassedInspection &&
-                    (kind == ProductionEvent.Completed ? fact.Output?.Units == 8 && fact.WasteUnits == 2 : fact.Output == null && fact.WasteUnits == 0),
+                    fact.Machine.Id == Id(966) && fact.Machine.Mode == mode && fact.Machine.Powered == power &&
+                    fact.Machine.Revision == revision && fact.Machine.WorkMilliseconds == work &&
+                    fact.Machine.RepairDurationMilliseconds == repairDuration && fact.Machine.RepairWorkMilliseconds == repairWork &&
+                    fact.Input.ContainerId == Id(962) && fact.Input.BatchId == Id(963) && fact.Input.ParentBatchId == Guid.Empty &&
+                    fact.Input.CauseId == Id(965) && fact.Input.OriginId == Id(964) && fact.Input.Kind == MaterialKind.Ore &&
+                    fact.Input.Units == 10 && fact.Input.Moisture == 900 && fact.Input.Contamination == 35 && fact.Input.Flags == MaterialFlags.None && fact.BypassedInspection &&
+                    (kind == ProductionEvent.Completed ? fact.Output?.Units == 8 && fact.Output.Kind == MaterialKind.CrushedOre &&
+                        fact.Output.ParentBatchId == Id(963) && fact.Output.CauseId == Id(965) && fact.Output.OriginId == Id(964) &&
+                        fact.Output.Contamination == 35 && fact.Output.Moisture == 0 && fact.Output.Flags == MaterialFlags.BypassedInspection &&
+                        fact.Output.BatchId != Id(963) && fact.WasteUnits == 2 : fact.Output == null && fact.WasteUnits == 0),
                     "Repair process fact lost its independently scheduled occurrence or original cycle attribution.");
             }
             void Advance(long delta)
@@ -97,8 +105,8 @@ namespace CriticalShift.Scenarios
                 if (shift == limit) { ended = true; if (pending) { pending = false; cancelled++; } }
                 var result = world.AdvanceTo(host);
                 Require(result.ProductionChanges.Count == (expectedEvent.HasValue ? 1 : 0), "Repair process publication count differs from independent schedule.");
-                if (expectedEvent.HasValue) Fact(result.ProductionChanges.Single(), expectedEvent.Value, eventAt);
                 Check();
+                if (expectedEvent.HasValue) Fact(result.ProductionChanges.Single(), expectedEvent.Value, eventAt);
             }
             void Act(ProductionAction action, bool requestedPower = false)
             {
