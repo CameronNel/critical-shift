@@ -10,7 +10,7 @@
   },
   "primary_electrical_via_reactor": {
    "passed": true,
-   "lane_m": 97.53
+   "lane_m": 97.7
   },
   "primary_cooling_via_reactor": {
    "passed": true,
@@ -62,7 +62,7 @@
   },
   "evac_condenser_to_turbine_D02": {
    "passed": true,
-   "lane_m": 52.25
+   "lane_m": 52.52
   },
   "evac_condenser_to_escape_ladder": {
    "passed": true,
@@ -104,7 +104,7 @@
   },
   {
    "station": "electrical (D01)",
-   "primary_m": 97.53,
+   "primary_m": 97.7,
    "primary_s": 21.7,
    "backup_m": 95.2,
    "backup_s": 21.2,
@@ -120,11 +120,11 @@
   },
   {
    "station": "condenser (bay, by D01)",
-   "primary_m": 174.8,
-   "primary_s": 38.8,
+   "primary_m": 175.1,
+   "primary_s": 38.9,
    "backup_m": 154.6,
    "backup_s": 34.4,
-   "backup_route": "first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.0 m ladder (not in the distance), north strip, road"
+   "backup_route": "first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.3 m ladder (not in the distance), north strip, road"
   },
   {
    "station": "cooling (P01)",
