@@ -351,5 +351,10 @@
   "EmergencyMedicalEgressCannotReleaseAnotherPatientOrAnUnfinishedTreatment": 1,
   "HistoricalEmergencyEgressCannotReleaseTheNextPatientInTheSameChamber": 1,
   "MedicalDebitInvalidatesStaleReactorControlWithoutSpendingTwice": 1,
-  "ExternallyAidedSolePatientCanLeaveALoadedOrInterruptedChamber": 2
+  "ExternallyAidedSolePatientCanLeaveALoadedOrInterruptedChamber": 2,
+  "PausedEmergencyEgressIsFinalizedWithoutReleasingAndRequiresANewIntentAfterResume": 1,
+  "EmergencyEgressStillRequiresCurrentTrustedAccessAndDenialCannotTurnIntoAHistoricalRelease": 3,
+  "EmergencyEgressRejectsStaleStationOrBodyRevisionWithoutChangingAnyOwner": 2,
+  "EmergencyEgressCannotUseAnUnregisteredStationToReleaseThePatientsCurrentBody": 1,
+  "OldEpochEmergencyEgressCannotReleaseAReusedStationOrConsumeTheNewPatientSequence": 1
 }
