@@ -22,6 +22,7 @@ LINKS = {
         {"Include": "../../../unity/Assets/CriticalShift/Sandbox/Tests/PlayMode/TraceFeedTests.cs", "Link": "TraceFeedTests.cs"},
         {"Include": "../../../unity/Assets/CriticalShift/Sandbox/Bootstrap/SandboxGameplaySetup.cs", "Link": "SandboxGameplaySetup.cs"},
         {"Include": "../../../unity/Assets/CriticalShift/Presentation/SandboxContractReadout.cs", "Link": "SandboxContractReadout.cs"},
+        {"Include": "../../../unity/Assets/CriticalShift/Presentation/SandboxMachineReadout.cs", "Link": "SandboxMachineReadout.cs"},
     ],
 }
 ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),

@@ -441,5 +441,17 @@
   "TerminalAndOldFeedCannotChangeFrozenOrSuccessorWorkerConditions": 1,
   "DisconnectedFeedRetiresWithoutConsumingAnotherObservation": 1,
   "FeedBindingRequiresTheActualSetupWorkerAndRegisteredSource": 3,
-  "CanonicalSandboxDefinesAPlayablePpeExposureAndWashRoute": 1
+  "CanonicalSandboxDefinesAPlayablePpeExposureAndWashRoute": 1,
+  "MachineReadoutUsesActualImmutableRecipeValuesAndDerivedAliases": 1,
+  "CurrentBypassFactComesFromTheCycleEvenWhenBothDurationsAreEqual": 2,
+  "InheritedSuspectInputDoesNotRelabelTheCurrentNormalCycle": 1,
+  "CancelClearsCurrentBypassWhileRetainingItsHistoricalCycleFact": 1,
+  "JamHintRequiresIsolationOnlyWhilePowerIsActuallyOn": 2,
+  "PausedCycleHintReflectsRestoredPowerBeforeExplicitResume": 2,
+  "OutputHintKeepsEjectionAvailableWithEitherPowerState": 2,
+  "IdleHintDoesNotOfferStartBeforeItsInputAndPowerAreReady": 4,
+  "WetInputAndPowerInterlockRejectionsExplainTheSafeNextAction": 1,
+  "DryingReadoutOffersOnlyItsAuthoredSafeProcedure": 1,
+  "HistoricalStartedReadoutKeepsItsOriginalDurationAndBypassAfterCompletion": 1,
+  "MachineTimingReadoutKeepsAuthoredFractionalSecondsAcrossLocales": 2
 }

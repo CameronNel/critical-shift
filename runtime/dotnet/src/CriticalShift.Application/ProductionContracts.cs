@@ -114,14 +114,15 @@ namespace CriticalShift.Application
     }
     public sealed class MachineView
     {
-        internal MachineView(Guid epoch, Guid id, Guid recipe, long revision, ProductionMode mode, bool power,
-            Guid cycle, Guid? container, long duration, long work, int? dryingTargetMoisture = null)
-        { Epoch = epoch; Id = id; RecipeId = recipe; Revision = revision; Mode = mode; Powered = power;
+        internal MachineView(Guid epoch, Guid id, MachineRecipe recipe, long revision, ProductionMode mode, bool power,
+            Guid cycle, Guid? container, long duration, long work, bool bypassedInspection = false)
+        { Epoch = epoch; Id = id; Recipe = recipe; Revision = revision; Mode = mode; Powered = power;
           CycleId = cycle; ContainerId = container; DurationMilliseconds = duration; WorkMilliseconds = work;
-          DryingTargetMoisture = dryingTargetMoisture; }
+          BypassedInspection = bypassedInspection; }
         public Guid Epoch { get; }
         public Guid Id { get; }
-        public Guid RecipeId { get; }
+        public Guid RecipeId => Recipe.Id;
+        public MachineRecipe Recipe { get; }
         public long Revision { get; }
         public ProductionMode Mode { get; }
         public bool Powered { get; }
@@ -129,8 +130,9 @@ namespace CriticalShift.Application
         public Guid? ContainerId { get; }
         public long DurationMilliseconds { get; }
         public long WorkMilliseconds { get; }
-        public int? DryingTargetMoisture { get; }
-        public bool IsDrying => DryingTargetMoisture.HasValue;
+        public int? DryingTargetMoisture => Recipe.IsDrying ? Recipe.OutputMoisture : (int?)null;
+        public bool IsDrying => Recipe.IsDrying;
+        public bool BypassedInspection { get; }
     }
     public sealed class ProductionReply
     {

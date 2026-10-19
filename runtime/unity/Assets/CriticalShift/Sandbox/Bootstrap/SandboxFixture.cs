@@ -59,6 +59,7 @@ namespace CriticalShift.Sandbox
                 SandboxGameplaySetup.Register(world);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
+                host.BindMachineReadout(SandboxMachineReadout.Controls, SandboxMachineReadout.Result);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
                 safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)),
                     maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,

@@ -333,17 +333,14 @@ namespace CriticalShift.Presentation
             var state = commands.GetMachine(id);
             if (state == null) { GUILayout.Label("Machine unavailable"); return; }
             GUILayout.Label(state.Mode + " | " + (state.Powered ? "power on" : "power off") + " | " + state.WorkMilliseconds + " / " + state.DurationMilliseconds + " ms");
+            GUILayout.Label(SandboxMachineReadout.Recipe(state), wrapped);
+            GUILayout.Label(SandboxMachineReadout.Controls(state), wrapped);
+            if (state.CycleId != Guid.Empty) GUILayout.Label(state.BypassedInspection ? "Current cycle: inspection bypass" : "Current cycle: bypass off");
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Insert selected")) MachineRequested?.Invoke(id, ProductionAction.Insert, containers[selectedContainer], false, false);
             if (GUILayout.Button("Eject")) MachineRequested?.Invoke(id, ProductionAction.Eject, Guid.Empty, false, false);
             GUILayout.EndHorizontal();
-            if (state.IsDrying)
-                GUILayout.Label("Safe drying reduces moisture to " + state.DryingTargetMoisture + " without changing quantity or contamination. Inspection bypass is unavailable.", wrapped);
-            else
-            {
-                bypass = GUILayout.Toggle(bypass, "Bypass inspection");
-                GUILayout.Label("Bypass is faster; wet material can jam and the output retains suspect-fuel history.", wrapped);
-            }
+            if (!state.IsDrying) bypass = GUILayout.Toggle(bypass, "Bypass inspection");
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass && !state.IsDrying, false);
             if (GUILayout.Button(state.Powered ? "Power off" : "Power on")) MachineRequested?.Invoke(id, ProductionAction.SetPower, Guid.Empty, false, !state.Powered);

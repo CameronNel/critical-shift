@@ -19,12 +19,23 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool active, stopped;
         private Func<Guid> pickTarget;
         private Func<Guid, string> targetName;
+        private Func<MachineView, string> machineControls;
+        private Func<ProductionReply, ProductionAction?, string> productionResult;
         private Guid focused;
         public string LastAction { get; private set; } = "Preparing local fixture";
         public string FocusHint { get; private set; } = "Look at a nearby crate or machine";
         public WorldSession World => world;
         public LocalCommandPort Commands => commands;
         public int BoundBodyCount => bindings == null ? 0 : bindings.Count;
+
+        public void BindMachineReadout(Func<MachineView, string> controls, Func<ProductionReply, ProductionAction?, string> result)
+        {
+            if (world == null || world.View.Phase != WorldPhase.Setup || active || machineControls != null)
+                throw new InvalidOperationException("Bind one read-only machine formatter before host startup.");
+            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (result == null) throw new ArgumentNullException(nameof(result));
+            machineControls = controls; productionResult = result;
+        }
 
         public void Initialize(WorldSession session, LocalCommandPort sender, Guid actor, Func<double> clock = null,
             Action<Exception> diagnosticSink = null)
@@ -385,14 +396,11 @@ namespace CriticalShift.Features.Interaction.Unity
                     HeldObject() != Guid.Empty ? "Cart | E release crate onto bed" : "Cart | stand behind it and press E to take handle";
                 return;
             }
+            string cooling = reactor ? (world.Reactor.View.Cooling ? "cooling open" : "F open cooling") : "";
             string controls = machine == null ? reactor ?
-                (world.Reactor.View.Mode == ReactorMode.Tripped ? "F cooling · C emergency cooling · R reset trip" :
-                 "E transfer · F cooling · R start · X shut down · C emergency cooling") : "E grab · G drop" :
-                machine.Mode == ProductionMode.Jammed ? "F isolate power · R repair jam" :
-                machine.Mode == ProductionMode.PowerPaused ? "F restore power · R resume cycle" :
-                machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :
-                machine.Mode == ProductionMode.Processing ? "F isolate power" :
-                machine.IsDrying ? "E transfer · F power · R start safe drying" : "E transfer · F power · R start · B bypass inspection";
+                (world.Reactor.View.Mode == ReactorMode.Tripped ? cooling + " · C emergency cooling · R reset trip" :
+                 "E transfer · F " + (world.Reactor.View.Cooling ? "close" : "open") + " cooling · R start · X shut down · C emergency cooling") : "E grab · G drop" :
+                machineControls == null ? machine.Mode + " · " + (machine.Powered ? "power on" : "power off") : machineControls(machine);
             FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls +
                 (held != Guid.Empty && bindings.IsPortable(held) ? " · middle-drag turn · wheel reach · T throw" : "");
         }
@@ -400,7 +408,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public void OperateMachine(Guid id, ProductionAction action, Guid container, bool bypass, bool powered)
         {
             if (action == ProductionAction.Insert && !CanPlace(container, id)) return;
-            RunCommand(() => commands.OperateMachine(id, action, container, bypass, powered));
+            RunCommand(() => commands.OperateMachine(id, action, container, bypass, powered), action);
         }
 
         public void OperateReactor(Guid id, ReactorAction action, Guid container, bool cooling)
@@ -423,7 +431,7 @@ namespace CriticalShift.Features.Interaction.Unity
             catch (Exception exception) { StopAfterFailure(exception); return false; }
         }
 
-        private InteractionReply RunCommand(Func<InteractionReply> operation)
+        private InteractionReply RunCommand(Func<InteractionReply> operation, ProductionAction? machineAction = null)
         {
             if (!active || stopped) return null;
             try
@@ -432,7 +440,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (!active) return null;
                 Physics.SyncTransforms();
                 var reply = operation();
-                LastAction = reply.Production != null ? reply.Production.Status.ToString() :
+                LastAction = reply.Production != null ? productionResult == null ? reply.Production.Status.ToString() : productionResult(reply.Production, machineAction) :
                     reply.Reactor != null ? reply.Reactor.Status.ToString() :
                     reply.SuitFitting != null ? reply.SuitFitting.Status.ToString() : reply.Status.ToString();
                 if (reply.IsReplay) LastAction += " (previous result; no repeated effect)";
@@ -482,6 +490,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private void ClearPhysicalBindings()
         {
             bindings?.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
+            machineControls = null; productionResult = null;
         }
 
         private void OnDisable() => Shutdown();

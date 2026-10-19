@@ -2,13 +2,34 @@
 
 **OFFLINE-004 | 8 September 2026 | Implementation without Unity**
 
-Current integration: [runtime/README.md](../README.md) identifies PR #43 as the single candidate against main; earlier stacked PRs are historical contributions.
+Historical September integration: PR #43 was the single candidate against main;
+earlier stacked PRs were historical contributions. The October operator-readout
+continuation and its exact evidence are recorded in
+[operational machine hints](../validation/OPERATIONAL_MACHINE_HINTS.md).
 
 User-authorized scope: a substantial useful offline batch. Based on PR #42 at `82aae83fa0e9daa471eb31d59a51fb44f34faff4`, after the interaction, world/time and worker slices. See PR #43 for exact tested commits, executed counts and review status. Tests described here are requirements and executable fixtures, not a substitute for their run artifacts. No production milestone or merge approval is implied.
 
 ## The concrete loop
 
 Register an ore container and two recipe-driven machines during world setup. An authorized worker grabs the container, inserts it in the crusher, starts a cycle, waits through explicit clock updates, ejects the result, carries it to a second processor and retrieves fictional fuel. Moisture can block safe startup; overriding that interlock accelerates the selected fixture but produces a delayed jam. Isolate power, repair, restore power and explicitly resume to recover.
+
+## October operator readout
+
+MachineView exposes its immutable authored Recipe and derives recipe/drying
+aliases from it. Its current-cycle BypassedInspection fact comes from the pending
+conversion plan or completed receipt. Equal normal/bypass durations and inherited
+material flags cannot mislabel the present cycle; cancel/eject clear this live
+fact while historical conversion records retain their own attribution.
+
+The pure SandboxMachineReadout shows normal/bypass times, capacity, accepted
+material, moisture limit and the authored deterministic wet-jam threshold. Drying
+has its own safe procedure and no bypass offer. Power-aware hints distinguish
+jammed-on/off and paused-off/on states. Rejection text names the safe next step.
+Bootstrap injects read-only formatting delegates into the existing local host;
+the same formatter serves the panel without adding an adapter-to-Presentation
+assembly edge. Commands still validate actual current state. These readouts do
+not authorize an action or imply clean material from a normal current cycle.
+Native GUI/focus/key behavior remains NotRun.
 
 The example uses 100 abstract input units -> 80 crushed units plus 20 waste -> 60 fuel units plus another 20 waste. These are configurable test values, not approved balance, real mass yields or nuclear process instructions. Contamination, moisture and bypass history remain inspectable across transformations. No actual reactor, fuel chemistry or real equipment operation is modeled.
 
