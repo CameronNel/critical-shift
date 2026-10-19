@@ -381,5 +381,110 @@ namespace CriticalShift.Offline.Tests
             var recovery = f.World.BeginWorkerRecovery(f.World.Epoch, f.Patient, f.Worker.RecoveryEpisode, f.Worker.Revision);
             Assert.That(f.World.CompleteWorkerRecovery(f.World.Epoch, f.Patient, recovery.Worker!.RecoveryAttempt).Status, Is.EqualTo(WorkerStatus.Applied));
         }
+
+        [Test] public void PausedEmergencyEgressIsFinalizedWithoutReleasingAndRequiresANewIntentAfterResume()
+        {
+            var f = new Clinic(); f.Load(); f.Start(); f.World.AdvanceTo(3000);
+            var station = f.World.Medical.View!; var body = f.World.GetObject(f.Body)!; var worker = f.Worker;
+            f.World.Pause(f.World.Epoch);
+            var denied = f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject);
+            Assert.That(denied.Status, Is.EqualTo(InteractionStatus.ActorUnavailable));
+            Assert.That(denied.IsTerminal, Is.True); Assert.That(denied.HasNewCommit, Is.False);
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            f.World.Resume(f.World.Epoch);
+            var historical = f.PatientCommands.ReplayLast();
+            Assert.That(historical.IsReplay, Is.True); Assert.That(historical.Status, Is.EqualTo(denied.Status));
+            Assert.That(historical.HasNewCommit, Is.False); AssertReadyPatientUnchanged(f, station, body, worker);
+            Assert.That(f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject).HasNewCommit, Is.True);
+            Assert.That(f.World.GetObject(f.Body)!.SlotId, Is.Null);
+        }
+
+        [TestCase(AccessDecision.ActorUnavailable, InteractionStatus.ActorUnavailable)]
+        [TestCase(AccessDecision.TargetUnavailable, InteractionStatus.TargetUnavailable)]
+        [TestCase(AccessDecision.OutOfReach, InteractionStatus.OutOfReach)]
+        public void EmergencyEgressStillRequiresCurrentTrustedAccessAndDenialCannotTurnIntoAHistoricalRelease(
+            AccessDecision decision, InteractionStatus expected)
+        {
+            var access = new TestAccess(); var f = new Clinic(access: access); f.Load(); f.Start(); f.World.AdvanceTo(3000);
+            var station = f.World.Medical.View!; var body = f.World.GetObject(f.Body)!; var worker = f.Worker;
+            access.Decision = decision;
+            var denied = f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject);
+            Assert.That(denied.Status, Is.EqualTo(expected)); Assert.That(denied.IsTerminal, Is.True);
+            Assert.That(denied.HasNewCommit, Is.False); Assert.That(access.LastActor, Is.EqualTo(f.Patient));
+            AssertReadyPatientUnchanged(f, station, body, worker); int calls = access.Calls;
+            access.Decision = AccessDecision.Allowed;
+            var replay = f.PatientCommands.ReplayLast();
+            Assert.That(replay.IsReplay, Is.True); Assert.That(replay.Status, Is.EqualTo(expected));
+            Assert.That(replay.HasNewCommit, Is.False); Assert.That(access.Calls, Is.EqualTo(calls));
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            Assert.That(f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject).HasNewCommit, Is.True);
+            Assert.That(f.World.GetObject(f.Body)!.SlotId, Is.Null);
+        }
+
+        [TestCase(true)] [TestCase(false)]
+        public void EmergencyEgressRejectsStaleStationOrBodyRevisionWithoutChangingAnyOwner(bool staleStation)
+        {
+            var f = new Clinic(); f.Load(); f.Start(); f.World.AdvanceTo(3000);
+            var station = f.World.Medical.View!; var body = f.World.GetObject(f.Body)!; var worker = f.Worker;
+            var stale = new InteractionCommand(f.World.Epoch, 1, InteractionKind.MedicalEgress, f.Station,
+                medical: new MedicalRequest(MedicalAction.EmergencyEject,
+                    station.Revision - (staleStation ? 1 : 0), objectRevision: body.Revision - (staleStation ? 0 : 1)));
+            var reply = f.World.ExecuteInteraction(Fixture.Id(20), stale);
+            Assert.That(reply.Medical!.Status, Is.EqualTo(staleStation ? MedicalStatus.RevisionConflict : MedicalStatus.CustodyRejected));
+            Assert.That(reply.Status, Is.EqualTo(staleStation ? InteractionStatus.MedicalRejected : InteractionStatus.RevisionConflict));
+            Assert.That(reply.IsTerminal, Is.True); Assert.That(reply.HasNewCommit, Is.False);
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            var replay = f.World.ExecuteInteraction(Fixture.Id(20), stale);
+            Assert.That(replay.IsReplay, Is.True); Assert.That(replay.HasNewCommit, Is.False);
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            var current = new InteractionCommand(f.World.Epoch, 2, InteractionKind.MedicalEgress, f.Station,
+                medical: new MedicalRequest(MedicalAction.EmergencyEject, station.Revision, objectRevision: body.Revision));
+            Assert.That(f.World.ExecuteInteraction(Fixture.Id(20), current).HasNewCommit, Is.True);
+            Assert.That(f.World.GetObject(f.Body)!.SlotId, Is.Null);
+        }
+
+        [Test] public void EmergencyEgressCannotUseAnUnregisteredStationToReleaseThePatientsCurrentBody()
+        {
+            var f = new Clinic(); f.Load(); f.Start(); f.World.AdvanceTo(3000);
+            var station = f.World.Medical.View!; var body = f.World.GetObject(f.Body)!; var worker = f.Worker;
+            var reply = f.PatientCommands.OperateMedical(Fixture.Id(91), MedicalAction.EmergencyEject);
+            Assert.That(reply.Medical!.Status, Is.EqualTo(MedicalStatus.UnknownStation));
+            Assert.That(reply.IsTerminal, Is.True); Assert.That(reply.HasNewCommit, Is.False);
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            Assert.That(f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject).HasNewCommit, Is.True);
+        }
+
+        [Test] public void OldEpochEmergencyEgressCannotReleaseAReusedStationOrConsumeTheNewPatientSequence()
+        {
+            var previous = new Clinic(); previous.Load(); previous.Start(); previous.World.AdvanceTo(3000);
+            var old = new InteractionCommand(previous.World.Epoch, 1, InteractionKind.MedicalEgress, previous.Station,
+                medical: new MedicalRequest(MedicalAction.EmergencyEject, previous.World.Medical.View!.Revision,
+                    objectRevision: previous.World.GetObject(previous.Body)!.Revision));
+            previous.World.Stop();
+            var f = new Clinic(); f.Load(); f.Start(); f.World.AdvanceTo(3000);
+            var station = f.World.Medical.View!; var body = f.World.GetObject(f.Body)!; var worker = f.Worker;
+            Assert.That(f.World.Epoch, Is.Not.EqualTo(previous.World.Epoch));
+            var reply = f.World.ExecuteInteraction(Fixture.Id(20), old);
+            Assert.That(reply.Status, Is.EqualTo(InteractionStatus.WrongEpoch));
+            Assert.That(reply.IsTerminal, Is.False); Assert.That(reply.HasNewCommit, Is.False);
+            AssertReadyPatientUnchanged(f, station, body, worker);
+            Assert.That(f.PatientCommands.OperateMedical(f.Station, MedicalAction.EmergencyEject).HasNewCommit, Is.True);
+        }
+
+        private static void AssertReadyPatientUnchanged(Clinic f, MedicalView station, ObjectClaimView body, WorkerView worker)
+        {
+            Assert.That(f.World.Medical.View!.Revision, Is.EqualTo(station.Revision));
+            Assert.That(f.World.Medical.View.Phase, Is.EqualTo(MedicalPhase.Ready));
+            Assert.That(f.World.Medical.View.CycleId, Is.EqualTo(station.CycleId));
+            Assert.That(f.World.GetObject(f.Body)!.Revision, Is.EqualTo(body.Revision));
+            Assert.That(f.World.GetObject(f.Body)!.SlotId, Is.EqualTo(f.Station));
+            Assert.That(f.Worker.Revision, Is.EqualTo(worker.Revision));
+            Assert.That(f.Worker.Awareness, Is.EqualTo(WorkerAwareness.Alert)); Assert.That(f.Worker.Pose, Is.EqualTo(WorkerPose.Down));
+            Assert.That(f.World.Reactor.PowerSummary!.Spent, Is.EqualTo(6));
+            Assert.That(f.World.Reactor.PowerSummary.Available, Is.EqualTo(4));
+            Assert.That(f.World.Medical.Summary.UsedCartridges, Is.EqualTo(1));
+            Assert.That(f.World.Medical.Summary.CompletedCycles, Is.EqualTo(1));
+            Assert.That(f.World.Medical.Summary.CancelledCycles, Is.Zero); Assert.That(f.World.Medical.Summary.InterruptedCycles, Is.Zero);
+        }
     }
 }
