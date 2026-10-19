@@ -237,6 +237,7 @@ namespace CriticalShift.Presentation
                 GUILayout.Label(current.Label + " · " + current.DeliveredEnergyUnits + "/" + current.RequiredEnergyUnits +
                     " energy · " + Clock(remaining) + " left", wrapped);
                 if (current.RequiredEnergyUnits == 0) GUILayout.Label("Prepare ore, fuel and cooling before the grid request begins.", wrapped);
+                GUILayout.Label("Each window counts its own energy. Surplus cannot pay a later request.", wrapped);
                 var upcoming = contract.Upcoming;
                 if (upcoming != null) GUILayout.Label("Next: " + upcoming.Label + " in " +
                     Clock(Math.Max(0, upcoming.StartMilliseconds - contract.ElapsedMilliseconds)) + " · " +
