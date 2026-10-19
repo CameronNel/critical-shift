@@ -12,3 +12,4 @@ sections/reactor-room/production/checkpoints/refinement-28fc/*/audit.json -diff
 # Scoped GitHub Git Data API delivery while this environment's LFS authentication is unavailable.
 sections/facility-assembly/sources/fuel-corridor/module.blend -filter -diff -merge -text
 sections/facility-assembly/unity/**/*.fbx filter=lfs diff=lfs merge=lfs -text
+runtime/unity/Assets/CriticalShift/Content/Sky/Textures/*.png filter=lfs diff=lfs merge=lfs -text

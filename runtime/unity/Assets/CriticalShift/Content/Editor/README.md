@@ -26,3 +26,7 @@
 - **Compile:** compiled with the .NET 8 SDK against the pinned 6000.4.3f1 editor's own UnityEngine and UnityEditor module DLLs and its .NET Standard 2.1 references, the same reference set as `runtime/tools/api_compile.py`. Result: 0 errors, 0 warnings. A deliberate bad API call failed as expected.
 - **Light rotation:** checked against Blender's `mathutils` over 2,000 random rotations; the largest error was 2e-7.
 - **Not run:** a Unity import, the URP set-up and any Unity test. There are no Unity tests for this assembly yet. The Blender-to-Unity axis rule `(-x, z, -y)` is derived, not measured: if the lights in a prefab sit mirrored relative to the room, the rule is wrong.
+
+## Night sky set-up (`NightSkySetup.cs`)
+
+Holds the import settings for `Content/Sky/Textures/` (stars and Milky Way as cubemaps from latitude-longitude, Moon maps as 2D, the normals linear). Its menu `Critical Shift > Environment > Set Up Night Sky` creates `Content/Sky/NightSky.mat`, adds a "Night Sky" object with the moonlight and the `NightSky` component, and sets the scene's skybox. The component is found by type name, so this assembly keeps no reference to Presentation. The design, defaults and evidence are in `Content/Sky/README.md`.
