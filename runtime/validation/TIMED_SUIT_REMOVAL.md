@@ -54,3 +54,13 @@ completion/access and actual O/V dispatch. Catalogue178; all current native
 import, physics, rendered controls, Player/performance/multiplayer remain NotRun
 because the pinned editor is unavailable and the configured remote is Offline.
 Draft awaits independent maintainer review/merge. No acceptance gate advanced.
+
+Final candidate `8c1b59caeacd440a0d933bca4eb8aef97ec4ed12` passed the full
+verifier13:17:07–13:17:49UTC: **1183 executed/passed, zero failed/skipped;27
+scenarios each twice**. Existing controls and the named omitted-removal control
+were rejected. All281 recorded inputs match that git tree; nine DLL hashes
+match the frozen closure in ignored `out/suit-removal-verification-20261019`.
+Final frozen seed20261061 passed10,000 mixed cases/15,448,743 selected
+operations and model checks in42.9084003s. Ultra source reviews
+confirmed the O/V correction and found no remaining concrete blocker. Current
+native cases remain NotRun; draft awaits independent maintainer review.
