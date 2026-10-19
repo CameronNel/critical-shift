@@ -37,6 +37,72 @@ WEAR_MATERIALS = ['A2 machine blue enamel', 'A2 waterbox oxide enamel', 'A2 hotw
                   'Basement coated concrete', 'Replacement floor patch']
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
+# A2 geometry repairs (the second A3 review): run before the wear pass, so the rebuilt meshes get A3_pos
+# ---------------------------------------------------------------------------------------------------------------------------------------------
+def world_box(o):
+    pts = [o.matrix_world @ Vector(c) for c in o.bound_box]
+    return Vector([min(p[i] for p in pts) for i in range(3)]), Vector([max(p[i] for p in pts) for i in range(3)])
+
+def replace_mesh(o, bm):
+    """Give object `o` the world-space geometry in `bm`, keeping its name, materials and modifiers."""
+    bm.transform(o.matrix_world.inverted()); me = bpy.data.meshes.new(o.data.name + ' A3')
+    bm.to_mesh(me); bm.free()
+    for m in o.data.materials: me.materials.append(m)
+    o.data = me
+    for f in me.polygons: f.use_smooth = True
+
+def pump_volutes():
+    """Each CEP volute was a flat disc with a notch ('pac-man'). Rebuilt as a scroll: the casing radius grows from 0.30 m at the cutwater
+    to 0.40 m a full turn later, beneath the cast discharge boss, round the impeller centre (the cover's centre), the same 0.36 m thick,
+    its rim rounded by the object's bevel."""
+    done = []
+    for tag in ('CEP-A', 'CEP-B'):
+        o, cov = SC.objects.get(tag + ' volute'), SC.objects.get(tag + ' cover')
+        if not (o and cov): continue
+        (x0, _, _), (x1, _, _) = world_box(o); clo, chi = world_box(cov); cy, cz = (clo.y + chi.y) / 2, (clo.z + chi.z) / 2
+        f0, n = math.radians(75), 72
+        ring = [(cy + (0.30 + 0.10 * k / n) * math.cos(f0 + 2 * math.pi * k / n), cz + (0.30 + 0.10 * k / n) * math.sin(f0 + 2 * math.pi * k / n)) for k in range(n + 1)]
+        bm = bmesh.new(); face = bm.faces.new([bm.verts.new((x0, y, z)) for y, z in ring])
+        ext = bmesh.ops.extrude_face_region(bm, geom=[face])['geom']
+        bmesh.ops.translate(bm, vec=(x1 - x0, 0, 0), verts=[v for v in ext if isinstance(v, bmesh.types.BMVert)])
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        replace_mesh(o, bm)
+        for m in o.modifiers:
+            if m.type == 'BEVEL': m.width = 0.045; m.segments = 4; m.limit_method = 'ANGLE'
+        done.append(tag)
+    note('pump_volutes', rebuilt=done)
+
+def bellows():
+    """The U04 expansion joint was a 36-vertex folded sheet (8 mm solidify) whose knife-edged pleats overhung the flanges. Rebuilt as four
+    rounded convolutions (crest 60 mm out from the duct, U-shaped roots) round the 2.5 x 1.5 m opening, inside the bolting plates' outline."""
+    o = SC.objects.get('bellow continuous folded perimeter')
+    if o is None: note('bellows_missing'); return
+    lo, hi = world_box(o); z0, z1 = lo.z, 5.73
+    X0, X1, Y0, Y1, rc, b, N = 1.75, 4.25, 3.30, 4.80, 0.08, 0.06, 4
+    path = []                                                         # (point, outward normal) round a rounded rectangle
+    corners = [((X1 - rc, Y0 + rc), -90), ((X1 - rc, Y1 - rc), 0), ((X0 + rc, Y1 - rc), 90), ((X0 + rc, Y0 + rc), 180)]
+    for (cx, cy), a0 in corners:
+        for k in range(7):
+            a = math.radians(a0 + 90 * k / 6); nrm = Vector((math.cos(a), math.sin(a), 0)); path.append((Vector((cx, cy, 0)) + nrm * rc, nrm))
+        nxt = corners[(corners.index(((cx, cy), a0)) + 1) % 4]
+        p_end = path[-1][0]; a1 = math.radians(nxt[1]); q = Vector((nxt[0][0], nxt[0][1], 0)) + Vector((math.cos(a1), math.sin(a1), 0)) * rc
+        steps = max(1, int((q - p_end).length / 0.15))
+        for k in range(1, steps): path.append((p_end.lerp(q, k / steps), path[-1][1]))
+    nz = N * 6; bm = bmesh.new(); grid = []
+    for pnt, nrm in path:
+        col = []
+        for j in range(nz + 1):
+            t = j / nz; off = b * (0.5 - 0.5 * math.cos(2 * math.pi * N * t))
+            col.append(bm.verts.new((pnt.x + nrm.x * off, pnt.y + nrm.y * off, z0 + (z1 - z0) * t)))
+        grid.append(col)
+    for i in range(len(grid)):
+        a, c = grid[i], grid[(i + 1) % len(grid)]
+        for j in range(nz): bm.faces.new((a[j], c[j], c[j + 1], a[j + 1]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    replace_mesh(o, bm)
+    note('bellows', convolutions=N, crest_m=b, z=(round(z0, 3), z1), perimeter_points=len(path))
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------
 # Module-space positions
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 def users_of(names):
@@ -162,6 +228,7 @@ class Wear:
         ao.inputs['Distance'].default_value = radius
         e = self.ramp(self.math('SUBTRACT', 1.0, ao.outputs['AO']), threshold, threshold + 0.25)
         brk = self.ramp(self.noise(density_scale, 4.0, rough=0.6), density_cut, density_cut + 0.06)
+        brk = self.math('MULTIPLY', brk, self.ramp(self.noise(1.3, 2.0), 0.35, 0.60))      # a second, coarser break: no even dash rhythm
         return self.math('MULTIPLY', e, brk, True)
     def tone(self, scale, amount):
         """Low-frequency value variation: 1 +- amount."""
@@ -192,6 +259,9 @@ FLOOR_OIL = [(2.57, 6.6, 0.42), (4.27, 7.75, 0.38), (3.2, 4.05, 0.32),          
 FLOOR_WET = [(8.55, 3.2, 0.22), (8.55, 4.9, 0.18), (8.95, 7.6, 0.30)]                  # under the CW isolation valves; at the trench drain
 TOUCH_UPS = [((1.55, 2.15), (2.7, 3.7), (2.05, 2.55)), ((4.15, 4.6), (2.7, 3.7), (3.62, 3.98))]   # fresher paint on the shell's south flank (clear of the CD-01 stencil)
 DADO_SCUFFS = [((-1.85, -1.7), (0.0, 2.2), (0.10, 0.45)), ((-1.8, 9.6), (9.3, 9.45), (0.10, 0.45)), ((9.5, 9.65), (1.4, 7.0), (0.10, 0.45))]   # where trolleys and boots hit
+# the facility's family (turbine, cooling plant): gunmetal blues and burgundy oxides, not royal blue and signal red. (target, share)
+PALETTE = {'A2 machine blue enamel': ((0.045, 0.060, 0.085), 0.30), 'A2 waterbox oxide enamel': ((0.120, 0.018, 0.030), 0.45),
+           'Oxide orange enamel': ((0.140, 0.025, 0.030), 0.40), 'Light oxide enamel': ((0.150, 0.035, 0.035), 0.30)}
 MINERAL = ('Warm mineral plaster', 'Dense cast concrete', 'Basement coated concrete', 'Replacement floor patch')
 MACHINE = ('A2 machine blue enamel', 'A2 waterbox oxide enamel', 'A2 hotwell graphite blue', 'Oxide orange enamel', 'Light oxide enamel', 'Astra ivory painted steel')
 
@@ -226,13 +296,15 @@ def build(mat, name, positional, edge_chips=True):
     if painted:
         if name in ('A2 machine blue enamel', 'A2 waterbox oxide enamel', 'A2 hotwell graphite blue'):
             bw = w.node('ShaderNodeRGBToBW', 'luminance'); w.nt.links.new(base, bw.inputs[0])
-            base = w.mix(base, 0.16, w.grey(bw.outputs[0]), 'MIX')                                   # quieter large fields: 16 % towards grey
+            base = w.mix(base, 0.34, w.grey(bw.outputs[0]), 'MIX')                                   # quieter large fields: a third of the way to grey
             base = w.mix(base, 1.0, w.grey(w.tone(0.45, 0.10)))                                      # low-frequency paint tone, +-10 %
+        if name in PALETTE:
+            base = w.mix(base, PALETTE[name][1], PALETTE[name][0], 'MIX')                            # into the facility's gunmetal / burgundy-oxide family
         cav = w.ao_grime(0.30, 1.1, 0.90)
         base = w.mix(base, cav, (0.24, 0.22, 0.19))                                                  # cavities and contact shadows collect grime
         if edge_chips and name not in ('Structural painted steel', 'Charcoal impact dado'):
-            chips = w.edges(0.025, 0.20, 6.0, 0.45)                                                  # worn paint on convex edges, in broken lengths
-            base = w.mix(base, chips, (0.34, 0.33, 0.31), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', chips, 0.22))
+            chips = w.edges(0.025, 0.26, 9.0, 0.52)                                                  # worn paint on convex edges, small and in broken lengths
+            base = w.mix(base, chips, (0.17, 0.17, 0.165), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', chips, 0.25))   # dark steel showing through, not pale primer
         if name in MACHINE:
             grime = w.math('MULTIPLY', w.ramp(w.noise(1.6, 4.0, rough=0.62), 0.48, 0.78), 0.45, True)
             base = w.mix(base, grime, (0.50, 0.45, 0.38))                                            # handled, splashed and wiped: a broken film of grime
@@ -240,7 +312,7 @@ def build(mat, name, positional, edge_chips=True):
             streak = w.math('MULTIPLY', w.math('MULTIPLY', w.ramp(w.noise(5.0, 3.0, (1, 1, 0.07)), 0.50, 0.72), w.ramp(w.noise(0.8, 2.0), 0.35, 0.70)), vertical)
             base = w.mix(base, w.math('MULTIPLY', streak, 0.55, True), (0.52, 0.47, 0.40))           # run-off streaks on vertical faces
         dust = w.math('MULTIPLY', w.math('MULTIPLY', w.ramp(nz.outputs['Z'], 0.55, 0.92), w.ramp(w.noise(2.2, 3.0), 0.25, 0.75, 0.45, 1.0)), 0.35, True)
-        base = w.mix(base, dust, (0.30, 0.28, 0.25), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', dust, 0.35))     # settled dust on tops
+        base = w.mix(base, dust, (0.25, 0.23, 0.21), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', dust, 0.35))     # settled dust on tops
         if positional:
             base = w.mix(base, w.floor_line(1.0, 1.6), (0.30, 0.27, 0.22))                          # splash and boot grime at machine bases
             if name in MACHINE[:5]:
@@ -268,7 +340,8 @@ def build(mat, name, positional, edge_chips=True):
                 w.nt.links.new(cell, panel.inputs['Vector'])
                 base = w.mix(base, 1.0, w.grey(w.math('ADD', 0.91, w.math('MULTIPLY', panel.outputs['Value'], 0.18))))      # +-9 % per formwork panel
                 runs = w.math('MULTIPLY', w.ramp(w.noise(2.4, 2.0, (1, 1, 0.10)), 0.55, 0.72), w.ramp(s.outputs['Z'], 1.0, 4.5), True)   # water marks from above
-                base = w.mix(base, w.math('MULTIPLY', runs, 0.6), (0.58, 0.55, 0.49))
+                runs = w.math('MULTIPLY', runs, w.ramp(w.noise(0.7, 2.0), 0.45, 0.70))           # in patches, not a curtain of folds
+                base = w.mix(base, w.math('MULTIPLY', runs, 0.35), (0.58, 0.55, 0.49))
                 base = w.mix(base, w.floor_line(0.9, 1.0), (0.40, 0.36, 0.30))
                 weep = w.weeps(WEEPS_WALL, 0.85); base = w.mix(base, weep, (0.55, 0.50, 0.43))
             base = w.mix(base, w.ao_grime(0.4, 1.2, 0.7), (0.45, 0.43, 0.40))
@@ -439,11 +512,18 @@ def desk_station():
         if o is None: continue
         o.matrix_world = Matrix.Translation((hx, 4.05, top)) @ R @ Matrix.Translation(-pivot) @ o.matrix_world
         moved.append(n)
-    cylinder('A3 trip ground plate', (hx, 4.05, top), (hx, 4.05, top + 0.004), 0.056, yellow, 24)
-    smooth(torus('A3 trip guard collar', (hx, 4.05, top + 0.022), (0, 0, 1), 0.050, 0.007, yellow, 24, 6))
+    # seat the turned parts on each other (the rotation left the stem 10 mm above the bezel and the mushroom 19 mm above the stem)
+    parts = {n: SC.objects.get(n) for n in ('OP trip bezel', 'OP trip stem', 'OP trip mushroom')}
+    if all(parts.values()):
+        for below, above in (('OP trip bezel', 'OP trip stem'), ('OP trip stem', 'OP trip mushroom')):
+            gap = world_box(parts[above])[0].z - world_box(parts[below])[1].z
+            for n in ('OP trip stem', 'OP trip mushroom')[('OP trip stem', 'OP trip mushroom').index(above):]:
+                parts[n].matrix_world = Matrix.Translation((0, 0, -gap + 0.001)) @ parts[n].matrix_world
+    cylinder('A3 trip ground plate', (hx, 4.05, top), (hx, 4.05, top + 0.004), 0.082, yellow, 28)
+    smooth(torus('A3 trip guard collar', (hx, 4.05, top + 0.034), (0, 0, 1), 0.076, 0.006, yellow, 28, 6))     # clear of the bezel's corners
     for k in range(3):
         a = 2 * math.pi * k / 3 + math.pi / 2
-        cylinder('A3 trip guard post %d' % k, (hx + 0.05 * math.cos(a), 4.05 + 0.05 * math.sin(a), top), (hx + 0.05 * math.cos(a), 4.05 + 0.05 * math.sin(a), top + 0.022), 0.005, yellow, 8)
+        cylinder('A3 trip guard post %d' % k, (hx + 0.076 * math.cos(a), 4.05 + 0.076 * math.sin(a), top), (hx + 0.076 * math.cos(a), 4.05 + 0.076 * math.sin(a), top + 0.034), 0.005, yellow, 8)
     box('A3 trip blanking plate', (-1.371, 4.05, 1.12), (0.008, 0.07, 0.07), steel)          # on the panel face (x -1.375), not 36 mm off it
     cylinder('A3 CD ISOL selector boss', (hx, 4.19, top), (hx, 4.19, top + 0.03), 0.035, steel, 20)
     box('A3 CD ISOL selector knob', (hx, 4.19, top + 0.045), (0.085, 0.024, 0.03), red)
@@ -465,6 +545,8 @@ def desk_lamp():
     k = (z1 - z0 - 0.10) / (z1 - z0)
     post.matrix_world = Matrix.Translation((0, 0.16, 0)) @ Matrix.Translation((0, 0, z0)) @ Matrix.Diagonal((1, 1, k, 1)) @ Matrix.Translation((0, 0, -z0)) @ post.matrix_world
     head.matrix_world = Matrix.Translation((0, 0.16, -0.10)) @ head.matrix_world
+    plo, phi = world_box(post); hlo, hhi = world_box(head)                 # A2's head stood 0.10 m beside its post, held by nothing: centre it on the post
+    head.matrix_world = Matrix.Translation(((plo.x + phi.x - hlo.x - hhi.x) / 2, (plo.y + phi.y - hlo.y - hhi.y) / 2, 0)) @ head.matrix_world
     glass = head.material_slots[0].material; head.material_slots[0].link = 'OBJECT'; head.material_slots[0].material = M('Charcoal impact dado')
     pts = [head.matrix_world @ Vector(c) for c in head.bound_box]; c = sum(pts, Vector()) / 8; zb = min(p.z for p in pts)
     rad = (max(p.x for p in pts) - min(p.x for p in pts)) / 2
@@ -502,7 +584,8 @@ def vent_extension():
     if not parts: note('vent_missing', side='west'); return
     hub = next(o for o in parts if 'hub' in o.name); c0 = sum((hub.matrix_world @ Vector(v) for v in hub.bound_box), Vector()) / 8
     zg, xw = 5.05, c0.x - 0.15
-    cylinder('A3 WB west vent extension spindle', (c0.x, c0.y, c0.z - 0.04), (c0.x, c0.y, zg - 0.045), 0.012, steel, 10)
+    body = SC.objects.get('WB west vent'); zb = world_box(body)[1].z if body else c0.z - 0.04       # from the valve body's top: no gap
+    cylinder('A3 WB west vent extension spindle', (c0.x, c0.y, zb - 0.005), (c0.x, c0.y, zg - 0.045), 0.012, steel, 10)
     box('A3 WB west vent gearbox', (c0.x, c0.y, zg), (0.09, 0.09, 0.09), paint)
     cylinder('A3 WB west vent gearbox shaft', (c0.x - 0.045, c0.y, zg), (xw - 0.02, c0.y, zg), 0.012, steel, 10)
     T = Matrix.Translation((xw, c0.y, zg)) @ Matrix.Rotation(-math.pi / 2, 4, 'Y') @ Matrix.Translation(-c0)
@@ -545,6 +628,26 @@ def cw_tags():
         if o: o.matrix_world = Matrix.Translation((dx, dy, 0.25)) @ o.matrix_world; moved.append((n, dx, dy))
     note('cw_tags_moved', objects=moved, dz=0.25)
 
+def panel_gauges():
+    """The four operator-panel gauges all read the same angle. Each needle turned about its pivot to a plausible running value."""
+    turned = {}
+    for g, deg in (('FLOW', 28), ('CW IN', -12), ('LEVEL', 42), ('VAC', -33)):
+        nd, pv = SC.objects.get('OP %s needle' % g), SC.objects.get('OP %s pivot' % g)
+        if not (nd and pv): continue
+        lo, hi = world_box(pv); c = (lo + hi) / 2
+        nd.matrix_world = Matrix.Translation(c) @ Matrix.Rotation(math.radians(deg), 4, 'X') @ Matrix.Translation(-c) @ nd.matrix_world
+        turned[g] = deg
+    note('panel_gauges', turned_deg=turned)
+
+def north_boards():
+    """The room ID board and the hazard board on the north wall were cut by pipes, rails and the waterbox in most views. A ray test of
+    the views facing north (C01, C02, C08, W03, W05, W07) over positions along and up the wall picked 1.2 m west, at the same height."""
+    moved = []
+    for n in ('ID board', 'ID board text', 'haz board', 'haz text'):
+        o = SC.objects.get(n)
+        if o: o.matrix_world = Matrix.Translation((-1.2, 0, 0)) @ o.matrix_world; moved.append(n)
+    note('north_boards', moved=moved, dx=-1.2)
+
 def intersections():
     """New parts that cut into existing ones (contacts are intended where parts are bolted or seated; anything else is a defect to fix)."""
     from mathutils.bvhtree import BVHTree
@@ -561,9 +664,10 @@ def intersections():
     RECEIPT['intersections'] = hits; print('A3 intersections', len(hits)); [print('A3 X', a, '|', b) for a, b in hits]
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
+pump_volutes(); bellows()
 add_positions()
 wear_pass()
-chain_operators(); desk_station(); desk_lamp(); vent_extension(); ejector_chain(); cw_tags(); light_balance(); intersections()
+chain_operators(); desk_station(); desk_lamp(); vent_extension(); ejector_chain(); cw_tags(); panel_gauges(); north_boards(); light_balance(); intersections()
 dg = bpy.context.evaluated_depsgraph_get()
 tris = 0
 for o in SC.objects:

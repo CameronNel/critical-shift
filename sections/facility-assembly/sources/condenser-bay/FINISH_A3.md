@@ -6,7 +6,8 @@ and then ensure the baking process will work"*, and on the layout *"Fix everythi
 A3 is `module_aaa_A3.blend`, built by [condenser_finish_A3.py](condenser_finish_A3.py) from A2's output
 [module_aaa_A2.blend](module_aaa_A2.blend) (A2: [FINISH_A2.md](FINISH_A2.md), [condenser_finish_A2.py](condenser_finish_A2.py), from the
 reviewed R34 `module.blend`). A3 adds to A2 and changes it only where listed below (the two CW isolation handwheels and the gauge impulse
-lines they enclosed are replaced; the trip parts, desk lamp, west vent wheel and CW wall tags move). The build receipt, with every change, the
+lines they enclosed are replaced; the trip parts, desk lamp, west vent wheel, panel gauge needles, CW wall tags and north wall boards move; the two pump volutes and the U04
+bellows are rebuilt). The build receipt, with every change, the
 source and output hashes and an intersection check of the new parts, is [finish-A3-build.json](finish-A3-build.json).
 
 ```
@@ -63,13 +64,13 @@ in front of the plate).
 
 **Wear**, sized to read at 3 to 5 m. Positions come from the mesh attribute `A3_pos` (module-space vertex positions), so localized wear stays
 put in the module, in the map and in the bake; shared meshes and curves keep the attribute-free layers.
-- painted machinery: cavity and contact grime (AO), worn paint on convex edges in broken lengths (inside-AO edge mask; sheet parts under
+- painted machinery: cavity and contact grime (AO), worn paint on convex edges in small, broken lengths showing dark steel (inside-AO edge mask; sheet parts under
   5 cm thick get a variant without it, since inside AO marks a thin plate's whole face), a broken film of handling grime, run-off streaks
-  on vertical faces, dust on tops, grime at the bases up to 1 m, quieter large fields on the condenser and waterboxes (16 % towards grey,
-  +-10 % tone), two fresher touch-up patches on the shell's south flank, weep streaks under the waterbox covers' lower bolts;
+  on vertical faces, dust on tops, grime at the bases up to 1 m, quieter large fields on the condenser and waterboxes (a third of the way
+  to grey, +-10 % tone), two fresher touch-up patches on the shell's south flank, weep streaks under the waterbox covers' lower bolts;
 - the impact dado and column feet: scuffed bands of dark primer where trolleys and boots hit;
 - walls: about 40 % of A2's fine grain and a third of its bump (it read as mottle), darker and warmer, +-9 % per 1.5 x 3 m formwork panel,
-  water marks from above, a floor-line grime band and streaks under wall-hung services;
+  water marks from above in patches, a floor-line grime band and streaks under wall-hung services;
 - floor: +-12 % large-scale dirt, grime against walls and plinths, glossy oil at the two pump bases, their seals, the hotwell and ejector
   drains, damp patches under the CW valves and at the trench drain.
 
@@ -77,10 +78,22 @@ put in the module, in the map and in the bake; shared meshes and curves keep the
 3,800 K), the fill washes to 60 %, the task lights over the condenser, the pumps and the desk and the three wall practicals +30 %. The fill
 washes, which have no fixture, are hidden from glossy rays: their rectangles showed as a pale panel on the east waterbox (A2 review, W05).
 
+**Repairs to A2 geometry** (found by the second independent review): each CEP pump's volute was a flat disc with a notch, now a scroll
+growing from 0.30 to 0.40 m round the impeller centre to the discharge boss; the U04 expansion joint was a 36-vertex folded sheet whose
+knife-edged pleats overhung the flanges, now four rounded convolutions (60 mm crests) inside the bolting plates' outline; the desk lamp's
+head stood 0.10 m beside its post, held by nothing, now on it; the four panel gauges all read the same angle, now four different running
+values; the room ID and hazard boards on the north wall were cut by pipes and rails in most views and move 1.2 m west, the best of the
+positions a ray test of the north-facing views tried (it is still partly hidden from some floor views: the wall is the room's busiest).
+
+**Palette:** the large machine fields move into the facility's family (turbine, cooling plant): the machine blue a third of the way to
+grey and 30 % towards gunmetal, the waterbox and pump reds 30 to 45 % towards burgundy oxide, so the room no longer reads royal blue and
+signal red next to its neighbours. Hues are kept; the two reviews of A3 both scored the saturated fields down.
+
 **Desk:** the control housing is charcoal, its legends light and 26 mm high; the lamp head is a dark shade with the warm diffuser under it
 (it was a glowing white puck), and stands between LOCAL and CW ISOLATE, 0.10 m lower, clear of the captions.
 
-Triangles: **379,700** evaluated, text included (A2 349,678; budget 400,000). The chains are 64 triangles a link.
+Triangles: **388,724** evaluated, text included (A2 349,678; budget 400,000). The chains are 64 triangles a link; the rebuilt bellows about
+7,500 with its thickness.
 
 ## Checks
 
@@ -93,6 +106,7 @@ and the PR. The reach audit is above; with the roof at 5.5 it fails, as it shoul
 - No Unity run; the interaction anchors are geometry, not engine interactions.
 - The chain loops are rigid meshes (no swing). The inside-AO edge wear makes the bake slower than plain textures would (it is a ray-traced
   node); it bakes like the AO grime A1 and A2 already used.
-- Palette: the machine blue and oxide red are A2's (its answer to the "more machine colour" brief), quieted but not changed in hue. The
-  first A3 review asked for warmer, darker continuity with the turbine and cooling plant or an owner decision on this palette; the walls
-  and light are warmer now, the machine colours are the owner's call.
+- Palette: the machine colours keep A2's hues (its answer to the "more machine colour" brief) but are pulled into the facility's
+  gunmetal / burgundy-oxide family; if the owner wants A2's brighter fields back, `PALETTE` in the script is the one place to change.
+- The north wall boards are still partly hidden from some floor views; the room is identified at its entry by the CSB-01 signs over D01.
+- Inherited and left: the soft light spots on the U04 bolting plate above each nut (light through the bolt holes, C04).

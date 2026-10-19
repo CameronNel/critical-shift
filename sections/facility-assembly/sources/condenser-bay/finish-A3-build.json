@@ -3,6 +3,23 @@
  "source_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
  "changes": [
   {
+   "kind": "pump_volutes",
+   "rebuilt": [
+    "CEP-A",
+    "CEP-B"
+   ]
+  },
+  {
+   "kind": "bellows",
+   "convolutions": 4,
+   "crest_m": 0.06,
+   "z": [
+    5.352,
+    5.73
+   ],
+   "perimeter_points": 70
+  },
+  {
    "kind": "module_positions",
    "meshes": 372,
    "shared_meshes_skipped": 0,
@@ -267,6 +284,25 @@
    "dz": 0.25
   },
   {
+   "kind": "panel_gauges",
+   "turned_deg": {
+    "FLOW": 28,
+    "CW IN": -12,
+    "LEVEL": 42,
+    "VAC": -33
+   }
+  },
+  {
+   "kind": "north_boards",
+   "moved": [
+    "ID board",
+    "ID board text",
+    "haz board",
+    "haz text"
+   ],
+   "dx": -1.2
+  },
+  {
    "kind": "light_balance",
    "lights": {
     "batten0": [
@@ -376,7 +412,7 @@
   }
  ],
  "intersections": [],
- "evaluated_triangles": 379700,
+ "evaluated_triangles": 388724,
  "output": "module_aaa_A3.blend",
- "output_sha256": "34b79a2adfb385c77ee32dd22cfd76a1ef83065f081df7c123e3d36038ac2b5e"
+ "output_sha256": "87d8ca5e2dddd2967c970294799645afc7a297333bd7377685196312f8958315"
 }
