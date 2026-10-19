@@ -62,3 +62,30 @@ cases / 13,282,265 CheckedSteps in39.75s. Omitting that first modeled accepted
 sample failed the dedicated sequence invariant at case seed55. This is a short
 logical run with synthetic presence, not native area/geometry execution or a
 long-duration claim. Final full verification is pending.
+
+## Final full verification
+
+Source `5e6847dabaca801a53549d368c349de01366d7b1` passed the final verifier
+from 2026-10-19T10:05:42.397933+00:00 to
+2026-10-19T10:06:11.959034+00:00 UTC: **983 executed/passed, zero
+failed/skipped; 22 scenarios each twice**. All 18 focused feed cases ran.
+Real intentional NUnit/scenario/invariant controls and omitted modeled medical
+start, exposure, backup credit, suit protection and accepted feed sample were
+rejected. Seed reproduction and report create-new checks passed. All 257
+recorded source/input hashes match this source commit; all nine frozen gameplay
+DLLs match the verifier. Independent ignored snapshot:
+`runtime/out/fixture-zones-verification-20261019`.
+
+The first full candidate also passed983/22. Model review then strengthened the
+sequence/eligibility checks after skipped calls; the final run above includes
+that change. The 10,000-case figure above belongs to the preceding candidate,
+not this later source. A new supervised series uses the final frozen closure;
+only completed, witnessed child processes will count toward its evidence.
+Older endurance durations remain with their own preserved source/binary closures.
+
+Independent ultra integration, medical/authority and model reviews found no
+blocking source issue. Source review is not native execution. Unity import,
+Player, spatial sampling, GUI, physical behavior/feel, multiplayer and performance
+remain NotRun. The editor remains unavailable locally and the configured remote
+workstation was still offline when retried at09:50UTC. This is a reviewable
+fixture prototype and does not advance roadmap acceptance.
