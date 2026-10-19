@@ -241,12 +241,28 @@
    "grip_z": 1.17
   },
   {
-   "kind": "cw_tags_raised",
+   "kind": "cw_tags_moved",
    "objects": [
-    "CW tag SUPPLY",
-    "CW tag t SUPPLY",
-    "CW tag RETURN",
-    "CW tag t RETURN"
+    [
+     "CW tag SUPPLY",
+     0.065,
+     0.7
+    ],
+    [
+     "CW tag t SUPPLY",
+     0.088,
+     0.7
+    ],
+    [
+     "CW tag RETURN",
+     0.065,
+     0.0
+    ],
+    [
+     "CW tag t RETURN",
+     0.088,
+     0.0
+    ]
    ],
    "dz": 0.25
   },
@@ -362,5 +378,5 @@
  "intersections": [],
  "evaluated_triangles": 379700,
  "output": "module_aaa_A3.blend",
- "output_sha256": "06f923774c5b018b1b2436e98683f7ad1f37d31c1533d0d617ab86be2ab81f16"
+ "output_sha256": "34b79a2adfb385c77ee32dd22cfd76a1ef83065f081df7c123e3d36038ac2b5e"
 }

@@ -57,7 +57,9 @@ The other hooks are unchanged (D01 0.41, CEP-A 0.32, CEP-B 0.31, CSB CEP 0.52, C
 remain outage work from a temporary platform, as in R34; they are not contract hooks.
 
 The CW gauges' impulse lines rose through the old handwheel hubs; they now leave the instrument root sideways at 3.30 m and enter each gauge
-from below. The CW SUPPLY and RETURN wall tags are raised 0.25 m, clear of the chain wheels in the views along the east wall.
+from below. The CW SUPPLY and RETURN wall tags are raised 0.25 m, and SUPPLY moves 0.70 m north (between its pipe and RETURN), clear of the chain
+wheels and chains in the views along the east wall; both plates now sit on the wall (A2's stood 6.5 cm off it, their lettering 2.5 cm
+in front of the plate).
 
 **Wear**, sized to read at 3 to 5 m. Positions come from the mesh attribute `A3_pos` (module-space vertex positions), so localized wear stays
 put in the module, in the map and in the bake; shared meshes and curves keep the attribute-free layers.

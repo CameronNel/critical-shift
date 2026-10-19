@@ -535,13 +535,15 @@ def ejector_chain():
     note('ej_chain', wheel_centre=[round(v, 3) for v in c], grip_z=round(grip, 3))
 
 def cw_tags():
-    """The CW SUPPLY and RETURN wall tags (z 3.44..3.60) sat behind the new chain wheels and chains in the views along the east wall:
-    both raised 0.25 m, still over their pipes."""
+    """The CW SUPPLY and RETURN wall tags (z 3.44..3.60) sat behind the new chain wheels and chains in the views along the east wall: both
+    raised 0.25 m, and SUPPLY, whose chain hangs on the south side of its valve, also 0.70 m north (y 3.54..4.26, between its pipe and
+    RETURN): from C06 the sight line to it then passes the chain strands about 7 cm clear. A2's plates also stood 6.5 cm off the wall (back
+    at x 9.535, wall face 9.6) and their lettering 2.5 cm in front of the plate: the plates go onto the wall, the lettering onto the plate."""
     moved = []
-    for n in ('CW tag SUPPLY', 'CW tag t SUPPLY', 'CW tag RETURN', 'CW tag t RETURN'):
+    for n, dx, dy in (('CW tag SUPPLY', 0.065, 0.70), ('CW tag t SUPPLY', 0.088, 0.70), ('CW tag RETURN', 0.065, 0.0), ('CW tag t RETURN', 0.088, 0.0)):
         o = SC.objects.get(n)
-        if o: o.matrix_world = Matrix.Translation((0, 0, 0.25)) @ o.matrix_world; moved.append(n)
-    note('cw_tags_raised', objects=moved, dz=0.25)
+        if o: o.matrix_world = Matrix.Translation((dx, dy, 0.25)) @ o.matrix_world; moved.append((n, dx, dy))
+    note('cw_tags_moved', objects=moved, dz=0.25)
 
 def intersections():
     """New parts that cut into existing ones (contacts are intended where parts are bolted or seated; anything else is a defect to fix)."""
