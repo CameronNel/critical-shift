@@ -64,16 +64,15 @@ class _Rooms:
     def show(self, objs):
         """Make the collections holding `objs` visible in the view layer: edit mode, convert and join skip what the viewport hides.
         Looked up fresh for each change (see _layer)."""
-        want = set()
-        for o in objs: want.update(c.name for c in o.users_collection)
-        def paths(lc, trail, out):
-            here = trail + [lc.collection.name]
-            if lc.collection.name in want: out.update(here[1:])
-            for ch in lc.children: paths(ch, here, out)
-        hit = set(); paths(vl.layer_collection, [], hit)
-        for n in hit:
-            lc = _layer(n)
-            if lc is not None: lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
+        want = {c for o in objs for c in o.users_collection}
+        hit = {p[:k] for p in _lc_paths(lambda c: c in want) for k in range(1, len(p) + 1)}   # every collection on every path to them
+        for path in sorted(hit, key=len):
+            lc = _lc_at(path)
+            if lc is None: continue
+            # only where it is set: setting exclude = False on an included collection still restores its children's earlier state, which brought
+            # the map's DOORS collection back under COMBINED_MAP after isolate() had excluded it (2026-10-19)
+            if lc.exclude: lc.exclude = False
+            lc.hide_viewport = False; lc.collection.hide_viewport = False
 coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
 def bsdf(m): return next((n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None) if m and m.node_tree else None
@@ -353,37 +352,44 @@ def restore_prepared_geometry():
 PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
 ISOLATE = '--isolate' in a
 EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
-def _layer(name):
-    """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
-    def walk(lc):
-        if lc.collection.name == name: return lc
+# LayerCollections are addressed by their path of collections from the scene root, compared as IDs, never by name, and looked up fresh for each
+# change: changing exclude rebuilds the tree and leaves older references stale (2026-10-18: the whole map stayed in every map bake), and names are
+# not unique across libraries, and a collection can sit at several places in the tree
+def _lc_at(path):
+    lc = vl.layer_collection
+    for c in path:
+        lc = next((ch for ch in lc.children if ch.collection == c), None)
+        if lc is None: return None
+    return lc
+def _lc_paths(pred):
+    out = []
+    def walk(lc, trail):
         for ch in lc.children:
-            f = walk(ch)
-            if f is not None: return f
-    return walk(vl.layer_collection)
+            p = trail + (ch.collection,)
+            if pred(ch.collection): out.append(p)
+            walk(ch, p)
+    walk(vl.layer_collection, ()); return out
 
 def isolate():
     """Link the room collections to the scene if they are not in it (the map instances ROOM_<room>_members rather than linking it) and exclude every
     other collection, so the map's other rooms and instancers neither bake nor shade this one. Members sit in their room's own frame.
     Each exclude is applied through a fresh lookup (2026-10-18: holding LayerCollection references across excludes silently kept the whole map,
     7.9 M triangles of other rooms, in every map bake), then checked."""
-    def names(lc):
-        yield lc.collection.name
-        for ch in lc.children: yield from names(ch)
-    present = set(names(vl.layer_collection))
-    for n in coll.names:
-        if n not in present: sc.collection.children.link(bpy.data.collections[n])
-    def plan(lc, out):                                           # collections off every path to a room collection, outermost only
-        if lc.collection.name in coll.names: return True         # a room collection keeps all its children (lights-only ones too)
+    room = [bpy.data.collections[n] for n in coll.names]
+    present = {p[-1] for p in _lc_paths(lambda c: True)}
+    for c in room:
+        if c not in present: sc.collection.children.link(c)
+    def plan(lc, trail, out):                                    # collections off every path to a room collection, outermost only
+        if lc.collection in room: return True                    # a room collection keeps all its children (lights-only ones too)
         keep = False
         sub = []
-        for ch in lc.children: keep = plan(ch, sub) or keep
+        for ch in lc.children: keep = plan(ch, trail + (ch.collection,), sub) or keep
         if keep: out.extend(sub)
-        else: out.append(lc.collection.name)
+        else: out.append(trail)
         return keep
     drop = []
-    for ch in vl.layer_collection.children: plan(ch, drop)
-    for n in drop: _layer(n).exclude = True
+    for ch in vl.layer_collection.children: plan(ch, (ch.collection,), drop)
+    for path in drop: _lc_at(path).exclude = True
     keep = set(coll.all_objects)
     for o in list(sc.collection.objects):                        # loose objects at the scene root leave the bake
         if o not in keep: sc.collection.objects.unlink(o)
@@ -391,7 +397,7 @@ def isolate():
         if o not in keep and o.type != 'CAMERA':                 # connector collections) is hidden from the bake
             try: o.hide_render = True; o.hide_viewport = True
             except Exception: pass
-    left = [n for n in drop if not _layer(n).exclude]
+    left = ['/'.join(c.name for c in path) for path in drop if not _lc_at(path).exclude]
     if left: raise SystemExit('isolate: collections still in the view layer: %s' % left)
 
 def assert_isolated(where):
@@ -531,8 +537,37 @@ if STAGE in ('prep', 'all'):
         seen.add(nt.as_pointer())
         return any(n.type in ('LAYER_WEIGHT', 'FRESNEL', 'LIGHT_PATH', 'CAMERA') or (n.type == 'GROUP' and view_dep(n.node_tree, seen)) for n in nt.nodes)
     for m in mats: plan[m.name]['view_dependent'] = bool(plan[m.name]['bake'] and view_dep(m.node_tree, set()))
+    # attributes a shader reads that none of its meshes carry read as zero in Cycles too, so the source itself renders black there (the map's
+    # evacuation bulkhead lenses reuse the front end's 'emissive', which reads the colour attribute 'Col' the lenses lack). Listed, not fixed.
+    def attr_names(nt, seen):
+        if nt is None or nt.as_pointer() in seen: return set()
+        seen.add(nt.as_pointer()); out = set()
+        for n_ in nt.nodes:
+            if n_.type == 'ATTRIBUTE' and n_.attribute_type == 'GEOMETRY' and n_.attribute_name: out.add(n_.attribute_name)
+            elif n_.type == 'GROUP': out |= attr_names(n_.node_tree, seen)
+        return out
+    def base_attr_names(m):
+        """Attributes feeding the base colour: upstream of each surface closure's Base Color / Color input (into node groups whole)."""
+        tree = closures(m); leaves = tree[0] if tree else ([bsdf(m)] if bsdf(m) else [])
+        stack = [i.links[0].from_node for n_ in leaves if n_ is not None for i in n_.inputs if i.name in ('Base Color', 'Color') and i.is_linked]
+        seen, out = set(), set()
+        while stack:
+            n_ = stack.pop()
+            if n_.as_pointer() in seen: continue
+            seen.add(n_.as_pointer())
+            if n_.type == 'ATTRIBUTE' and n_.attribute_type == 'GEOMETRY' and n_.attribute_name: out.add(n_.attribute_name)
+            elif n_.type == 'GROUP': out |= attr_names(n_.node_tree, set())
+            stack.extend(l.from_node for i in n_.inputs for l in i.links)
+        return out
+    for m in mats:
+        users = [o for o in objs if any(s_.material is m for s_ in o.material_slots)]
+        have = {a.name for o in users for a in o.data.attributes} | {u.name for o in users for u in o.data.uv_layers}
+        plan[m.name]['missing_attributes'] = sorted(attr_names(m.node_tree, set()) - have)
+        # only these excuse a black base colour in bake_check (review: an attribute missing elsewhere in the tree does not make the base black)
+        plan[m.name]['missing_base_attributes'] = sorted(base_attr_names(m) - have) if m.node_tree else []
     step('materials planned', baked=sum(p['bake'] for p in plan.values()), masked=sorted(n for n, p in plan.items() if p['mask']),
          view_dependent_baked_head_on=sorted(n for n, p in plan.items() if p['view_dependent']),
+         reads_missing_attributes={n: p['missing_attributes'] for n, p in plan.items() if p['missing_attributes']},
          constant_multi_closure=sorted(n for n, p in plan.items() if not p['bake'] and len(p['closures']) > 1))
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
