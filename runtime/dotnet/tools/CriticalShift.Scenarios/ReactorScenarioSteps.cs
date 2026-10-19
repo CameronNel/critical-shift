@@ -29,7 +29,7 @@ namespace CriticalShift.Scenarios
             var request = new ReactorRequest(Choice<ReactorAction>(step, "action"), Number(step, "reactorRevision"),
                 step.TryGetProperty("container", out var c) ? Id(c.GetInt32()) : Guid.Empty,
                 Number(step, "objectRevision", 0), Number(step, "batchRevision", 0), Number(step, "lease", 0),
-                Flag(step, "cooling", false));
+                Flag(step, "cooling", false), step.TryGetProperty("outputRouting", out _) ? Choice<ReactorOutputRouting>(step, "outputRouting") : ReactorOutputRouting.Balanced);
             var reply = world.ExecuteInteraction(connection, new InteractionCommand(epoch, Number(step, "seq"),
                 InteractionKind.Reactor, Id(checked((int)Number(step, "reactor", 900))), reactor: request));
             return reply.Reactor?.Status.ToString() ?? reply.Status.ToString();
@@ -51,6 +51,7 @@ namespace CriticalShift.Scenarios
                 case "backupSpilled": actual = backup?.SpilledUnits; expected = a.Value.GetInt64(); return true;
                 case "reactorPresent": actual = core != null; expected = a.Value.GetBoolean(); return true;
                 case "reactorMode": actual = core?.Mode.ToString(); expected = a.Value.GetString(); return true;
+                case "reactorOutputRouting": actual = core?.OutputRouting.ToString(); expected = a.Value.GetString(); return true;
                 case "reactorCooling": actual = core?.Cooling; expected = a.Value.GetBoolean(); return true;
                 case "reactorSuspect": actual = core?.SuspectFuel; expected = a.Value.GetBoolean(); return true;
                 case "reactorRevision": actual = core?.Revision; expected = a.Value.GetInt64(); return true;

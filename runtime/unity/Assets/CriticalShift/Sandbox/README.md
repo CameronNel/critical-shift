@@ -1,5 +1,15 @@
 # Isolated local-host gameplay fixture
 
+**Core output routing continuation:** look at the reactor and press V to cycle
+balanced, grid priority and reserve priority, or use its panel buttons. Canonical
+new output is5 units per0.5s of running work: balanced sends4grid/1reserve; grid
+priority5/0; reserve priority0/5. Switching does not export initial/backup reserve.
+Full reserve spills its share. The completed quantum uses the current routing;
+already delivered output stays settled. Read current fuel time, costs, split and
+thermal reset instructions in the reactor panel/focus. Native catalogue175;
+console/GUI/physics changes remain NotRun.
+[Scope and evidence](../../../../validation/REACTOR_OUTPUT_ROUTING.md).
+
 **Dirty cargo handling continuation:** holding crate6's contaminated ore adds
 12worker-load units per sampled shift-second before PPE (compromised6/intact3).
 Material contamination must exceed500/1000. Dropping stops contact; regrabbing

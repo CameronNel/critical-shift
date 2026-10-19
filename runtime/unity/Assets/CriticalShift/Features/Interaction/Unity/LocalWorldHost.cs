@@ -21,6 +21,8 @@ namespace CriticalShift.Features.Interaction.Unity
         private Func<Guid, string> targetName;
         private Func<MachineView, string> machineControls;
         private Func<ProductionReply, ProductionAction?, string> productionResult;
+        private Func<ReactorView, string> reactorControls;
+        private Func<ReactorReply, ReactorAction?, string> reactorResult;
         private Guid focused;
         public string LastAction { get; private set; } = "Preparing local fixture";
         public string FocusHint { get; private set; } = "Look at a nearby crate or machine";
@@ -47,6 +49,15 @@ namespace CriticalShift.Features.Interaction.Unity
             bindings = new PhysicalWorldBindings(session);
             readClock = clock ?? (() => Time.realtimeSinceStartupAsDouble);
             reportFault = diagnosticSink ?? (exception => Debug.LogException(exception, this));
+        }
+
+        public void BindReactorReadout(Func<ReactorView, string> controls, Func<ReactorReply, ReactorAction?, string> result)
+        {
+            RequireSetup();
+            if (reactorControls != null) throw new InvalidOperationException("Bind one read-only reactor formatter before host startup.");
+            if (controls == null) throw new ArgumentNullException(nameof(controls));
+            if (result == null) throw new ArgumentNullException(nameof(result));
+            reactorControls = controls; reactorResult = result;
         }
 
         public void BindBody(Guid id, Rigidbody body, float physicalMassPerUnit = 0)
@@ -296,6 +307,15 @@ namespace CriticalShift.Features.Interaction.Unity
         public void ShutdownFocused() => OperateFocusedReactor(ReactorAction.Shutdown);
         public void EmergencyCoolingFocused() => OperateFocusedReactor(ReactorAction.EmergencyCooling);
 
+        public void CycleFocusedOutputRouting()
+        {
+            if (!PrepareFocused()) return;
+            var core = world.Reactor.View;
+            if (core == null || core.Id != focused) { LastAction = "Look at the reactor before changing output routing"; return; }
+            SetReactorOutputRouting(core.Id, core.OutputRouting == ReactorOutputRouting.Balanced ? ReactorOutputRouting.GridPriority :
+                core.OutputRouting == ReactorOutputRouting.GridPriority ? ReactorOutputRouting.ReservePriority : ReactorOutputRouting.Balanced);
+        }
+
         private void OperateFocusedReactor(ReactorAction action)
         {
             if (!PrepareFocused()) return;
@@ -425,7 +445,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 return;
             }
             string cooling = reactor ? (world.Reactor.View.Cooling ? "cooling open" : "F open cooling") : "";
-            string controls = machine == null ? reactor ?
+            string controls = machine == null ? reactor ? reactorControls != null ? reactorControls(world.Reactor.View) :
                 (world.Reactor.View.Mode == ReactorMode.Tripped ? cooling + " · C emergency cooling · R reset trip" :
                  "E transfer · F " + (world.Reactor.View.Cooling ? "close" : "open") + " cooling · R start · X shut down · C emergency cooling") : "E grab · G drop" :
                 machineControls == null ? machine.Mode + " · " + (machine.Powered ? "power on" : "power off") : machineControls(machine);
@@ -442,8 +462,11 @@ namespace CriticalShift.Features.Interaction.Unity
         public void OperateReactor(Guid id, ReactorAction action, Guid container, bool cooling)
         {
             if (action == ReactorAction.Insert && !CanPlace(container, id)) return;
-            RunCommand(() => commands.OperateReactor(id, action, container, cooling));
+            RunCommand(() => commands.OperateReactor(id, action, container, cooling), reactorAction: action);
         }
+
+        public void SetReactorOutputRouting(Guid id, ReactorOutputRouting routing) =>
+            RunCommand(() => commands.OperateReactor(id, ReactorAction.SetOutputRouting, outputRouting: routing), reactorAction: ReactorAction.SetOutputRouting);
 
         public void OperateSuitFitting(Guid station, SuitFittingAction action) => RunCommand(() => commands.OperateSuitFitting(station, action));
 
@@ -459,7 +482,7 @@ namespace CriticalShift.Features.Interaction.Unity
             catch (Exception exception) { StopAfterFailure(exception); return false; }
         }
 
-        private InteractionReply RunCommand(Func<InteractionReply> operation, ProductionAction? machineAction = null)
+        private InteractionReply RunCommand(Func<InteractionReply> operation, ProductionAction? machineAction = null, ReactorAction? reactorAction = null)
         {
             if (!active || stopped) return null;
             try
@@ -469,7 +492,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 Physics.SyncTransforms();
                 var reply = operation();
                 LastAction = reply.Production != null ? productionResult == null ? reply.Production.Status.ToString() : productionResult(reply.Production, machineAction) :
-                    reply.Reactor != null ? reply.Reactor.Status.ToString() :
+                    reply.Reactor != null ? reactorResult == null ? reply.Reactor.Status.ToString() : reactorResult(reply.Reactor, reactorAction) :
                     reply.SuitFitting != null ? reply.SuitFitting.Status.ToString() : reply.Status.ToString();
                 if (reply.IsReplay) LastAction += " (previous result; no repeated effect)";
                 Reconcile(false);
@@ -519,6 +542,7 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             bindings?.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
             machineControls = null; productionResult = null;
+            reactorControls = null; reactorResult = null;
             medicalControls = null; medicalResult = null;
         }
 

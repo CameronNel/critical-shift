@@ -18,13 +18,15 @@ namespace CriticalShift.Application
         private PowerView? _terminalPower;
         private Guid _id, _cycle, _coolingCause;
         private long _revision;
+        private ReactorOutputRouting _outputRouting;
         internal ReactorOperations(WorldSession world, InteractionWorld interaction)
         { _world = world; _interaction = interaction; }
 
-        public ReactorView? View => _core == null ? null : new ReactorView(_world.Epoch, _id, _definition!.Id,
+        public ReactorView? View => _core == null ? null : new ReactorView(_world.Epoch, _id, _definition!,
             _revision, (ReactorMode)(int)_core.Mode, _core.Cooling, _core.SuspectFuel, _core.WorkMilliseconds,
             _core.RemainingFuelMilliseconds, _core.InstabilityMilliseconds, _cycle,
-            _input == null ? null : _world.Production.GetBatch(_input.ContainerId), ProjectPower(_power!), EmergencyPowerSummary);
+            _input == null ? null : _world.Production.GetBatch(_input.ContainerId), ProjectPower(_power!),
+            _outputRouting, _core.CanStart, _core.CanReset, _core.CanEject, EmergencyPowerSummary);
         public PowerView? PowerSummary => _power == null ? _terminalPower : ProjectPower(_power);
 
         public void Register(Guid id, ReactorDefinition definition) => _world.RegisterProduction(() =>
@@ -45,6 +47,11 @@ namespace CriticalShift.Application
             {
                 case ReactorAction.StartBackup: return StartBackup();
                 case ReactorAction.CancelBackup: return CancelBackup();
+                case ReactorAction.SetOutputRouting:
+                    if (request.OutputRouting == _outputRouting) return Reply(ReactorStatus.NoChange);
+                    long routingRevision = checked(_revision + 1);
+                    _outputRouting = request.OutputRouting; _revision = routingRevision;
+                    return Reply(ReactorStatus.Applied, Change(ReactorEvent.OutputRoutingChanged, _world.View.ElapsedMilliseconds));
                 case ReactorAction.Insert: return Insert(actor, request);
                 case ReactorAction.Eject: return Eject(request);
                 case ReactorAction.Start: return Start();
@@ -146,8 +153,11 @@ namespace CriticalShift.Application
                 _core = step.State;
                 return Array.Empty<ReactorChange>();
             }
-            long reserve = checked(step.Quanta * _definition!.Rules.ReservePerQuantum);
-            long grid = checked(step.Quanta * _definition.Rules.GridPerQuantum);
+            // Only newly completed core quanta are routed. Stored reserve, including backup/initial energy, is never exported.
+            long output = checked(step.Quanta * checked((long)_definition!.Rules.ReservePerQuantum + _definition.Rules.GridPerQuantum));
+            long reserve = _outputRouting == ReactorOutputRouting.GridPriority ? 0 :
+                _outputRouting == ReactorOutputRouting.ReservePriority ? output : checked(step.Quanta * _definition.Rules.ReservePerQuantum);
+            long grid = output - reserve;
             var power = _power!.Credit(reserve, grid);
             long revision = checked(_revision + 1);
             bool exhausted = step.StoppedAt.HasValue && step.State.Mode == CoreMode.Exhausted;
@@ -168,6 +178,7 @@ namespace CriticalShift.Application
             if (_power != null) _terminalPower = ProjectPower(_power);
             _core = null; _power = null; _definition = null; _input = null;
             _id = Guid.Empty; _cycle = Guid.Empty; _coolingCause = Guid.Empty;
+            _outputRouting = ReactorOutputRouting.Balanced;
         }
         private ReactorChange Change(ReactorEvent kind, long at, ReactorRisk risk = ReactorRisk.None,
             long generated = 0, long spent = 0, MaterialView? fuel = null, Guid? cycle = null)
