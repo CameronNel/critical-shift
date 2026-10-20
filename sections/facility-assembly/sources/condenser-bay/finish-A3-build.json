@@ -17,11 +17,11 @@
     5.352,
     5.73
    ],
-   "perimeter_points": 70
+   "perimeter_points": 78
   },
   {
    "kind": "module_positions",
-   "meshes": 372,
+   "meshes": 374,
    "shared_meshes_skipped": 0,
    "attribute": "A3_pos"
   },
@@ -47,13 +47,13 @@
    "kind": "wear",
    "material": "Astra ivory painted steel",
    "positional_users": 36,
-   "sheet_users": 26
+   "sheet_users": 28
   },
   {
    "kind": "wear",
    "material": "Structural painted steel",
-   "positional_users": 267,
-   "sheet_users": 196
+   "positional_users": 271,
+   "sheet_users": 214
   },
   {
    "kind": "wear",
@@ -64,14 +64,14 @@
   {
    "kind": "wear",
    "material": "Oxide orange enamel",
-   "positional_users": 17,
-   "sheet_users": 2
+   "positional_users": 15,
+   "sheet_users": 6
   },
   {
    "kind": "wear",
    "material": "Light oxide enamel",
    "positional_users": 6,
-   "sheet_users": 2
+   "sheet_users": 6
   },
   {
    "kind": "wear",
@@ -263,25 +263,28 @@
     [
      "CW tag SUPPLY",
      0.065,
-     0.7
+     1.0,
+     0.55
     ],
     [
      "CW tag t SUPPLY",
      0.088,
-     0.7
+     1.0,
+     0.55
     ],
     [
      "CW tag RETURN",
      0.065,
-     0.0
+     0.0,
+     0.25
     ],
     [
      "CW tag t RETURN",
      0.088,
-     0.0
+     0.0,
+     0.25
     ]
-   ],
-   "dz": 0.25
+   ]
   },
   {
    "kind": "panel_gauges",
@@ -289,7 +292,9 @@
     "FLOW": 28,
     "CW IN": -12,
     "LEVEL": 42,
-    "VAC": -33
+    "VAC": -33,
+    "CW SUPPLY": 24,
+    "CW RETURN": -18
    }
   },
   {
@@ -300,7 +305,8 @@
     "haz board",
     "haz text"
    ],
-   "dx": -1.2
+   "dx": -1.2,
+   "south_copy": true
   },
   {
    "kind": "light_balance",
@@ -391,11 +397,11 @@
     ],
     "gallery inspection light": [
      60.5,
-     36.3
+     27.2
     ],
     "gallery inspection light.001": [
      60.5,
-     36.3
+     27.2
     ]
    },
    "hidden_from_glossy": [
@@ -408,11 +414,21 @@
     "gallery task",
     "entry wash",
     "handoff wash"
+   ],
+   "ceiling_wash_w": 45.0
+  },
+  {
+   "kind": "camera",
+   "name": "C11_WEST_VENT",
+   "location": [
+    0.05000000074505806,
+    2.450000047683716,
+    5.449999809265137
    ]
   }
  ],
  "intersections": [],
- "evaluated_triangles": 388724,
+ "evaluated_triangles": 394676,
  "output": "module_aaa_A3.blend",
- "output_sha256": "87d8ca5e2dddd2967c970294799645afc7a297333bd7377685196312f8958315"
+ "output_sha256": "20df13009f5758d9bb9bd4a2e701821b3ada8ae8b249e736bcca78c280826daf"
 }

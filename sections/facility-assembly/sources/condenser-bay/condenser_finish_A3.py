@@ -69,6 +69,17 @@ def pump_volutes():
         replace_mesh(o, bm)
         for m in o.modifiers:
             if m.type == 'BEVEL': m.width = 0.045; m.segments = 4; m.limit_method = 'ANGLE'
+        # the discharge throat: the scroll's step at the cutwater read as a notch from the front; the throat rises from the scroll's end
+        # into the cast discharge boss, the casing's full width
+        th = o.copy(); th.data = o.data.copy(); th.name = tag + ' volute throat'; [c.objects.link(th) for c in o.users_collection]
+        bt = bmesh.new(); bmesh.ops.create_cube(bt, size=1.0); bmesh.ops.scale(bt, vec=(x1 - x0, 0.26, 0.24), verts=bt.verts)
+        bmesh.ops.translate(bt, vec=((x0 + x1) / 2, cy + 0.02, cz + 0.40), verts=bt.verts); replace_mesh(th, bt)
+        for m in th.modifiers:
+            if m.type == 'BEVEL': m.width = 0.03; m.segments = 3
+        for side in ('L', 'R'):                                        # the feet read as red blocks: cast-iron grey, like the bearing frame
+            f = SC.objects.get('%s foot %s' % (tag, side))
+            if f:
+                for sl in f.material_slots: sl.link = 'OBJECT'; sl.material = bpy.data.materials['Structural painted steel']
         done.append(tag)
     note('pump_volutes', rebuilt=done)
 
@@ -78,12 +89,12 @@ def bellows():
     o = SC.objects.get('bellow continuous folded perimeter')
     if o is None: note('bellows_missing'); return
     lo, hi = world_box(o); z0, z1 = lo.z, 5.73
-    X0, X1, Y0, Y1, rc, b, N = 1.75, 4.25, 3.30, 4.80, 0.08, 0.06, 4
+    X0, X1, Y0, Y1, rc, b, N = 1.75, 4.25, 3.30, 4.80, 0.16, 0.06, 4       # corner radius 0.16 m: the 0.08 m corners pinched the crests
     path = []                                                         # (point, outward normal) round a rounded rectangle
     corners = [((X1 - rc, Y0 + rc), -90), ((X1 - rc, Y1 - rc), 0), ((X0 + rc, Y1 - rc), 90), ((X0 + rc, Y0 + rc), 180)]
     for (cx, cy), a0 in corners:
-        for k in range(7):
-            a = math.radians(a0 + 90 * k / 6); nrm = Vector((math.cos(a), math.sin(a), 0)); path.append((Vector((cx, cy, 0)) + nrm * rc, nrm))
+        for k in range(10):
+            a = math.radians(a0 + 90 * k / 9); nrm = Vector((math.cos(a), math.sin(a), 0)); path.append((Vector((cx, cy, 0)) + nrm * rc, nrm))
         nxt = corners[(corners.index(((cx, cy), a0)) + 1) % 4]
         p_end = path[-1][0]; a1 = math.radians(nxt[1]); q = Vector((nxt[0][0], nxt[0][1], 0)) + Vector((math.cos(a1), math.sin(a1), 0)) * rc
         steps = max(1, int((q - p_end).length / 0.15))
@@ -97,9 +108,9 @@ def bellows():
         grid.append(col)
     for i in range(len(grid)):
         a, c = grid[i], grid[(i + 1) % len(grid)]
-        for j in range(nz): bm.faces.new((a[j], c[j], c[j + 1], a[j + 1]))
-    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        for j in range(nz): bm.faces.new((a[j], c[j], c[j + 1], a[j + 1]))     # path runs anticlockwise from above: these faces point outwards
     replace_mesh(o, bm)
+    for m in [m for m in o.modifiers if m.type == 'SOLIDIFY']: o.modifiers.remove(m)   # a single formed sheet; the 8 mm solidify doubled it into knife edges
     note('bellows', convolutions=N, crest_m=b, z=(round(z0, 3), z1), perimeter_points=len(path))
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -258,10 +269,10 @@ FLOOR_OIL = [(2.57, 6.6, 0.42), (4.27, 7.75, 0.38), (3.2, 4.05, 0.32),          
              (2.95, 6.75, 0.16), (4.62, 7.9, 0.14), (-1.20, 7.25, 0.20)]               # seal drips beside the pumps; under the ejector skid's drain
 FLOOR_WET = [(8.55, 3.2, 0.22), (8.55, 4.9, 0.18), (8.95, 7.6, 0.30)]                  # under the CW isolation valves; at the trench drain
 TOUCH_UPS = [((1.55, 2.15), (2.7, 3.7), (2.05, 2.55)), ((4.15, 4.6), (2.7, 3.7), (3.62, 3.98))]   # fresher paint on the shell's south flank (clear of the CD-01 stencil)
-DADO_SCUFFS = [((-1.85, -1.7), (0.0, 2.2), (0.10, 0.45)), ((-1.8, 9.6), (9.3, 9.45), (0.10, 0.45)), ((9.5, 9.65), (1.4, 7.0), (0.10, 0.45))]   # where trolleys and boots hit
+DADO_SCUFFS = [((-1.85, -1.7), (0.0, 2.2), (0.10, 0.45)), ((9.5, 9.65), (1.4, 7.0), (0.10, 0.45))]   # where trolleys and boots hit (west entry, east pull bay)
 # the facility's family (turbine, cooling plant): gunmetal blues and burgundy oxides, not royal blue and signal red. (target, share)
 PALETTE = {'A2 machine blue enamel': ((0.045, 0.060, 0.085), 0.30), 'A2 waterbox oxide enamel': ((0.120, 0.018, 0.030), 0.45),
-           'Oxide orange enamel': ((0.140, 0.025, 0.030), 0.40), 'Light oxide enamel': ((0.150, 0.035, 0.035), 0.30)}
+           'Oxide orange enamel': ((0.140, 0.025, 0.030), 0.55), 'Light oxide enamel': ((0.150, 0.035, 0.035), 0.30)}
 MINERAL = ('Warm mineral plaster', 'Dense cast concrete', 'Basement coated concrete', 'Replacement floor patch')
 MACHINE = ('A2 machine blue enamel', 'A2 waterbox oxide enamel', 'A2 hotwell graphite blue', 'Oxide orange enamel', 'Light oxide enamel', 'Astra ivory painted steel')
 
@@ -273,8 +284,8 @@ def wear_pass():
         if not mesh_users: continue
         mat = src.copy(); mat.name = name + ' | A3 wear'
         build(mat, name, positional=True)
-        # sheet parts (thinner than 5 cm) get the same wear without edge chips: inside AO finds every point of a thin plate, not its edges
-        thin = [(o, i) for o, i in mesh_users if min(o.dimensions) < 0.05] if name not in MINERAL else []
+        # sheet parts (thinner than 8 cm) get the same wear without edge chips: inside AO finds every point of a thin plate, not its edges
+        thin = [(o, i) for o, i in mesh_users if min(o.dimensions) < 0.08] if name not in MINERAL else []
         mat_thin = None
         if thin:
             mat_thin = src.copy(); mat_thin.name = name + ' | A3 wear sheet'
@@ -304,7 +315,7 @@ def build(mat, name, positional, edge_chips=True):
         base = w.mix(base, cav, (0.24, 0.22, 0.19))                                                  # cavities and contact shadows collect grime
         if edge_chips and name not in ('Structural painted steel', 'Charcoal impact dado'):
             chips = w.edges(0.025, 0.26, 9.0, 0.52)                                                  # worn paint on convex edges, small and in broken lengths
-            base = w.mix(base, chips, (0.17, 0.17, 0.165), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', chips, 0.25))   # dark steel showing through, not pale primer
+            base = w.mix(base, chips, (0.065, 0.065, 0.062), 'MIX'); rough = w.math('ADD', rough, w.math('MULTIPLY', chips, 0.25))   # dark steel showing through, not pale primer
         if name in MACHINE:
             grime = w.math('MULTIPLY', w.ramp(w.noise(1.6, 4.0, rough=0.62), 0.48, 0.78), 0.45, True)
             base = w.mix(base, grime, (0.50, 0.45, 0.38))                                            # handled, splashed and wiped: a broken film of grime
@@ -322,11 +333,13 @@ def build(mat, name, positional, edge_chips=True):
                 tu = w.boxes(TOUCH_UPS, 1.0); base = w.mix(base, tu, (1.12, 1.10, 1.14)); rough = w.math('SUBTRACT', rough, w.math('MULTIPLY', tu, 0.10))
             if name in ('Charcoal impact dado', 'Structural painted steel'):
                 dado = name == 'Charcoal impact dado'
+                if dado: base = w.mix(base, 0.45, (0.035, 0.035, 0.034), 'MIX')                      # A2's peel texture left pale specks on the dado
                 zone = w.boxes(DADO_SCUFFS, 1.0) if dado else w.ramp(w.pos()[1].outputs['Z'], 0.35, 0.08)
                 chip = w.math('MULTIPLY', zone, w.ramp(w.noise(3.5, 3.0, rough=0.5), 0.66 if dado else 0.74, 0.70 if dado else 0.77), True)   # scuffed bands, not specks
-                base = w.mix(base, chip, (0.11, 0.11, 0.105) if dado else (0.12, 0.125, 0.13), 'MIX')   # worn-through dark primer on the dado; on near-black steel, only a dull scuff
+                base = w.mix(base, chip, (0.075, 0.075, 0.072) if dado else (0.12, 0.125, 0.13), 'MIX')   # worn-through dark primer on the dado; on near-black steel, only a dull scuff
                 rough = w.math('ADD', rough, w.math('MULTIPLY', chip, 0.15))
         rough = w.math('ADD', rough, w.math('MULTIPLY', cav, 0.12))
+        if name == 'Structural painted steel': rough = w.math('ADD', rough, 0.12)                   # no blown highlights on the dark covers
     else:
         if name in ('Warm mineral plaster', 'Dense cast concrete'):
             for b in [n for n in w.nt.nodes if n.type == 'BUMP' and not n.label.startswith('A3')]:
@@ -346,12 +359,12 @@ def build(mat, name, positional, edge_chips=True):
                 weep = w.weeps(WEEPS_WALL, 0.85); base = w.mix(base, weep, (0.55, 0.50, 0.43))
             base = w.mix(base, w.ao_grime(0.4, 1.2, 0.7), (0.45, 0.43, 0.40))
         else:   # floor
-            base = w.mix(base, 1.0, w.grey(w.tone(0.35, 0.12)))                                       # large-scale dirt, +-12 %
+            base = w.mix(base, 1.0, w.grey(w.tone(0.35, 0.18)))                                       # large-scale dirt, +-18 %
             if positional:
                 oil = w.spots(FLOOR_OIL, 1.0); wet = w.spots(FLOOR_WET, 0.8)
                 base = w.mix(base, oil, (0.22, 0.20, 0.18)); base = w.mix(base, wet, (0.62, 0.62, 0.62))
                 rough = w.math('SUBTRACT', rough, w.math('ADD', w.math('MULTIPLY', oil, 0.35), w.math('MULTIPLY', wet, 0.40)))
-            base = w.mix(base, w.ao_grime(0.6, 1.0, 0.85), (0.30, 0.28, 0.25))                        # grime against walls and plinths
+            base = w.mix(base, w.ao_grime(0.8, 1.0, 1.0), (0.30, 0.28, 0.25))                         # grime against walls and plinths
     w.finish(base, rough)
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -362,6 +375,9 @@ MODULE = next(c for c in bpy.data.collections if c.name == 'MODULE_condenser-bay
 MODULE.children.link(COLL)
 M = lambda n: bpy.data.materials[n]
 
+def smooth(o):
+    for f in o.data.polygons: f.use_smooth = True
+    return o
 def mesh_obj(name, bm, mat):
     me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free(); me.materials.append(mat)
     o = bpy.data.objects.new(name, me); COLL.objects.link(o); return o
@@ -390,9 +406,7 @@ def torus(name, c, normal, R, r, mat, seg=24, ring=6):
     q = Vector((0, 0, 1)).rotation_difference(Vector(normal).normalized()).to_matrix()
     bmesh.ops.rotate(bm, cent=(0, 0, 0), matrix=q, verts=bm.verts); bmesh.ops.translate(bm, vec=c, verts=bm.verts)
     return mesh_obj(name, bm, mat)
-def smooth(o):
-    for f in o.data.polygons: f.use_smooth = True
-    return o
+LINK_SEG = 10                                                      # points round each link's outline (8 read octagonal up close)
 def link_chain(name, path, axis, mat, L=0.044, W=0.026, r=0.0035, closed=False):
     """A chain of oval wire links (6 to 7 mm wire, 30 mm pitch) laid along a polyline: alternate links turn 90 degrees about the run, and
     each link overlaps the next by its wire, so the chain reads as interlocked at any distance. `axis` is the plane normal of the run
@@ -408,13 +422,13 @@ def link_chain(name, path, axis, mat, L=0.044, W=0.026, r=0.0035, closed=False):
         side = t.cross(axis).normalized() if k % 2 else axis - t * axis.dot(t)
         side.normalize(); nrm = t.cross(side)
         ring = []
-        for j in range(8):
-            th = 2 * math.pi * j / 8; cc = c + t * (a * math.cos(th)) + side * (bb * math.sin(th))
+        for j in range(LINK_SEG):
+            th = 2 * math.pi * j / LINK_SEG; cc = c + t * (a * math.cos(th)) + side * (bb * math.sin(th))
             tg = (t * (-a * math.sin(th)) + side * (bb * math.cos(th))).normalized(); out = tg.cross(nrm).normalized()
             ring.append([bm.verts.new(cc + (out * math.cos(q) + nrm * math.sin(q)) * r) for q in (math.pi / 4 + m * math.pi / 2 for m in range(4))])
-        for j in range(8):
+        for j in range(LINK_SEG):
             for m in range(4):
-                bm.faces.new((ring[j][m], ring[(j + 1) % 8][m], ring[(j + 1) % 8][(m + 1) % 4], ring[j][(m + 1) % 4]))
+                bm.faces.new((ring[j][m], ring[(j + 1) % LINK_SEG][m], ring[(j + 1) % LINK_SEG][(m + 1) % 4], ring[j][(m + 1) % 4]))
     return smooth(mesh_obj(name, bm, mat))
 def arc(c, u, v, R, a0, a1, n):
     """Points on the circle c + R(u cos a + v sin a), from angle a0 to a1."""
@@ -482,10 +496,10 @@ def chain_operators():
             if all(clear_down(p.x, p.y, wc.z - 0.02, low - R - 0.05)[0] for p in strands + [(strands[0] + strands[1]) / 2]): chosen = (ax, wc); break
         if chosen is None: note('chain_blocked', valve=tag); continue
         ax, wc = chosen; T = 'A3 CW isol %s' % tag
-        cylinder(T + ' gear operator flange', (x0, y, 3.355), (x0, y, 3.375), 0.058, paint, 20)
-        cylinder(T + ' gear operator body', (x0, y, 3.375), (x0, y, 3.52), 0.050, paint, 20)
-        cylinder(T + ' gear operator cap', (x0, y, 3.52), (x0, y, 3.535), 0.032, paint, 16)
-        cylinder(T + ' gear operator boss', Vector((x0, y, 3.46)), Vector((x0, y, 3.46)) + ax * 0.10, 0.040, paint, 16)
+        smooth(cylinder(T + ' gear operator flange', (x0, y, 3.355), (x0, y, 3.375), 0.058, paint, 32))
+        smooth(cylinder(T + ' gear operator body', (x0, y, 3.375), (x0, y, 3.52), 0.050, paint, 32))
+        smooth(cylinder(T + ' gear operator cap', (x0, y, 3.52), (x0, y, 3.535), 0.032, paint, 24))
+        smooth(cylinder(T + ' gear operator boss', Vector((x0, y, 3.46)), Vector((x0, y, 3.46)) + ax * 0.10, 0.040, paint, 24))
         cylinder(T + ' chain wheel shaft', Vector((x0, y, 3.46)) + ax * 0.10, wc + ax * 0.035, 0.016, steel, 12)
         chain_wheel(T, wc, ax, R, cast, yellow)
         strands, grip = chain_loop(T, wc, ax, R, low, galv)
@@ -519,14 +533,16 @@ def desk_station():
             gap = world_box(parts[above])[0].z - world_box(parts[below])[1].z
             for n in ('OP trip stem', 'OP trip mushroom')[('OP trip stem', 'OP trip mushroom').index(above):]:
                 parts[n].matrix_world = Matrix.Translation((0, 0, -gap + 0.001)) @ parts[n].matrix_world
-    cylinder('A3 trip ground plate', (hx, 4.05, top), (hx, 4.05, top + 0.004), 0.082, yellow, 28)
-    smooth(torus('A3 trip guard collar', (hx, 4.05, top + 0.034), (0, 0, 1), 0.076, 0.006, yellow, 28, 6))     # clear of the bezel's corners
-    for k in range(3):
-        a = 2 * math.pi * k / 3 + math.pi / 2
-        cylinder('A3 trip guard post %d' % k, (hx + 0.076 * math.cos(a), 4.05 + 0.076 * math.sin(a), top), (hx + 0.076 * math.cos(a), 4.05 + 0.076 * math.sin(a), top + 0.034), 0.005, yellow, 8)
+    # a round yellow emergency-stop enclosure in place of the panel bezel's square block (a square block and a wire ring read as a toy)
+    bez = parts.get('OP trip bezel')
+    if bez:
+        blo, bhi = world_box(bez); bpy.data.objects.remove(bez)
+        smooth(cylinder('A3 trip enclosure', (hx, 4.05, top), (hx, 4.05, bhi.z), 0.052, yellow, 32))
+        smooth(cylinder('A3 trip enclosure collar', (hx, 4.05, bhi.z - 0.004), (hx, 4.05, bhi.z + 0.004), 0.030, dark, 24))
     box('A3 trip blanking plate', (-1.371, 4.05, 1.12), (0.008, 0.07, 0.07), steel)          # on the panel face (x -1.375), not 36 mm off it
-    cylinder('A3 CD ISOL selector boss', (hx, 4.19, top), (hx, 4.19, top + 0.03), 0.035, steel, 20)
-    box('A3 CD ISOL selector knob', (hx, 4.19, top + 0.045), (0.085, 0.024, 0.03), red)
+    smooth(cylinder('A3 CD ISOL selector boss', (hx, 4.19, top), (hx, 4.19, top + 0.012), 0.036, steel, 28))
+    smooth(cylinder('A3 CD ISOL selector knob', (hx, 4.19, top + 0.012), (hx, 4.19, top + 0.034), 0.024, dark, 24))
+    box('A3 CD ISOL selector handle', (hx, 4.19, top + 0.044), (0.070, 0.014, 0.020), red, Matrix.Rotation(math.radians(35), 3, 'Z'))   # turned to ON
     for txt, y in (('TRIP', 4.05), ('CD ISOL', 4.19)):
         t = bpy.data.curves.new('A3 desk legend ' + txt, 'FONT'); t.body = txt; t.size = 0.026; t.align_x = 'CENTER'; t.align_y = 'CENTER'
         to = bpy.data.objects.new('A3 desk legend ' + txt, t); COLL.objects.link(to); t.materials.append(ink)
@@ -548,9 +564,11 @@ def desk_lamp():
     plo, phi = world_box(post); hlo, hhi = world_box(head)                 # A2's head stood 0.10 m beside its post, held by nothing: centre it on the post
     head.matrix_world = Matrix.Translation(((plo.x + phi.x - hlo.x - hhi.x) / 2, (plo.y + phi.y - hlo.y - hhi.y) / 2, 0)) @ head.matrix_world
     glass = head.material_slots[0].material; head.material_slots[0].link = 'OBJECT'; head.material_slots[0].material = M('Charcoal impact dado')
-    pts = [head.matrix_world @ Vector(c) for c in head.bound_box]; c = sum(pts, Vector()) / 8; zb = min(p.z for p in pts)
+    pts = [head.matrix_world @ Vector(c) for c in head.bound_box]; c = sum(pts, Vector()) / 8; zb = min(p.z for p in pts); zt = max(p.z for p in pts)
     rad = (max(p.x for p in pts) - min(p.x for p in pts)) / 2
-    cylinder('A3 desk lamp diffuser', (c.x, c.y, zb - 0.003), (c.x, c.y, zb), rad * 0.82, glass, 20)
+    bm = bmesh.new(); bmesh.ops.create_cone(bm, cap_ends=True, segments=28, radius1=rad * 1.05, radius2=rad * 0.38, depth=(zt - zb) + 0.03)
+    bmesh.ops.translate(bm, vec=(c.x, c.y, zb + ((zt - zb) + 0.03) / 2), verts=bm.verts); replace_mesh(head, bm)     # a conical shade, not a puck
+    cylinder('A3 desk lamp diffuser', (c.x, c.y, zb - 0.003), (c.x, c.y, zb), rad * 0.95, glass, 24)
     note('desk_lamp', moved_y=0.16, lowered=0.10, shade='Charcoal impact dado')
 
 def light_balance():
@@ -564,6 +582,7 @@ def light_balance():
     for o in SC.objects:
         if o.type != 'LIGHT': continue
         if o.name.startswith('batten'): k = 0.45; o.data.color = (1.0, 0.90, 0.77)
+        elif o.name.startswith('gallery inspection light'): k = 0.45          # the oxide waterbox tops went salmon under them
         elif o.name in fills: k = 0.60
         elif o.name in tasks: k = 1.30
         else: continue
@@ -573,7 +592,17 @@ def light_balance():
     for n in fills + ('entry wash', 'handoff wash'):
         o = SC.objects.get(n)
         if o: o.visible_glossy = False; hidden.append(n)
-    note('light_balance', lights=changed, hidden_from_glossy=hidden)
+    # the roof read crushed to black (C09): a warm wash up onto the slab from above the gallery, hidden from glossy and from the camera
+    ld = bpy.data.lights.new('A3 ceiling wash', 'AREA'); ld.energy = 45.0; ld.color = (1.0, 0.90, 0.77); ld.shape = 'RECTANGLE'; ld.size = 3.0; ld.size_y = 2.0
+    lw = bpy.data.objects.new('A3 ceiling wash', ld); COLL.objects.link(lw); lw.location = (3.0, 4.05, 5.2); lw.rotation_euler = (math.pi, 0, 0)
+    lw.visible_glossy = False; lw.visible_camera = False
+    note('light_balance', lights=changed, hidden_from_glossy=hidden, ceiling_wash_w=45.0)
+
+def vent_camera():
+    """A review camera on the west vent extension (spindle, bracket, gearbox and the wheel facing the gallery): the fix had no view."""
+    cd = bpy.data.cameras.new('C11_WEST_VENT'); cd.lens = 26; cam = bpy.data.objects.new('C11_WEST_VENT', cd); COLL.objects.link(cam)
+    cam.location = (0.05, 2.45, 5.45); cam.rotation_euler = (Vector((0.85, 3.45, 4.85)) - cam.location).to_track_quat('-Z', 'Y').to_euler()
+    note('camera', name='C11_WEST_VENT', location=tuple(cam.location))
 
 def vent_extension():
     """The west waterbox vent wheel (horizontal, 4.64 m, on top of the waterbox) is 0.97 m from the gallery. It goes up a vertical
@@ -619,14 +648,14 @@ def ejector_chain():
 
 def cw_tags():
     """The CW SUPPLY and RETURN wall tags (z 3.44..3.60) sat behind the new chain wheels and chains in the views along the east wall: both
-    raised 0.25 m, and SUPPLY, whose chain hangs on the south side of its valve, also 0.70 m north (y 3.54..4.26, between its pipe and
-    RETURN): from C06 the sight line to it then passes the chain strands about 7 cm clear. A2's plates also stood 6.5 cm off the wall (back
+    raised, and SUPPLY, whose chain and gear operator stand in front of it from the cooling camera, 1.0 m north and 0.55 m up (y 3.84..4.56,
+    above RETURN's height): a ray test of C06 and C05 over positions picked it (81 % of the tag seen from C06, was 51 %). A2's plates also stood 6.5 cm off the wall (back
     at x 9.535, wall face 9.6) and their lettering 2.5 cm in front of the plate: the plates go onto the wall, the lettering onto the plate."""
     moved = []
-    for n, dx, dy in (('CW tag SUPPLY', 0.065, 0.70), ('CW tag t SUPPLY', 0.088, 0.70), ('CW tag RETURN', 0.065, 0.0), ('CW tag t RETURN', 0.088, 0.0)):
+    for n, dx, dy, dz in (('CW tag SUPPLY', 0.065, 1.0, 0.55), ('CW tag t SUPPLY', 0.088, 1.0, 0.55), ('CW tag RETURN', 0.065, 0.0, 0.25), ('CW tag t RETURN', 0.088, 0.0, 0.25)):
         o = SC.objects.get(n)
-        if o: o.matrix_world = Matrix.Translation((dx, dy, 0.25)) @ o.matrix_world; moved.append((n, dx, dy))
-    note('cw_tags_moved', objects=moved, dz=0.25)
+        if o: o.matrix_world = Matrix.Translation((dx, dy, dz)) @ o.matrix_world; moved.append((n, dx, dy, dz))
+    note('cw_tags_moved', objects=moved)
 
 def panel_gauges():
     """The four operator-panel gauges all read the same angle. Each needle turned about its pivot to a plausible running value."""
@@ -637,16 +666,29 @@ def panel_gauges():
         lo, hi = world_box(pv); c = (lo + hi) / 2
         nd.matrix_world = Matrix.Translation(c) @ Matrix.Rotation(math.radians(deg), 4, 'X') @ Matrix.Translation(-c) @ nd.matrix_world
         turned[g] = deg
+    for g, deg in (('SUPPLY', 24), ('RETURN', -18)):                     # the two CW gauges read the same angle too
+        nd, pv = SC.objects.get('CW gauge %s needle' % g), SC.objects.get('CW gauge %s pivot' % g)
+        if not nd: continue
+        lo, hi = world_box(pv if pv else nd); c = (lo + hi) / 2
+        nd.matrix_world = Matrix.Translation(c) @ Matrix.Rotation(math.radians(deg), 4, 'X') @ Matrix.Translation(-c) @ nd.matrix_world
+        turned['CW ' + g] = deg
     note('panel_gauges', turned_deg=turned)
 
 def north_boards():
     """The room ID board and the hazard board on the north wall were cut by pipes, rails and the waterbox in most views. A ray test of
     the views facing north (C01, C02, C08, W03, W05, W07) over positions along and up the wall picked 1.2 m west, at the same height."""
     moved = []
-    for n in ('ID board', 'ID board text', 'haz board', 'haz text'):
+    for n, dy in (('ID board', 0.02), ('ID board text', 0.028), ('haz board', 0.02), ('haz text', 0.028)):     # A2's boards stood 2 cm off the wall
         o = SC.objects.get(n)
-        if o: o.matrix_world = Matrix.Translation((-1.2, 0, 0)) @ o.matrix_world; moved.append(n)
-    note('north_boards', moved=moved, dx=-1.2)
+        if o: o.matrix_world = Matrix.Translation((-1.2, dy, 0)) @ o.matrix_world; moved.append(n)
+    # a second room ID on the south wall at x 7.5, facing north: the clearest place for it in a ray test of all walls from the review views
+    board, text = SC.objects.get('ID board'), SC.objects.get('ID board text')
+    if board and text:
+        lo, hi = world_box(board); c0 = Vector(((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, (lo.z + hi.z) / 2))
+        T = Matrix.Translation((7.5, (hi.y - lo.y) / 2, c0.z)) @ Matrix.Rotation(math.pi, 4, 'Z') @ Matrix.Translation(-c0)
+        for o in (board, text):
+            d = o.copy(); d.name = 'A3 south ' + o.name; COLL.objects.link(d); d.matrix_world = T @ o.matrix_world
+    note('north_boards', moved=moved, dx=-1.2, south_copy=bool(board and text))
 
 def intersections():
     """New parts that cut into existing ones (contacts are intended where parts are bolted or seated; anything else is a defect to fix)."""
@@ -667,7 +709,7 @@ def intersections():
 pump_volutes(); bellows()
 add_positions()
 wear_pass()
-chain_operators(); desk_station(); desk_lamp(); vent_extension(); ejector_chain(); cw_tags(); panel_gauges(); north_boards(); light_balance(); intersections()
+chain_operators(); desk_station(); desk_lamp(); vent_extension(); ejector_chain(); cw_tags(); panel_gauges(); north_boards(); light_balance(); vent_camera(); intersections()
 dg = bpy.context.evaluated_depsgraph_get()
 tris = 0
 for o in SC.objects:
