@@ -1,14 +1,14 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 8695104,
-  "objects": 22313,
-  "submeshes": 24521,
-  "lights": 526,
-  "shadow_lights": 486,
-  "materials": 909,
-  "textures": 147,
-  "texture_mb_rgba8": 1393.9
+  "triangles": 8715330,
+  "objects": 22377,
+  "submeshes": 24585,
+  "lights": 527,
+  "shadow_lights": 487,
+  "materials": 921,
+  "textures": 153,
+  "texture_mb_rgba8": 1401.9
  },
  "rooms": {
   "ROOM_fuel-corridor": {
@@ -123,6 +123,21 @@
    "budget_flag": 400000,
    "over_flag": true
   },
+  "ROOM_condenser-bay": {
+   "triangles": 442318,
+   "objects": 2739,
+   "meshes": 2645,
+   "submeshes": 2739,
+   "materials": 40,
+   "lights": {
+    "AREA": 28
+   },
+   "shadow_lights": 28,
+   "textures": 6,
+   "texture_mb_rgba8": 8.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
   "ROOM_spawn-room": {
    "triangles": 430704,
    "objects": 2013,
@@ -135,21 +150,6 @@
    "shadow_lights": 8,
    "textures": 15,
    "texture_mb_rgba8": 282.5,
-   "budget_flag": 400000,
-   "over_flag": true
-  },
-  "ROOM_condenser-bay": {
-   "triangles": 422140,
-   "objects": 2679,
-   "meshes": 2588,
-   "submeshes": 2679,
-   "materials": 28,
-   "lights": {
-    "AREA": 27
-   },
-   "shadow_lights": 27,
-   "textures": 0,
-   "texture_mb_rgba8": 0.0,
    "budget_flag": 400000,
    "over_flag": true
   },
@@ -276,10 +276,10 @@
    "over_flag": false
   },
   "CONNECTOR_condenser_escape": {
-   "triangles": 1752,
-   "objects": 117,
-   "meshes": 117,
-   "submeshes": 117,
+   "triangles": 1800,
+   "objects": 121,
+   "meshes": 121,
+   "submeshes": 121,
    "materials": 11,
    "lights": {
     "AREA": 3,
@@ -1220,20 +1220,20 @@
    "own": 464675,
    "with_neighbours": 2856758
   },
+  "ROOM_condenser-bay": {
+   "neighbours": [
+    "CONNECTOR_condenser_escape",
+    "CONNECTOR_condenser_stair"
+   ],
+   "own": 442318,
+   "with_neighbours": 445546
+  },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
    "with_neighbours": 1184440
-  },
-  "ROOM_condenser-bay": {
-   "neighbours": [
-    "CONNECTOR_condenser_escape",
-    "CONNECTOR_condenser_stair"
-   ],
-   "own": 422140,
-   "with_neighbours": 425320
   },
   "ROOM_turbine-room": {
    "neighbours": [
@@ -1293,8 +1293,8 @@
    "neighbours": [
     "ROOM_condenser-bay"
    ],
-   "own": 1752,
-   "with_neighbours": 423892
+   "own": 1800,
+   "with_neighbours": 444118
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [
@@ -1302,7 +1302,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 841758
+   "with_neighbours": 861936
   },
   "EVAC sign hall": {
    "neighbours": [],

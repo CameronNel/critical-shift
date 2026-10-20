@@ -21,7 +21,8 @@ R_CAP, STEP, H_CAP, DS, SIDE, MAXSHIFT = 0.40, 0.35, 1.80, 0.1, 1.5, 0.2
 
 def P(*pts): return [tuple(map(float, p)) for p in pts]
 RY = float(bpy.context.scene.get('reactor_y', 0.0)) if bpy.context.scene else 0.0    # reactor centre y, stored by build_compact_map.py
-def R(*pts): return [(float(x), float(y) + RY, float(z)) for x, y, z in pts]         # reactor-local points (everything that moved with the reactor)
+CZ = float(bpy.context.scene.get('condenser_z', -6.0)) if bpy.context.scene else -6.0     # condenser bay floor (build_compact_map.py); -6.0 on maps built before 2026-10-19
+def R(*pts): return [(float(x), float(y) + RY, CZ if z == -6 else float(z)) for x, y, z in pts]   # reactor-local points; z -6 means the condenser bay floor (CZ)
 CY = RY - 17.2                                                                         # concourse centre line
 F02E = (-5.46, -36.62)                                                                 # short fuel corridor reactor door (module (16.74, 6.98) + F01 (-22.2, -43.6))
 WY = RY + 3.86                                                                         # reactor east opening to waste (centre)

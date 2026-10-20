@@ -7,7 +7,7 @@
 # sections/facility-assembly/unity/_logs/<room>.log. The run stops at the first failure and prints the command that resumes it.
 #   -Only a,b     bake just these rooms        -Skip a,b     leave these out
 #   -From <stage> resume the FIRST room at that stage (the rest start at prep)
-# The condenser bay is left out on purpose: its finish is being reworked (sources/condenser-bay/REWORK_BRIEF.md).
+# The condenser bay bakes its A3 finish (sources/condenser-bay/FINISH_A3.md), lowered 0.3 m in the map since 2026-10-19.
 #   -Map          bake the rooms AS THEY ARE IN THE COMBINED MAP (combined/combined_map.blend): door cuts, the slim mine, the turbine skin
 #                 and other map-side changes included, plus one extra piece, map-connections (connectors, stairs, signs, evacuation road).
 #                 Output goes to unity/map/<room>; Critical Shift > Rooms > Import Baked Map places them with map/map_placement.json.
@@ -37,6 +37,7 @@ $Refinery = "REFINERY_ARCHITECTURE,REFINERY_MACHINES,REFINERY_CONVEYORS,REFINERY
 $Rooms = @(
     @{ Room = "cooling-plant";       Source = "$S/cooling-plant/module_aaa_A1.blend";                   Collection = "MODULE_cooling-plant";        Cameras = "C02_HERO,C06_EXCHANGER,C05_PUMP_A" },
     @{ Room = "waste-storage";       Source = "$S/waste-storage/module_aaa_A1.blend";                   Collection = "MODULE_waste-storage";        Cameras = "AAA01_WIDE_ENTRY,AAA02_CASKS,C04_Route" },
+    @{ Room = "condenser-bay";       Source = "$S/condenser-bay/module_aaa_A3.blend";                   Collection = "MODULE_condenser-bay";        Cameras = "C02_HERO,C06_COOLING,C07_OPERATOR" },
     @{ Room = "turbine-room";        Source = "$S/turbine-room/rebuild/turbine_room_v2_geo.blend";      Collection = "TURBINE_ROOM_V2";             Cameras = "CAM_A_entry_north,CAM_G_generator,CAM_E_controls" },
     @{ Room = "fuel-corridor";       Source = "$S/fuel-corridor/module_short_S1.blend";                 Collection = "MODULE_fuel-corridor";        Cameras = "C01_ENTRY,C03_HERO,C05_EAST_TURN" },
     @{ Room = "electrical-room";     Source = "$S/electrical-room/overhaul/checkpoints/full-R11.blend"; Collection = "MODULE_electrical-room";      Cameras = "C01_Entry,C02_Hero,C06_Transformer" },
@@ -74,7 +75,7 @@ $need = @($Rooms | ForEach-Object { $_.Source } | Select-Object -Unique)
 if ($Map) {
     # the room files the map links (and the compare renders use); the map cannot bake a room whose library is still an LFS pointer
     $need += @($Rooms | Where-Object { $_.CompareSource } | ForEach-Object { $_.CompareSource })
-    $need += @("$S/spawn-room/hero_suit.blend", "$S/condenser-bay/module_aaa_A1.blend",
+    $need += @("$S/spawn-room/hero_suit.blend", "$S/condenser-bay/module_aaa_A3.blend",
                "sections/facility-assembly/exteriors/refinery/exterior-R01.blend", "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
                "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend")
     $need = @($need | Select-Object -Unique)

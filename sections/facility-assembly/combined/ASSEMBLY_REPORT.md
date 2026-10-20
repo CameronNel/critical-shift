@@ -427,3 +427,23 @@ Blender 5.2.2 LTS (downloaded to `/opt/blender52` in the container), headless. E
 * After the stacked-slab fix: the full chain again on the rebuilt map (walks 17/18, 9/9, 18/18, 11/11 block; door audit 43/0; export PASS; lighting 22/23, condenser inside median 0.47; plan cut now at 10 heights), plus `floor_audit.py` (above, section 1a) and up/down ray probes in the condenser bay and the turbine aisle.
 * After the turbine rebuild swap (2026-10-13), on the rebuilt `combined_map.blend`: the full chain again (build; plan cut + `check_overlaps.py`: the old turbine-reactor intrusion is gone, the only new entry is the D02 EXIT sign on the vestibule face, placed there; the three walk modes: 17/18 (the cart route, as before), 9/9, 18/18, 11/11 closed doors block; `evac_report.py`; `door_audit.py` 43 doors, 0 flagged; `perf_report.py`; `export_unity.py` re-import PASS, 183 objects; `validate_halls.py`; `measure_lighting.py`; `render_views.py`, 27 views). Two fixes came out of it and were re-checked: the D02 cut band missed the vestibule's end wall (meltdown walk stuck; band moved, both turbine escape legs then pass), and the stub view clipped 7.2 % on the shell's south face (darkened; 3.6 %). The board text was shrunk off a wall conduit (renders re-made). Before cutting, the rebuild was inventoried part by part and ray-scanned for floor occupancy, and 12 single-view renders of its doors were looked at.
 Not run: Unity anything, a frame-rate test, an independent review, the room validators (including any validator on S1), a human playtest.
+
+## 12. Condenser A3 (2026-10-19/20)
+
+Owner: *"Rework the room to your liking, build into the main map and then ensure the baking process will work"*, later *"One more pass,
+then merge"*. The map links `sources/condenser-bay/module_aaa_A3.blend` (room notes and reviews: `sources/condenser-bay/FINISH_A3.md`).
+
+* **Level:** `COND` z -6.3 (was -6.0): the bay's own roof slab no longer shares the turbine floor's volume, so the patch only trims it 5 mm
+  (target absolute, module 5.995); gallery headroom 2.07 m. The stair drop is `-COND[2]` (34 risers of 185 mm, 32.5 degrees), the escape
+  ladder follows `COND`, the U04 pit walls are stretched locally to map z 1.2 (at -6.3 they stopped 6 cm short of the turbine machinery),
+  `scene['condenser_z']` is read by `walk_test.py`, `measure_lighting.py` and `floor_audit.py`, and `unity/map/map_placement.json` is
+  regenerated (condenser at -6.3).
+* **Checks on the final file** (`20df1300...`), rebuilt map: plan cut 77 pairs (the two new ones are the U04 pit meeting the turbine again,
+  as it did at -6.0); floor audit 39 pairs (unchanged); walks 17/17 with 13/13 closed doors blocking; proxies 10/10; meltdown 20/20; door
+  audit 45/0; export re-import PASS (202 objects); lighting 29/30 (`spine_mid` as before; condenser inside median 0.47, near-black 1 %,
+  clipped 0.1 %). `ROOM_condenser-bay` is 442,318 triangles in the map count (over the 400k flag, as A1 was: 422,140; 394,676 in the room
+  file's own count).
+* **Art:** four independent reviews rejected the finish (final 87 to 92 against "above 90 in all ten"); merged on the owner's decision.
+* **Bake:** `unity/bake_all.ps1` includes the condenser; its CPU rehearsal is in `unity/README.md`.
+* **Pitfall:** build `combined_map.blend` in place, and rebuild it after changing a linked room file that removes objects: the map keeps
+  links by name, and a removed object shows as "missing linked data-block" at the next open (seen with two spindle guides).

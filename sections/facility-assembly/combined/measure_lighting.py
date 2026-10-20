@@ -13,7 +13,8 @@ a = sys.argv[sys.argv.index('--') + 1:]
 out = a[0]; rep = a[1] if len(a) > 1 and not a[1].startswith('--') else os.path.join(out, 'lighting.json')
 only = a[a.index('--only') + 1].split(',') if '--only' in a else None
 RY = float(bpy.context.scene.get('reactor_y', 0.0))      # reactor centre y (build_compact_map.py); views that moved with the reactor are reactor-local + RY
-def r(x, y, z): return (x, y + RY, z)
+CZ = float(bpy.context.scene.get('condenser_z', -6.0))  # condenser bay floor (build_compact_map.py; -6.3 since 2026-10-19): views written at -6 + h follow it
+def r(x, y, z): return (x, y + RY, z + (CZ + 6.0) if z < -2.5 else z)
 CY = RY - 17.2; WY = RY + 3.86
 VIEWS = {   # name: eye, target, lens (mm); plan metres
     'reactor_N_stub': (r(0, 7.5, 1.6), r(0, 16, 1.4), 18), 'turbine_entry': (r(0, 16.0, 1.6), r(0, 30, 1.6), 18),
