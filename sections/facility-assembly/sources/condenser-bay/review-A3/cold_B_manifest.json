@@ -1,8 +1,8 @@
 {
  "blend": "module_aaa_A3.blend",
- "blend_sha256": "87d8ca5e2dddd2967c970294799645afc7a297333bd7377685196312f8958315",
+ "blend_sha256": "20df13009f5758d9bb9bd4a2e701821b3ada8ae8b249e736bcca78c280826daf",
  "script_sha256": "020ba3abd8c818670a5568e08c5e38c4fa13559cbf8f6358216912bc828cc091",
- "pid": 20934,
+ "pid": 4170,
  "blender": "5.2.2 LTS",
  "device": "CPU",
  "resolution": [
@@ -18,8 +18,8 @@
  "images": {
   "C01_ENTRY": {
    "file": "C01_ENTRY.png",
-   "sha256": "8bb7b8f9eeb8b5217daba15381b996a546e7974b003a90a303acc74f02464fc9",
-   "seconds": 49.0,
+   "sha256": "5cb87e7d9035e0a3f9346049ed25222ce0d23d67669a37082b0f8921fe4ca4ac",
+   "seconds": 49.3,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -50,8 +50,8 @@
   },
   "C02_HERO": {
    "file": "C02_HERO.png",
-   "sha256": "32fe3013249625f3d4ef31b5807aef0478f51ba027d611d800d2a6821453cafd",
-   "seconds": 50.5,
+   "sha256": "28451a8942b3668e81868f40d960acd02cd54fa45a558bf810d82b7161c6f531",
+   "seconds": 52.9,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -82,8 +82,8 @@
   },
   "C03_REVERSE": {
    "file": "C03_REVERSE.png",
-   "sha256": "4c99c185de09ff3136fed4eadbcad0e07de107cfd361cff15c76712f9a17d143",
-   "seconds": 50.9,
+   "sha256": "534d78cd41ab2c4fa7ef0c54a0c67494b808edb0faa2d214fb887d3b875c099f",
+   "seconds": 51.6,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -114,8 +114,8 @@
   },
   "C04_EXHAUST": {
    "file": "C04_EXHAUST.png",
-   "sha256": "4012db79fad19e2f5dd6e8e8ba0f3aa43c08772795e88ac0d59ffb57e9f84bba",
-   "seconds": 44.9,
+   "sha256": "c4598d7bd7b106d685803ca9eb82cd72a9f64da174afe31ef82454723254001e",
+   "seconds": 46.2,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -146,8 +146,8 @@
   },
   "C05_RETURN": {
    "file": "C05_RETURN.png",
-   "sha256": "606c42ef32d6c6805ee1f92165502aaa1cf16018c2f299422a06114741946d19",
-   "seconds": 50.0,
+   "sha256": "3f2b2a7dba9cce49600e2fc455d255a4e7f23a6fbf1b28033add4de2d1d1d98e",
+   "seconds": 50.9,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -178,8 +178,8 @@
   },
   "C06_COOLING": {
    "file": "C06_COOLING.png",
-   "sha256": "ca23d7340fec7b77619994a28459aa1d7137cb3888a03849dd3358678285b7d1",
-   "seconds": 49.5,
+   "sha256": "a1143025ef65fe36a6d80b3ecddd87c563dd58bbfb955dab27c2ff40bd9f455e",
+   "seconds": 51.0,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -210,8 +210,8 @@
   },
   "C07_OPERATOR": {
    "file": "C07_OPERATOR.png",
-   "sha256": "411043447a384b4f7c1e86161aa6c4bbe8a2adf1f6ba2d1911b0f95f1dd2e1ed",
-   "seconds": 46.0,
+   "sha256": "7f0414e233bfe68d42be409254cb9e321f2291b578935228d271a7c603f4a435",
+   "seconds": 52.1,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -242,8 +242,8 @@
   },
   "C08_MAINT": {
    "file": "C08_MAINT.png",
-   "sha256": "dd8bcb88005c508c67979024abd8033569a1877f4b216b301a371dd62a76198c",
-   "seconds": 47.8,
+   "sha256": "7040ebd3dc1c002e9e0e574bcd37125c65a298c2688260625b5b31ad07611114",
+   "seconds": 49.0,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -274,8 +274,8 @@
   },
   "C09_ROOF": {
    "file": "C09_ROOF.png",
-   "sha256": "64c4cc9577993b3bb65ccac168e225ec4855c0d5b3e99d951b29aaa8c42e8a8b",
-   "seconds": 46.7,
+   "sha256": "b08b01070dd962e20f2f54e0bad026d36afd6714dec53e8486e1fcfce1c83011",
+   "seconds": 54.9,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -306,8 +306,8 @@
   },
   "C10_MATERIALS": {
    "file": "C10_MATERIALS.png",
-   "sha256": "0a96d9b3e6e3174a0f59d5472b114e252f01375b0ad41b42bcf4e95036c4b939",
-   "seconds": 50.4,
+   "sha256": "97a0868ac7eba43094b16dbc3ddcc87e1235323771d879bdb30ea57e41c3e985",
+   "seconds": 51.5,
    "lens_mm": 32.0,
    "matrix": [
     [
@@ -336,10 +336,42 @@
     ]
    ]
   },
+  "C11_WEST_VENT": {
+   "file": "C11_WEST_VENT.png",
+   "sha256": "0eb725038bd0beaa98cb73df8b60cd694f77769e954958584c80295455a693aa",
+   "seconds": 56.7,
+   "lens_mm": 26.0,
+   "matrix": [
+    [
+     0.78087,
+     0.26504,
+     -0.56569,
+     0.05
+    ],
+    [
+     -0.6247,
+     0.33129,
+     -0.70711,
+     2.45
+    ],
+    [
+     -0.0,
+     0.90554,
+     0.42426,
+     5.45
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ]
+  },
   "W01_ENTRY_CORNER": {
    "file": "W01_ENTRY_CORNER.png",
-   "sha256": "65bf9994d43642637138cd8a19bc549d775c3077a89970b1b5117c5d729c4249",
-   "seconds": 43.2,
+   "sha256": "832bae5fe32277b676a628eb9639d08224f5d6ec3b60f2837d9bbc9872280e99",
+   "seconds": 43.8,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -370,8 +402,8 @@
   },
   "W02_SW_TURN": {
    "file": "W02_SW_TURN.png",
-   "sha256": "5fbd8d721c87c8da38b48095a39cc11edf70702c1743fe231f5a33412ce904ee",
-   "seconds": 49.7,
+   "sha256": "012f9fbb109c363290dca5fc7b64de844197e4599466b2eafd88b59e1de46510",
+   "seconds": 52.0,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -402,8 +434,8 @@
   },
   "W03_NW": {
    "file": "W03_NW.png",
-   "sha256": "fda9322898fcb280e72ea530ce74bc4fe3b7caf279d89926b686889758cc5dc0",
-   "seconds": 49.0,
+   "sha256": "df60452e57a50acab61c8915aefb8a450bf9f3ece8c1f2a4a36260ee6b74462f",
+   "seconds": 49.5,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -434,8 +466,8 @@
   },
   "W04_NE": {
    "file": "W04_NE.png",
-   "sha256": "718139b7891bfcac43362cbd414798fbedad5e7f03ef1378c29f141b0f2d105e",
-   "seconds": 47.0,
+   "sha256": "4aa536999704a637de1e3ed3b89e3f810be64d5f73abd444f633635bc8d991d3",
+   "seconds": 49.4,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -466,8 +498,8 @@
   },
   "W05_SE": {
    "file": "W05_SE.png",
-   "sha256": "58e41cb4eeef7aa19c964b3824590db89550557d79cd7531746c6ebf2b9665b9",
-   "seconds": 46.4,
+   "sha256": "37e0ca4755c1e6aaa62d1fed457b361fd0b5457892a0802f83bd0ac8e94091a9",
+   "seconds": 47.9,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -498,8 +530,8 @@
   },
   "W06_WEST_AISLE": {
    "file": "W06_WEST_AISLE.png",
-   "sha256": "735ae4408554c5b41b6e0155aa1d0edde54c2aa705510d13579a039ab6eb802b",
-   "seconds": 47.7,
+   "sha256": "ad4749a376178f5f6321eba101329a2fc6aaec47cd94ab315bafa3981f65f09f",
+   "seconds": 48.7,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -530,8 +562,8 @@
   },
   "W07_EAST_PULL": {
    "file": "W07_EAST_PULL.png",
-   "sha256": "8d33646f6885e0515d6ae888a6cd89a530449f3a58205cc3430f21466d7d67de",
-   "seconds": 47.5,
+   "sha256": "2590895a4c9e27d8eb5de17ea2c703ba89e9c5c77c7e435ba1b6ed596991d947",
+   "seconds": 48.3,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -562,8 +594,8 @@
   },
   "W08_GALLERY_TURN": {
    "file": "W08_GALLERY_TURN.png",
-   "sha256": "fb0d166de8814eae3cf01177a8d82043ed0bc93ec518db296ecefed60054088a",
-   "seconds": 49.2,
+   "sha256": "2a22dd0164041d771170c317f799dbecc678ad64058f5941e78dcd7ca9b5c904",
+   "seconds": 50.3,
    "lens_mm": 28.0,
    "matrix": [
     [

@@ -1,8 +1,8 @@
 {
  "blend": "module_aaa_A3.blend",
- "blend_sha256": "87d8ca5e2dddd2967c970294799645afc7a297333bd7377685196312f8958315",
+ "blend_sha256": "20df13009f5758d9bb9bd4a2e701821b3ada8ae8b249e736bcca78c280826daf",
  "script_sha256": "020ba3abd8c818670a5568e08c5e38c4fa13559cbf8f6358216912bc828cc091",
- "pid": 20741,
+ "pid": 3962,
  "blender": "5.2.2 LTS",
  "device": "CPU",
  "resolution": [
@@ -18,8 +18,8 @@
  "images": {
   "C01_ENTRY": {
    "file": "C01_ENTRY.png",
-   "sha256": "0f25efc6be65ec05e5f62371bf602cefc826b95cf64bbdb54bbeb0b17bf6e651",
-   "seconds": 50.4,
+   "sha256": "ada6fb9e05a910a5adb76751062e98bd160a88a48040596e5bd03c108282681a",
+   "seconds": 50.3,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -50,8 +50,8 @@
   },
   "C02_HERO": {
    "file": "C02_HERO.png",
-   "sha256": "0ea203dc41c60df7fdf66ed2d0d81350096c7224c5eb1f43fe74c0cc78a133bd",
-   "seconds": 52.0,
+   "sha256": "a2132eb16d36c340be77c64407dea29b1a6e1ffe7b7e2b462ef142ba811eb8f9",
+   "seconds": 51.2,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -82,8 +82,8 @@
   },
   "C03_REVERSE": {
    "file": "C03_REVERSE.png",
-   "sha256": "685d8bfd3d32a3218ae19e04007af712f961bae41c19fc89e45b1cb0665486c4",
-   "seconds": 51.1,
+   "sha256": "982e5ecede50e890d124dfbb2dd9395afad8c54a2d2499f4d27c297b0096c786",
+   "seconds": 51.4,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -114,8 +114,8 @@
   },
   "C04_EXHAUST": {
    "file": "C04_EXHAUST.png",
-   "sha256": "91c467ebb51bf9a5f9a48040a3b11618b8ed60d2273dd83664bf0e7eeedb253b",
-   "seconds": 45.3,
+   "sha256": "03060fba0b0b525de5aa643109498743f507098ee41177a60c913300a4ce969f",
+   "seconds": 46.4,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -146,8 +146,8 @@
   },
   "C05_RETURN": {
    "file": "C05_RETURN.png",
-   "sha256": "5803842544cf00f34eb2803593aae3bb81365c2a7d97ef5a28a0ba0980944b22",
-   "seconds": 51.7,
+   "sha256": "67b8e91a0664d4747c6aa55fc5c5b5ac67311b1fca145dc14d4b8848665f6b98",
+   "seconds": 51.0,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -178,8 +178,8 @@
   },
   "C06_COOLING": {
    "file": "C06_COOLING.png",
-   "sha256": "3e45a347e5a0fa85a27d264c1f686920e6a33c0ef4a75be61decc702d6ec307c",
-   "seconds": 51.2,
+   "sha256": "a40410a5426fb736b2133abbc30c6a8d03063ca8e32641f8499c8059ba3be132",
+   "seconds": 50.4,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -210,8 +210,8 @@
   },
   "C07_OPERATOR": {
    "file": "C07_OPERATOR.png",
-   "sha256": "fe5d452f8a60f098d18a9f538d938d13023ee32d2028790682b885a08b4f1510",
-   "seconds": 47.1,
+   "sha256": "aec4b33fe75651c48dd1d4d5cb9c53f6501fe43a3fe779f27a1986fcad8c387a",
+   "seconds": 47.0,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -242,8 +242,8 @@
   },
   "C08_MAINT": {
    "file": "C08_MAINT.png",
-   "sha256": "1a1aafc936f5aadf95eca92ff14b91de175bca66fe77292ea2314fb777e09f13",
-   "seconds": 47.3,
+   "sha256": "233036b39d1725a22ab72a41baad01a1ec8db5c0c71981baa628d5dc99d8d18d",
+   "seconds": 47.9,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -274,8 +274,8 @@
   },
   "C09_ROOF": {
    "file": "C09_ROOF.png",
-   "sha256": "52bb439590089e17d9f0bec82e0e8d57788486126d15812dc8e20f2bdf76171c",
-   "seconds": 47.4,
+   "sha256": "81cc67222cf605938e6bf7a393ec9e58c2e7c832336ff6d0fc923547fac0e98f",
+   "seconds": 47.1,
    "lens_mm": 28.0,
    "matrix": [
     [
@@ -306,8 +306,8 @@
   },
   "C10_MATERIALS": {
    "file": "C10_MATERIALS.png",
-   "sha256": "c9a0da44b81d98b147d1a7ad78860ce04755a84d54ccb45ff5b295b5a9cd9de1",
-   "seconds": 50.2,
+   "sha256": "7c0174e93888935e44f08d8924ed66113be254911e9cfa697de732e60561157f",
+   "seconds": 48.8,
    "lens_mm": 32.0,
    "matrix": [
     [
@@ -336,10 +336,42 @@
     ]
    ]
   },
+  "C11_WEST_VENT": {
+   "file": "C11_WEST_VENT.png",
+   "sha256": "f3a6d9c6e2a89621c58df179c939c1e10074cc2741c2a80a9fd2357c1ca1a21d",
+   "seconds": 53.9,
+   "lens_mm": 26.0,
+   "matrix": [
+    [
+     0.78087,
+     0.26504,
+     -0.56569,
+     0.05
+    ],
+    [
+     -0.6247,
+     0.33129,
+     -0.70711,
+     2.45
+    ],
+    [
+     -0.0,
+     0.90554,
+     0.42426,
+     5.45
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ]
+  },
   "W01_ENTRY_CORNER": {
    "file": "W01_ENTRY_CORNER.png",
-   "sha256": "ed34ed02a97fb8681a2f5b775982f85ce3ef0782a1ea3e46db2b2c05bf38ca38",
-   "seconds": 42.9,
+   "sha256": "9e303e671de8ba6e8bb24971a5b4adee802989bc3b1252f22a80ce56a8e5191a",
+   "seconds": 43.2,
    "lens_mm": 22.0,
    "matrix": [
     [
@@ -370,8 +402,8 @@
   },
   "W02_SW_TURN": {
    "file": "W02_SW_TURN.png",
-   "sha256": "82e9caedb94156dd2de829788d46a04a91f59497551160f4d532d3083635d994",
-   "seconds": 50.9,
+   "sha256": "3dc58e588e712eec20e894bac03b76bf17a87375b60aefb8cc11f4f91aaddc89",
+   "seconds": 53.8,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -402,8 +434,8 @@
   },
   "W03_NW": {
    "file": "W03_NW.png",
-   "sha256": "26c4f800bed0d1dddefa8943d5c08951f883612a7ea6a2cc863c5575840eaadb",
-   "seconds": 48.5,
+   "sha256": "d4e7540badfcff8ec54a353629842d3377d07f6fc03ca2c6b41a2d436daf1cbc",
+   "seconds": 49.3,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -434,8 +466,8 @@
   },
   "W04_NE": {
    "file": "W04_NE.png",
-   "sha256": "a39df105411b73def3e72d45db7dbbc4bdd89a1454599a6919167dd4b8d9c572",
-   "seconds": 47.2,
+   "sha256": "ea1a372914f01cdd8c18f7acc37692e1aa2f580f42afa140a86e0bb8a627fcef",
+   "seconds": 48.9,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -466,8 +498,8 @@
   },
   "W05_SE": {
    "file": "W05_SE.png",
-   "sha256": "8087faed3da6b21ab8c0de47cf1092ee564817eae5f1bbe42a257f8b340c99a8",
-   "seconds": 47.7,
+   "sha256": "0b40f9332a7c393546ba3832bff2c9c5766721981ad243ccd6805ee453c686d0",
+   "seconds": 51.0,
    "lens_mm": 24.0,
    "matrix": [
     [
@@ -498,7 +530,7 @@
   },
   "W06_WEST_AISLE": {
    "file": "W06_WEST_AISLE.png",
-   "sha256": "6a9ec3e6373451761a6014f7d0e12c36b75f3f28a610be8b053eea12c17a2118",
+   "sha256": "324ab7f8ef1978b05afc4bfd4e3b4e8793525a9d36393a5c11c870bff778a734",
    "seconds": 48.7,
    "lens_mm": 24.0,
    "matrix": [
@@ -530,8 +562,8 @@
   },
   "W07_EAST_PULL": {
    "file": "W07_EAST_PULL.png",
-   "sha256": "feff26de31025594bc3a2423a9c4208cda1488271d48f6f6dfa52113b0099821",
-   "seconds": 48.5,
+   "sha256": "8b59d3b6e3228d62e9a05bfd35ad01e40ab67bc9aafb6ff35e23d46530ff6a5f",
+   "seconds": 47.8,
    "lens_mm": 26.0,
    "matrix": [
     [
@@ -562,8 +594,8 @@
   },
   "W08_GALLERY_TURN": {
    "file": "W08_GALLERY_TURN.png",
-   "sha256": "80ac738b1d70aabc542c06026202e179918c27c1b0997a2136fcb47c2372f73e",
-   "seconds": 49.2,
+   "sha256": "96e33d798d6171f882f1b1282d4de06151e8ecc21994774ae1b1d1494eb4914f",
+   "seconds": 52.7,
    "lens_mm": 28.0,
    "matrix": [
     [

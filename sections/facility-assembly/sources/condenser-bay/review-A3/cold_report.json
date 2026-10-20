@@ -1,9 +1,9 @@
 {
  "set_a": "fcoldA",
  "set_b": "fcoldB",
- "pid_a": 20741,
- "pid_b": 20934,
- "blend_sha256": "87d8ca5e2dddd2967c970294799645afc7a297333bd7377685196312f8958315",
+ "pid_a": 3962,
+ "pid_b": 4170,
+ "blend_sha256": "20df13009f5758d9bb9bd4a2e701821b3ada8ae8b249e736bcca78c280826daf",
  "settings": {
   "resolution": [
    960,
@@ -44,8 +44,8 @@
   },
   "C06_COOLING": {
    "mean": 0.0,
-   "max": 0,
-   "changed_fraction": 0.0
+   "max": 1,
+   "changed_fraction": 8e-06
   },
   "C07_OPERATOR": {
    "mean": 0.0,
@@ -63,6 +63,11 @@
    "changed_fraction": 0.0
   },
   "C10_MATERIALS": {
+   "mean": 0.0,
+   "max": 0,
+   "changed_fraction": 0.0
+  },
+  "C11_WEST_VENT": {
    "mean": 0.0,
    "max": 0,
    "changed_fraction": 0.0
