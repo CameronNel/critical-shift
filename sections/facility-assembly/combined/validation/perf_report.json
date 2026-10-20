@@ -1,12 +1,12 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 8707926,
-  "objects": 22375,
-  "submeshes": 24583,
-  "lights": 526,
-  "shadow_lights": 486,
-  "materials": 922,
+  "triangles": 8715330,
+  "objects": 22377,
+  "submeshes": 24585,
+  "lights": 527,
+  "shadow_lights": 487,
+  "materials": 921,
   "textures": 153,
   "texture_mb_rgba8": 1401.9
  },
@@ -124,15 +124,15 @@
    "over_flag": true
   },
   "ROOM_condenser-bay": {
-   "triangles": 434914,
-   "objects": 2737,
-   "meshes": 2646,
-   "submeshes": 2737,
-   "materials": 41,
+   "triangles": 442318,
+   "objects": 2739,
+   "meshes": 2645,
+   "submeshes": 2739,
+   "materials": 40,
    "lights": {
-    "AREA": 27
+    "AREA": 28
    },
-   "shadow_lights": 27,
+   "shadow_lights": 28,
    "textures": 6,
    "texture_mb_rgba8": 8.0,
    "budget_flag": 400000,
@@ -1225,8 +1225,8 @@
     "CONNECTOR_condenser_escape",
     "CONNECTOR_condenser_stair"
    ],
-   "own": 434914,
-   "with_neighbours": 438142
+   "own": 442318,
+   "with_neighbours": 445546
   },
   "ROOM_spawn-room": {
    "neighbours": [
@@ -1294,7 +1294,7 @@
     "ROOM_condenser-bay"
    ],
    "own": 1800,
-   "with_neighbours": 436714
+   "with_neighbours": 444118
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [
@@ -1302,7 +1302,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 854532
+   "with_neighbours": 861936
   },
   "EVAC sign hall": {
    "neighbours": [],
