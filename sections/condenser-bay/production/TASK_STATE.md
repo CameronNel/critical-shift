@@ -1,5 +1,13 @@
 # Condenser Bay TASK_STATE
 
+## Map finish A3 (2026-10-19/20, facility assembly)
+
+The combined map now uses an additive finish built on Codex's A2: `sections/facility-assembly/sources/condenser-bay/module_aaa_A3.blend`
+(`condenser_finish_A3.py`, `FINISH_A3.md`, evidence in `review-A3/`). It makes every contract control reachable (chain operators, desk-front
+trip and CD ISOL, west vent extension), lowers the bay 0.3 m in the map (gallery headroom 2.07 m), adds wear, reworks the light and repairs
+A2 geometry. Four independent reviews against this section's `RUBRIC.md` rejected it (final 87 to 92); merged on the owner's "One more
+pass, then merge", so it is not accepted at this bar. R34 below is unchanged and remains this section's accepted room.
+
 ## Current R34 � final local visual acceptance
 
 Saved R34, 2724 objects, SHA256 `26edf558d2e03b16b841940d20973b74017a52e9f8c0c320d5ff5487c9d9ea3b`. R33 full warm18 revealed eight lower chest fastener stacks below their flange; saved R33 contact audit FAIL at77.44mm washer gap. R34 seats the existing stacks against the flange; all six saved CPU audits PASS, including8/8 fastener seating checks within1mm. New full-resolution C09 GPU image shows the correction. R33's corrected paint is retained; Luna found no other major geometry defect in the inspected R33 full warm coverage.

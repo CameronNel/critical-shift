@@ -98,6 +98,29 @@ shade with the warm diffuser under it (it was a glowing white puck), between LOC
 
 Triangles: **394,676** evaluated, text included (A2 349,678; budget 400,000). The chains are 80 triangles a link.
 
+## Independent reviews: not accepted
+
+Four independent reviews against `sections/condenser-bay/production/RUBRIC.md` (a category passes only above 90, every hard gate must pass),
+each by a fresh reviewer that did not build the room. All four **rejected** it:
+
+| Round | File | Coverage | Scale | Machinery | Circulation | Construction | Materials | Lighting | Palette | Storytelling | Fidelity |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 (first pass, 960 px) | first A3 | 91 | 91 | 90 | 90 | 86 | 89 | 89 | 88 | 89 | 87 |
+| 2 (second pass) | `06f9...` / `34b7...` | 87 | 89 | 85 | 85 | 81 | 83 | 87 | 80 | 84 | 77 |
+| 3 | `87d8ca5e...` | 91 | 92 | 90 | 89 | 88 | 87 | 90 | 89 | 89 | 87 |
+| 4 (final) | `20df1300...` | 91 | 92 | 90 | 90 | 89 | 87 | 90 | 89 | 89 | 87 |
+
+Each round's concrete defects were fixed in the next (floating lamp head and trip parts, the vent spindle gap, knife-edged bellows,
+blotchy and pale wear, the C10 speck, the pink reflection, unreadable signs, identical gauges, missing evidence). What the final review
+still holds against it: the pump volutes and chain links read low-poly up close, the D01 door jambs' orange, wear that reads only close up
+(surfaces "factory-clean" next to the cooling plant), the CW SUPPLY tag crossed by its gauge's impulse line in C06, the room ID boards
+partly hidden from some views, a blown highlight on the east waterbox cover (W04), salmon waterbox tops under the gallery light, the
+near-black roof beam underside, blade-like motor fins (A2), the U04 bolt-hole light spots (inherited).
+
+**Owner decision, 2026-10-20**, after the third review: *"One more pass, then merge"*: fix the objective defects, re-run the checks and the
+evidence, then merge whatever the score, recorded honestly. This file, `AGENTS.md` and the PR record it as **not accepted** at the
+rubric's bar; the room's status stays "built but not ready".
+
 ## Checks
 
 The map chain on the rebuilt map, the CPU bake rehearsal and the review renders are in `combined/ASSEMBLY_REPORT.md` (section "Condenser A3")
