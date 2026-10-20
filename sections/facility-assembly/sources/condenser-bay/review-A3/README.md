@@ -4,8 +4,9 @@ All renders are of `../module_aaa_A3.blend` (sha256 `20df13009f57…`, the full 
 choice for review renders), Cycles with OpenImageDenoise, seed 0.
 
 - `frames/`: the 19 named cameras (the room's 18 review cameras and `C11_WEST_VENT`, added for the vent extension) at 1920 x 1080,
-  24 samples, rendered in one process by `../render_review_A3.py`. The JPEGs (quality 92) are for reading; `frames/manifest_png.json` records the PNG originals' hashes, the process id, the settings and the camera transforms,
-  so the hashes are of the PNGs, not of these JPEGs.
+  24 samples, rendered in one process by `../render_review_A3.py`. The JPEGs (quality 92) are for reading; `frames/manifest_png.json`
+  records the PNG originals' hashes, the process id, the settings and the camera transforms, so the hashes are of the PNGs, not of
+  these JPEGs.
 - `crops/`: 1:1 crops of those frames (exhaust flange, condensate controls, cooling isolator and its wall tags, operator labels, gauge
   glass, floor contacts, pump volute, the D01 doorway reveal, the west vent extension).
 - `cutaway_plan_clipped_z4.9.jpg`: the labelled cutaway (`../render_cutaway_A3.py`, everything above module z 4.9 m clipped; not a player
