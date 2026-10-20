@@ -114,6 +114,26 @@ Total 7.5 h, of which prep 5.1 h (CPU-bound; it will be similar on the owner's P
 - **The check's own precision:** zero-area faces and back faces (a reversed second face on the same vertices: the mine's double-sided gravel, 19,190 faces) merge in Blender's FBX re-import; text objects list their own geometry as an instance; Blender's FBX importer drops a trailing `.5` from a material name. All counted or matched exactly now.
 - **Source issues reported, not bake faults:** view-dependent shading bakes as seen head-on (the turbine's rim glow, the reactor's water); the evacuation bulkhead lenses and lane lines read a colour attribute (`Col`) their meshes lacked, so the lenses were black and the lines dark in the map itself; fixed in the map on 2026-10-19 (`evacuation.py` `give_col`, owner's go-ahead), so the bake no longer prints that note.
 
+## Condenser bay A3 rehearsal, 2026-10-20
+
+The condenser bay joined the bake with its A3 finish (`sources/condenser-bay/FINISH_A3.md`) and the bay lowered to map z -6.3, so the two
+pieces it touches were rehearsed again with the real runner, in map mode, on the cloud CPU (owner's OK; 256 px atlases, 1 sample):
+`bake_all.ps1 -Device CPU -Map -Quality rehearsal -Only condenser-bay,map-connections`, on the final room file (`module_aaa_A3.blend`,
+sha256 `20df1300...`) and the rebuilt `combined/combined_map.blend`.
+
+| Piece | Time | `bake_check.py` | Meshes | Triangles | Materials | Textures checked |
+|---|---|---|---|---|---|---|
+| condenser-bay | 43.2 min | OK | 2,647 | 391,268 | 41 | 93 |
+| map-connections | 16.8 min | OK | 450 | 30,538 | 34 | 52 |
+
+- Prep made every linked object local (2,760), converted 2,647 objects and planned 31 baked materials with no missing attribute reads
+  (`reads_missing_attributes: {}`): the A3 wear's module-space attribute `A3_pos` survives into the bake, as the code review predicted.
+- Every stage ran (prep, base, rough, normal, metal, emit, mask, finish, check, compare); FBX and scene agree on meshes and triangles,
+  no zero-area or back-facing triangles.
+- The comparison renders (C02_HERO, C06_COOLING, C07_OPERATOR) match their sources; the walls are blotchy at rehearsal quality (1 sample),
+  as every room's were in the full rehearsal above.
+- The A3 wear uses ray-traced AO nodes (cavity grime and inside-AO edge chips), so the condenser bakes slower than a plain-texture room.
+
 ## Running it on the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT)
 
 ```powershell
@@ -131,7 +151,7 @@ powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_a
 
 **What it bakes:** the thirteen rooms the compact map uses, smallest first, from the same sources and collections as `build_compact_map.py`. Each room gets three comparison cameras.
 
-**Condenser bay:** included since 2026-10-19, with its A3 finish (`sources/condenser-bay/FINISH_A3.md`); its CPU rehearsal is under "Condenser bay A3 rehearsal" below.
+**Condenser bay:** included since 2026-10-19, with its A3 finish (`sources/condenser-bay/FINISH_A3.md`); its CPU rehearsal is under "Condenser bay A3 rehearsal" above.
 
 **Before the first bake** it checks:
 - Blender is found;
