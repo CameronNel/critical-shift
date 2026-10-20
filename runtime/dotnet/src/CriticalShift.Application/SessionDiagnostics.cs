@@ -8,15 +8,16 @@ namespace CriticalShift.Application
     {
         Started, Advanced, Interaction, Impact, Aid, Environment,
         RecoveryRequested, RecoveryResolved, RecoveryCancelled, RecoveryExpired,
-        Disconnected, Ended, Stopped, Faulted, Production, Reactor, AttachmentFailed, LeaseExpired, Door, Evacuation
+        Disconnected, Ended, Stopped, Faulted, Production, Reactor, AttachmentFailed, LeaseExpired, Door, Evacuation, Contract
     }
 
     /// <summary>Bounded typed diagnostic data. No arbitrary message, exception text, credential or callback.</summary>
     public sealed class SessionTraceRecord
     {
         internal SessionTraceRecord(long sequence, WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
-            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation)
+            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand)
         {
+            DemandChange = demand;
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
             CauseId = causeId != Guid.Empty ? causeId : interaction?.Door?.CauseId ?? worker?.Worker?.LastCauseId ?? Guid.Empty;
             DoorResult = interaction?.Door?.Status; DoorAction = interaction?.Door?.Action;
@@ -28,6 +29,8 @@ namespace CriticalShift.Application
             ReactorEvent = changed ? ReactorChange?.Kind : null;
             ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
+            OccurredAtMilliseconds = demand?.ShiftMilliseconds ?? ReactorChange?.ShiftMilliseconds ??
+                change?.ShiftMilliseconds ?? world.ElapsedMilliseconds;
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
             ProductionEvent = changed ? change?.Kind : null;
@@ -50,11 +53,13 @@ namespace CriticalShift.Application
             RecoveryEpisode = worker?.Worker?.RecoveryEpisode; RecoveryAttempt = worker?.Worker?.RecoveryAttempt;
         }
         public long Sequence { get; }
+        public long OccurredAtMilliseconds { get; }
         public Guid Epoch { get; }
         public Guid RequestEpoch { get; }
         public SessionTraceKind Kind { get; }
         public Guid HazardId { get; }
         public Guid CauseId { get; }
+        public GridDemandChange? DemandChange { get; }
         public DoorStatus? DoorResult { get; }
         public DoorAction? DoorAction { get; }
         public DoorState? DoorState { get; }
@@ -108,13 +113,18 @@ namespace CriticalShift.Application
     internal sealed class SessionDiagnostics
     {
         private readonly SessionTraceRecord?[] _records;
+        private readonly ShiftIncidentJournal _incidents;
         private int _first, _count;
         private long _sequence, _dropped;
         internal SessionDiagnostics(int capacity)
         {
             if (capacity < 1 || capacity > 4096) throw new ArgumentOutOfRangeException(nameof(capacity));
             _records = new SessionTraceRecord[capacity];
+            _incidents = new ShiftIncidentJournal(capacity);
         }
+        internal ShiftIncidentTotals Incidents => _incidents.Totals;
+        internal IReadOnlyList<SessionTraceRecord> IncidentTimeline => _incidents.Timeline;
+        internal long DroppedIncidents => _incidents.Dropped;
         internal int Capacity => _records.Length;
         internal SessionTraceView View
         {
@@ -127,12 +137,14 @@ namespace CriticalShift.Application
         }
         internal void Append(WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
             Guid actor = default, Guid entity = default, long input = 0, bool changed = false,
-            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null)
+            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
-            if (_sequence == long.MaxValue) { if (_dropped < long.MaxValue) _dropped++; return; }
-            var record = new SessionTraceRecord(++_sequence, world, requestEpoch, kind,
-                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation);
+            bool exhausted = _sequence == long.MaxValue;
+            var record = new SessionTraceRecord(exhausted ? _sequence : ++_sequence, world, requestEpoch, kind,
+                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand);
+            _incidents.Observe(record, !exhausted);
+            if (exhausted) { if (_dropped < long.MaxValue) _dropped++; return; }
             if (_count == Capacity)
             {
                 _records[_first] = record; _first = (_first + 1) % Capacity;

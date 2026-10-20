@@ -18,5 +18,7 @@
     <ProjectReference Include="../../src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj" />
     <ProjectReference Include="../../src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj" />
     <Compile Include="../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs" Link="ProcessLifetimeTests.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Presentation/SandboxTraceFeed.cs" Link="SandboxTraceFeed.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Sandbox/Tests/PlayMode/TraceFeedTests.cs" Link="TraceFeedTests.cs" />
   </ItemGroup>
 </Project>

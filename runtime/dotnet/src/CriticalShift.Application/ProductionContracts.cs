@@ -140,12 +140,14 @@ namespace CriticalShift.Application
     public sealed class ProductionChange
     {
         internal ProductionChange(ProductionEvent kind, MachineView machine, MaterialView input, MaterialView? output, int waste,
-            Guid cycleId, Guid recipeId, bool bypassedInspection)
+            Guid cycleId, Guid recipeId, bool bypassedInspection, long shiftMilliseconds)
         {
             Kind = kind; Machine = machine; Input = input; Output = output; WasteUnits = waste;
             CycleId = cycleId; RecipeId = recipeId; BypassedInspection = bypassedInspection;
+            ShiftMilliseconds = shiftMilliseconds;
         }
         // Event identity is independent of Machine, which describes the resulting live state.
+        public long ShiftMilliseconds { get; }
         // A cancelled machine is Idle with an empty cycle, but this event retains its original cycle.
         public Guid CycleId { get; }
         public Guid RecipeId { get; }

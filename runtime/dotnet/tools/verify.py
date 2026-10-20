@@ -8,7 +8,7 @@ import platform
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
-from check_boundaries import validate, TESTS, RUNNER
+from check_boundaries import validate, TESTS, RUNNER, LINKS
 from verify_results import validate as validate_results
 from check_report_safety import verify as verify_report_safety
 
@@ -97,6 +97,32 @@ def main() -> None:
         raise RuntimeError("An empty scenario cannot pass.")
     safety = verify_report_safety(Path(executable), ROOT / "scenarios/worker-recovery.json", ENV)
     (ARTIFACTS / "report-safety.json").write_text(json.dumps(safety, indent=2) + "\n")
+    # Short compositional endurance smoke and a real failing invariant control.
+    soak_paths = {name: ARTIFACTS / ("soak-" + name + ".jsonl") for name in ("smoke", "negative", "replay")}
+    for path in soak_paths.values(): path.unlink(missing_ok=True)
+    run(["dotnet", executable, "--soak", "--cases", "12", "--report", str(soak_paths["smoke"])], "soak-smoke.log")
+    pulses = [json.loads(line) for line in soak_paths["smoke"].read_text().splitlines()]
+    if pulses[0]["Status"] != "Running" or pulses[-1]["Status"] != "Passed" or pulses[-1]["Cases"] != 12 or pulses[-1]["CheckedSteps"] <= 0:
+        raise RuntimeError("Endurance smoke did not execute its requested cases.")
+    assembly_hashes = pulses[0]["Assemblies"]
+    required_assemblies = {"CriticalShift.Application.dll", "CriticalShift.Scenarios.dll"} | {
+        "CriticalShift.Features." + feature + ".Domain.dll" for feature in ("Interaction", "Session", "Workers", "Materials", "Production", "Reactor", "Power")}
+    if set(assembly_hashes) != required_assemblies or assembly_hashes != pulses[-1]["Assemblies"]:
+        raise RuntimeError("Endurance report does not identify its complete gameplay assembly closure.")
+    for filename, digest in assembly_hashes.items():
+        if hashlib.sha256(Path(executable).with_name(filename).read_bytes()).hexdigest() != digest:
+            raise RuntimeError("Endurance assembly provenance mismatch: " + filename)
+    run(["dotnet", executable, "--soak", "--case-seed", "55", "--control", "failure", "--report", str(soak_paths["negative"])],
+        "soak-negative.log", expect_failure=True)
+    failed_soak = json.loads(soak_paths["negative"].read_text().splitlines()[-1])
+    if failed_soak["Status"] != "Failed" or failed_soak["CaseSeed"] != 55 or failed_soak["Invariant"] != "Intentional negative control.":
+        raise RuntimeError("The intentional endurance invariant failure was not reported.")
+    run(["dotnet", executable, "--soak", "--case-seed", "55", "--report", str(soak_paths["replay"])], "soak-replay.log")
+    replay = json.loads(soak_paths["replay"].read_text().splitlines()[-1])
+    if replay["Status"] != "Passed" or replay["Cases"] != 1: raise RuntimeError("Endurance seed reproduction failed.")
+    before = soak_paths["smoke"].read_bytes()
+    run(["dotnet", executable, "--soak", "--cases", "1", "--report", str(soak_paths["smoke"])], "soak-overwrite.log", expect_failure=True)
+    if soak_paths["smoke"].read_bytes() != before: raise RuntimeError("Endurance report overwrote an existing file.")
     try:
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     except (FileNotFoundError, subprocess.CalledProcessError):
@@ -106,9 +132,10 @@ def main() -> None:
         relative = path.relative_to(ROOT)
         if path.is_file() and not {"bin", "obj", "artifacts", "__pycache__"}.intersection(relative.parts):
             source_hashes[relative.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    for linked in [ROOT.parent / "unity/Assets/CriticalShift/Application/ProcessLifetime.cs",
-                   ROOT.parent / "unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs"]:
-        source_hashes["../" + linked.relative_to(ROOT.parent).as_posix()] = hashlib.sha256(linked.read_bytes()).hexdigest()
+    for project, declarations in LINKS.items():
+        for declaration in declarations:
+            linked = (ROOT / project).parent.joinpath(declaration["Include"]).resolve()
+            source_hashes["../" + linked.relative_to(ROOT.parent).as_posix()] = hashlib.sha256(linked.read_bytes()).hexdigest()
     summary = {"status": "Passed", "commit": commit, "sdk": version, "os": platform.platform(),
                "started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(),
                "configuration": "Release", "library_target": "netstandard2.1", "language": "C# 8.0",
@@ -118,6 +145,7 @@ def main() -> None:
                                 "machines": {"sequences": 100, "actions": 20000}},
                "negative_control": "Expected failing NUnit test rejected by process and result checks",
                "scenarios": scenario_results, "report_safety": safety, "scenario_negative_controls": "Assertion mismatch and empty script rejected",
+               "logical_endurance_smoke": {"cases": 12, "seed_replay": "Passed", "invariant_negative_control": "Rejected", "report_overwrite": "Rejected", "assembly_sha256": assembly_hashes},
                "unity": "NotRun", "physics": "NotRun", "multiplayer_transport": "NotRun",
                "source_sha256": source_hashes}
     (ARTIFACTS / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")

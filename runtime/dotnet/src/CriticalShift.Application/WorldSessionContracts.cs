@@ -11,7 +11,7 @@ namespace CriticalShift.Application
     public enum WorldControlStatus
     {
         Applied, NoChange, WrongEpoch, NotReady, Ended, Stopped, Faulted,
-        PauseDisabled, TimerCapacityReached
+        PauseDisabled, TimerCapacityReached, ContractIncomplete
     }
 
     /// <summary>Immutable authored inputs, not mutable run state or a save-game format.</summary>
@@ -110,12 +110,14 @@ namespace CriticalShift.Application
     {
         internal WorldAdvanceResult(WorldSessionView world, IReadOnlyList<WorldTimerSignal> signals,
             IReadOnlyList<ObjectClaimView> releasedClaims, bool endedThisAdvance,
-            IReadOnlyList<WorkerReply>? workerChanges = null, IReadOnlyList<ProductionChange>? productionChanges = null, IReadOnlyList<ReactorChange>? reactorChanges = null)
+            IReadOnlyList<WorkerReply>? workerChanges = null, IReadOnlyList<ProductionChange>? productionChanges = null,
+            IReadOnlyList<ReactorChange>? reactorChanges = null, IReadOnlyList<GridDemandChange>? demandChanges = null)
         {
             World = world; Signals = signals; ReleasedClaims = releasedClaims;
             EndedThisAdvance = endedThisAdvance; WorkerChanges = workerChanges ?? Array.Empty<WorkerReply>();
             ProductionChanges = productionChanges ?? Array.Empty<ProductionChange>();
             ReactorChanges = reactorChanges ?? Array.Empty<ReactorChange>();
+            DemandChanges = demandChanges ?? Array.Empty<GridDemandChange>();
         }
         public WorldSessionView World { get; }
         public IReadOnlyList<WorldTimerSignal> Signals { get; }
@@ -124,5 +126,6 @@ namespace CriticalShift.Application
         public IReadOnlyList<WorkerReply> WorkerChanges { get; }
         public IReadOnlyList<ProductionChange> ProductionChanges { get; }
         public IReadOnlyList<ReactorChange> ReactorChanges { get; }
+        public IReadOnlyList<GridDemandChange> DemandChanges { get; }
     }
 }

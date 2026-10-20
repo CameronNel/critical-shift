@@ -14,6 +14,7 @@ namespace CriticalShift.Scenarios
     {
         private static int Main(string[] args)
         {
+            if (args.Length > 0 && args[0] == "--soak") return GameplaySoak.Run(args.Skip(1).ToArray());
             string? scenario = null, reportPath = null; int repeats = 1;
             try
             {
@@ -119,7 +120,8 @@ namespace CriticalShift.Scenarios
 
         private ScenarioReport Report(string status, int completedRuns, string? error) =>
             new ScenarioReport(_name, status, completedRuns, _completed, _assertions, _step,
-                error, _world?.View, _world?.Trace, _world?.Production.Summary, _world?.Reactor.PowerSummary);
+                error, _world?.View, _world?.Trace, _world?.Production.Summary, _world?.Reactor.PowerSummary,
+                _world?.Contracts.View, _world?.Debrief);
 
         private string Execute(JsonElement s)
         {
@@ -131,6 +133,7 @@ namespace CriticalShift.Scenarios
                 case "advance": return _world.AdvanceTo(Number(s, "time")).World.Phase.ToString();
                 case "pause": return _world.Pause(epoch).ToString();
                 case "resume": return _world.Resume(epoch).ToString();
+                case "finish": return _world.Finish(epoch, Choice<WorldEndReason>(s, "reason")).ToString();
                 case "impact": return _world.ApplyWorkerImpact(epoch, who, Number(s, "seq"),
                     Choice<WorkerImpact>(s, "severity"), Number(s, "delay"), Id(checked((int)Number(s, "hazard"))), Id(checked((int)Number(s, "cause")))).Status.ToString();
                 case "aid": return _world.StabilizeWorker(epoch, who, Number(s, "revision"), Number(s, "delay")).Status.ToString();
@@ -191,13 +194,15 @@ namespace CriticalShift.Scenarios
                     case "traceDropped": Expect(_world.Trace.DroppedRecords > 0, a.Value.GetBoolean(), a.Name); break;
                     default:
                         if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected) &&
-                            !ReactorScenarioSteps.TryRead(a, _world, out actual, out expected))
+                            !ReactorScenarioSteps.TryRead(a, _world, out actual, out expected) &&
+                            !ContractScenarioSteps.TryRead(a, assertions, _world, out actual, out expected) &&
+                            !DebriefScenarioSteps.TryRead(a, _world, out actual, out expected))
                             throw new ArgumentException("Unknown assertion: " + a.Name);
-                        if (a.Name != "machine" && a.Name != "batch") Expect(actual, expected, a.Name);
+                        if (a.Name != "machine" && a.Name != "batch" && a.Name != "wave") Expect(actual, expected, a.Name);
                         break;
                 }
             }
-            if (assertions.EnumerateObject().All(x => x.Name == "actor" || x.Name == "machine" || x.Name == "batch"))
+            if (assertions.EnumerateObject().All(x => x.Name == "actor" || x.Name == "machine" || x.Name == "batch" || x.Name == "wave"))
                 throw new ArgumentException("An actor selector alone is not an assertion.");
         }
 
@@ -217,7 +222,8 @@ namespace CriticalShift.Scenarios
         private void Bind(WorldSession world)
         {
             for (int i = 1; i <= 4; i++) world.RegisterConnection(Id(100 + i), Id(i));
-            world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); ReactorScenarioSteps.Bind(_spec, world); world.Start();
+            world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); ReactorScenarioSteps.Bind(_spec, world);
+            ContractScenarioSteps.Bind(_spec, world); world.Start();
         }
         // Synthetic observations live only in this tool, never in runtime/Application/Domain.
         private sealed class ScriptedPolicies : IInteractionAccessPolicy, IWorkerRecoveryPolicy
@@ -231,9 +237,10 @@ namespace CriticalShift.Scenarios
     internal sealed class ScenarioReport
     {
         internal ScenarioReport(string name, string status, int runs, int steps, int assertions, int lastStep,
-            string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production, PowerView? power)
+            string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production, PowerView? power,
+            ShiftContractView? contract, ShiftDebriefView? debrief)
         { Name = name; Status = status; CompletedRuns = runs; CompletedSteps = steps; Assertions = assertions;
-          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; }
+          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; Contract = contract; Debrief = debrief; }
         public string Scope => "Offline logical execution; synthetic access/clearance; no physics or network";
         public string Name { get; }
         public string Status { get; }
@@ -246,5 +253,7 @@ namespace CriticalShift.Scenarios
         public SessionTraceView? Trace { get; }
         public ProductionSummary? Production { get; }
         public PowerView? Power { get; }
+        public ShiftContractView? Contract { get; }
+        public ShiftDebriefView? Debrief { get; }
     }
 }

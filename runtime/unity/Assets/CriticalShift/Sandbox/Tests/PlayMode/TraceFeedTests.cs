@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using CriticalShift.Application;
 using CriticalShift.Presentation;
@@ -34,7 +35,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(jams, Is.EqualTo(1)); int count = feed.Entries.Count;
             commands.ReplayLast(); feed.Refresh(); feed.Refresh();
             Assert.That(feed.Entries.Count, Is.EqualTo(count)); Assert.That(world.View.Revision, Is.EqualTo(revision));
-            Assert.That(commands.GetBatch(Id(10)).Units, Is.EqualTo(10)); world.Stop();
+            Assert.That(commands.GetBatch(Id(10))!.Units, Is.EqualTo(10)); world.Stop();
         }
 
         [Test] public void SourceEvictionExposesAGapWithoutInventingAnIncident()
@@ -50,7 +51,7 @@ namespace CriticalShift.Sandbox.Tests
         [Test] public void GripDropsPublishOnceForBindingFailureAndLeaseExpiry()
         {
             var world = World(); var commands = new LocalCommandPort(world, Id(2)); var feed = new SandboxTraceFeed(commands);
-            world.Start(); commands.Grab(Id(10)); var held = commands.GetObject(Id(10));
+            world.Start(); commands.Grab(Id(10)); var held = commands.GetObject(Id(10))!;
             world.ReportAttachmentFailure(world.Epoch, Id(10), held.LeaseGeneration); feed.Refresh();
             var drop = feed.Entries[feed.Entries.Count - 1];
             Assert.That(drop.Kind, Is.EqualTo(SessionTraceKind.AttachmentFailed)); Assert.That(drop.ActorId, Is.EqualTo(Id(1)));
@@ -59,7 +60,7 @@ namespace CriticalShift.Sandbox.Tests
             commands.Grab(Id(10)); long revision = world.View.Revision;
             world.ReportAttachmentFailure(world.Epoch, Id(10), held.LeaseGeneration); feed.Refresh(); feed.Refresh();
             Assert.That(feed.Entries.Count, Is.EqualTo(count)); Assert.That(world.View.Revision, Is.EqualTo(revision));
-            Assert.That(commands.GetObject(Id(10)).HolderId, Is.EqualTo(Id(1)));
+            Assert.That(commands.GetObject(Id(10))!.HolderId, Is.EqualTo(Id(1)));
             world.AdvanceTo(3000); feed.Refresh();
             Assert.That(feed.Entries.Count, Is.EqualTo(count + 1));
             drop = feed.Entries[feed.Entries.Count - 1];
@@ -79,6 +80,35 @@ namespace CriticalShift.Sandbox.Tests
             feed.Refresh(); Assert.That(feed.Entries.Count, Is.EqualTo(12));
             Assert.That(feed.Entries[feed.Entries.Count - 1].Kind, Is.EqualTo(SessionTraceKind.Stopped));
             Assert.That(world.View.Revision, Is.EqualTo(revision)); Assert.That(world.View.ActiveClaimCount, Is.Zero);
+        }
+
+        [Test] public void TerminalTimelineKeepsEarlierIncidentsAfterRoutineSamplesEvictTheRawTrace()
+        {
+            var world = World(4); var commands = new LocalCommandPort(world, Id(2)); world.Start();
+            world.ApplyWorkerImpact(world.Epoch, Id(1), 1, WorkerImpact.Knockdown, 0, Id(140), Id(150));
+            for (int i = 1; i <= 20; i++) world.AdvanceTo(i);
+            world.Stop(); long revision = world.View.Revision;
+            var rows = SandboxTraceFeed.DebriefEntries(commands.Debrief!); int impacts = 0; long previous = 0;
+            foreach (var row in rows)
+            {
+                Assert.That(row.ShiftMilliseconds, Is.GreaterThanOrEqualTo(previous)); previous = row.ShiftMilliseconds;
+                if (row.Kind == SessionTraceKind.Impact)
+                { impacts++; Assert.That(row.CauseId, Is.EqualTo(Id(150))); Assert.That(row.ActorId, Is.EqualTo(Id(1))); }
+            }
+            Assert.That(impacts, Is.EqualTo(1)); Assert.That(rows.Count, Is.EqualTo(3));
+            Assert.That(world.View.Revision, Is.EqualTo(revision));
+        }
+
+        [Test] public void TerminalTimelineShowsEvacuationOnceWithItsOriginalCause()
+        {
+            var world = World(); world.Doors.Register(Id(40), "fixture-door", DoorState.Closed, DoorState.Open);
+            world.Start(); Assert.That(world.BeginEvacuation(world.Epoch, Id(150)).Changed, Is.True);
+            Assert.That(world.BeginEvacuation(world.Epoch, Id(150)).Changed, Is.False); world.Stop();
+            int evacuations = 0;
+            foreach (var row in SandboxTraceFeed.DebriefEntries(world.Debrief!))
+                if (row.Kind == SessionTraceKind.Evacuation)
+                { evacuations++; Assert.That(row.Description, Does.Contain("Evacuation")); Assert.That(row.CauseId, Is.EqualTo(Id(150))); }
+            Assert.That(evacuations, Is.EqualTo(1));
         }
     }
 }

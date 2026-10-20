@@ -4,6 +4,17 @@
 
 This is the decision and uncertainty register for the engineering plan, not a claim that any runtime gate has passed. A/S/H/V references point to documents in this directory. It records decisions here rather than scattering competing mini-ADRs across the repository.
 
+### Authorized shift-system source work, 18 October 2026
+
+The owner requested at least eight hours of useful gameplay development and
+explicitly permitted work without Unity when unavailable. The first bounded slice
+adds Session-owned contracts/demand windows over the existing Power owner's
+cumulative delivered-energy observation. No assembly edge or mutable power owner
+is added. Wave counts are bounded to 32; timings/quotas are authored fixture values
+pending playtesting under D-09. Deadline processing must settle production before
+publishing one immutable terminal result. Native and roadmap acceptance remain
+separate. Scope, actual time and evidence: [shift gameplay task](../../runtime/validation/SHIFT_GAMEPLAY.md).
+
 ## 1. Established constraints from the inspected repository
 
 Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.

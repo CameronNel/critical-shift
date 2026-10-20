@@ -80,11 +80,16 @@ namespace CriticalShift.Sandbox.Tests
             var epoch = bootstrap.World.Epoch; var host = root.GetComponentInChildren<LocalWorldHost>();
             var safety = root.GetComponentInChildren<PhysicsSafetyMonitor>();
             clock = 720; host.Pump(); safety.Sample();
-            Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Ended)); Assert.That(bootstrap.World.Outcome, Is.EqualTo(WorldOutcome.TimedOut));
+            Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Ended)); Assert.That(bootstrap.World.Outcome, Is.EqualTo(WorldOutcome.Failed));
             Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(safety.BoundBodyCount, Is.Zero);
             Assert.That(bootstrap.World.ActiveClaimCount, Is.Zero); Assert.That(bootstrap.World.RegisteredObjectCount, Is.Zero);
             Assert.That(bootstrap.World.PendingTimerCount, Is.Zero); Assert.That(bootstrap.World.ConnectedPlayerCount, Is.Zero);
             var totals = host.Commands.ProductionSummary; var power = host.Commands.Power;
+            var contract = host.Commands.Contract;
+            Assert.That(contract, Is.Not.Null); Assert.That(contract.Complete, Is.True);
+            Assert.That(contract.AllPeriodsMet, Is.False); Assert.That(contract.Outcome, Is.EqualTo(WorldOutcome.Failed));
+            Assert.That(contract.Waves.Count, Is.EqualTo(4)); Assert.That(contract.Waves[0].Met, Is.True);
+            Assert.That(contract.Waves[1].ShortfallEnergyUnits, Is.EqualTo(800));
             Assert.That(totals.IssuedUnits, Is.EqualTo(120)); Assert.That(totals.ActiveUnits + totals.WasteUnits, Is.EqualTo(120));
             Assert.That(totals.PendingCycles, Is.Zero); Assert.That(power, Is.Not.Null);
             Assert.That(power.Initial + power.Generated, Is.EqualTo(power.Available + power.Spent + power.Delivered + power.Spilled));
@@ -100,6 +105,9 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(10));
             Assert.That(root.GetComponentInChildren<PhysicsSafetyMonitor>().BoundBodyCount, Is.EqualTo(31));
             Assert.That(bootstrap.World.RemainingMilliseconds, Is.EqualTo(720000));
+            var freshContract = root.GetComponentInChildren<LocalWorldHost>().Commands.Contract;
+            Assert.That(freshContract.Epoch, Is.Not.EqualTo(contract.Epoch));
+            Assert.That(freshContract.DeliveredEnergyUnits, Is.Zero); Assert.That(freshContract.Complete, Is.False);
         }
 
         [UnityTest] public IEnumerator GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle()
